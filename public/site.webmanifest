@@ -1,7 +1,7 @@
 {
-  "name": "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+  "name": "EINCODE — Vanshaj Poonia's Digital Laboratory",
   "short_name": "EINCODE",
-  "description": "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
+  "description": "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Vanshaj Poonia.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

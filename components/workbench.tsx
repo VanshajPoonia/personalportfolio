@@ -8,7 +8,7 @@ const wipItems = [
     description: "Next.js 16 starter with App Router, Tailwind v4, Next-Auth v5, and Docker",
     progress: 85,
     lastUpdated: "Dec 2024",
-    url: "https://github.com/ehsanghaffar/next16-docker-tw4-starter",
+    url: "https://github.com/VanshajPoonia/next16-docker-tw4-starter",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const wipItems = [
     description: "Minimal Linux distro from scratch with BusyBox and Syslinux bootloader",
     progress: 60,
     lastUpdated: "Nov 2025",
-    url: "https://github.com/ehsanghaffar/handbuilt-linux",
+    url: "https://github.com/VanshajPoonia/handbuilt-linux",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const wipItems = [
     description: "AI-powered social media bio generator with MCP integration",
     progress: 90,
     lastUpdated: "Apr 2025",
-    url: "https://github.com/ehsanghaffar/einbiogpt",
+    url: "https://github.com/VanshajPoonia/einbiogpt",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const wipItems = [
     description: "Self-hosted chatbot API with RAG and MCP protocol support",
     progress: 75,
     lastUpdated: "Apr 2025",
-    url: "https://github.com/ehsanghaffar/llm-practice",
+    url: "https://github.com/VanshajPoonia/llm-practice",
   },
 ]
 
@@ -58,7 +58,7 @@ export function Workbench() {
               <div className="h-3 w-3 rounded-full bg-yellow-500/60 transition-colors hover:bg-yellow-500 cursor-pointer" />
               <div className="h-3 w-3 rounded-full bg-primary/60 transition-colors hover:bg-primary cursor-pointer" />
             </div>
-            <span className="ml-4 font-mono text-xs text-muted-foreground truncate">~/ehsanghaffar/active</span>
+            <span className="ml-4 font-mono text-xs text-muted-foreground truncate">~/VanshajPoonia/active</span>
             <div className="ml-auto hidden sm:flex items-center gap-2 text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs">live</span>

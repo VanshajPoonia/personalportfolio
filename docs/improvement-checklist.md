@@ -274,7 +274,7 @@ import { blogPosts } from '@/lib/blog-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = blogPosts.map((post) => ({
-    url: `https://eindev.ir/blog/${post.slug}`,
+    url: `https://iamvanshajpoonia.vercel.app/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
@@ -282,13 +282,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: 'https://eindev.ir',
+      url: 'https://iamvanshajpoonia.vercel.app',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://eindev.ir/blog',
+      url: 'https://iamvanshajpoonia.vercel.app/blog',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -551,14 +551,14 @@ export async function GET() {
 <rss version="2.0">
   <channel>
     <title>EinCode Blog</title>
-    <link>https://eindev.ir/blog</link>
+    <link>https://iamvanshajpoonia.vercel.app/blog</link>
     <description>Code, experiments, and digital artifacts</description>
     ${blogPosts
       .map(
         (post) => `
     <item>
       <title>${post.title}</title>
-      <link>https://eindev.ir/blog/${post.slug}</link>
+      <link>https://iamvanshajpoonia.vercel.app/blog/${post.slug}</link>
       <description>${post.excerpt}</description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
     </item>`
@@ -590,9 +590,9 @@ export async function GET() {
 \`\`\`env
 # .env.local
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_GITHUB_URL=https://github.com/ehsanghaffar
-NEXT_PUBLIC_TWITTER_URL=https://twitter.com/ehsanghaffar
-NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/ehsanghaffar
+NEXT_PUBLIC_GITHUB_URL=https://github.com/VanshajPoonia
+NEXT_PUBLIC_TWITTER_URL=https://x.com/PooniaVanshaj
+NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/VanshajPoonia
 \`\`\`
 
 ---

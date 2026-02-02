@@ -56,9 +56,9 @@ export function HeroSection() {
             </div>
 
             <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground animate-fade-in-up stagger-2">
-              Welcome to my digital workshop — a space for experiments, prototypes, and open-source artifacts. Currently
-              building at <span className="text-foreground font-medium">...</span>. Here, ideas are forged,
-              tested, and refined. Not a portfolio. A laboratory.
+              Welcome to my personal portfolio — a space for experiments, prototypes, and open-source projects. Currently
+              building at <span className="text-foreground font-medium">Hypnosys</span>. Here, ideas are forged,
+              tested, and refined. A portfolio, not just dev but of a person.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
@@ -136,7 +136,7 @@ export function HeroSection() {
               className="absolute -bottom-3 sm:-bottom-6 -left-2 sm:-left-6 rounded-lg border border-border bg-card glass px-3 sm:px-4 py-1.5 font-mono text-[11px] sm:text-xs text-muted-foreground animate-float"
               style={{ animationDelay: "1s" }}
             >
-              Dec. 2025
+              2026
             </div>
 
             <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full bg-primary/5 blur-3xl" />

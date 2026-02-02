@@ -40,9 +40,9 @@ If you add environment variables later:
 \`\`\`env
 # .env.local (local development)
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_GITHUB_URL=https://github.com/ehsanghaffar
-NEXT_PUBLIC_TWITTER_URL=https://twitter.com/ehsanghaffar
-NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/ehsanghaffar
+NEXT_PUBLIC_GITHUB_URL=https://github.com/VanshajPoonia
+NEXT_PUBLIC_TWITTER_URL=https://x.com/PooniaVanshaj
+NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/VanshajPoonia
 \`\`\`
 
 Add to Vercel:
@@ -55,7 +55,7 @@ Add to Vercel:
 
 1. **Add domain in Vercel**:
    - Project Settings → Domains
-   - Add your domain (e.g., `eindev.ir`)
+   - Add your domain (e.g., `iamvanshajpoonia.vercel.app`)
 
 2. **Update DNS**:
    - Add CNAME record: `www` → `cname.vercel-dns.com`

@@ -13,7 +13,7 @@
 
 \`\`\`bash
 # Clone repository
-git clone https://github.com/ehsanghaffar/code-forge.git
+git clone https://github.com/VanshajPoonia/code-forge.git
 cd eincode
 
 # Install dependencies
@@ -144,7 +144,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About | EinCode',
-  description: 'About Ehsan Ghaffar and this digital laboratory',
+  description: 'About Vanshaj Poonia and this digital laboratory',
 }
 
 export default function AboutPage() {
@@ -221,7 +221,7 @@ const hello = "world"
     category: "frontend",
     tags: ["nextjs", "react"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -504,7 +504,7 @@ chore: maintenance
 - **Next.js Docs**: https://nextjs.org/docs
 - **Tailwind Docs**: https://tailwindcss.com/docs
 - **Radix UI Docs**: https://www.radix-ui.com/
-- **GitHub Issues**: https://github.com/ehsanghaffar/code-forge/issues
+- **GitHub Issues**: https://github.com/VanshajPoonia/code-forge/issues
 - **Discord**: (Add if exists)
 
 ---

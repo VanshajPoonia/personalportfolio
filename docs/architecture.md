@@ -275,5 +275,5 @@ See [deployment.md](./deployment.md) for deployment instructions.
 ---
 
 **Last Updated**: December 24, 2025  
-**Maintainer**: Ehsan Ghaffar  
+**Maintainer**: Vanshaj Poonia  
 **Next Review**: When adding new major features

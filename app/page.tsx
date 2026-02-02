@@ -8,7 +8,7 @@ import { CursorGlow } from "@/components/cursor-glow"
 import { generateWebsiteStructuredData, generatePersonStructuredData } from "@/lib/structured-data"
 
 export default function Home() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iamvanshajpoonia.vercel.app'
   const websiteStructuredData = generateWebsiteStructuredData(baseUrl)
   const personStructuredData = generatePersonStructuredData()
 

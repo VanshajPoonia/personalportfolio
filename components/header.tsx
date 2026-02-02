@@ -17,9 +17,9 @@ const navItems = [
 ]
 
 const socialLinks = [
-  { label: "GitHub", href: "https://github.com/ehsanghaffar", icon: Github },
-  { label: "Twitter", href: "https://twitter.com/ehsanghaffar", icon: Twitter },
-  { label: "LinkedIn", href: "https://linkedin.com/in/ehsanghaffar", icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/VanshajPoonia", icon: Github },
+  { label: "Twitter", href: "https://x.com/PooniaVanshaj", icon: Twitter },
+  { label: "LinkedIn", href: "https://linkedin.com/in/VanshajPoonia", icon: Linkedin },
 ]
 
 export function Header() {

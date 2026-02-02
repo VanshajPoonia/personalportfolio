@@ -6,4 +6,4 @@ Disallow: /_next/
 Disallow: /admin/
 
 # Sitemap
-Sitemap: https://eindev.ir/sitemap.xml
+Sitemap: https://iamvanshajpoonia.vercel.app/sitemap.xml

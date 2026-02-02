@@ -23,39 +23,39 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://iamvanshajpoonia.vercel.app'),
   title: {
-    default: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+    default: " — Vanshaj Poonia's Digital Laboratory",
     template: "%s | EINCODE",
   },
   description:
-    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
+    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Vanshaj Poonia.",
   keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
-  authors: [{ name: "Ehsan Ghaffar", url: "https://github.com/ehsanghaffar" }],
-  creator: "Ehsan Ghaffar",
-  publisher: "Ehsan Ghaffar",
+  authors: [{ name: "Vanshaj Poonia", url: "https://github.com/VanshajPoonia" }],
+  creator: "Vanshaj Poonia",
+  publisher: "Vanshaj Poonia",
   generator: "v0.app",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
+    title: "EINCODE — Vanshaj Poonia's Digital Laboratory",
+    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Vanshaj Poonia.",
     siteName: "EINCODE",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+        alt: "EINCODE — Vanshaj Poonia's Digital Laboratory",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+    title: "EINCODE — Vanshaj Poonia's Digital Laboratory",
     description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts.",
-    creator: "@ehsanghaffar",
+    creator: "@VanshajPoonia",
     images: ["/og-image.png"],
   },
   robots: {

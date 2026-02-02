@@ -11,7 +11,7 @@
     "typescript",
     "tailwindcss"
   ],
-  "author": "Ehsan Ghaffar",
+  "author": "Vanshaj Poonia",
   "scripts": {
     "analyze": "next experimental-analyze",
     "build": "next build",

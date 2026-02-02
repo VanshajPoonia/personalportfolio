@@ -18,7 +18,7 @@ const blogPosts = [
     category: "systems",
     tags: ["linux", "kernel", "devops"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -36,7 +36,7 @@ const blogPosts = [
     category: "ai",
     tags: ["llm", "rag", "mcp"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -54,7 +54,7 @@ const blogPosts = [
     category: "frontend",
     tags: ["nextjs", "tailwind", "react"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -72,7 +72,7 @@ const blogPosts = [
     category: "ai",
     tags: ["llm", "python", "fastapi"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -90,7 +90,7 @@ const blogPosts = [
     category: "systems",
     tags: ["rust", "wasm", "performance"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -108,7 +108,7 @@ const blogPosts = [
     category: "frontend",
     tags: ["design-systems", "css", "tokens"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },

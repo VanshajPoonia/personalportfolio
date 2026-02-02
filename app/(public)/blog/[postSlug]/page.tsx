@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iamvanshajpoonia.vercel.app';
   const postUrl = `${baseUrl}/blog/${post.slug}`;
   const ogImageUrl = `${baseUrl}/og-images/${post.slug}.png`;
 
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: post.title,
       description: post.excerpt,
       images: [ogImageUrl],
-      creator: "@ehsanghaffar",
+      creator: "@VanshajPoonia",
     },
     alternates: {
       canonical: postUrl,
@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iamvanshajpoonia.vercel.app';
   const structuredData = generateBlogPostStructuredData(post, baseUrl);
 
   return (
