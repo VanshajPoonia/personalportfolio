@@ -42,7 +42,7 @@ export function HeroSection() {
           <div className="space-y-8 sm:space-y-10">
             <div className="space-y-3 animate-fade-in-up">
               <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">
-                EinCode — Where Code Meets Curiosity
+                Vanshaj Poonia — Building in Public
               </p>
               <h1 className="text-4xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl text-balance">
                 Forging digital
@@ -56,8 +56,7 @@ export function HeroSection() {
             </div>
 
             <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground animate-fade-in-up stagger-2">
-              Welcome to my digital workshop — a space for experiments, prototypes, and open-source artifacts. Currently
-              building at <span className="text-foreground font-medium">...</span>. Here, ideas are forged,
+              Building in public, exploring different technologies. A space for experiments, prototypes, and open-source projects. Here, ideas are forged,
               tested, and refined. Not a portfolio. A laboratory.
             </p>
 
@@ -93,33 +92,33 @@ export function HeroSection() {
                 <div className="h-3 w-3 rounded-full bg-primary/60 transition-colors hover:bg-primary" />
               </div>
               <div className="absolute top-3.5 left-1/2 -translate-x-1/2 bg-background/50 rounded-md px-3 py-1 font-mono text-xs text-muted-foreground">
-                terminal://eincode
+                terminal://vanshaj
               </div>
 
               <pre className="mt-6 overflow-hidden font-mono text-[10px] leading-relaxed text-primary/80 sm:text-xs md:text-sm">
                 <span className="sm:hidden">{`┌───────────────────────┐
-│  ██████╗███████╗      │
-│ ██╔════╝██╔════╝      │
-│ ██║     █████╗        │
-│ ██║     ██╔══╝        │
-│ ╚██████╗██║           │
-│  ╚═════╝╚═╝           │
+│ ██╗   ██╗██████╗      │
+│ ██║   ██║██╔══██╗     │
+│ ██║   ██║██████╔╝     │
+│ ╚██╗ ██╔╝██╔═══╝      │
+│  ╚████╔╝ ██║          │
+│   ╚═══╝  ╚═╝          │
 │                       │
 │  > experiments: 12    │
-│  > status: forging    │
+│  > status: building   │
 └───────────────────────┘`}</span>
                 <span className="hidden sm:block">{`┌─────────────────────────────────────┐
 │                                     │
-│  ██████╗ ██████╗ ██████╗ ███████╗   │
-│ ██╔════╝██╔═══██╗██╔══██╗██╔════╝   │
-│ ██║     ██║   ██║██║  ██║█████╗     │
-│ ██║     ██║   ██║██║  ██║██╔══╝     │
-│ ╚██████╗╚██████╔╝██████╔╝███████╗   │
-│  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝   │
-│           Ein                       │
+│ ██╗   ██╗ █████╗ ███╗   ██╗███████╗ │
+│ ██║   ██║██╔══██╗████╗  ██║██╔════╝ │
+│ ██║   ██║███████║██╔██╗ ██║███████╗ │
+│ ╚██╗ ██╔╝██╔══██║██║╚██╗██║╚════██║ │
+│  ╚████╔╝ ██║  ██║██║ ╚████║███████║ │
+│   ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ │
+│           Vanshaj                   │
 │                                     │
 │   > experiments loaded: 12          │
-│   > status: forging                 │
+│   > status: building                │
 │   > last spark: today               │
 │                                     │
 └─────────────────────────────────────┘`}</span>

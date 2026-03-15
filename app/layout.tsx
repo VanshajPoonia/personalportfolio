@@ -23,39 +23,39 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://vanshajpoonia.com'),
   title: {
-    default: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    template: "%s | EINCODE",
+    default: "Vanshaj Poonia — Building in Public",
+    template: "%s | Vanshaj Poonia",
   },
   description:
-    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
+    "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
   keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
-  authors: [{ name: "Ehsan Ghaffar", url: "https://github.com/ehsanghaffar" }],
-  creator: "Ehsan Ghaffar",
-  publisher: "Ehsan Ghaffar",
+  authors: [{ name: "Vanshaj Poonia", url: "https://github.com/VanshajPoonia" }],
+  creator: "Vanshaj Poonia",
+  publisher: "Vanshaj Poonia",
   generator: "v0.app",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
-    siteName: "EINCODE",
+    title: "Vanshaj Poonia — Building in Public",
+    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
+    siteName: "Vanshaj Poonia",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+        alt: "Vanshaj Poonia — Building in Public",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts.",
-    creator: "@ehsanghaffar",
+    title: "Vanshaj Poonia — Building in Public",
+    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects.",
+    creator: "@PooniaVanshaj",
     images: ["/og-image.png"],
   },
   robots: {

@@ -12,12 +12,12 @@ export function generateBlogPostStructuredData(post: BlogPost, url: string) {
     author: {
       '@type': 'Person',
       name: post.author.name,
-      url: 'https://github.com/ehsanghaffar',
+      url: 'https://github.com/VanshajPoonia',
     },
     publisher: {
       '@type': 'Person',
-      name: 'Ehsan Ghaffar',
-      url: 'https://eindev.ir',
+      name: 'Vanshaj Poonia',
+      url: 'https://vanshajpoonia.com',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -33,13 +33,13 @@ export function generateWebsiteStructuredData(url: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'EINCODE',
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
+    name: 'Vanshaj Poonia',
+    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
     url: url,
     author: {
       '@type': 'Person',
-      name: 'Ehsan Ghaffar',
-      url: 'https://github.com/ehsanghaffar',
+      name: 'Vanshaj Poonia',
+      url: 'https://github.com/VanshajPoonia',
     },
     potentialAction: {
       '@type': 'SearchAction',
@@ -56,18 +56,18 @@ export function generatePersonStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Ehsan Ghaffar',
-    url: 'https://eindev.ir',
-    image: 'https://eindev.ir/developer-portrait.png',
+    name: 'Vanshaj Poonia',
+    url: 'https://vanshajpoonia.com',
+    image: 'https://vanshajpoonia.com/developer-portrait.png',
     sameAs: [
-      'https://github.com/ehsanghaffar',
-      'https://twitter.com/ehsanghaffar',
-      'https://linkedin.com/in/ehsanghaffar',
+      'https://github.com/VanshajPoonia',
+      'https://twitter.com/PooniaVanshaj',
+      'https://www.linkedin.com/in/vanshajpoonia/',
     ],
     jobTitle: 'Software Engineer',
     worksFor: {
       '@type': 'Organization',
-      name: 'EINCODE',
+      name: 'Vanshaj Poonia',
     },
   }
 }

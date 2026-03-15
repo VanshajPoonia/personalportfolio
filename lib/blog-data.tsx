@@ -104,7 +104,7 @@ You now have a minimal but functional Linux distribution. From here, you can add
     category: "systems",
     tags: ["linux", "kernel", "devops"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -177,7 +177,7 @@ MCP provides the structure needed to build production-grade RAG applications. As
     category: "ai",
     tags: ["llm", "rag", "mcp"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -274,7 +274,7 @@ The migration takes effort but the improved DX and performance are worth it. Sta
     category: "frontend",
     tags: ["nextjs", "tailwind", "react"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -362,7 +362,7 @@ You now have a private, scalable LLM API. Consider adding rate limiting, authent
     category: "ai",
     tags: ["llm", "python", "fastapi"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -445,7 +445,7 @@ WASM isn't a silver bullet. The overhead of crossing the JS-WASM boundary can ne
     category: "systems",
     tags: ["rust", "wasm", "performance"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -534,7 +534,7 @@ Design tokens bridge the gap between design and development. Invest in the found
     category: "frontend",
     tags: ["design-systems", "css", "tokens"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
