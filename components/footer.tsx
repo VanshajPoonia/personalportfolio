@@ -2,9 +2,9 @@ import { Github, Twitter, Linkedin, Mail, ExternalLink, Heart } from "lucide-rea
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/VanshajPoonia", handle: "@VanshajPoonia", icon: Github },
-  { label: "Twitter", href: "https://x.com/PooniaVanshaj", handle: "@VanshajPoonia", icon: Twitter },
-  { label: "LinkedIn", href: "https://linkedin.com/in/VanshajPoonia", handle: "/in/VanshajPoonia", icon: Linkedin },
-  { label: "Email", href: "mailto:vanshajfirebase@gmail.com", handle: "vanshajfirebase@gmail.com", icon: Mail },
+  { label: "Twitter", href: "https://twitter.com/PooniaVanshaj", handle: "@PooniaVanshaj", icon: Twitter },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/vanshajpoonia/", handle: "/in/vanshajpoonia", icon: Linkedin },
+  { label: "Email", href: "mailto:vanshaj@vanshajpoonia.com", handle: "vanshaj@vanshajpoonia.com", icon: Mail },
 ]
 
 export function Footer() {
@@ -28,7 +28,7 @@ export function Footer() {
 
             <div className="pt-2">
               <a
-                href="mailto:hello@VanshajPoonia.dev"
+                href="mailto:vanshaj@vanshajpoonia.com"
                 className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-xl border border-primary bg-primary/10 px-8 py-4 sm:py-4 font-mono text-sm text-primary transition-all duration-500 hover:text-primary-foreground active:scale-[0.98] w-full sm:w-auto"
               >
                 <span className="relative z-10">send a signal</span>
@@ -96,7 +96,7 @@ export function Footer() {
           </div>
 
           <p className="font-mono text-xs text-muted-foreground text-center sm:text-right">
-            © {new Date().getFullYear()} Vanshaj Poonia
+            © {new Date().getFullYear()} Vanshaj Poonia — All experiments reserved
           </p>
         </div>
       </div>

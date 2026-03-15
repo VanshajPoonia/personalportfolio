@@ -1,7 +1,7 @@
 import { WorkbenchPageContent } from "@/components/public/workbench/workbench-page-content";
 import type { Metadata } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iamvanshajpoonia.vercel.app';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir';
 
 export const metadata: Metadata = {
   title: "Workbench",
