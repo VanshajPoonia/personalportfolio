@@ -17,7 +17,7 @@ export function generateBlogPostStructuredData(post: BlogPost, url: string) {
     publisher: {
       '@type': 'Person',
       name: 'Vanshaj Poonia',
-      url: 'https://iamvanshajpoonia.vercel.app',
+      url: 'https://vanshajpoonia.com',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -33,8 +33,8 @@ export function generateWebsiteStructuredData(url: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'EINCODE',
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Vanshaj Poonia.",
+    name: 'Vanshaj Poonia',
+    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
     url: url,
     author: {
       '@type': 'Person',
@@ -57,17 +57,17 @@ export function generatePersonStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Vanshaj Poonia',
-    url: 'https://iamvanshajpoonia.vercel.app',
-    image: 'https://iamvanshajpoonia.vercel.app/developer-portrait.png',
+    url: 'https://vanshajpoonia.com',
+    image: 'https://vanshajpoonia.com/developer-portrait.png',
     sameAs: [
       'https://github.com/VanshajPoonia',
-      'https://x.com/PooniaVanshaj',
-      'https://linkedin.com/in/VanshajPoonia',
+      'https://twitter.com/PooniaVanshaj',
+      'https://www.linkedin.com/in/vanshajpoonia/',
     ],
     jobTitle: 'Software Engineer',
     worksFor: {
       '@type': 'Organization',
-      name: 'EINCODE',
+      name: 'Vanshaj Poonia',
     },
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "EINCODE — Vanshaj Poonia's Digital Laboratory",
-  "short_name": "EINCODE",
-  "description": "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Vanshaj Poonia.",
+  "name": "Vanshaj Poonia — Building in Public",
+  "short_name": "Vanshaj",
+  "description": "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

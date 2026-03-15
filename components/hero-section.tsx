@@ -42,7 +42,7 @@ export function HeroSection() {
           <div className="space-y-8 sm:space-y-10">
             <div className="space-y-3 animate-fade-in-up">
               <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">
-                EinCode — Where Code Meets Curiosity
+                Vanshaj Poonia — Building in Public
               </p>
               <h1 className="text-4xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl text-balance">
                 Forging digital
@@ -56,9 +56,8 @@ export function HeroSection() {
             </div>
 
             <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground animate-fade-in-up stagger-2">
-              Welcome to my personal portfolio — a space for experiments, prototypes, and open-source projects. Currently
-              building at <span className="text-foreground font-medium">Hypnosys</span>. Here, ideas are forged,
-              tested, and refined. A portfolio, not just dev but of a person.
+              Building in public, exploring different technologies. A space for experiments, prototypes, and open-source projects. Here, ideas are forged,
+              tested, and refined. Not a portfolio. A laboratory.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
@@ -93,33 +92,33 @@ export function HeroSection() {
                 <div className="h-3 w-3 rounded-full bg-primary/60 transition-colors hover:bg-primary" />
               </div>
               <div className="absolute top-3.5 left-1/2 -translate-x-1/2 bg-background/50 rounded-md px-3 py-1 font-mono text-xs text-muted-foreground">
-                terminal://eincode
+                terminal://vanshaj
               </div>
 
               <pre className="mt-6 overflow-hidden font-mono text-[10px] leading-relaxed text-primary/80 sm:text-xs md:text-sm">
                 <span className="sm:hidden">{`┌───────────────────────┐
-│  ██████╗███████╗      │
-│ ██╔════╝██╔════╝      │
-│ ██║     █████╗        │
-│ ██║     ██╔══╝        │
-│ ╚██████╗██║           │
-│  ╚═════╝╚═╝           │
+│ ██╗   ██╗██████╗      │
+│ ██║   ██║██╔══██╗     │
+│ ██║   ██║██████╔╝     │
+│ ╚██╗ ██╔╝██╔═══╝      │
+│  ╚████╔╝ ██║          │
+│   ╚═══╝  ╚═╝          │
 │                       │
 │  > experiments: 12    │
-│  > status: forging    │
+│  > status: building   │
 └───────────────────────┘`}</span>
                 <span className="hidden sm:block">{`┌─────────────────────────────────────┐
 │                                     │
-│  ██████╗ ██████╗ ██████╗ ███████╗   │
-│ ██╔════╝██╔═══██╗██╔══██╗██╔════╝   │
-│ ██║     ██║   ██║██║  ██║█████╗     │
-│ ██║     ██║   ██║██║  ██║██╔══╝     │
-│ ╚██████╗╚██████╔╝██████╔╝███████╗   │
-│  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝   │
-│           Ein                       │
+│ ██╗   ██╗ █████╗ ███╗   ██╗███████╗ │
+│ ██║   ██║██╔══██╗████╗  ██║██╔════╝ │
+│ ██║   ██║███████║██╔██╗ ██║███████╗ │
+│ ╚██╗ ██╔╝██╔══██║██║╚██╗██║╚════██║ │
+│  ╚████╔╝ ██║  ██║██║ ╚████║███████║ │
+│   ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ │
+│           Vanshaj                   │
 │                                     │
 │   > experiments loaded: 12          │
-│   > status: forging                 │
+│   > status: building                │
 │   > last spark: today               │
 │                                     │
 └─────────────────────────────────────┘`}</span>
@@ -136,7 +135,7 @@ export function HeroSection() {
               className="absolute -bottom-3 sm:-bottom-6 -left-2 sm:-left-6 rounded-lg border border-border bg-card glass px-3 sm:px-4 py-1.5 font-mono text-[11px] sm:text-xs text-muted-foreground animate-float"
               style={{ animationDelay: "1s" }}
             >
-              2026
+              Dec. 2025
             </div>
 
             <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full bg-primary/5 blur-3xl" />

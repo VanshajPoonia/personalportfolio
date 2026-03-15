@@ -23,13 +23,13 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://iamvanshajpoonia.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://vanshajpoonia.com'),
   title: {
-    default: " — Vanshaj Poonia's Digital Laboratory",
-    template: "%s | EINCODE",
+    default: "Vanshaj Poonia — Building in Public",
+    template: "%s | Vanshaj Poonia",
   },
   description:
-    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Vanshaj Poonia.",
+    "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
   keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
   authors: [{ name: "Vanshaj Poonia", url: "https://github.com/VanshajPoonia" }],
   creator: "Vanshaj Poonia",
@@ -39,23 +39,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "EINCODE — Vanshaj Poonia's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Vanshaj Poonia.",
-    siteName: "EINCODE",
+    title: "Vanshaj Poonia — Building in Public",
+    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
+    siteName: "Vanshaj Poonia",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "EINCODE — Vanshaj Poonia's Digital Laboratory",
+        alt: "Vanshaj Poonia — Building in Public",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EINCODE — Vanshaj Poonia's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts.",
-    creator: "@VanshajPoonia",
+    title: "Vanshaj Poonia — Building in Public",
+    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects.",
+    creator: "@PooniaVanshaj",
     images: ["/og-image.png"],
   },
   robots: {

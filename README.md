@@ -62,12 +62,12 @@ Project layout (high level)
 
 Where to get help
 
-- Create an issue: <https://github.com/VanshajPoonia/code-forge/issues>
+- Create an issue: <https://github.com/ehsanghaffar/code-forge/issues>
 - For quick questions, open a discussion or file a concise issue with reproduction steps.
 
 Who maintains this project
 
-- Maintainer: Vanshaj Poonia — listed as the package author.
+- Maintainer: Ehsan Ghaffar — listed as the package author.
 
 Contributing
 

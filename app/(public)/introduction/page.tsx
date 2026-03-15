@@ -9,20 +9,19 @@ export default function IntroductionPage() {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2">
               <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground">
-                Welcome to EinCode
+                Welcome
               </p>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">
-                Where Code Meets{" "}
+                Building in{" "}
                 <span className="bg-gradient-to-l from-primary/50 to-accent text-transparent bg-clip-text">
-                  Creativity
+                  Public
                 </span>
               </h1>
             </div>
 
             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-3xl">
-              EinCode is a digital workshop and portfolio platform designed for developers who
-              believe in building in public. It&apos;s a space where ideas take shape, experiments
-              unfold, and open-source projects come to life.
+              This is my digital workshop and portfolio platform. A space where ideas take shape, experiments
+              unfold, and open-source projects come to life. Exploring different technologies and sharing the journey.
             </p>
           </div>
         </div>
@@ -43,21 +42,20 @@ export default function IntroductionPage() {
 
             <div className="space-y-6 text-base sm:text-lg leading-relaxed text-muted-foreground">
               <p>
-                EinCode isn&apos;t just another portfolio website—it&apos;s a living, breathing
-                showcase of continuous learning and experimentation. Built by developers, for
-                developers, it represents the philosophy that the best way to learn is to build,
+                This isn&apos;t just another portfolio website—it&apos;s a living, breathing
+                showcase of continuous learning and experimentation. Built with the philosophy that the best way to learn is to build,
                 share, and iterate.
               </p>
 
               <p>
                 Whether you&apos;re exploring cutting-edge AI integrations, diving into systems
-                programming, or looking for modern web development patterns, EinCode offers a window
+                programming, or looking for modern web development patterns, you&apos;ll find a window
                 into real-world projects at various stages of development—from initial experiments
                 to production-ready solutions.
               </p>
 
               <p>
-                The platform is fully open-source, encouraging collaboration and knowledge sharing
+                The platform encourages collaboration and knowledge sharing
                 within the developer community. Every project, every lab note, and every line of
                 code is designed to inspire and educate.
               </p>
