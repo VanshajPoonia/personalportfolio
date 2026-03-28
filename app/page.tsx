@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { ProjectsGrid } from "@/components/projects-grid"
@@ -9,33 +10,25 @@ import { generateWebsiteStructuredData, generatePersonStructuredData } from "@/l
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vanshajpoonia.com'
 
-export default function Home() {
-  const websiteStructuredData = generateWebsiteStructuredData(baseUrl)
-  const personStructuredData = generatePersonStructuredData()
+export const metadata: Metadata = {
+  other: {
+    "script:ld+json:website": JSON.stringify(generateWebsiteStructuredData(baseUrl)),
+    "script:ld+json:person": JSON.stringify(generatePersonStructuredData()),
+  },
+}
 
+export default function Home() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
-      />
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
-      />
-      <main className="relative min-h-screen overflow-hidden scanlines">
-        <CursorGlow />
-        <div className="relative z-10">
-          <Header />
-          <HeroSection />
-          <ProjectsGrid />
-          <LabNotes />
-          <Workbench />
-          <Footer />
-        </div>
-      </main>
-    </>
+    <main className="relative min-h-screen overflow-hidden scanlines">
+      <CursorGlow />
+      <div className="relative z-10">
+        <Header />
+        <HeroSection />
+        <ProjectsGrid />
+        <LabNotes />
+        <Workbench />
+        <Footer />
+      </div>
+    </main>
   )
 }
