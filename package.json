@@ -72,12 +72,11 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "postcss": "^8.5",
-    "tailwindcss": "^4.1.9",
+    "tailwindcss": "4.2.2",
     "tw-animate-css": "1.3.3",
     "typescript": "^5.9.3"
   },
