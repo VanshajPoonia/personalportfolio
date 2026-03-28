@@ -55,9 +55,9 @@ export function Header() {
               <span className="glitch">{"⚡"}</span>
             </div>
             <span className="font-mono text-sm tracking-tight">
-              VANSHAJ
+              VANSHAJPOONIA
               <span className="bg-gradient-to-l from-primary/50 to-accent bg-clip-text text-transparent font-semibold">
-                .DEV
+                .COM
               </span>
             </span>
           </Link>
