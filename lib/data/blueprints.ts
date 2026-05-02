@@ -408,6 +408,12 @@ export const blueprints: Blueprint[] = [
     status: "Planned",
     difficulty: "Very Hard",
     tags: ["Docker", "Reverse Proxy", "Caddy", "Traefik", "Logs", "Health Checks"],
+    relatedProjects: ["Cloud Code Docker Container"],
+    relatedLinks: [
+      { label: "Mini Vercel Clone blueprint", href: "/blueprints/mini-vercel-clone" },
+      { label: "Archive / graveyard projects", href: "/projects#graveyard" },
+      { label: "Roadmap", href: "/roadmap" },
+    ],
     overview:
       "A smaller, personal version of Render, Fly, or Vercel for learning cloud orchestration. It should make one developer's small apps easier to deploy while exposing enough internals to teach container lifecycle, routing, logs, health checks, and secrets.",
     problem:
