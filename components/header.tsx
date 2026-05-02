@@ -1,31 +1,44 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Github, Twitter, Linkedin } from "lucide-react"
+import { Github, Twitter, Linkedin, ChevronDown } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 import { ThemeChanger } from "./theme-changer"
 import Link from "next/link"
 
-const navItems = [
-  { label: "Home", href: "/" },
+const primaryNavItems = [
   { label: "Projects", href: "/projects" },
-  // { label: "Notes", href: "/notes" },/
+  { label: "Lab", href: "/lab" },
   { label: "Workbench", href: "/workbench" },
+  { label: "Blueprints", href: "/blueprints" },
+  { label: "Research", href: "/research" },
+]
+
+const moreNavItems = [
+  { label: "Now", href: "/now" },
+  { label: "Roadmap", href: "/roadmap" },
+  { label: "Timeline", href: "/timeline" },
+  { label: "Learning", href: "/learning" },
+  { label: "Artifacts", href: "/artifacts" },
   { label: "Blog", href: "/blog" },
 ]
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/VanshajPoonia", icon: Github },
-  { label: "Twitter", href: "https://twitter.com/PooniaVanshaj", icon: Twitter },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/vanshajpoonia/", icon: Linkedin },
+  { label: "X", href: "https://x.com/PooniaVanshaj", icon: Twitter },
 ]
 
 export function Header() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMoreHovered, setIsMoreHovered] = useState(false)
+  const [isMoreLocked, setIsMoreLocked] = useState(false)
+  const isMoreOpen = isMoreHovered || isMoreLocked
+  const moreRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
 
   const isActive = (href: string) => {
@@ -34,12 +47,22 @@ export function Header() {
   }
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Close locked dropdown on outside click
+  useEffect(() => {
+    if (!isMoreLocked) return
+    const handleOutside = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setIsMoreLocked(false)
+      }
+    }
+    document.addEventListener("mousedown", handleOutside)
+    return () => document.removeEventListener("mousedown", handleOutside)
+  }, [isMoreLocked])
 
   return (
     <header
@@ -63,13 +86,13 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center gap-1 md:flex">
-            {navItems.map((item, index) => (
+          <div className="hidden items-center gap-1 lg:flex">
+            {primaryNavItems.map((item, index) => (
               <Link
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  "relative px-4 py-2.5 font-mono text-xs uppercase tracking-widest transition-all duration-300 rounded-lg",
+                  "relative px-3 py-2.5 font-mono text-xs uppercase tracking-widest transition-all duration-300 rounded-lg",
                   isActive(item.href)
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/50",
@@ -80,7 +103,7 @@ export function Header() {
               >
                 <span
                   className={cn(
-                    "absolute left-1.5 text-primary transition-all duration-200",
+                    "absolute left-1 text-primary transition-all duration-200",
                     isActive(item.href)
                       ? "opacity-100 translate-x-0"
                       : hoveredIndex === index
@@ -106,6 +129,62 @@ export function Header() {
                 />
               </Link>
             ))}
+
+            {/* More dropdown */}
+            <div
+              ref={moreRef}
+              className="relative"
+              onMouseEnter={() => setIsMoreHovered(true)}
+              onMouseLeave={() => setIsMoreHovered(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setIsMoreLocked((l) => !l)}
+                className={cn(
+                  "relative flex items-center gap-1 px-3 py-2.5 font-mono text-xs uppercase tracking-widest transition-all duration-300 rounded-lg",
+                  moreNavItems.some((item) => isActive(item.href)) || isMoreLocked
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50",
+                )}
+                aria-haspopup="menu"
+                aria-expanded={isMoreOpen}
+              >
+                <span>More</span>
+                <ChevronDown
+                  className={cn(
+                    "h-3 w-3 transition-transform duration-200",
+                    isMoreOpen && "rotate-180",
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  "absolute right-0 top-full z-50 mt-1 min-w-[200px] origin-top-right rounded-lg border border-border bg-card/95 p-1 shadow-xl backdrop-blur-xl transition-all duration-200",
+                  isMoreOpen
+                    ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+                    : "pointer-events-none opacity-0 scale-95 -translate-y-1",
+                )}
+                role="menu"
+              >
+                {moreNavItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => { setIsMoreLocked(false); setIsMoreHovered(false) }}
+                    className={cn(
+                      "flex items-center gap-2 rounded-md px-3 py-2 font-mono text-xs uppercase tracking-widest transition-colors",
+                      isActive(item.href)
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/60",
+                    )}
+                  >
+                    <span className="text-primary/70">{">"}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <div className="ml-2 flex items-center gap-1">
               <ThemeChanger />
               <ThemeToggle />
@@ -143,7 +222,7 @@ export function Header() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card/50 md:hidden transition-colors hover:bg-secondary"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card/50 lg:hidden transition-colors hover:bg-secondary"
               aria-label="Toggle menu"
             >
               <div className="flex flex-col gap-1.5 w-5">
@@ -173,18 +252,21 @@ export function Header() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            " transition-all duration-400 md:hidden bg-background",
-            isMobileMenuOpen ? "max-h-96 opacity-100 pt-4" : "max-h-0 opacity-0",
+            "transition-all duration-400 lg:hidden bg-background overflow-hidden",
+            isMobileMenuOpen ? "max-h-[80vh] opacity-100 pt-4 overflow-y-auto" : "max-h-0 opacity-0",
           )}
         >
           <div className="flex flex-col gap-1 border-t border-border/50 pt-4">
-            {navItems.map((item, index) => (
+            {[...primaryNavItems, ...moreNavItems].map((item, index) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-3 rounded-lg px-4 py-3.5 font-mono text-sm uppercase tracking-widest text-muted-foreground transition-all duration-200 active:bg-secondary hover:text-foreground hover:bg-secondary/50"
-                style={{ animationDelay: `${index * 50}ms` }}
+                className={cn(
+                  "flex items-center gap-3 rounded-lg px-4 py-3 font-mono text-sm uppercase tracking-widest transition-all duration-200 active:bg-secondary hover:bg-secondary/50",
+                  isActive(item.href) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground",
+                )}
+                style={{ animationDelay: `${index * 30}ms` }}
               >
                 <span className="text-primary">{">"}</span>
                 {item.label}
