@@ -1,16 +1,16 @@
-# EinCode
+# Vanshaj Poonia
 
-A modern, minimal code editor / playground built with Next.js, React and Radix UI.
+A modern personal portfolio for Vanshaj Poonia, built with Next.js, React, and Radix UI.
 
 Version: `0.1.1`
 
 ## What the project does
 
-Code Forge is a lightweight, opinionated editor UI and playground intended for experimenting with editor-like components and small developer tools. It demonstrates a modern stack including Next.js 16, React 19, TypeScript, Tailwind CSS and Radix UI primitives.
+Personal Portfolio is a lightweight home for projects, writing, experiments, and work-in-progress notes. It demonstrates a modern stack including Next.js 16, React 19, TypeScript, Tailwind CSS and Radix UI primitives.
 
 ### Why this is useful
 
-- Fast developer playground to prototype editor UX and integrations.
+- Personal site for sharing projects, experiments, and technical writing.
 - Collection of reusable UI components (see `components/`).
 - Up-to-date with Next.js 16 and React 19 modern patterns (app router, server components).
 
@@ -62,12 +62,12 @@ Project layout (high level)
 
 Where to get help
 
-- Create an issue: <https://github.com/ehsanghaffar/code-forge/issues>
+- Create an issue: <https://github.com/VanshajPoonia/personalportfolio/issues>
 - For quick questions, open a discussion or file a concise issue with reproduction steps.
 
 Who maintains this project
 
-- Maintainer: Ehsan Ghaffar — listed as the package author.
+- Maintainer: Vanshaj Poonia — listed as the package author.
 
 Contributing
 
