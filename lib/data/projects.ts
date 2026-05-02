@@ -119,7 +119,7 @@ export const projects: Project[] = [
     tagline: "Online code editor experiment.",
     description: "An earlier developer-tool experiment exploring browser-based code editing.",
     status: "archive",
-    categories: ["product-experiment", "infrastructure"],
+    categories: ["earlier-work", "graveyard"],
     tags: ["DevTools", "Editor", "Web"],
     github: "https://github.com/VanshajPoonia/kelvin",
     year: "2023",
