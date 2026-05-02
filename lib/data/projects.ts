@@ -243,7 +243,7 @@ export const projects: Project[] = [
     tags: ["Docker", "Full-stack", "Worker", "Backend", "Frontend", "DevTools"],
     github: "https://github.com/VanshajPoonia/cloudcodedockercontainer",
     year: "2024",
-    priority: 15,
+    priority: 14,
   },
 ]
 
