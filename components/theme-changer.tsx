@@ -8,6 +8,21 @@ import { themes, type ThemeColor } from "@/lib/themes"
 
 const STORAGE_KEY = "color-theme"
 
+function applyTheme(themeName: ThemeColor, mode?: string | null, systemTheme?: string) {
+  const themeConfig = themes[themeName]
+  const effectiveMode = mode ?? systemTheme ?? "light"
+  const isDark = effectiveMode === "dark"
+  const colors = isDark ? themeConfig.dark : themeConfig.light
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      Object.entries(colors).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(`--${key}`, value)
+      })
+    })
+  })
+}
+
 export function ThemeChanger() {
   const [currentTheme, setCurrentTheme] = useState<ThemeColor>("golden")
   const [isOpen, setIsOpen] = useState(false)
@@ -70,25 +85,8 @@ export function ThemeChanger() {
     }
 
     // Apply theme using the verified value
-    applyTheme(themeToApply, resolvedTheme)
-  }, [mounted, resolvedTheme]) // Only depend on resolvedTheme, not currentTheme
-
-  const applyTheme = (themeName: ThemeColor, mode?: string | null) => {
-    const themeConfig = themes[themeName]
-    // Use resolvedTheme or fallback to systemTheme, default to "light"
-    const effectiveMode = mode ?? systemTheme ?? "light"
-    const isDark = effectiveMode === "dark"
-    const colors = isDark ? themeConfig.dark : themeConfig.light
-
-    // Use double requestAnimationFrame to ensure DOM is updated after dark class change
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        Object.entries(colors).forEach(([key, value]) => {
-          document.documentElement.style.setProperty(`--${key}`, value)
-        })
-      })
-    })
-  }
+    applyTheme(themeToApply, resolvedTheme, systemTheme)
+  }, [mounted, resolvedTheme, systemTheme]) // Only depend on mode changes, not currentTheme
 
   const handleThemeChange = (themeName: ThemeColor) => {
     // Update ref first to ensure persistence
@@ -101,7 +99,7 @@ export function ThemeChanger() {
     }
     // Apply theme immediately with current mode
     const effectiveMode = resolvedTheme ?? systemTheme ?? "light"
-    applyTheme(themeName, effectiveMode)
+    applyTheme(themeName, effectiveMode, systemTheme)
     setIsOpen(false)
   }
 
