@@ -1,17 +1,17 @@
 {
-  "name": "code-forge",
+  "name": "personalportfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "A modern code editor built with Next.js and Radix UI.",
+  "description": "Personal portfolio for Vanshaj Poonia, built with Next.js and Radix UI.",
   "keywords": [
     "nextjs",
     "radix-ui",
-    "code editor",
+    "portfolio",
     "react",
     "typescript",
     "tailwindcss"
   ],
-  "author": "Ehsan Ghaffar",
+  "author": "Vanshaj Poonia",
   "scripts": {
     "analyze": "next experimental-analyze",
     "build": "next build",
