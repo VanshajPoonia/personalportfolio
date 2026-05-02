@@ -1,83 +1,163 @@
-# Vanshaj Poonia
+# Vanshaj Poonia Developer Lab
 
-A modern personal portfolio for Vanshaj Poonia, built with Next.js, React, and Radix UI.
+Not a portfolio. A living developer lab.
 
-Version: `0.1.1`
+I build systems experiments, AI workspaces, enterprise tools, creative dev utilities, research notes, and technical artifacts in public.
 
-## What the project does
+Live site: <https://vanshajpoonia.com>  
+GitHub: <https://github.com/VanshajPoonia>  
+LinkedIn: <https://www.linkedin.com/in/vanshajpoonia/>  
+X: <https://x.com/PooniaVanshaj>
 
-Personal Portfolio is a lightweight home for projects, writing, experiments, and work-in-progress notes. It demonstrates a modern stack including Next.js 16, React 19, TypeScript, Tailwind CSS and Radix UI primitives.
+## What This Is
 
-### Why this is useful
+This repository powers my personal website. It is organized less like a static resume and more like a public technical lab: shipped projects, active experiments, architecture blueprints, developer notebook entries, research notes, learning maps, artifacts, and timeline context.
 
-- Personal site for sharing projects, experiments, and technical writing.
-- Collection of reusable UI components (see `components/`).
-- Up-to-date with Next.js 16 and React 19 modern patterns (app router, server components).
+The site is built with Next.js 16, React 19, TypeScript, Tailwind CSS, Radix UI primitives, and typed content files under `lib/data`.
 
-#### Key features
+## Main Sections
 
-- App shell and layout in `app/`
-- Reusable UI primitives under `components/` (cursor glow, header, footer, workbench, etc.)
-- Styling with Tailwind CSS and global styles in `styles/` and `app/globals.css`
-- TypeScript-first codebase
+- `Projects` - polished builds, active experiments, shipped products, and earlier learning work.
+- `Lab` - interactive demos, visual experiments, terminal toys, and OS explainers.
+- `Workbench` - build logs, debugging notes, architecture sketches, and rough technical field notes.
+- `Blueprints` - system design documents, MVP plans, technical tradeoffs, and future product architectures.
+- `Research` - exploratory papers, technical comparisons, and longer-form analysis.
+- `Now` - what I am currently building, learning, and shipping.
+- `Roadmap` - active, next, later, paused, and shipped work.
+- `Timeline` - developer journey from early learning builds to systems, AI, and enterprise tools.
+- `Learning` - study maps across OS development, Rust, AI infrastructure, graphics, enterprise software, and product.
+- `Artifacts` - downloadable notes, PDFs, diagrams, prompt packs, and technical resources.
 
-##### Getting started
+## Featured Work
 
-Prerequisites
+The current site gives the most prominence to:
 
-- Node.js 18 or newer
-- pnpm (recommended) — install from <https://pnpm.io/>
+- `Chronosapien` - a beginner-friendly hobby OS in Rust.
+- `Intacct` - a Next.js + Supabase enterprise finance platform.
+- `Zenquanta AI` - a premium multi-assistant AI workspace.
+- `LifeSort` - a calendar-style productivity app.
+- `ASCII Camera` - a webcam-to-ASCII creative coding experiment.
 
-Quick start
+Older clone projects and early experiments are intentionally framed under Earlier Work / Learning Builds or Archive. Cloud Code Docker Container is kept as a paused/archive devtools experiment, not a flagship project.
 
-\`\`\`bash
-# install dependencies
+## Content Model
+
+Most public content is stored as typed data, then rendered through reusable page templates:
+
+- `lib/data/projects.ts`
+- `lib/data/workbench.ts`
+- `lib/data/blueprints.ts`
+- `lib/data/research.ts`
+- `lib/data/roadmap.ts`
+- `lib/data/timeline.ts`
+- `lib/data/learning.ts`
+- `lib/data/artifacts.ts`
+- `lib/data/site.ts`
+
+Dynamic detail pages exist for blueprint and workbench entries:
+
+- `/blueprints/[slug]`
+- `/workbench/[slug]`
+
+This keeps the site easy to update while preserving consistent cards, badges, related links, and status chips.
+
+## Workbench vs Blog vs Research vs Blueprints
+
+- `Blog` is for polished essays, tutorials, long-form explanations, and finished thoughts.
+- `Workbench` is for build logs, debugging notes, architecture sketches, raw experiments, and half-formed technical field notes.
+- `Research` is for exploratory papers, technical comparisons, literature-style notes, and long-form technical analysis.
+- `Blueprints` are system design documents for future products, MVP plans, tradeoffs, architecture sketches, and implementation notes.
+
+## Tech Stack
+
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Radix UI primitives
+- Lucide icons
+- Vercel Analytics
+- ESLint 9 with Next.js config
+- pnpm 10 lockfile for Vercel deployments
+
+## Getting Started
+
+Prerequisites:
+
+- Node.js 22 or newer is recommended.
+- pnpm 10 is recommended because Vercel detects `pnpm-lock.yaml`.
+
+Install dependencies:
+
+```bash
 pnpm install
+```
 
-# run development server
+If pnpm is not installed locally, use:
+
+```bash
+npx -y pnpm@10 install
+```
+
+Run the development server:
+
+```bash
 pnpm dev
-\`\`\`
+```
 
-Available scripts
+or:
 
-- `pnpm dev` — runs `next dev` (development server)
-- `pnpm build` — runs `next build` (production build)
-- `pnpm start` — runs `next start` (serve built app)
-- `pnpm lint` — run `eslint .`
+```bash
+npx -y pnpm@10 run dev
+```
 
-Building for production
+Open <http://localhost:3000>.
 
-\`\`\`bash
+## Scripts
+
+- `pnpm dev` - run the local development server.
+- `pnpm build` - create a production build.
+- `pnpm start` - serve the production build.
+- `pnpm lint` - run ESLint.
+- `pnpm analyze` - run Next.js experimental analysis.
+
+## Verification
+
+Before pushing content or dependency changes, run:
+
+```bash
+pnpm lint
 pnpm build
-pnpm start
-\`\`\`
+```
 
-Project layout (high level)
+For a Vercel-style lockfile check:
 
-- `app/` — Next.js App Router pages and layout
-- `components/` — UI components and small feature pieces
-- `lib/` — utilities and helpers
-- `public/` — static assets
-- `styles/` — global styles and Tailwind CSS entry
+```bash
+npx -y pnpm@10 install --frozen-lockfile --lockfile-only
+npx -y pnpm@10 run build
+```
 
-Where to get help
+If `package.json` changes, keep both lockfiles in sync:
 
-- Create an issue: <https://github.com/VanshajPoonia/personalportfolio/issues>
-- For quick questions, open a discussion or file a concise issue with reproduction steps.
+```bash
+npm install
+npx -y pnpm@10 install --lockfile-only
+```
 
-Who maintains this project
+Vercel uses the committed `pnpm-lock.yaml`, so stale pnpm metadata can break deployment even when local npm builds pass.
 
-- Maintainer: Vanshaj Poonia — listed as the package author.
+## Project Layout
 
-Contributing
+- `app/` - Next.js App Router pages, layouts, loading states, and route templates.
+- `components/` - shared UI, homepage sections, public page components, header, footer, and themed controls.
+- `lib/` - typed content, utility helpers, structured data, and site metadata.
+- `public/` - static assets.
+- `styles/` - global styling support.
 
-Contributions are welcome. Open an issue to discuss larger changes, or send a pull request with a focused, well-documented change. Keep changes small and include a description and screenshots (if UI-related).
+## Maintenance Notes
 
-Notes and next steps
-
-- Consider adding a `CONTRIBUTING.md` and CI badges for build/lint status.
-- If you want, I can add a basic `CONTRIBUTING.md` and a PR template next.
-
----
-
-If anything in this README should be adjusted (more examples, extra badges, or internal docs links), tell me which parts you want expanded and I'll update it.
+- Keep public copy aligned with the positioning: "Not a portfolio. A living developer lab."
+- Keep Workbench rough and technical; do not polish it into a second blog.
+- Keep Blueprints detailed enough for technical readers to understand scope, architecture, data model, tradeoffs, security, scaling, and observability.
+- Avoid broken artifact/download links. Use coming-soon states until files exist.
+- Keep older clone projects framed honestly as earlier work or archive.
