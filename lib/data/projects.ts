@@ -135,7 +135,7 @@ export const projects: Project[] = [
     tags: ["Dashboard", "Product UI", "DevTools"],
     github: "https://github.com/VanshajPoonia/codash",
     year: "2023",
-    priority: 45,
+    priority: 16,
   },
   {
     slug: "codash-meet",
