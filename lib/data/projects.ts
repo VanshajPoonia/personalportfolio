@@ -131,7 +131,7 @@ export const projects: Project[] = [
     tagline: "Subscription-style dashboard for online IDEs.",
     description: "An earlier product UI experiment around dashboards and subscriptions for online IDE workflows.",
     status: "paused",
-    categories: ["product-experiment", "graveyard"],
+    categories: ["earlier-work", "graveyard"],
     tags: ["Dashboard", "Product UI", "DevTools"],
     github: "https://github.com/VanshajPoonia/codash",
     year: "2023",
