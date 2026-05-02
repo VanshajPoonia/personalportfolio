@@ -123,7 +123,7 @@ export const projects: Project[] = [
     tags: ["DevTools", "Editor", "Web"],
     github: "https://github.com/VanshajPoonia/kelvin",
     year: "2023",
-    priority: 50,
+    priority: 17,
   },
   {
     slug: "codash",
