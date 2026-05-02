@@ -529,6 +529,12 @@ export const blueprints: Blueprint[] = [
     status: "Researching",
     difficulty: "Hard",
     tags: ["IndexedDB", "Sync", "Offline", "Encryption", "CRDTs", "Conflict Resolution"],
+    relatedProjects: ["LifeSort", "Developer Lab CMS"],
+    relatedLinks: [
+      { label: "LifeSort product thinking notes", href: "/workbench/lifesort-product-thinking-notes" },
+      { label: "Developer Lab CMS blueprint", href: "/blueprints/developer-lab-cms" },
+      { label: "Learning maps", href: "/learning" },
+    ],
     overview:
       "A notes app where the local device is the source of immediate truth. The app should feel fast offline, sync later, and make conflicts understandable rather than scary.",
     problem:
