@@ -13,8 +13,8 @@
 
 \`\`\`bash
 # Clone repository
-git clone https://github.com/ehsanghaffar/code-forge.git
-cd eincode
+git clone https://github.com/VanshajPoonia/personalportfolio.git
+cd personalportfolio
 
 # Install dependencies
 pnpm install
@@ -143,8 +143,8 @@ touch app/(public)/about/page.tsx
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About | EinCode',
-  description: 'About Ehsan Ghaffar and this digital laboratory',
+  title: 'About | Vanshaj Poonia',
+  description: 'About Vanshaj Poonia and this digital laboratory',
 }
 
 export default function AboutPage() {
@@ -221,7 +221,7 @@ const hello = "world"
     category: "frontend",
     tags: ["nextjs", "react"],
     author: {
-      name: "Ehsan Ghaffar",
+      name: "Vanshaj Poonia",
       avatar: "/developer-portrait.png",
       role: "Software Engineer",
     },
@@ -504,7 +504,7 @@ chore: maintenance
 - **Next.js Docs**: https://nextjs.org/docs
 - **Tailwind Docs**: https://tailwindcss.com/docs
 - **Radix UI Docs**: https://www.radix-ui.com/
-- **GitHub Issues**: https://github.com/ehsanghaffar/code-forge/issues
+- **GitHub Issues**: https://github.com/VanshajPoonia/personalportfolio/issues
 - **Discord**: (Add if exists)
 
 ---
