@@ -1,10 +1,10 @@
-import { Github, Twitter, Linkedin, Mail, ExternalLink, Heart } from "lucide-react"
+import { Github, Twitter, Globe, ExternalLink, Heart, Linkedin } from "lucide-react"
 
 const socialLinks = [
+  { label: "Website", href: "https://vanshajpoonia.com", handle: "vanshajpoonia.com", icon: Globe },
   { label: "GitHub", href: "https://github.com/VanshajPoonia", handle: "@VanshajPoonia", icon: Github },
-  { label: "Twitter", href: "https://twitter.com/PooniaVanshaj", handle: "@PooniaVanshaj", icon: Twitter },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/vanshajpoonia/", handle: "/in/vanshajpoonia", icon: Linkedin },
-  { label: "Email", href: "mailto:vanshaj@vanshajpoonia.com", handle: "vanshaj@vanshajpoonia.com", icon: Mail },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/vanshajpoonia/", handle: "vanshajpoonia", icon: Linkedin },
+  { label: "X", href: "https://x.com/PooniaVanshaj", handle: "@PooniaVanshaj", icon: Twitter },
 ]
 
 export function Footer() {
@@ -28,7 +28,9 @@ export function Footer() {
 
             <div className="pt-2">
               <a
-                href="mailto:vanshaj@vanshajpoonia.com"
+                href="https://x.com/PooniaVanshaj"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-xl border border-primary bg-primary/10 px-8 py-4 sm:py-4 font-mono text-sm text-primary transition-all duration-500 hover:text-primary-foreground active:scale-[0.98] w-full sm:w-auto"
               >
                 <span className="relative z-10">send a signal</span>
@@ -48,8 +50,8 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  target={link.label !== "Email" ? "_blank" : undefined}
-                  rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center justify-between gap-4 rounded-xl border border-transparent p-4 transition-all duration-300 lg:flex-row-reverse active:bg-secondary/30 hover:border-border/50 hover:bg-card/50 glass animate-fade-in"
                   style={{ animationDelay: `${index * 100 + 400}ms` }}
                 >
@@ -58,9 +60,7 @@ export function Footer() {
                     <span className="font-mono text-sm font-medium transition-colors group-hover:text-gradient">
                       {link.label}
                     </span>
-                    {link.label !== "Email" && (
-                      <ExternalLink className="h-3 w-3 text-muted-foreground/50 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1" />
-                    )}
+                    <ExternalLink className="h-3 w-3 text-muted-foreground/50 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1" />
                   </div>
                   <span className="font-mono text-xs text-muted-foreground truncate">{link.handle}</span>
                 </a>
