@@ -13,15 +13,13 @@ interface BlogPostContentProps {
 }
 
 export function BlogPostContent({ post }: BlogPostContentProps) {
-  const [isVisible, setIsVisible] = useState(false)
+  const isVisible = true
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [copied, setCopied] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
   const relatedPosts = getRelatedPosts(post.slug)
 
   useEffect(() => {
-    setIsVisible(true)
-
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500)
     }
