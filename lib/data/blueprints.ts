@@ -288,6 +288,12 @@ export const blueprints: Blueprint[] = [
     status: "Draft",
     difficulty: "Hard",
     tags: ["API Keys", "Webhooks", "Rate Limits", "DX", "Usage Logs", "Postgres"],
+    relatedProjects: ["Zenquanta AI", "Intacct"],
+    relatedLinks: [
+      { label: "AI model routing blueprint", href: "/blueprints/ai-model-routing-platform" },
+      { label: "Zenquanta assistant notes", href: "/workbench/zenquanta-assistant-system-notes" },
+      { label: "Enterprise finance workspace blueprint", href: "/blueprints/enterprise-finance-workspace" },
+    ],
     overview:
       "This blueprint studies what makes Stripe-like platforms feel excellent without building payments: clean APIs, strong docs, predictable webhooks, logs, replay tools, keys, environments, and developer trust.",
     problem:
