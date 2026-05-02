@@ -143,7 +143,7 @@ export const projects: Project[] = [
     tagline: "Collaborative coding platform.",
     description: "An earlier collaborative devtools experiment exploring real-time multi-user coding.",
     status: "archive",
-    categories: ["infrastructure", "product-experiment"],
+    categories: ["earlier-work", "graveyard"],
     tags: ["Collaboration", "DevTools", "Realtime"],
     github: "https://github.com/VanshajPoonia/codash-meet",
     year: "2023",
