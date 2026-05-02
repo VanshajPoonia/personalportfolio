@@ -147,7 +147,7 @@ export const projects: Project[] = [
     tags: ["Collaboration", "DevTools", "Realtime"],
     github: "https://github.com/VanshajPoonia/codash-meet",
     year: "2023",
-    priority: 44,
+    priority: 15,
   },
   {
     slug: "moogle",
