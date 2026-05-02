@@ -61,8 +61,8 @@ export function generatePersonStructuredData() {
     image: 'https://vanshajpoonia.com/developer-portrait.png',
     sameAs: [
       'https://github.com/VanshajPoonia',
-      'https://twitter.com/PooniaVanshaj',
       'https://www.linkedin.com/in/vanshajpoonia/',
+      'https://x.com/PooniaVanshaj',
     ],
     jobTitle: 'Software Engineer',
     worksFor: {
