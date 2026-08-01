@@ -7,16 +7,38 @@ import { cn } from "@/lib/utils"
 import { Mail, Rss, Search, Tag, TrendingUp } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { blogPosts } from "@/lib/blog-data"
 
+const categoryNames: Record<string, string> = {
+  ai: "AI & Machine Learning",
+  frontend: "Frontend",
+  systems: "Systems & DevOps",
+}
+
+// Derived from the posts themselves so the counts cannot drift from reality.
 const categories = [
-  { name: "All Posts", count: 12, slug: "all" },
-  { name: "AI & Machine Learning", count: 4, slug: "ai" },
-  { name: "Frontend", count: 3, slug: "frontend" },
-  { name: "Systems & DevOps", count: 3, slug: "systems" },
-  { name: "Design", count: 2, slug: "design" },
+  { name: "All Posts", count: blogPosts.length, slug: "all" },
+  ...Object.entries(
+    blogPosts.reduce<Record<string, number>>((acc, post) => {
+      acc[post.category] = (acc[post.category] ?? 0) + 1
+      return acc
+    }, {}),
+  )
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([slug, count]) => ({ name: categoryNames[slug] ?? slug, count, slug })),
 ]
 
-const popularTags = ["nextjs", "react", "typescript", "llm", "rust", "linux", "python", "tailwind", "wasm", "rag"]
+const popularTags = Object.entries(
+  blogPosts.reduce<Record<string, number>>((acc, post) => {
+    post.tags.forEach((tag) => {
+      acc[tag] = (acc[tag] ?? 0) + 1
+    })
+    return acc
+  }, {}),
+)
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .slice(0, 10)
+  .map(([tag]) => tag)
 
 export function BlogSidebar() {
   const [isVisible, setIsVisible] = useState(false)
