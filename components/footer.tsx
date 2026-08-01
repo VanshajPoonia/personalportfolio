@@ -1,4 +1,4 @@
-import { Github, Twitter, Globe, ExternalLink, Heart, Linkedin } from "lucide-react"
+import { Github, Twitter, Globe, ExternalLink, Linkedin } from "lucide-react"
 
 const socialLinks = [
   { label: "Website", href: "https://vanshajpoonia.com", handle: "vanshajpoonia.com", icon: Globe },
@@ -22,8 +22,7 @@ export function Footer() {
               </h2>
             </div>
             <p className="max-w-md text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Always interested in collaborations, interesting problems, and conversations about code, design, and
-              everything in between.
+              Open to collaborations, hard problems, and arguments about architecture. X is the fastest way to reach me.
             </p>
 
             <div className="pt-2">
@@ -75,9 +74,7 @@ export function Footer() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            <span>Forged with</span>
-            <Heart className="h-3.5 w-3.5 text-destructive animate-pulse" />
-            <span>& code</span>
+            <span>still building</span>
           </div>
 
           <div className="flex items-center gap-4">

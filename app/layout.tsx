@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google"
+import { Geist, Geist_Mono } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
@@ -15,45 +15,40 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   display: 'swap',
 })
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
+const siteDescription =
+  "A living developer lab: a hobby OS in Rust, a multi-assistant AI workspace, an enterprise finance platform, creative experiments, and research notes. Built in public by Vanshaj Poonia."
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://vanshajpoonia.com'),
   title: {
-    default: "Vanshaj Poonia — Building in Public",
+    default: "Building in Public | Vanshaj Poonia",
     template: "%s | Vanshaj Poonia",
   },
-  description:
-    "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
+  description: siteDescription,
   keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
   authors: [{ name: "Vanshaj Poonia", url: "https://github.com/VanshajPoonia" }],
   creator: "Vanshaj Poonia",
   publisher: "Vanshaj Poonia",
-  generator: "v0.app",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "Vanshaj Poonia — Building in Public",
-    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects by Vanshaj Poonia.",
+    title: "Building in Public | Vanshaj Poonia",
+    description: siteDescription,
     siteName: "Vanshaj Poonia",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Vanshaj Poonia — Building in Public",
+        alt: "Vanshaj Poonia, building in public",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vanshaj Poonia — Building in Public",
-    description: "Building in public, exploring different technologies. Experiments, prototypes, and open-source projects.",
+    title: "Building in Public | Vanshaj Poonia",
+    description: siteDescription,
     creator: "@PooniaVanshaj",
     images: ["/og-image.png"],
   },
@@ -94,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true} storageKey="theme-mode">
           {children}

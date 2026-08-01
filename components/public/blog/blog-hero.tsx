@@ -4,15 +4,13 @@ export function BlogHero() {
       <div className="mx-auto max-w-7xl">
         <div className="space-y-4 animate-fade-in-up">
           <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">
-            Digital Journal
+            Blog
           </p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">
-            Blog &{" "}
-            <span className="text-primary">Insights</span>
+            Notes from the bench
           </h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Technical deep-dives, experiments, and lessons learned from the digital laboratory. Exploring code, systems,
-            and the craft of building software.
+            Longer writeups on systems, AI, and frontend work. What I built, what broke, and what I would do differently.
           </p>
         </div>
       </div>

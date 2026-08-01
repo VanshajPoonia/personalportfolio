@@ -14,7 +14,7 @@ export function ExploreTheLab() {
             Explore the lab
           </h2>
           <p className="max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Different parts of the site serve different purposes. Start wherever your curiosity fits.
+            Sections are split by how finished the thinking is, not by topic. Start anywhere.
           </p>
         </div>
 

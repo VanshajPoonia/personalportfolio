@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     slug: "building-linux-distro-from-scratch",
     title: "Building a Linux Distro from Scratch",
     excerpt:
-      "A comprehensive guide to compiling the kernel, configuring BusyBox, and creating bootable ISOs with Syslinux. Learn the fundamentals of Linux system architecture.",
+      "Compiling the kernel, configuring BusyBox, and building a bootable ISO with Syslinux, start to finish.",
     content: `
 ## Introduction
 
@@ -114,7 +114,7 @@ You now have a minimal but functional Linux distribution. From here, you can add
     slug: "mcp-protocol-llm-applications",
     title: "MCP Protocol in LLM Applications",
     excerpt:
-      "Implementing Model Context Protocol for seamless AI model interactions with vector databases in RAG applications. Building smarter conversational systems.",
+      "Wiring Model Context Protocol to vector databases in a RAG application, and what the protocol actually buys you.",
     content: `
 ## What is MCP?
 
@@ -186,7 +186,7 @@ MCP provides the structure needed to build production-grade RAG applications. As
     slug: "nextjs-16-tailwind-v4-migration",
     title: "Next.js 16 + Tailwind CSS v4 Migration Guide",
     excerpt:
-      "Exploring the new features in Next.js 16 and migrating to Tailwind CSS v4's new configuration system. A practical guide to modern frontend tooling.",
+      "What changed in Next.js 16, and what moving to Tailwind v4's CSS-first config actually costs.",
     content: `
 ## What's New in Next.js 16
 
@@ -282,7 +282,7 @@ The migration takes effort but the improved DX and performance are worth it. Sta
     slug: "self-hosting-llms-fastapi",
     title: "Self-Hosting LLMs with FastAPI",
     excerpt:
-      "Running Llama2 locally and building a personal chatbot API for natural language tasks. Complete guide from model setup to production deployment.",
+      "Running Llama2 locally and putting a chatbot API in front of it, from model setup through deployment.",
     content: `
 ## Why Self-Host?
 
@@ -369,7 +369,7 @@ You now have a private, scalable LLM API. Consider adding rate limiting, authent
     slug: "rust-wasm-performance",
     title: "Rust + WebAssembly Performance Deep Dive",
     excerpt:
-      "Benchmarking Rust compiled to WebAssembly vs native JavaScript. When does WASM shine and when to stick with JS?",
+      "Benchmarking Rust compiled to WebAssembly against plain JavaScript, and where the crossover actually is.",
     content: `
 ## The Performance Question
 
@@ -451,7 +451,7 @@ WASM isn't a silver bullet. The overhead of crossing the JS-WASM boundary can ne
     slug: "design-tokens-system",
     title: "Building a Design Token System",
     excerpt:
-      "Creating a scalable design token architecture that works across platforms. From CSS variables to Figma tokens and everything in between.",
+      "Building a token architecture that survives the trip from CSS variables to Figma and back.",
     content: `
 ## What Are Design Tokens?
 

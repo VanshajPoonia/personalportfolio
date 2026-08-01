@@ -1,138 +1,94 @@
-import { Code2, Layers, FileText, Zap, Bot, Globe } from "lucide-react";
+import type { Metadata } from "next"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { exploreCards } from "@/lib/data/site"
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
+
+export const metadata: Metadata = {
+  title: "About this site",
+  description:
+    "What this site is, how it is organized, and why the unfinished work stays visible alongside the finished work.",
+  alternates: { canonical: `${baseUrl}/introduction` },
+}
+
+const principles = [
+  {
+    title: "Everything is public",
+    body: "Every project links to its GitHub repository. The finished ones and the abandoned ones get the same treatment.",
+  },
+  {
+    title: "Unfinished work stays up",
+    body: "The workbench holds build logs and debugging notes. The graveyard holds things I stopped. Both are more useful than a page of screenshots.",
+  },
+  {
+    title: "Depth over breadth",
+    body: "A hobby OS in Rust, an AI workspace, and an enterprise finance platform. Three things I can actually explain, rather than twenty I cannot.",
+  },
+  {
+    title: "The stack is boring on purpose",
+    body: "Next.js, TypeScript, Tailwind, and Supabase. The interesting problems are in what gets built, not in what it gets built with.",
+  },
+]
 
 export default function IntroductionPage() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-20">
-        <div className="mx-auto max-w-4xl">
-          <div className="space-y-6 sm:space-y-8">
-            <div className="space-y-2">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground">
-                Welcome
-              </p>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">
-                Building in{" "}
-                <span className="text-primary">
-                  Public
-                </span>
-              </h1>
-            </div>
-
-            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-3xl">
-              This is my digital workshop and portfolio platform. A space where ideas take shape, experiments
-              unfold, and open-source projects come to life. Exploring different technologies and sharing the journey.
+    <div className="px-4 sm:px-6 pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div className="mx-auto max-w-4xl">
+        <header className="space-y-6 animate-fade-in-up">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">
+            What this site is
+          </h1>
+          <div className="max-w-2xl space-y-4 text-base sm:text-lg leading-relaxed text-muted-foreground">
+            <p>
+              A working record of what I am building, kept in public while it is still in progress. Most portfolios
+              show you the three things that went well. This one shows the whole shelf, including the parts still
+              on the bench and the parts I gave up on.
+            </p>
+            <p>
+              The reason is selfish: writing things down while they are unresolved is how I find out whether I
+              actually understand them. Publishing that is just a side effect.
             </p>
           </div>
-        </div>
-      </section>
+        </header>
 
-      {/* About Section */}
-      <section className="relative px-4 sm:px-6 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded border border-border/50 bg-card/50 p-6 sm:p-10 backdrop-blur-sm space-y-8">
-            <div className="space-y-4">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary">
-                About the Platform
-              </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                A Developer&apos;s Digital Workshop
-              </h2>
-            </div>
-
-            <div className="space-y-6 text-base sm:text-lg leading-relaxed text-muted-foreground">
-              <p>
-                This isn&apos;t just another portfolio website. It is a living, breathing
-                showcase of continuous learning and experimentation. Built with the philosophy that the best way to learn is to build,
-                share, and iterate.
-              </p>
-
-              <p>
-                Whether you&apos;re exploring cutting-edge AI integrations, diving into systems
-                programming, or looking for modern web development patterns, you&apos;ll find a window
-                into real-world projects at various stages of development, from initial experiments
-                to production-ready solutions.
-              </p>
-
-              <p>
-                The platform encourages collaboration and knowledge sharing
-                within the developer community. Every project, every lab note, and every line of
-                code is designed to inspire and educate.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="relative px-4 sm:px-6 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 space-y-4 text-center">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary">
-              Platform Features
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Built for Modern Development
-            </h2>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: Code2,
-                title: "Open Source Projects",
-                description:
-                  "Every project is available on GitHub for learning and collaboration. Transparent development process from start to finish.",
-              },
-              {
-                icon: Layers,
-                title: "Developer Workbench",
-                description:
-                  "A dedicated space for ongoing experiments and prototypes. Watch ideas evolve from concept to implementation.",
-              },
-              {
-                icon: FileText,
-                title: "Lab Notes",
-                description:
-                  "Detailed documentation of learning journeys, technical insights, and development patterns discovered along the way.",
-              },
-              {
-                icon: Zap,
-                title: "Modern Tech Stack",
-                description:
-                  "Built with cutting-edge technologies including Next.js, React, TypeScript, and Tailwind CSS for optimal performance.",
-              },
-              {
-                icon: Bot,
-                title: "AI Integration",
-                description:
-                  "Exploring the intersection of AI and web development with practical implementations and real-world use cases.",
-              },
-              {
-                icon: Globe,
-                title: "Localization",
-                description:
-                  "Multi-language support with i18n integration, making projects accessible to a global developer community.",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="group rounded border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card/80"
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded border border-primary/30 bg-primary/10 text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
-                  <feature.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mb-2 font-mono text-sm font-semibold uppercase tracking-wider text-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
+        <section className="mt-16 sm:mt-20 border-t border-border/40 pt-12 sm:pt-16">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">How it works</h2>
+          <dl className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+            {principles.map((principle) => (
+              <div key={principle.title} className="space-y-2">
+                <dt className="font-semibold tracking-tight text-foreground">{principle.title}</dt>
+                <dd className="text-sm leading-relaxed text-muted-foreground">{principle.body}</dd>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
+          </dl>
+        </section>
+
+        <section className="mt-16 sm:mt-20 border-t border-border/40 pt-12 sm:pt-16">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Where things live</h2>
+          <p className="mt-3 max-w-2xl text-sm sm:text-base leading-relaxed text-muted-foreground">
+            The site splits by how finished the thinking is, not by topic.
+          </p>
+          <ul className="mt-8 divide-y divide-border/40 border-y border-border/40">
+            {exploreCards.map((card) => (
+              <li key={card.href}>
+                <Link
+                  href={card.href}
+                  className="group flex flex-col gap-1 py-4 transition-colors sm:flex-row sm:items-baseline sm:gap-6"
+                >
+                  <span className="w-32 shrink-0 font-mono text-xs uppercase tracking-widest text-primary">
+                    {card.label}
+                  </span>
+                  <span className="flex-1 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground">
+                    {card.description}
+                  </span>
+                  <ArrowRight className="hidden h-4 w-4 shrink-0 text-muted-foreground/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary sm:block" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </div>
-  );
+  )
 }
