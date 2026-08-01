@@ -166,6 +166,17 @@
   z-index: 100;
 }
 
+/* Dark mode needs a light stripe; black on near-black renders as nothing */
+.dark .scanlines::before {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    oklch(1 0 0 / 0.012) 3px,
+    oklch(1 0 0 / 0.012) 6px
+  );
+}
+
 /* Smoother glitch animation */
 @keyframes glitch {
   0%,
@@ -360,4 +371,41 @@
 ::selection {
   background: oklch(from var(--primary) l c h / 0.3);
   color: var(--foreground);
+}
+
+/*
+ * Reduced motion. The looping effects (float, glitch, ping, pulse, scanlines,
+ * typing cursor) are ambience, so they stop entirely. Entrance animations only
+ * lose their travel, so content still lands in its final state.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .glitch:hover,
+  .typing-cursor::after,
+  .animate-pulse,
+  .animate-ping {
+    animation: none !important;
+  }
+
+  .scanlines::before {
+    display: none;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-scale-in {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
