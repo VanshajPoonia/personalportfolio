@@ -36,13 +36,13 @@ export default function LearningPage() {
                 <p className="font-mono text-xs uppercase tracking-widest text-primary">{topic.category}</p>
               </header>
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70 mb-1">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">
                   Learning
                 </p>
                 <p className="text-sm text-foreground/90 leading-relaxed">{topic.learning}</p>
               </div>
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70 mb-1">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">
                   Why it matters
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{topic.why}</p>

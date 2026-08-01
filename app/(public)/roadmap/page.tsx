@@ -40,7 +40,7 @@ export default function RoadmapPage() {
               <header className="mb-4">
                 <p className="font-mono text-xs uppercase tracking-widest text-primary">{col.label}</p>
                 <p className="text-xs text-muted-foreground mt-1">{col.description}</p>
-                <p className="mt-2 font-mono text-[11px] text-muted-foreground/70">
+                <p className="mt-2 font-mono text-[11px] text-muted-foreground">
                   {roadmap[col.id].length} items
                 </p>
               </header>

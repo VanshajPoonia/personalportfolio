@@ -58,7 +58,7 @@ export default function ArtifactsPage() {
                     <Download className="h-3.5 w-3.5" /> download
                   </a>
                 ) : (
-                  <span className="flex items-center gap-1.5 text-muted-foreground/70">
+                  <span className="flex items-center gap-1.5 text-muted-foreground">
                     <FileText className="h-3.5 w-3.5" /> coming soon
                   </span>
                 )}

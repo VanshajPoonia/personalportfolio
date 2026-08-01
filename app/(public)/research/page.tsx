@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 const statusStyles: Record<string, string> = {
   Published: "bg-primary/15 text-primary border-primary/40",
-  Draft: "bg-yellow-500/15 text-yellow-500 border-yellow-500/40",
-  "In Progress": "bg-blue-500/15 text-blue-400 border-blue-500/40",
+  Draft: "bg-amber-500/15 text-amber-800 dark:text-amber-400 border-amber-500/40",
+  "In Progress": "bg-blue-500/15 text-blue-800 dark:text-blue-400 border-blue-500/40",
   Planned: "bg-secondary/60 text-muted-foreground border-border",
 }
 
@@ -74,7 +74,7 @@ export default function ResearchPage() {
                     <FileText className="h-3.5 w-3.5" /> read
                   </a>
                 ) : (
-                  <span className="flex items-center gap-1.5 text-muted-foreground/70">
+                  <span className="flex items-center gap-1.5 text-muted-foreground">
                     <FileText className="h-3.5 w-3.5" /> read — coming soon
                   </span>
                 )}
@@ -86,7 +86,7 @@ export default function ResearchPage() {
                     <Download className="h-3.5 w-3.5" /> pdf
                   </a>
                 ) : (
-                  <span className="flex items-center gap-1.5 text-muted-foreground/70">
+                  <span className="flex items-center gap-1.5 text-muted-foreground">
                     <Download className="h-3.5 w-3.5" /> pdf — coming soon
                   </span>
                 )}

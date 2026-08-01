@@ -56,7 +56,7 @@ export function FeaturedProjects() {
               <h3 className="mb-2 text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
                 {project.title}
               </h3>
-              <p className="mb-4 text-sm font-mono text-primary/80">{project.tagline}</p>
+              <p className="mb-4 text-sm font-mono text-primary">{project.tagline}</p>
               <p className="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-4">
                 {project.description}
               </p>
