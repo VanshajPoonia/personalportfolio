@@ -111,13 +111,9 @@ export function ThemeChanger() {
     )
   }
 
-  const themeColors: Record<ThemeColor, string> = {
-    golden: "bg-gradient-to-br from-amber-400 to-yellow-600",
-    cyan: "bg-gradient-to-br from-cyan-400 to-blue-500",
-    purple: "bg-gradient-to-br from-purple-400 to-violet-600",
-    emerald: "bg-gradient-to-br from-emerald-400 to-green-600",
-    rose: "bg-gradient-to-br from-rose-400 to-pink-600",
-  }
+  // Swatches read the theme's real primary for the active mode, so what you see
+  // in the picker is exactly what gets applied.
+  const swatchMode = (resolvedTheme ?? systemTheme ?? "light") === "dark" ? "dark" : "light"
 
   return (
     <div className="relative">
@@ -170,10 +166,8 @@ export function ThemeChanger() {
                   )}
                 >
                   <div
-                    className={cn(
-                      "h-5 w-5 rounded-full border-2 border-border shadow-sm",
-                      themeColors[key as ThemeColor],
-                    )}
+                    className="h-5 w-5 rounded-full border border-border/80 shadow-sm"
+                    style={{ background: theme[swatchMode].primary }}
                   />
                   <span
                     className={cn(
