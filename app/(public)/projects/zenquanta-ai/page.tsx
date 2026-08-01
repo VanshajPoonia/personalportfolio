@@ -6,7 +6,7 @@ import { getProjectBySlug } from "@/lib/data/projects"
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 
 export const metadata: Metadata = {
-  title: "Zenquanta AI — case study",
+  title: "Zenquanta AI case study",
   description:
     "A premium multi-assistant AI workspace with assistant families, tier-aware model routing, prompt precheck, memory, and admin systems.",
   alternates: { canonical: `${baseUrl}/projects/zenquanta-ai` },
@@ -28,7 +28,7 @@ export default function ZenquantaCaseStudy() {
               <p>
                 Zenquanta AI is a premium multi-assistant workspace built with Next.js, TypeScript, Tailwind CSS,
                 shadcn/ui, Supabase, and OpenRouter. Six assistant families share a workspace shell, model routing,
-                memory, and a real plan ladder — closer to a desk than a chat box.
+                memory, and a real plan ladder. Closer to a desk than a chat box.
               </p>
             ),
           },
@@ -49,22 +49,22 @@ export default function ZenquantaCaseStudy() {
             body: (
               <ul>
                 <li>
-                  <strong>Nova</strong> — general-purpose conversation
+                  <strong>Nova</strong>: general-purpose conversation
                 </li>
                 <li>
-                  <strong>Velora</strong> — long-form writing and structure
+                  <strong>Velora</strong>: long-form writing and structure
                 </li>
                 <li>
-                  <strong>Axiom</strong> — analytical and reasoning-heavy work
+                  <strong>Axiom</strong>: analytical and reasoning-heavy work
                 </li>
                 <li>
-                  <strong>Forge</strong> — coding and developer workflows
+                  <strong>Forge</strong>: coding and developer workflows
                 </li>
                 <li>
-                  <strong>Pulse</strong> — quick, low-latency responses
+                  <strong>Pulse</strong>: quick, low-latency responses
                 </li>
                 <li>
-                  <strong>Prism</strong> — image generation and visual flows
+                  <strong>Prism</strong>: image generation and visual flows
                 </li>
               </ul>
             ),
@@ -97,7 +97,7 @@ export default function ZenquantaCaseStudy() {
             body: (
               <p>
                 Text and image flows are separate pipelines with their own routing, cost accounting, and surface. They
-                share session context and memory but never silently swap with each other — Prism owns the image
+                share session context and memory but never silently swap with each other. Prism owns the image
                 surface explicitly.
               </p>
             ),

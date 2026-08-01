@@ -6,7 +6,7 @@ import { PageShell } from "@/components/shared/page-shell"
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 
 export const metadata: Metadata = {
-  title: "OS Boot Flow — visualizer",
+  title: "OS Boot Flow visualizer",
   description:
     "A visual, step-based explainer for how Chronosapien boots from QEMU to a working shell.",
   alternates: { canonical: `${baseUrl}/lab/os-boot-flow` },
@@ -41,7 +41,7 @@ const steps = [
   {
     id: "framebuffer",
     label: "Framebuffer console initializes",
-    body: "We start writing pixels — glyph by glyph — into the framebuffer. The screen now shows text. This is the first time the OS feels real.",
+    body: "We start writing pixels, glyph by glyph, into the framebuffer. The screen now shows text. This is the first time the OS feels real.",
   },
   {
     id: "gdt-idt",
@@ -61,7 +61,7 @@ const steps = [
   {
     id: "shell",
     label: "Shell loop begins",
-    body: "The shell starts polling for input and dispatching commands. The OS is now interactive — you can type, list files, run apps, and switch eras.",
+    body: "The shell starts polling for input and dispatching commands. The OS is now interactive: you can type, list files, run apps, and switch eras.",
   },
 ]
 
@@ -74,7 +74,7 @@ export default function OsBootFlowPage() {
         intro={
           <p>
             How <Link href="/projects/chronosapien" className="text-primary hover:text-foreground transition-colors">Chronosapien</Link>{" "}
-            goes from a frozen QEMU window to a blinking cursor on a working shell — one step at a time.
+            goes from a frozen QEMU window to a blinking cursor on a working shell, one step at a time.
           </p>
         }
         toolbar={

@@ -6,7 +6,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 
 export const metadata: Metadata = {
   title: "Roadmap",
-  description: "What's active, next, later, paused, and shipped — across the whole lab.",
+  description: "What's active, next, later, paused, and shipped, across the whole lab.",
   alternates: { canonical: `${baseUrl}/roadmap` },
 }
 
@@ -26,7 +26,7 @@ export default function RoadmapPage() {
         title="What is active, next, later, paused, and shipped"
         intro={
           <p>
-            One board for the whole lab. The columns reset when something ships or stalls — the goal is honesty, not
+            One board for the whole lab. The columns reset when something ships or stalls. The goal is honesty, not
             a perfect plan.
           </p>
         }

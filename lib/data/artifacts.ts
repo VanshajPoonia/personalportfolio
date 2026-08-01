@@ -17,7 +17,7 @@ export const artifacts: Artifact[] = [
     title: "Chronosapien Roadmap",
     type: "Roadmap",
     status: "Coming Soon",
-    summary: "A milestone-based roadmap for the Chronosapien hobby OS — what is built, what is next, and what is stretch.",
+    summary: "A milestone-based roadmap for the Chronosapien hobby OS: what is built, what is next, and what is stretch.",
     related: { label: "Chronosapien case study", href: "/projects/chronosapien" },
   },
   {
@@ -41,7 +41,7 @@ export const artifacts: Artifact[] = [
     title: "Mini Vercel Clone Blueprint",
     type: "Blueprint",
     status: "Coming Soon",
-    summary: "System design for a small Vercel-style deployment platform — build runners, edge routing, previews.",
+    summary: "System design for a small Vercel-style deployment platform: build runners, edge routing, previews.",
     related: { label: "Mini Vercel Clone", href: "/blueprints/mini-vercel-clone" },
   },
   {

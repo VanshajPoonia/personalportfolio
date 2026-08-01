@@ -14,7 +14,7 @@ export const labItems: LabItem[] = [
   {
     slug: "tiny-terminal",
     title: "Tiny Terminal",
-    description: "An in-browser terminal toy with a handful of real commands — help, projects, lab, github, now.",
+    description: "An in-browser terminal toy with a handful of real commands: help, projects, lab, github, now.",
     tags: ["Terminal", "Interactive", "TypeScript"],
     status: "live",
     href: "/lab#tiny-terminal",

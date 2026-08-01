@@ -12,12 +12,12 @@ import { generateWebsiteStructuredData, generatePersonStructuredData } from "@/l
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vanshajpoonia.com'
 
 export const metadata: Metadata = {
-  title: "Vanshaj Poonia — A living developer lab",
+  title: "A living developer lab | Vanshaj Poonia",
   description:
     "Not a portfolio. A living developer lab. Systems experiments, AI workspaces, enterprise tools, creative dev utilities, research notes, and technical artifacts in public.",
   openGraph: {
-    title: "Vanshaj Poonia — A living developer lab",
-    description: "Systems, AI, enterprise tools, creative experiments, and research — built in public.",
+    title: "A living developer lab | Vanshaj Poonia",
+    description: "Systems, AI, enterprise tools, creative experiments, and research, built in public.",
     url: `${baseUrl}/`,
   },
   other: {

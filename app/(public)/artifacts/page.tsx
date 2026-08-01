@@ -21,7 +21,7 @@ export default function ArtifactsPage() {
         title="Diagrams, notes, and downloadable resources"
         intro={
           <p>
-            Output that lives outside the page — architecture notes, blueprints, research papers, and more. Coming-soon
+            Output that lives outside the page: architecture notes, blueprints, research papers, and more. Coming-soon
             entries stay listed so the index reflects what is actually planned.
           </p>
         }

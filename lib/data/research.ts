@@ -49,7 +49,7 @@ export const researchEntries: ResearchEntry[] = [
     type: "Technical Essay",
     status: "Planned",
     summary:
-      "Notes on why real AI products need routing, plan ladders, usage tracking, and assistant-specific UX — not just a chat box wrapped around an API key.",
+      "Why real AI products need routing, plan ladders, usage tracking, and assistant-specific UX, not just a chat box wrapped around an API key.",
     tags: ["AI", "OpenRouter", "Model Routing", "Developer Tools", "SaaS"],
     relatedProject: { title: "Zenquanta AI", href: "/projects/zenquanta-ai" },
   },
@@ -60,7 +60,7 @@ export const researchEntries: ResearchEntry[] = [
     type: "Technical Essay",
     status: "Planned",
     summary:
-      "How offline-first apps actually handle sync, conflicts, and user trust — and what makes a sync engine boring enough to be reliable.",
+      "How offline-first apps actually handle sync, conflicts, and user trust, and what makes a sync engine boring enough to be reliable.",
     tags: ["Local-first", "Sync", "Offline Apps", "Product Architecture"],
   },
   {

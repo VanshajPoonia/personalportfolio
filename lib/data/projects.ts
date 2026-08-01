@@ -225,7 +225,7 @@ export const projects: Project[] = [
     slug: "hypnover",
     title: "Hypnover",
     tagline: "Early CodeWithHarry-style learning clone.",
-    description: "An early learning clone inspired by coding education websites — built to study layout systems and component composition.",
+    description: "An early learning clone inspired by coding education websites, built to study layout systems and component composition.",
     status: "shipped",
     categories: ["earlier-work"],
     tags: ["HTML", "CSS", "Learning", "Clone"],

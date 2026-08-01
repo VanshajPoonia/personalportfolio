@@ -12,9 +12,9 @@ export const timeline: TimelineItem[] = [
   {
     id: "early",
     label: "Early phase",
-    range: "2020 — 2022",
+    range: "2020-2022",
     narrative:
-      "Clone projects, frontend learning, HTML/CSS/JS, React, Firebase, and APIs. Each clone existed to teach one thing well — routing, state, auth, or deployment.",
+      "Clone projects, frontend learning, HTML/CSS/JS, React, Firebase, and APIs. Each clone existed to teach one thing well: routing, state, auth, or deployment.",
     projects: [
       { title: "Discord Clone", slug: "discord-clone" },
       { title: "Moogle", slug: "moogle" },
@@ -27,7 +27,7 @@ export const timeline: TimelineItem[] = [
   {
     id: "middle",
     label: "Middle phase",
-    range: "2022 — 2024",
+    range: "2022-2024",
     narrative:
       "Next.js, Firebase, APIs, dashboards, ecommerce, hackathons, and Web3 experiments. Started thinking about products instead of pages.",
     projects: [
@@ -40,7 +40,7 @@ export const timeline: TimelineItem[] = [
   {
     id: "recent",
     label: "Recent phase",
-    range: "2024 — 2025",
+    range: "2024-2025",
     narrative:
       "AI apps, enterprise tools, v0 prototypes, productivity experiments. Started shipping things people use, not just demos.",
     projects: [
@@ -53,7 +53,7 @@ export const timeline: TimelineItem[] = [
   {
     id: "current",
     label: "Current phase",
-    range: "2025 — 2026",
+    range: "2025-2026",
     narrative:
       "Systems programming, Rust OS, AI workspaces, finance platforms, research papers, and interactive labs. Building harder things in public.",
     projects: [

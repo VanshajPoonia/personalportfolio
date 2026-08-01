@@ -29,7 +29,7 @@ export default function ResearchPage() {
         intro={
           <p>
             Long-form writing where I study emerging technologies deeply enough to explain tradeoffs, architectures,
-            and open questions. Some are drafts, some are still notes — none of them pretend to be done.
+            and open questions. Some are drafts, some are still notes. None of them pretend to be done.
           </p>
         }
       >
@@ -75,7 +75,7 @@ export default function ResearchPage() {
                   </a>
                 ) : (
                   <span className="flex items-center gap-1.5 text-muted-foreground">
-                    <FileText className="h-3.5 w-3.5" /> read — coming soon
+                    <FileText className="h-3.5 w-3.5" /> read: coming soon
                   </span>
                 )}
                 {entry.pdfHref ? (
@@ -87,7 +87,7 @@ export default function ResearchPage() {
                   </a>
                 ) : (
                   <span className="flex items-center gap-1.5 text-muted-foreground">
-                    <Download className="h-3.5 w-3.5" /> pdf — coming soon
+                    <Download className="h-3.5 w-3.5" /> pdf: coming soon
                   </span>
                 )}
                 {entry.relatedProject && (

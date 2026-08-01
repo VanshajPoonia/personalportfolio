@@ -6,7 +6,7 @@ import { getProjectBySlug } from "@/lib/data/projects"
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 
 export const metadata: Metadata = {
-  title: "Intacct — case study",
+  title: "Intacct case study",
   description:
     "A Next.js + Supabase enterprise finance platform with role-based workspaces, dense accountant-friendly UX, and a service-layer architecture.",
   alternates: { canonical: `${baseUrl}/projects/intacct` },
@@ -28,7 +28,7 @@ export default function IntacctCaseStudy() {
               <p>
                 Intacct is a Next.js + Supabase enterprise finance platform with role-based workspaces, dense
                 accountant-friendly UX, and a service-layer architecture. It covers AP, AR, GL, cash, reporting, admin,
-                and a shared platform shell — built for people who live inside the product, not visit it.
+                and a shared platform shell, built for people who live inside the product rather than visit it.
               </p>
             ),
           },
@@ -39,7 +39,7 @@ export default function IntacctCaseStudy() {
               <p>
                 Finance teams juggle multiple workspaces, fragile exports, and tooling that was never designed for the
                 way they actually work. Most internal finance UIs optimize for first impressions instead of the
-                tenth thousand interaction. Accountants do not want playful — they want dense, predictable, fast.
+                tenth thousand interaction. Accountants do not want playful. They want dense, predictable, fast.
               </p>
             ),
           },
@@ -60,22 +60,22 @@ export default function IntacctCaseStudy() {
             body: (
               <ul>
                 <li>
-                  <strong>App shell</strong> — Next.js App Router, shared chrome, role-aware navigation, persisted shell
+                  <strong>App shell</strong>: Next.js App Router, shared chrome, role-aware navigation, persisted shell
                   preferences per user.
                 </li>
                 <li>
-                  <strong>Service layer</strong> — typed services per module that own data fetching, mutations, and
+                  <strong>Service layer</strong>: typed services per module that own data fetching, mutations, and
                   audit metadata.
                 </li>
                 <li>
-                  <strong>Supabase</strong> — Postgres + auth + RLS; runtime datasets pulled live for views and
+                  <strong>Supabase</strong>: Postgres + auth + RLS; runtime datasets pulled live for views and
                   reporting.
                 </li>
                 <li>
-                  <strong>RBAC</strong> — org/user/role model; policies enforced at both the route and the action level.
+                  <strong>RBAC</strong>: org/user/role model; policies enforced at both the route and the action level.
                 </li>
                 <li>
-                  <strong>Cross-cutting services</strong> — saved views, notifications, audit logs, report metadata
+                  <strong>Cross-cutting services</strong>: saved views, notifications, audit logs, report metadata
                   persistence.
                 </li>
               </ul>
@@ -87,25 +87,25 @@ export default function IntacctCaseStudy() {
             body: (
               <ul>
                 <li>
-                  <strong>AP</strong> — accounts payable surfaces and approvals
+                  <strong>AP</strong>: accounts payable surfaces and approvals
                 </li>
                 <li>
-                  <strong>AR</strong> — accounts receivable, including receivables APIs
+                  <strong>AR</strong>: accounts receivable, including receivables APIs
                 </li>
                 <li>
-                  <strong>GL</strong> — general ledger
+                  <strong>GL</strong>: general ledger
                 </li>
                 <li>
-                  <strong>Cash</strong> — cash management and reconciliation
+                  <strong>Cash</strong>: cash management and reconciliation
                 </li>
                 <li>
-                  <strong>Reporting</strong> — saved report metadata, runtime datasets
+                  <strong>Reporting</strong>: saved report metadata, runtime datasets
                 </li>
                 <li>
-                  <strong>Admin</strong> — users, roles, org management
+                  <strong>Admin</strong>: users, roles, org management
                 </li>
                 <li>
-                  <strong>Platform</strong> — shared shell, search, settings, audit log
+                  <strong>Platform</strong>: shared shell, search, settings, audit log
                 </li>
               </ul>
             ),
@@ -142,11 +142,11 @@ export default function IntacctCaseStudy() {
             label: "Enterprise UX decisions",
             body: (
               <ul>
-                <li>Density over whitespace — finance lives in tables</li>
+                <li>Density over whitespace, because finance lives in tables</li>
                 <li>Keyboard-first navigation across every workspace</li>
                 <li>Saved views as a first-class primitive, not a hidden setting</li>
                 <li>Audit and notification surface always reachable from the shell</li>
-                <li>No surprises in destructive actions — every mutation is logged</li>
+                <li>No surprises in destructive actions, and every mutation is logged</li>
               </ul>
             ),
           },

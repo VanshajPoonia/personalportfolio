@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 type Line = { kind: "input" | "output" | "system"; text: string }
 
 const banner = [
-  "tiny-terminal v0.1 — running locally in your browser",
+  "tiny-terminal v0.1 · running locally in your browser",
   "type `help` for commands.",
 ]
 
@@ -23,25 +23,25 @@ const commands: Record<string, () => string[]> = {
     "  clear        wipe the screen",
   ],
   whoami: () => [
-    "vanshaj poonia — building systems, ai products, and enterprise tools in public.",
+    "vanshaj poonia: building systems, ai products, and enterprise tools in public.",
   ],
   projects: () => [
     "flagship builds:",
-    "  • chronosapien   — hobby OS in rust",
-    "  • intacct        — enterprise finance platform",
-    "  • zenquanta-ai   — multi-assistant ai workspace",
-    "  • lifesort       — calendar-style productivity app",
-    "  • ascii-camera   — webcam → ascii experiment",
+    "  • chronosapien    hobby OS in rust",
+    "  • intacct         enterprise finance platform",
+    "  • zenquanta-ai    multi-assistant ai workspace",
+    "  • lifesort        calendar-style productivity app",
+    "  • ascii-camera    webcam → ascii experiment",
     "→ see /projects for the full list",
   ],
   lab: () => [
     "lab experiments:",
-    "  • tiny-terminal           (you are here)",
-    "  • os-boot-flow visualizer — /lab/os-boot-flow",
-    "  • ascii-camera            — asciicamera-gold.vercel.app",
-    "  • pathfinding visualizer  (planned)",
-    "  • raycaster               (planned)",
-    "  • shader playground       (planned)",
+    "  • tiny-terminal             (you are here)",
+    "  • os-boot-flow visualizer   /lab/os-boot-flow",
+    "  • ascii-camera              asciicamera-gold.vercel.app",
+    "  • pathfinding visualizer    (planned)",
+    "  • raycaster                 (planned)",
+    "  • shader playground         (planned)",
   ],
   github: () => ["opening github → https://github.com/VanshajPoonia"],
   now: () => [
@@ -94,7 +94,7 @@ export function TinyTerminal() {
     }
 
     const handler = commands[trimmed]
-    const output = handler ? handler() : [`command not found: ${trimmed} — try \`help\``]
+    const output = handler ? handler() : [`command not found: ${trimmed}. try \`help\``]
     setHistory([
       ...next,
       ...output.map((text) => ({ kind: "output" as const, text })),
@@ -138,7 +138,7 @@ export function TinyTerminal() {
           <div className="h-3 w-3 rounded-full bg-yellow-500/60" />
           <div className="h-3 w-3 rounded-full bg-primary/60" />
         </div>
-        <span className="font-mono text-xs text-muted-foreground ml-3">tiny-terminal — local</span>
+        <span className="font-mono text-xs text-muted-foreground ml-3">tiny-terminal · local</span>
         <span className="ml-auto flex items-center gap-2 font-mono text-xs text-muted-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
           live

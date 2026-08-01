@@ -17,7 +17,7 @@ export function FeaturedProjects() {
               The work I&apos;m most serious about
             </h2>
             <p className="max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Small enough to learn from, serious enough to prove the idea. Systems, AI, enterprise tools, and creative experiments — all in active development.
+              Small enough to learn from, serious enough to prove the idea. Systems, AI, enterprise tools, and creative experiments, all in active development.
             </p>
           </div>
           <Link

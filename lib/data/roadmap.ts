@@ -10,7 +10,7 @@ export const roadmapColumns: { id: RoadmapColumn; label: string; description: st
   { id: "now", label: "Now", description: "Active focus this cycle." },
   { id: "next", label: "Next", description: "Queued and starting soon." },
   { id: "later", label: "Later", description: "Planned but not yet scheduled." },
-  { id: "paused", label: "Paused", description: "Set down for now — may revisit." },
+  { id: "paused", label: "Paused", description: "Set down for now. May revisit." },
   { id: "shipped", label: "Shipped", description: "Live, public, or done." },
 ]
 

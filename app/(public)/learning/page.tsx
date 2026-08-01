@@ -22,7 +22,7 @@ export default function LearningPage() {
         intro={
           <p>
             One card per topic: what I&apos;m learning, why it matters, and which project or research entry it ties
-            into. The map is bigger than the work — that is on purpose.
+            into. The map is bigger than the work, and that is on purpose.
           </p>
         }
       >

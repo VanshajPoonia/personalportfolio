@@ -8,7 +8,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 export const metadata: Metadata = {
   title: "Timeline",
   description:
-    "A developer journey from early clone projects to systems, AI, and enterprise tools — written as growth, not a list.",
+    "A developer journey from early clone projects to systems, AI, and enterprise tools, written as growth rather than a list.",
   alternates: { canonical: `${baseUrl}/timeline` },
 }
 

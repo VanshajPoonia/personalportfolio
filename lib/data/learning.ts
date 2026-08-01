@@ -53,7 +53,7 @@ export const learningTopics: LearningTopic[] = [
     id: "product",
     category: "Product / Startups",
     learning: "Wedge selection, pricing ladders, what to ship vs cut, and how to communicate a product without overclaiming.",
-    why: "Engineering buys you the right to make product decisions — and most engineers waste it.",
+    why: "Engineering buys you the right to make product decisions. Most engineers waste it.",
   },
   {
     id: "quantum",

@@ -12,9 +12,9 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Flagship builds, AI products, enterprise tools, creative experiments, devtools, and earlier work — organized by category.",
+    "Flagship builds, AI products, enterprise tools, creative experiments, devtools, and earlier work, organized by category.",
   openGraph: {
-    title: "Projects — Vanshaj Poonia",
+    title: "Projects | Vanshaj Poonia",
     description: "Flagship builds, AI products, enterprise tools, creative experiments, and earlier work.",
     url: `${baseUrl}/projects`,
   },
@@ -28,7 +28,7 @@ const categoryDescriptions: Record<string, string> = {
   "creative-coding": "Visual experiments and developer toys.",
   "product-experiment": "Prototypes that prove or kill an idea.",
   infrastructure: "Devtools, containers, and platform plumbing.",
-  "earlier-work": "Honest progression — clones, learning builds, early shipping.",
+  "earlier-work": "Honest progression: clones, learning builds, early shipping.",
   graveyard: "Paused, archived, kept around as receipts.",
 }
 

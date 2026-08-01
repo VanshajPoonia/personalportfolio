@@ -10,7 +10,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 export const metadata: Metadata = {
   title: "Lab",
   description:
-    "Interactive demos, visual experiments, terminal toys, and OS explainers — small things to play with, not a portfolio reel.",
+    "Interactive demos, visual experiments, terminal toys, and OS explainers. Small things to play with, not a portfolio reel.",
   alternates: { canonical: `${baseUrl}/lab` },
 }
 
@@ -22,7 +22,7 @@ export default function LabPage() {
         title="Interactive demos and visual experiments"
         intro={
           <p>
-            Small toys with real behavior — terminal commands, boot flow visualizers, ASCII cameras, and a few planned
+            Small toys with real behavior: terminal commands, boot flow visualizers, ASCII cameras, and a few planned
             experiments waiting their turn.
           </p>
         }

@@ -9,10 +9,10 @@ export const nowSections: NowSection[] = [
     id: "building",
     label: "Currently building",
     items: [
-      "Chronosapien — hobby OS in Rust",
-      "Intacct — enterprise finance platform",
-      "Zenquanta AI — multi-assistant workspace",
-      "This site — lab, workbench, and research sections",
+      "Chronosapien, a hobby OS in Rust",
+      "Intacct, an enterprise finance platform",
+      "Zenquanta AI, a multi-assistant workspace",
+      "This site: the lab, workbench, and research sections",
     ],
   },
   {

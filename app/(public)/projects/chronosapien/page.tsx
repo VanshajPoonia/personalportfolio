@@ -6,7 +6,7 @@ import { getProjectBySlug } from "@/lib/data/projects"
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 
 export const metadata: Metadata = {
-  title: "Chronosapien — case study",
+  title: "Chronosapien case study",
   description:
     "A beginner-friendly hobby OS in Rust: boot flow, framebuffer console, interrupts, in-memory filesystem, and a small era-themed shell.",
   alternates: { canonical: `${baseUrl}/projects/chronosapien` },
@@ -32,7 +32,7 @@ export default function ChronosapienCaseStudy() {
                   of an in-memory filesystem.
                 </p>
                 <p>
-                  It is intentionally small. The point is not to compete with Linux or even Redox — it is to keep every
+                  It is intentionally small. The point is not to compete with Linux or even Redox. It is to keep every
                   layer readable end to end, so a beginner can open the repo and follow how a machine becomes an
                   operating system.
                 </p>
@@ -46,7 +46,7 @@ export default function ChronosapienCaseStudy() {
               <>
                 <p>
                   Most of my work lives in JavaScript runtimes that hide the machine. Chronosapien is a bet that I
-                  understand systems better if I am forced to write them — interrupts, page faults, framebuffers,
+                  understand systems better if I am forced to write them: interrupts, page faults, framebuffers,
                   keyboards, and all.
                 </p>
                 <p>
@@ -111,9 +111,9 @@ export default function ChronosapienCaseStudy() {
                 <li>The bootloader prepares CPU state and switches to long mode.</li>
                 <li>It hands the kernel a framebuffer pointer and a memory map.</li>
                 <li>The Rust kernel entrypoint runs.</li>
-                <li>Serial logging initializes — debug output works from now on.</li>
-                <li>The framebuffer console initializes — the screen shows text.</li>
-                <li>GDT and IDT load — the CPU knows how to handle exceptions.</li>
+                <li>Serial logging initializes, so debug output works from now on.</li>
+                <li>The framebuffer console initializes, and the screen shows text.</li>
+                <li>GDT and IDT load, so the CPU knows how to handle exceptions.</li>
                 <li>The timer (PIT) starts ticking.</li>
                 <li>The PS/2 keyboard is enabled.</li>
                 <li>The shell loop begins, waiting for the first keystroke.</li>
@@ -147,7 +147,7 @@ export default function ChronosapienCaseStudy() {
             body: (
               <>
                 <p>
-                  Triple faults that boot-loop the VM with no output. The fix is always the same — ship serial logging
+                  Triple faults that boot-loop the VM with no output. The fix is always the same: ship serial logging
                   before anything else, then add prints aggressively while you isolate the line that broke the world.
                 </p>
                 <p>

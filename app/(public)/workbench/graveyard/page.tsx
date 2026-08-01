@@ -9,7 +9,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
 export const metadata: Metadata = {
   title: "Graveyard",
   description:
-    "Paused, archived, and revisited-later experiments — kept honest as receipts of what I tried.",
+    "Paused, archived, and revisited-later experiments, kept honest as receipts of what I tried.",
   alternates: { canonical: `${baseUrl}/workbench/graveyard` },
 }
 
@@ -21,7 +21,7 @@ export default function GraveyardPage() {
         title="Things I tried, learned from, and might revisit"
         intro={
           <p>
-            Not an embarrassment section. Every entry here taught me something specific — and a couple of them might
+            Not an embarrassment section. Every entry here taught me something specific, and a couple of them might
             come back when the moment is right.
           </p>
         }

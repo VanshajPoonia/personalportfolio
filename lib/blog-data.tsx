@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     content: `
 ## Introduction
 
-Building a Linux distribution from scratch is one of the most rewarding learning experiences for any systems programmer. It forces you to understand how all the pieces fit together—from the bootloader to user space.
+Building a Linux distribution from scratch is one of the most rewarding learning experiences for any systems programmer. It forces you to understand how all the pieces fit together, from the bootloader to user space.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ xorriso -as mkisofs -o mylinux.iso -b boot/syslinux/isolinux.bin iso/
 
 ## Conclusion
 
-You now have a minimal but functional Linux distribution. From here, you can add package management, init systems, and desktop environments. The journey of a thousand miles begins with a single step—and you've just taken yours.
+You now have a minimal but functional Linux distribution. From here, you can add package management, init systems, and desktop environments. From here it is all incremental: one subsystem at a time, each one you now know how to debug.
     `,
     date: "Nov 15, 2025",
     readTime: "12 min read",
@@ -455,7 +455,7 @@ WASM isn't a silver bullet. The overhead of crossing the JS-WASM boundary can ne
     content: `
 ## What Are Design Tokens?
 
-Design tokens are the atomic values of your design system—colors, spacing, typography, shadows. They're platform-agnostic and enable consistency across web, mobile, and design tools.
+Design tokens are the atomic values of your design system: colors, spacing, typography, shadows. They're platform-agnostic and enable consistency across web, mobile, and design tools.
 
 ## Token Hierarchy
 
