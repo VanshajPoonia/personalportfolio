@@ -38,7 +38,7 @@ const commands: Record<string, () => string[]> = {
     "lab experiments:",
     "  • tiny-terminal             (you are here)",
     "  • os-boot-flow visualizer   /lab/os-boot-flow",
-    "  • ascii-camera              asciicamera-gold.vercel.app",
+    "  • ascii-camera              github.com/VanshajPoonia/asciicamera",
     "  • pathfinding visualizer    (planned)",
     "  • raycaster                 (planned)",
     "  • shader playground         (planned)",

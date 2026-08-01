@@ -33,7 +33,7 @@ export const labItems: LabItem[] = [
     description: "Webcam-to-ASCII visual experiment that turns your camera feed into live characters.",
     tags: ["Creative Coding", "Camera", "TypeScript"],
     status: "live",
-    external: "https://asciicamera-gold.vercel.app",
+    external: "https://github.com/VanshajPoonia/asciicamera",
   },
   {
     slug: "pathfinding-visualizer",

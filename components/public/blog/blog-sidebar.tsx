@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
-import { Mail, Rss, Search, Tag, TrendingUp } from "lucide-react"
+import { Mail, Search, Tag, TrendingUp } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { blogPosts } from "@/lib/blog-data"
@@ -154,16 +154,6 @@ export function BlogSidebar() {
         </form>
       </div>
 
-      {/* RSS Feed */}
-      <div className={cn("opacity-0", isVisible && "animate-fade-in-up stagger-4")}>
-        <a
-          href="/rss.xml"
-          className="flex items-center justify-center gap-2 rounded-lg border border-border/50 bg-card/40 px-4 py-3 font-mono text-xs text-muted-foreground transition-all duration-300 hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
-        >
-          <Rss className="h-4 w-4" />
-          <span>Subscribe via RSS</span>
-        </a>
-      </div>
     </aside>
   )
 }
