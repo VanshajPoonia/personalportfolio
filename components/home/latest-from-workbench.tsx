@@ -41,7 +41,7 @@ export function LatestFromWorkbench() {
                   {post.status}
                 </span>
               </div>
-              <h3 className="mb-3 text-lg font-semibold tracking-tight transition-colors group-hover:text-gradient">
+              <h3 className="mb-3 text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
                 {post.title}
               </h3>
               <p className="mb-4 text-sm leading-relaxed text-muted-foreground line-clamp-3">{post.summary}</p>

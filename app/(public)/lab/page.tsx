@@ -59,7 +59,7 @@ export default function LabPage() {
                           <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         )}
                       </div>
-                      <h3 className="text-base font-semibold tracking-tight transition-colors group-hover:text-gradient">
+                      <h3 className="text-base font-semibold tracking-tight transition-colors group-hover:text-primary">
                         {item.title}
                       </h3>
                       <p className="mt-1 text-sm text-muted-foreground line-clamp-3">{item.description}</p>

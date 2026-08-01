@@ -49,7 +49,7 @@ export default function WorkbenchPage() {
                   {post.status}
                 </span>
               </div>
-              <h2 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-gradient">
+              <h2 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
                 {post.title}
               </h2>
               <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{post.summary}</p>

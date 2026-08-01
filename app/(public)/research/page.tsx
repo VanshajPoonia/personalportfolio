@@ -50,7 +50,7 @@ export default function ResearchPage() {
                   {entry.status}
                 </span>
               </header>
-              <h2 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-gradient">
+              <h2 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
                 {entry.title}
               </h2>
               <p className="font-mono text-xs text-muted-foreground">{entry.topic}</p>

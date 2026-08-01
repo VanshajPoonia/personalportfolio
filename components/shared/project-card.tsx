@@ -26,7 +26,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </span>
       </div>
 
-      <h3 className="mb-2 text-lg font-semibold tracking-tight transition-colors group-hover:text-gradient">
+      <h3 className="mb-2 text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
         {project.title}
       </h3>
       <p className="mb-3 text-sm font-mono text-primary/80">{project.tagline}</p>

@@ -48,7 +48,7 @@ export function HeroSection() {
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl text-balance">
                 Not a portfolio.
                 <br />
-                <span className="bg-gradient-to-l from-primary/50 to-accent text-transparent bg-clip-text">
+                <span className="text-primary">
                   A living developer lab.
                 </span>
               </h1>

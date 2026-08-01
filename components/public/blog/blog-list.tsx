@@ -183,7 +183,7 @@ export function BlogList() {
               </div>
             </div>
 
-            <h2 className="mb-3 text-xl sm:text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-gradient">
+            <h2 className="mb-3 text-xl sm:text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-primary">
               {post.title}
             </h2>
 

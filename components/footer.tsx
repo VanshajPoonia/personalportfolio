@@ -18,7 +18,7 @@ export function Footer() {
               <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">Connect</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-balance">
                 {"Let's build something "}
-                <span className="bg-gradient-to-l from-primary/50 to-accent text-transparent bg-clip-text ">together</span>
+                <span className="text-primary">together</span>
               </h2>
             </div>
             <p className="max-w-md text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -57,7 +57,7 @@ export function Footer() {
                 >
                   <div className="flex items-center gap-3 lg:flex-row-reverse">
                     <link.icon className="h-5 w-5 text-muted-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-110" />
-                    <span className="font-mono text-sm font-medium transition-colors group-hover:text-gradient">
+                    <span className="font-mono text-sm font-medium transition-colors group-hover:text-primary">
                       {link.label}
                     </span>
                     <ExternalLink className="h-3 w-3 text-muted-foreground/50 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1" />

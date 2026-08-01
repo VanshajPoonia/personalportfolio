@@ -79,7 +79,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             )}
             style={{ animationDelay: "150ms" }}
           >
-            <span className="bg-gradient-to-l from-primary/50 to-accent text-transparent bg-clip-text">{post.title}</span>
+            <span className="text-primary">{post.title}</span>
           </h1>
 
           {/* Excerpt */}
@@ -156,7 +156,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
               className={cn(
                 "prose prose-invert prose-lg max-w-none opacity-0",
                 "prose-headings:font-semibold prose-headings:tracking-tight",
-                "prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:text-gradient",
+                "prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:text-foreground",
                 "prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3",
                 "prose-p:text-muted-foreground prose-p:leading-relaxed",
                 "prose-a:text-primary prose-a:no-underline hover:prose-a:underline",
@@ -290,7 +290,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                 [RELATED_POSTS]
               </span>
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                Continue <span className="bg-gradient-to-l from-primary/50 to-accent text-transparent bg-clip-text">Reading</span>
+                Continue <span className="text-primary">Reading</span>
               </h2>
             </div>
 
@@ -315,7 +315,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                     <span className="inline-block rounded-md bg-secondary/60 px-2 py-1 font-mono text-[10px] text-muted-foreground mb-3">
                       {relatedPost.category}
                     </span>
-                    <h3 className="font-semibold mb-2 line-clamp-2 group-hover:text-gradient transition-colors">
+                    <h3 className="font-semibold mb-2 line-clamp-2 group-hover:text-primary transition-colors">
                       {relatedPost.title}
                     </h3>
                     <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{relatedPost.excerpt}</p>

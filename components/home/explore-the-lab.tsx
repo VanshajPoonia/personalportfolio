@@ -32,7 +32,7 @@ export function ExploreTheLab() {
                 </span>
                 <ArrowRight className="h-4 w-4 text-muted-foreground transition-all duration-300 group-hover:text-primary group-hover:translate-x-1" />
               </div>
-              <h3 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-gradient">
+              <h3 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
                 {card.label}
               </h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{card.description}</p>

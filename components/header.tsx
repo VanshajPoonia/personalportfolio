@@ -79,7 +79,7 @@ export function Header() {
             </div>
             <span className="font-mono text-sm tracking-tight">
               VANSHAJPOONIA
-              <span className="bg-gradient-to-l from-primary/50 to-accent bg-clip-text text-transparent font-semibold">
+              <span className="text-primary font-semibold">
                 .COM
               </span>
             </span>
