@@ -14,7 +14,6 @@ export interface BlogPost {
     role: string
   }
   featured: boolean
-  color: string
 }
 
 export const blogPosts: BlogPost[] = [
@@ -109,7 +108,6 @@ You now have a minimal but functional Linux distribution. From here, you can add
       role: "Software Engineer",
     },
     featured: true,
-    color: "from-blue-500/20 to-cyan-500/20",
   },
   {
     id: 2,
@@ -182,7 +180,6 @@ MCP provides the structure needed to build production-grade RAG applications. As
       role: "Software Engineer",
     },
     featured: false,
-    color: "from-purple-500/20 to-pink-500/20",
   },
   {
     id: 3,
@@ -279,7 +276,6 @@ The migration takes effort but the improved DX and performance are worth it. Sta
       role: "Software Engineer",
     },
     featured: true,
-    color: "from-primary/20 to-emerald-500/20",
   },
   {
     id: 4,
@@ -367,7 +363,6 @@ You now have a private, scalable LLM API. Consider adding rate limiting, authent
       role: "Software Engineer",
     },
     featured: false,
-    color: "from-orange-500/20 to-amber-500/20",
   },
   {
     id: 5,
@@ -450,7 +445,6 @@ WASM isn't a silver bullet. The overhead of crossing the JS-WASM boundary can ne
       role: "Software Engineer",
     },
     featured: false,
-    color: "from-red-500/20 to-orange-500/20",
   },
   {
     id: 6,
@@ -539,7 +533,6 @@ Design tokens bridge the gap between design and development. Invest in the found
       role: "Software Engineer",
     },
     featured: false,
-    color: "from-teal-500/20 to-cyan-500/20",
   },
 ]
 

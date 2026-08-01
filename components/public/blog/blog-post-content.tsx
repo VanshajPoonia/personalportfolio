@@ -42,7 +42,6 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
     <>
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 border-b border-border/30">
-        <div className={cn("absolute inset-0 bg-gradient-to-br opacity-30 pointer-events-none", post.color)} />
         <div className="mx-auto max-w-4xl relative z-10">
           {/* Back Link */}
           <Link
@@ -305,12 +304,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   )}
                   style={{ animationDelay: `${500 + index * 100}ms` }}
                 >
-                  <div
-                    className={cn(
-                      "absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100",
-                      relatedPost.color,
-                    )}
-                  />
+                  <div className="pointer-events-none absolute inset-0 bg-primary/[0.04] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="relative z-10">
                     <span className="inline-block rounded-md bg-secondary/60 px-2 py-1 font-mono text-[10px] text-muted-foreground mb-3">
                       {relatedPost.category}
@@ -325,7 +319,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                       <span>{relatedPost.readTime}</span>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-transparent transition-all duration-500 group-hover:w-full" />
+                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-500 group-hover:w-full" />
                 </Link>
               ))}
             </div>
