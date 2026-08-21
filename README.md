@@ -1,163 +1,140 @@
-# Vanshaj Poonia Developer Lab
+# vanshajpoonia.com
 
-Not a portfolio. A living developer lab.
+Personal site for Vanshaj Poonia, full stack and AI developer.
 
-I build systems experiments, AI workspaces, enterprise tools, creative dev utilities, research notes, and technical artifacts in public.
+Live: <https://vanshajpoonia.com>
+GitHub: <https://github.com/VanshajPoonia>
 
-Live site: <https://vanshajpoonia.com>  
-GitHub: <https://github.com/VanshajPoonia>  
-LinkedIn: <https://www.linkedin.com/in/vanshajpoonia/>  
-X: <https://x.com/PooniaVanshaj>
+## What this is
 
-## What This Is
+A portfolio organised around one idea: **the work is the spectacle, the terminal
+aesthetic is the frame.** Product screenshots and architecture lead; the mono
+type, hairlines, and status readouts frame them.
 
-This repository powers my personal website. It is organized less like a static resume and more like a public technical lab: shipped projects, active experiments, architecture blueprints, developer notebook entries, research notes, learning maps, artifacts, and timeline context.
+The other governing rule is that nothing on the site claims more than the
+evidence supports. Build status and deployment status are separate fields.
+Open-source contributions record their real merge state. A project with no
+working deployment says so rather than offering a dead button. The research page
+says there is no research.
 
-The site is built with Next.js 16, React 19, TypeScript, Tailwind CSS, Radix UI primitives, and typed content files under `lib/data`.
+## Sections
 
-## Main Sections
+| Route | What lives there |
+| --- | --- |
+| `/` | Hero, selected work, engineering spectrum, and previews of everything else |
+| `/work` | Every project, filterable via `?filter=` |
+| `/work/[slug]` | Long-form case studies for the four flagship projects |
+| `/experience` | Professional and collaborative engineering, plus client delivery |
+| `/open-source` | Authored pull requests to other people's projects, with verified status |
+| `/research` | Currently inactive, and says so |
+| `/about` | Background, a compact "now" block, and grouped tools |
+| `/workbench` | Developer notebook, plus the incubator of unbuilt design studies |
+| `/workbench/[slug]` | Individual notes |
+| `/workbench/incubator/[slug]` | Individual design studies |
+| `/archive` | Earlier work, one entry per project family |
 
-- `Projects` - polished builds, active experiments, shipped products, and earlier learning work.
-- `Lab` - interactive demos, visual experiments, terminal toys, and OS explainers.
-- `Workbench` - build logs, debugging notes, architecture sketches, and rough technical field notes.
-- `Blueprints` - system design documents, MVP plans, technical tradeoffs, and future product architectures.
-- `Research` - exploratory papers, technical comparisons, and longer-form analysis.
-- `Now` - what I am currently building, learning, and shipping.
-- `Roadmap` - active, next, later, paused, and shipped work.
-- `Timeline` - developer journey from early learning builds to systems, AI, and enterprise tools.
-- `Learning` - study maps across OS development, Rust, AI infrastructure, graphics, enterprise software, and product.
-- `Artifacts` - downloadable notes, PDFs, diagrams, prompt packs, and technical resources.
+Every V2 route redirects to its successor. The map is in `next.config.mjs` with
+a comment explaining each decision.
 
-## Featured Work
+## Stack
 
-The current site gives the most prominence to:
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, `next-themes`,
+`lucide-react`, Vercel Analytics. That is the whole dependency list, and it is
+short on purpose: the command palette, filters, diagrams, and status badges are
+all hand-written rather than pulled in.
 
-- `Chronosapien` - a beginner-friendly hobby OS in Rust.
-- `Intacct` - a Next.js + Supabase enterprise finance platform.
-- `Zenquanta AI` - a premium multi-assistant AI workspace.
-- `LifeSort` - a calendar-style productivity app.
-- `ASCII Camera` - a webcam-to-ASCII creative coding experiment.
+## Content architecture
 
-Older clone projects and early experiments are intentionally framed under Earlier Work / Learning Builds or Archive. Cloud Code Docker Container is kept as a paused/archive devtools experiment, not a flagship project.
+All content is typed data under `lib/data/`. Pages are views over it, never a
+second copy of it.
 
-## Content Model
+| File | Owns |
+| --- | --- |
+| `site.ts` | Identity, navigation, positioning copy, social links |
+| `projects.ts` | Every project and archive entry, plus the filter logic |
+| `case-studies.tsx` | Long-form case-study bodies, keyed by project slug |
+| `experience.ts` | Roles, client delivery, skill groups |
+| `open-source.ts` | Contributions with verified merge status |
+| `workbench.ts` | Notebook entries |
+| `blueprints.ts` | Incubator design studies |
+| `research.ts` | Research status |
 
-Most public content is stored as typed data, then rendered through reusable page templates:
+### Adding a project
 
-- `lib/data/projects.ts`
-- `lib/data/workbench.ts`
-- `lib/data/blueprints.ts`
-- `lib/data/research.ts`
-- `lib/data/roadmap.ts`
-- `lib/data/timeline.ts`
-- `lib/data/learning.ts`
-- `lib/data/artifacts.ts`
-- `lib/data/site.ts`
+1. Add an entry to `projects` in `lib/data/projects.ts`.
+2. Set `status` (is it still being worked on) and `deployment` (can a stranger
+   open it) independently. Use `deployment.note` to explain anything that is not
+   plainly `live`.
+3. Add a screenshot to `public/work/` as WebP and reference it in `media`, with
+   real alt text. If there is no honest screenshot, use a `diagram` instead and
+   add its stages to `components/work/project-diagram.tsx`. Do not invent a
+   product UI.
+4. Set `featured: true` only if it belongs in the homepage's four.
+5. For a case study, set `caseStudy: true` and add a matching key to
+   `caseStudies` in `lib/data/case-studies.tsx`.
 
-Dynamic detail pages exist for blueprint and workbench entries:
+Sitemap, command palette, homepage, filters, and the spectrum section all read
+from that one entry.
 
-- `/blueprints/[slug]`
-- `/workbench/[slug]`
+### Updating open-source contributions
 
-This keeps the site easy to update while preserving consistent cards, badges, related links, and status chips.
+`lib/data/open-source.ts` holds curated entries, not a live GitHub feed, so
+statuses cannot silently rot into a lie. Before publishing a change, re-check
+each pull request and bump `contributionsLastVerified`:
 
-## Workbench vs Blog vs Research vs Blueprints
+```bash
+gh api repos/OWNER/REPO/pulls/NUMBER \
+  -q '[(.number|tostring), .state, (.merged|tostring), (.additions|tostring), (.deletions|tostring)] | @tsv'
+```
 
-- `Blog` is for polished essays, tutorials, long-form explanations, and finished thoughts.
-- `Workbench` is for build logs, debugging notes, architecture sketches, raw experiments, and half-formed technical field notes.
-- `Research` is for exploratory papers, technical comparisons, literature-style notes, and long-form technical analysis.
-- `Blueprints` are system design documents for future products, MVP plans, tradeoffs, architecture sketches, and implementation notes.
+Never list a fork as a contribution. Label an unmerged pull request `open`.
 
-## Tech Stack
+### Verifying project links
 
-- Next.js 16 App Router
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- Radix UI primitives
-- Lucide icons
-- Vercel Analytics
-- ESLint 9 with Next.js config
-- pnpm 10 lockfile for Vercel deployments
+`projectsLastVerified` in `lib/data/projects.ts` is a promise that every
+deployment URL was opened by hand. Re-check it when you touch that file.
 
-## Getting Started
-
-Prerequisites:
-
-- Node.js 22 or newer is recommended.
-- pnpm 10 is recommended because Vercel detects `pnpm-lock.yaml`.
-
-Install dependencies:
+## Commands
 
 ```bash
 pnpm install
+pnpm dev        # http://localhost:3000
+pnpm lint       # ESLint
+pnpm typecheck  # tsc --noEmit
+pnpm build      # production build
+pnpm start      # serve the production build
 ```
 
-If pnpm is not installed locally, use:
+There is no test suite; the site is static content with a handful of client
+components, and correctness here means the links resolve and the claims are
+true. Run `pnpm lint && pnpm typecheck && pnpm build` before pushing, then open
+the built site and click through it.
 
-```bash
-npx -y pnpm@10 install
+`pnpm-lock.yaml` is what Vercel installs from. If `package.json` changes, commit
+the regenerated lockfile with it.
+
+## Layout
+
+```
+app/           routes, metadata, sitemap, robots, error and 404 pages
+components/
+  layout/      Container, Section, SectionHeader, PageHeader
+  home/        homepage sections
+  work/        project cards, diagrams, filters, case-study nav
+  ui/          status badges, external links, tech lists
+lib/data/      all content
+public/work/   project screenshots (WebP)
+docs/          architecture and contribution notes
 ```
 
-Run the development server:
+## Conventions
 
-```bash
-pnpm dev
-```
-
-or:
-
-```bash
-npx -y pnpm@10 run dev
-```
-
-Open <http://localhost:3000>.
-
-## Scripts
-
-- `pnpm dev` - run the local development server.
-- `pnpm build` - create a production build.
-- `pnpm start` - serve the production build.
-- `pnpm lint` - run ESLint.
-- `pnpm analyze` - run Next.js experimental analysis.
-
-## Verification
-
-Before pushing content or dependency changes, run:
-
-```bash
-pnpm lint
-pnpm build
-```
-
-For a Vercel-style lockfile check:
-
-```bash
-npx -y pnpm@10 install --frozen-lockfile --lockfile-only
-npx -y pnpm@10 run build
-```
-
-If `package.json` changes, keep both lockfiles in sync:
-
-```bash
-npm install
-npx -y pnpm@10 install --lockfile-only
-```
-
-Vercel uses the committed `pnpm-lock.yaml`, so stale pnpm metadata can break deployment even when local npm builds pass.
-
-## Project Layout
-
-- `app/` - Next.js App Router pages, layouts, loading states, and route templates.
-- `components/` - shared UI, homepage sections, public page components, header, footer, and themed controls.
-- `lib/` - typed content, utility helpers, structured data, and site metadata.
-- `public/` - static assets.
-- `styles/` - global styling support.
-
-## Maintenance Notes
-
-- Keep public copy aligned with the positioning: "Not a portfolio. A living developer lab."
-- Keep Workbench rough and technical; do not polish it into a second blog.
-- Keep Blueprints detailed enough for technical readers to understand scope, architecture, data model, tradeoffs, security, scaling, and observability.
-- Avoid broken artifact/download links. Use coming-soon states until files exist.
-- Keep older clone projects framed honestly as earlier work or archive.
+- Keep the accent rare. It marks state that means something (active, live,
+  current, focused), not every border.
+- Status is never colour alone. A filled glyph plus a word.
+- Geist for reading, Geist Mono for metadata, statuses, and code. No long body
+  copy in mono.
+- No entrance animations, no looping effects. Hover transitions and the cursor
+  glow are the whole motion budget, and both stand down under
+  `prefers-reduced-motion`.
+- Planned features live in a "what's next" section, never in "what I built".

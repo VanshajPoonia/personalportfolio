@@ -44,8 +44,8 @@ export const blueprints: Blueprint[] = [
     difficulty: "Very Hard",
     tags: ["CI/CD", "GitHub", "Build Workers", "Object Storage", "CDN", "Postgres"],
     relatedLinks: [
-      { label: "Mini cloud research", href: "/research#mini-cloud-platforms" },
-      { label: "Cloud Code archive", href: "/workbench/graveyard" },
+      { label: "Volt", href: "/work#volt" },
+      { label: "Codash archive", href: "/archive#codash" },
     ],
     overview:
       "A learning-focused deployment platform inspired by Vercel and Netlify. The goal is not to build a full cloud provider, but to understand the lifecycle of source code becoming a live URL: import, configure, queue, build, upload, route, observe, and redeploy.",
@@ -169,7 +169,7 @@ export const blueprints: Blueprint[] = [
     difficulty: "Very Hard",
     tags: ["AI", "Code Editor", "Sandboxing", "Diffs", "Model Routing", "Project Memory"],
     relatedLinks: [
-      { label: "Zenquanta AI", href: "/projects/zenquanta-ai" },
+      { label: "Zenquanta AI case study", href: "/work/zenquanta-ai" },
       { label: "AI model routing notes", href: "/workbench/ai-model-routing-notes" },
     ],
     overview:
@@ -290,9 +290,9 @@ export const blueprints: Blueprint[] = [
     tags: ["API Keys", "Webhooks", "Rate Limits", "DX", "Usage Logs", "Postgres"],
     relatedProjects: ["Zenquanta AI", "Intacct"],
     relatedLinks: [
-      { label: "AI model routing blueprint", href: "/blueprints/ai-model-routing-platform" },
+      { label: "Model routing design study", href: "/workbench/incubator/ai-model-routing-platform" },
       { label: "Zenquanta assistant notes", href: "/workbench/zenquanta-assistant-system-notes" },
-      { label: "Enterprise finance workspace blueprint", href: "/blueprints/enterprise-finance-workspace" },
+      { label: "Enterprise finance design study", href: "/workbench/incubator/enterprise-finance-workspace" },
     ],
     overview:
       "This blueprint studies what makes Stripe-like platforms feel excellent without building payments: clean APIs, strong docs, predictable webhooks, logs, replay tools, keys, environments, and developer trust.",
@@ -410,9 +410,9 @@ export const blueprints: Blueprint[] = [
     tags: ["Docker", "Reverse Proxy", "Caddy", "Traefik", "Logs", "Health Checks"],
     relatedProjects: ["Cloud Code Docker Container"],
     relatedLinks: [
-      { label: "Mini Vercel Clone blueprint", href: "/blueprints/mini-vercel-clone" },
-      { label: "Archive / graveyard projects", href: "/projects#graveyard" },
-      { label: "Roadmap", href: "/roadmap" },
+      { label: "Mini Vercel design study", href: "/workbench/incubator/mini-vercel-clone" },
+      { label: "Archive", href: "/archive" },
+      { label: "Work", href: "/work" },
     ],
     overview:
       "A smaller, personal version of Render, Fly, or Vercel for learning cloud orchestration. It should make one developer's small apps easier to deploy while exposing enough internals to teach container lifecycle, routing, logs, health checks, and secrets.",
@@ -529,11 +529,11 @@ export const blueprints: Blueprint[] = [
     status: "Researching",
     difficulty: "Hard",
     tags: ["IndexedDB", "Sync", "Offline", "Encryption", "CRDTs", "Conflict Resolution"],
-    relatedProjects: ["LifeSort", "Developer Lab CMS"],
+    relatedProjects: ["LifeSort", "Portfolio Content System"],
     relatedLinks: [
       { label: "LifeSort product thinking notes", href: "/workbench/lifesort-product-thinking-notes" },
-      { label: "Developer Lab CMS blueprint", href: "/blueprints/developer-lab-cms" },
-      { label: "Learning maps", href: "/learning" },
+      { label: "Content system design study", href: "/workbench/incubator/developer-lab-cms" },
+      { label: "Archive", href: "/archive" },
     ],
     overview:
       "A notes app where the local device is the source of immediate truth. The app should feel fast offline, sync later, and make conflicts understandable rather than scary.",
@@ -647,7 +647,7 @@ export const blueprints: Blueprint[] = [
     tags: ["Finance", "RBAC", "Saved Views", "Audit Logs", "Supabase", "Service Layer"],
     relatedProjects: ["Intacct"],
     relatedLinks: [
-      { label: "Intacct case study", href: "/projects/intacct" },
+      { label: "Intacct", href: "/work#intacct" },
       { label: "Intacct service layer notes", href: "/workbench/intacct-service-layer-notes" },
     ],
     overview:
@@ -779,7 +779,7 @@ export const blueprints: Blueprint[] = [
     tags: ["OpenRouter", "Model Routing", "Usage Metering", "AI SaaS", "Prompt Precheck"],
     relatedProjects: ["Zenquanta AI"],
     relatedLinks: [
-      { label: "Zenquanta AI", href: "/projects/zenquanta-ai" },
+      { label: "Zenquanta AI case study", href: "/work/zenquanta-ai" },
       { label: "Zenquanta assistant notes", href: "/workbench/zenquanta-assistant-system-notes" },
     ],
     overview:
@@ -894,7 +894,7 @@ export const blueprints: Blueprint[] = [
   },
   {
     slug: "developer-lab-cms",
-    title: "Developer Lab CMS / Artifact System",
+    title: "Portfolio Content System",
     summary:
       "A content system for managing projects, workbench notes, research papers, artifacts, blueprints, and timelines from typed data.",
     category: "Content Architecture",
@@ -903,13 +903,13 @@ export const blueprints: Blueprint[] = [
     tags: ["TypeScript", "MDX", "Content Layer", "Static Rendering", "Internal CMS"],
     relatedProjects: ["Personal Website"],
     relatedLinks: [
-      { label: "Artifacts", href: "/artifacts" },
-      { label: "Timeline", href: "/timeline" },
+      { label: "Workbench", href: "/workbench" },
+      { label: "Experience", href: "/experience" },
     ],
     overview:
       "The content system behind this personal site: typed data files and reusable templates that make projects, workbench notes, research, artifacts, blueprints, learning maps, and timeline entries feel connected.",
     problem:
-      "A developer lab can quickly become scattered if each page invents its own data shape. The site needs one place to update content, consistent cards, reliable links, related content, and coming-soon states that do not break.",
+      "A personal site can quickly become scattered if each page invents its own data shape. The site needs one place to update content, consistent cards, reliable links, related content, and coming-soon states that do not break.",
     users: [
       "Site owner updating projects and notes",
       "Readers navigating between projects, blueprints, and field notes",

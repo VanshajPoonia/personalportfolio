@@ -1,71 +1,64 @@
 "use client"
 
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useRef, useState } from "react"
 
+/**
+ * A soft accent glow that follows the pointer.
+ *
+ * Kept because it is part of the site's character, but it is not allowed to
+ * cost anything: position is written straight to the element's transform inside
+ * a single rAF, so pointermove never triggers React state or layout. It stays
+ * off entirely for touch input, coarse pointers, and reduced-motion users.
+ */
 export function CursorGlow() {
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [isVisible, setIsVisible] = useState(false)
-  const [isHovering, setIsHovering] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+  const frame = useRef<number | null>(null)
+  const next = useRef({ x: 0, y: 0 })
+  const [enabled, setEnabled] = useState(false)
 
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    requestAnimationFrame(() => {
-      setPosition({ x: e.clientX, y: e.clientY })
-    })
-    setIsVisible(true)
+  useEffect(() => {
+    const fine = window.matchMedia("(pointer: fine)")
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const evaluate = () => setEnabled(fine.matches && !reduced.matches)
+    evaluate()
+    fine.addEventListener("change", evaluate)
+    reduced.addEventListener("change", evaluate)
+    return () => {
+      fine.removeEventListener("change", evaluate)
+      reduced.removeEventListener("change", evaluate)
+    }
   }, [])
 
   useEffect(() => {
-    const handleMouseLeave = () => {
-      setIsVisible(false)
+    if (!enabled) return
+
+    const paint = () => {
+      frame.current = null
+      const el = ref.current
+      if (!el) return
+      el.style.transform = `translate3d(${next.current.x}px, ${next.current.y}px, 0) translate(-50%, -50%)`
+      el.style.opacity = "1"
     }
 
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      const isInteractive = target.closest('a, button, [role="button"], input, textarea, select')
-      setIsHovering(!!isInteractive)
+    const onMove = (event: PointerEvent) => {
+      next.current = { x: event.clientX, y: event.clientY }
+      if (frame.current === null) frame.current = requestAnimationFrame(paint)
     }
 
-    window.addEventListener("mousemove", handleMouseMove, { passive: true })
-    document.body.addEventListener("mouseleave", handleMouseLeave)
-    document.addEventListener("mouseover", handleMouseOver, { passive: true })
+    const onLeave = () => {
+      if (ref.current) ref.current.style.opacity = "0"
+    }
 
+    window.addEventListener("pointermove", onMove, { passive: true })
+    document.body.addEventListener("pointerleave", onLeave)
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-      document.body.removeEventListener("mouseleave", handleMouseLeave)
-      document.removeEventListener("mouseover", handleMouseOver)
+      window.removeEventListener("pointermove", onMove)
+      document.body.removeEventListener("pointerleave", onLeave)
+      if (frame.current !== null) cancelAnimationFrame(frame.current)
     }
-  }, [handleMouseMove])
+  }, [enabled])
 
-  return (
-    <>
-      {/*
-        Position and size ride on `transform` only. Driving left/top would relayout
-        on every mousemove, and growing width/height on hover would relayout again
-        on every interactive element the pointer crosses.
-      */}
-      <div
-        className="cursor-glow hidden lg:block pointer-events-none"
-        style={{
-          left: 0,
-          top: 0,
-          opacity: isVisible ? 1 : 0,
-          transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%) scale(${
-            isHovering ? 1.25 : 1
-          })`,
-          transition: "opacity 0.4s ease, transform 0.3s ease",
-          willChange: "transform",
-        }}
-      />
-      <div
-        className="hidden lg:block pointer-events-none fixed left-0 top-0 w-8 h-8 rounded-full mix-blend-screen"
-        style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
-          background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
-          opacity: isVisible ? 0.15 : 0,
-          transition: "opacity 0.2s ease",
-          willChange: "transform",
-        }}
-      />
-    </>
-  )
+  if (!enabled) return null
+
+  return <div ref={ref} aria-hidden="true" className="cursor-glow" style={{ left: 0, top: 0, opacity: 0 }} />
 }

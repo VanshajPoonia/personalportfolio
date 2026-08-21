@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useEffect } from 'react'
-import Link from 'next/link'
+import { useEffect } from "react"
+import Link from "next/link"
 
 export default function Error({
   error,
@@ -11,59 +11,44 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error('Root error:', error)
+    // Surfaced in the browser console and the platform logs; the digest is the
+    // only thing that connects what the visitor saw to the server-side trace.
+    console.error("Unhandled error", error)
   }, [error])
 
   return (
-    <html lang="en">
-      <body>
-        <div className="min-h-screen flex items-center justify-center px-4">
-          <div className="max-w-2xl text-center">
-            <div className="mb-8">
-              <div className="mx-auto h-24 w-24 rounded-full bg-destructive/10 flex items-center justify-center mb-6">
-                <svg
-                  className="h-12 w-12 text-destructive"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-3xl font-bold mb-4">Application Error</h2>
-              <p className="text-muted-foreground text-lg mb-2">
-                A critical error occurred. We apologize for the inconvenience.
-              </p>
-              {error.message && (
-                <p className="text-sm text-muted-foreground font-mono bg-muted px-4 py-2 rounded mt-4">
-                  {error.message}
-                </p>
-              )}
-            </div>
+    <div className="flex min-h-screen items-center justify-center px-5">
+      <div className="w-full max-w-md">
+        <p className="label text-muted-foreground">
+          <span aria-hidden="true" className="text-primary">
+            /
+          </span>{" "}
+          Error
+        </p>
+        <h1 className="mt-5 text-2xl font-semibold tracking-tight sm:text-3xl">Something broke on this page.</h1>
+        <p className="mt-4 leading-relaxed text-muted-foreground">
+          Not your fault. Reloading usually fixes it; if it does not, the rest of the site is unaffected.
+        </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={reset}
-                className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-              >
-                Try again
-              </button>
-              <Link
-                href="/"
-                className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
-              >
-                Go home
-              </Link>
-            </div>
-          </div>
+        {error.digest && (
+          <p className="mt-5 rounded-lg border border-border/70 bg-secondary/20 px-4 py-2.5 font-mono text-[11px] text-muted-foreground">
+            digest: {error.digest}
+          </p>
+        )}
+
+        <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-sm">
+          <button
+            type="button"
+            onClick={reset}
+            className="min-h-[44px] rounded-lg bg-primary px-5 text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Try again
+          </button>
+          <Link href="/" className="text-muted-foreground transition-colors hover:text-foreground">
+            Go home
+          </Link>
         </div>
-      </body>
-    </html>
+      </div>
+    </div>
   )
 }

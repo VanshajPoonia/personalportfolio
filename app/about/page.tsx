@@ -1,0 +1,206 @@
+import type { Metadata } from "next"
+import Link from "next/link"
+import { SiteShell } from "@/components/site-shell"
+import { ContactCTA } from "@/components/footer"
+import { PageHeader } from "@/components/layout/page-header"
+import { Section } from "@/components/layout/section"
+import { ExternalLink } from "@/components/ui/external-link"
+import { skillGroups } from "@/lib/data/experience"
+import { person, siteUrl } from "@/lib/data/site"
+import { generatePersonStructuredData, jsonLd } from "@/lib/structured-data"
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Vanshaj Poonia is a full stack and AI developer working across product engineering, AI systems, developer tools, and systems programming.",
+  alternates: { canonical: `${siteUrl}/about` },
+  openGraph: {
+    title: "About | Vanshaj Poonia",
+    description: "Full stack and AI developer. Product engineering, AI systems, and systems programming.",
+    url: `${siteUrl}/about`,
+  },
+}
+
+const now = [
+  {
+    label: "Building",
+    items: [
+      { text: "ChronoOS, a hobby operating system in Rust", href: "/work/chronosapien" },
+      { text: "Project Management ATLAS, in production for one organisation", href: "/work/project-management-atlas" },
+      { text: "Client products at Kreativ Vantage", href: "/experience#kreativ-vantage" },
+    ],
+  },
+  {
+    label: "Contributing",
+    items: [
+      { text: "PictoPy: clustering correctness, CI, and accessibility", href: "/open-source" },
+      { text: "Rocket.Chat: message sync and integration fixes", href: "/open-source" },
+    ],
+  },
+  {
+    label: "Learning",
+    items: [
+      { text: "Filesystem design, by debugging one I wrote", href: null },
+      { text: "How large codebases absorb a change from a stranger", href: null },
+    ],
+  },
+]
+
+export default function AboutPage() {
+  return (
+    <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(generatePersonStructuredData())} />
+
+      <PageHeader
+        eyebrow="About"
+        title="I keep going one layer down."
+        intro={
+          <p>
+            I started with websites, moved into products and AI systems, and eventually got curious enough
+            about what was underneath the abstractions to start writing an operating system.
+          </p>
+        }
+      />
+
+      <Section width="wide">
+        <div className="grid gap-14 lg:grid-cols-12">
+          <div className="max-w-prose space-y-5 leading-relaxed lg:col-span-7">
+            <p>
+              The order matters. Building products taught me that most hard problems are really data-model
+              problems wearing a user-interface costume. Building AI products taught me that the interesting
+              engineering is in routing, permissions, and metering, not in the model call. Writing a neural
+              network framework from the autograd up taught me what that model call is actually doing.
+            </p>
+            <p>
+              And writing a kernel taught me that I had been describing several layers of my own stack from
+              memory rather than from understanding. That is the honest reason ChronoOS exists: not because
+              the world needs another operating system, but because I did not like how vague my answers got
+              below the runtime.
+            </p>
+            <p>
+              The pattern in the work is not the technology. It is that every project is one abstraction level
+              below the thing that made me curious. That is also why I contribute to open source: reading a
+              large codebase you did not design, finding the actual cause of a bug, and getting a change
+              accepted is a different skill from building something from scratch, and it is the one that
+              transfers.
+            </p>
+            <p>
+              I work as a full-stack developer at{" "}
+              <ExternalLink href="https://www.kreativvantage.com" label="Kreativ Vantage" className="text-primary">
+                Kreativ Vantage
+              </ExternalLink>
+              , shipping and maintaining client products. Before that I ran a small product venture called
+              Hypnosys, which is where the browser-IDE work started and where I learned how much scope one
+              person can actually carry.
+            </p>
+            <p>
+              I am not doing research. There is a{" "}
+              <Link href="/research" className="text-primary hover:underline">
+                page
+              </Link>{" "}
+              that says so, because it seemed better than leaving old drafts up and hoping nobody checked the
+              dates.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="rounded-xl border border-border/70 bg-card/30 p-6">
+              <p className="label mb-5 text-muted-foreground">Elsewhere</p>
+              <ul className="space-y-3.5">
+                <li>
+                  <a
+                    href={`mailto:${person.email}`}
+                    className="flex items-baseline justify-between gap-4 font-mono text-sm transition-colors hover:text-primary"
+                  >
+                    <span>Email</span>
+                    <span className="truncate text-xs text-muted-foreground">{person.email}</span>
+                  </a>
+                </li>
+                {[
+                  { label: "GitHub", href: person.github, handle: "@VanshajPoonia" },
+                  { label: "LinkedIn", href: person.linkedin, handle: "vanshajpoonia" },
+                  { label: "X", href: person.x, handle: person.xHandle },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <ExternalLink
+                      href={link.href}
+                      label={link.label}
+                      showMarker={false}
+                      className="flex items-baseline justify-between gap-4 font-mono text-sm"
+                    >
+                      <span>{link.label}</span>
+                      <span className="truncate text-xs text-muted-foreground">
+                        {link.handle} <span aria-hidden="true">↗</span>
+                      </span>
+                    </ExternalLink>
+                  </li>
+                ))}
+                <li className="border-t border-border/60 pt-3.5">
+                  <p className="flex items-baseline justify-between gap-4 font-mono text-sm">
+                    <span className="text-muted-foreground">Based in</span>
+                    <span className="text-xs text-muted-foreground">{person.location}</span>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="now" width="wide" className="border-t border-border/60">
+        <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
+          <h2 className="text-2xl font-semibold tracking-tight">Now</h2>
+          <p className="label text-muted-foreground">Updated when the answer changes</p>
+        </div>
+
+        <div className="grid gap-8 sm:grid-cols-3">
+          {now.map((group) => (
+            <div key={group.label}>
+              <h3 className="label mb-3.5 text-primary">{group.label}</h3>
+              <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                {group.items.map((item) => (
+                  <li key={item.text}>
+                    {item.href ? (
+                      <Link href={item.href} className="transition-colors hover:text-primary">
+                        {item.text}
+                      </Link>
+                    ) : (
+                      item.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section width="wide" className="border-t border-border/60">
+        <div className="mb-8 max-w-2xl space-y-3">
+          <h2 className="text-2xl font-semibold tracking-tight">Tools</h2>
+          <p className="text-muted-foreground">
+            Grouped by what I use them for. No percentages: a number next to a language name is a claim nobody
+            can check.
+          </p>
+        </div>
+
+        <dl className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {skillGroups.map((group) => (
+            <div key={group.label}>
+              <dt className="label mb-3.5 text-primary">{group.label}</dt>
+              <dd>
+                <ul className="space-y-1.5 font-mono text-sm text-muted-foreground">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <ContactCTA />
+    </SiteShell>
+  )
+}

@@ -32,12 +32,12 @@ export const workbenchPosts: WorkbenchNote[] = [
     summary:
       "Why building a small OS is a good way to understand bootloaders, memory, interrupts, and how software starts running.",
     date: "2026-04-12",
-    tags: ["Rust", "OSDev", "Chronosapien", "Bootloaders"],
-    relatedProject: "Chronosapien",
+    tags: ["Rust", "OSDev", "ChronoOS", "Bootloaders"],
+    relatedProject: "ChronoOS",
     status: "Build Log",
     readTime: "6 min read",
     intro:
-      "Chronosapien is not an attempt to build the next Linux. It is a learning system: a small, inspectable OS that forces me to touch the layers most application code hides.",
+      "ChronoOS is not an attempt to build the next Linux. It is a learning system: a small, inspectable OS that forces me to touch the layers most application code hides.",
     goal:
       "I wanted to understand how software starts running before there is a browser, framework, filesystem, or friendly runtime. The point is to meet the machine closer to the beginning.",
     learnings: [
@@ -64,7 +64,7 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Document each boot milestone as a short field note.",
     ],
     relatedLinks: [
-      { label: "Chronosapien project", href: "/projects/chronosapien" },
+      { label: "ChronoOS case study", href: "/work/chronosapien" },
       { label: "Framebuffer notes", href: "/workbench/framebuffer-rendering-notes" },
     ],
   },
@@ -75,7 +75,7 @@ export const workbenchPosts: WorkbenchNote[] = [
       "A field note on why QEMU makes OS dev approachable, why serial logs matter, and why a blank screen can have many causes.",
     date: "2026-04-02",
     tags: ["QEMU", "Debugging", "OSDev", "Serial Logs"],
-    relatedProject: "Chronosapien",
+    relatedProject: "ChronoOS",
     status: "Debugging",
     readTime: "5 min read",
     intro:
@@ -105,7 +105,7 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Add clearer panic output before expanding keyboard or shell features.",
     ],
     relatedLinks: [
-      { label: "Chronosapien project", href: "/projects/chronosapien" },
+      { label: "ChronoOS case study", href: "/work/chronosapien" },
       { label: "Tiny OS note", href: "/workbench/why-i-am-building-a-tiny-os" },
     ],
   },
@@ -116,7 +116,7 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Notes on why writing pixels directly to framebuffer memory makes OS development feel visual for the first time.",
     date: "2026-03-18",
     tags: ["Framebuffer", "Graphics", "OSDev", "Rendering"],
-    relatedProject: "Chronosapien",
+    relatedProject: "ChronoOS",
     status: "Technical Note",
     readTime: "5 min read",
     intro:
@@ -136,7 +136,7 @@ export const workbenchPosts: WorkbenchNote[] = [
       "A console abstraction can wrap cursor position, line wrapping, clearing, and color choices.",
     ],
     openQuestions: [
-      "Should Chronosapien keep a simple bitmap font or introduce richer text rendering later?",
+      "Should ChronoOS keep a simple bitmap font or introduce richer text rendering later?",
       "How should the console handle scrolling without becoming too complex?",
       "Can framebuffer routines be tested outside QEMU?",
     ],
@@ -147,7 +147,7 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Add visual smoke tests for colors, rectangles, and text.",
     ],
     relatedLinks: [
-      { label: "Chronosapien project", href: "/projects/chronosapien" },
+      { label: "ChronoOS case study", href: "/work/chronosapien" },
       { label: "QEMU notes", href: "/workbench/qemu-debugging-notes" },
     ],
   },
@@ -189,8 +189,8 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Tie exports and drilldowns into audit logs.",
     ],
     relatedLinks: [
-      { label: "Intacct project", href: "/projects/intacct" },
-      { label: "Enterprise finance blueprint", href: "/blueprints/enterprise-finance-workspace" },
+      { label: "Intacct", href: "/work#intacct" },
+      { label: "Enterprise finance design study", href: "/workbench/incubator/enterprise-finance-workspace" },
     ],
   },
   {
@@ -231,8 +231,8 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Connect this to the AI model routing blueprint.",
     ],
     relatedLinks: [
-      { label: "Zenquanta AI", href: "/projects/zenquanta-ai" },
-      { label: "AI model routing blueprint", href: "/blueprints/ai-model-routing-platform" },
+      { label: "Zenquanta AI case study", href: "/work/zenquanta-ai" },
+      { label: "Model routing design study", href: "/workbench/incubator/ai-model-routing-platform" },
     ],
   },
   {
@@ -272,49 +272,9 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Avoid letting clone projects dominate homepage or featured sections.",
     ],
     relatedLinks: [
-      { label: "Projects", href: "/projects#earlier-work" },
-      { label: "Timeline", href: "/timeline" },
-      { label: "Graveyard", href: "/workbench/graveyard" },
-    ],
-  },
-  {
-    slug: "research-papers-as-engineering-practice",
-    title: "Research Papers as Engineering Practice",
-    summary:
-      "Exploratory papers, especially in quantum computing architecture, improve tradeoff thinking and connect research back to builds.",
-    date: "2025-12-14",
-    tags: ["Research", "Quantum Computing", "Writing", "System Design"],
-    relatedProject: "Research",
-    status: "Research Note",
-    readTime: "5 min read",
-    intro:
-      "Research writing is not separate from engineering. It is a way to slow down, compare tradeoffs, and make the unknown parts visible.",
-    goal:
-      "I wanted the Research section to contain exploratory papers and technical comparisons that feed back into project and blueprint thinking.",
-    learnings: [
-      "Exploratory papers help clarify tradeoffs.",
-      "Quantum computing architecture research belongs here because it is technical, comparative, and early-stage.",
-      "Technical writing improves system design thinking.",
-      "Research should connect back to projects, blueprints, and artifacts instead of living in isolation.",
-    ],
-    technicalNotes: [
-      "A useful research note should state assumptions, compare alternatives, and end with open questions.",
-      "Neutral-atom and superconducting qubit comparisons are architecture discussions, not just physics summaries.",
-      "Research entries can become future artifacts when they mature into PDFs or diagrams.",
-    ],
-    openQuestions: [
-      "How formal should research entries be before publishing?",
-      "Should papers have version history?",
-      "Which research notes should become downloadable artifacts?",
-    ],
-    nextSteps: [
-      "Connect research entries to related blueprints.",
-      "Add status labels for Draft, Planned, In Progress, and Published.",
-      "Keep paper downloads marked Coming Soon until files exist.",
-    ],
-    relatedLinks: [
-      { label: "Research", href: "/research" },
-      { label: "Artifacts", href: "/artifacts" },
+      { label: "Archive", href: "/archive" },
+      { label: "Experience", href: "/experience" },
+      { label: "Work", href: "/work" },
     ],
   },
   {
@@ -355,8 +315,8 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Tie important service actions to audit logs.",
     ],
     relatedLinks: [
-      { label: "Intacct project", href: "/projects/intacct" },
-      { label: "Enterprise finance blueprint", href: "/blueprints/enterprise-finance-workspace" },
+      { label: "Intacct", href: "/work#intacct" },
+      { label: "Enterprise finance design study", href: "/workbench/incubator/enterprise-finance-workspace" },
     ],
   },
   {
@@ -398,8 +358,8 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Tie usage display to plan limits.",
     ],
     relatedLinks: [
-      { label: "Zenquanta AI", href: "/projects/zenquanta-ai" },
-      { label: "AI model routing blueprint", href: "/blueprints/ai-model-routing-platform" },
+      { label: "Zenquanta AI case study", href: "/work/zenquanta-ai" },
+      { label: "Model routing design study", href: "/workbench/incubator/ai-model-routing-platform" },
     ],
   },
   {
@@ -440,65 +400,9 @@ export const workbenchPosts: WorkbenchNote[] = [
       "Decide what makes LifeSort different from generic task apps.",
     ],
     relatedLinks: [
-      { label: "LifeSort project", href: "/projects#lifesort" },
-      { label: "Roadmap", href: "/roadmap" },
+      { label: "LifeSort", href: "/work#lifesort" },
+      { label: "Work", href: "/work" },
     ],
-  },
-]
-
-export interface GraveyardEntry {
-  slug: string
-  title: string
-  whatTried: string
-  whyPaused: string
-  whatLearned: string
-  revisit: string
-  related?: string
-}
-
-export const graveyardEntries: GraveyardEntry[] = [
-  {
-    slug: "cloud-code-docker-container",
-    title: "Cloud Code Docker Container",
-    whatTried: "A full-stack Docker/devtools experiment with backend, frontend, worker, and docker-compose orchestration.",
-    whyPaused: "Not a flagship project. It belongs in paused devtools experiments and the archive.",
-    whatLearned: "Containerized app architecture, the worker/frontend/backend split, and a clean docker-compose workflow.",
-    revisit: "Maybe - as part of future devtools/platform experiments.",
-    related: "https://github.com/VanshajPoonia/cloudcodedockercontainer",
-  },
-  {
-    slug: "early-clones",
-    title: "Early clone projects",
-    whatTried:
-      "Moogle, Mewtube, Moogle Maps, Discord Clone, Shopeee, Amazon Prime Clone, Hypnover, Kelvin, Codash, and Codash Meet.",
-    whyPaused: "They served their learning purpose and should not compete with current flagship work.",
-    whatLearned: "Layout, routing, APIs, Firebase, deployment, product UI, and state management.",
-    revisit: "No - but kept visible as Earlier Work / Learning Builds.",
-  },
-  {
-    slug: "codash",
-    title: "Codash",
-    whatTried: "Dashboard / product UI around online IDE subscriptions.",
-    whyPaused: "Useful product/UI experiment, not a current focus.",
-    whatLearned: "Dashboards, product structure, and subscription-style UX patterns.",
-    revisit: "Maybe - as part of a future devtools product.",
-    related: "https://github.com/VanshajPoonia/codash",
-  },
-  {
-    slug: "older-portfolios",
-    title: "Older portfolio versions",
-    whatTried: "Different visual identities and portfolio structures.",
-    whyPaused: "The current site is moving toward a lab/archive model.",
-    whatLearned: "Positioning matters as much as visuals.",
-    revisit: "Only as timeline artifacts.",
-  },
-  {
-    slug: "interview-platform",
-    title: "AI interview platform / v0 prototype",
-    whatTried: "An AI/product experiment around mock interviews.",
-    whyPaused: "Needs stronger constraints and product direction.",
-    whatLearned: "AI apps need more than a chat box.",
-    revisit: "Yes - possibly with a sharper product wedge.",
   },
 ]
 

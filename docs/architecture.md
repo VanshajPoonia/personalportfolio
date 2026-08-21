@@ -1,279 +1,121 @@
-# Vanshaj Poonia Architecture Documentation
+# Architecture
 
-## Overview
+How the site is put together, and why it is put together that way. Content
+authoring lives in the [README](../README.md); this file is about structure.
 
-Vanshaj Poonia is a Next.js 16 + React 19 personal portfolio and digital laboratory built with modern web technologies. It demonstrates Next.js App Router patterns, Tailwind CSS v4 styling, and a component-driven architecture.
+## Shape
 
-## Technology Stack
+A static Next.js App Router site. Every route is prerendered except `/work`,
+which is server-rendered because it reads a `?filter=` query parameter.
 
-- **Framework**: Next.js 16.1.0 (latest)
-- **React**: 19.2.3
-- **Styling**: Tailwind CSS v4 (CSS-first approach)
-- **TypeScript**: v5
-- **UI Components**: Radix UI primitives
-- **Theme**: next-themes for dark/light mode
-- **Package Manager**: pnpm (recommended)
-- **Analytics**: Vercel Analytics
+```
+app/
+  layout.tsx              fonts, metadata, viewport, ThemeProvider, Analytics
+  page.tsx                homepage
+  work/page.tsx           project index (dynamic: reads ?filter=)
+  work/[slug]/            case studies (SSG from getCaseStudyProjects)
+  experience/             professional and collaborative work
+  open-source/            authored pull requests
+  research/               inactive status page
+  about/                  background, now, tools
+  workbench/              notebook index + incubator
+  workbench/[slug]/       notes (SSG)
+  workbench/incubator/[slug]/  design studies (SSG)
+  archive/                earlier work
+  not-found.tsx           404
+  error.tsx               error boundary
+  sitemap.ts robots.ts    generated, not static files
+```
 
-## Project Structure
+## Rendering
 
-\`\`\`
-personalportfolio/
-├── app/                          # Next.js App Router (server-first)
-│   ├── layout.tsx                # Root layout with fonts, metadata, ThemeProvider
-│   ├── page.tsx                  # Homepage
-│   ├── globals.css               # Tailwind v4 + custom CSS tokens
-│   └── (public)/                 # Route group for public pages
-│       ├── layout.tsx            # Public layout with Header/Footer
-│       ├── blog/                 # Blog routes
-│       │   ├── page.tsx          # Blog list
-│       │   └── [postSlug]/       # Dynamic blog post
-│       │       └── page.tsx
-│       ├── projects/             # Projects showcase
-│       ├── workbench/            # Workbench/experiments
-│       └── notes/                # Notes (currently disabled)
-│
-├── components/                   # Reusable UI components
-│   ├── header.tsx                # Navigation header (client)
-│   ├── footer.tsx                # Footer with links (client)
-│   ├── theme-provider.tsx        # next-themes wrapper (client)
-│   ├── theme-toggle.tsx          # Theme switcher (client)
-│   ├── theme-changer.tsx         # Color theme selector (client)
-│   ├── cursor-glow.tsx           # Custom cursor effect (client)
-│   ├── hero-section.tsx          # Hero component (client)
-│   ├── projects-grid.tsx         # Projects display (client)
-│   ├── lab-notes.tsx             # Notes display (client)
-│   ├── workbench.tsx             # Workbench UI (client)
-│   ├── public/                   # Page-specific components
-│   │   ├── blog/                 # Blog-related components
-│   │   ├── projects/             # Project-specific components
-│   │   ├── notes/                # Notes components
-│   │   └── workbench/            # Workbench components
-│   └── ui/                       # Base UI primitives (shadcn/ui style)
-│       ├── avatar.tsx
-│       ├── button.tsx
-│       └── input.tsx
-│
-├── lib/                          # Utilities and data
-│   ├── utils.ts                  # cn() helper (clsx + twMerge)
-│   ├── themes.ts                 # Theme configurations
-│   └── blog-data.tsx             # Static blog content (source of truth)
-│
-├── public/                       # Static assets
-│   ├── icon-light-32x32.png      # Favicon (light mode)
-│   ├── icon-dark-32x32.png       # Favicon (dark mode)
-│   └── icon.svg                  # SVG icon
-│
-├── styles/                       # Legacy CSS (to be consolidated)
-│   └── globals.css               # DUPLICATE - should be removed
-│
-├── .github/                      # GitHub configuration
-│   └── copilot-instructions.md   # AI agent instructions
-│
-└── docs/                         # Project documentation (this folder)
-\`\`\`
+Almost everything is a server component. The four client components exist
+because they need browser state and nothing else does:
 
-## Architecture Principles
+| Component | Why it is a client component |
+| --- | --- |
+| `Header` | scroll state, drawer state, `usePathname` |
+| `CommandPalette` | keyboard handling and focus management |
+| `WorkFilters` | writes the query string via the router |
+| `CursorGlow` | pointer events |
+| `ThemeToggle` | reads the resolved theme |
+| `CaseStudyNav` | IntersectionObserver for the active section |
 
-### 1. **Server-First by Default**
-- Next.js 16 App Router uses React Server Components by default
-- Only add `"use client"` when absolutely necessary (hooks, browser APIs, interactivity)
-- Current issue: Too many components are client components unnecessarily
+`SiteShell` wraps every page so the header, footer, skip link, and landmark
+structure are declared once.
 
-### 2. **Component Organization**
-- **Route components** (`app/`) contain page logic and data fetching
-- **UI components** (`components/`) are presentational and reusable
-- **Page-specific components** live in `components/public/[route]/`
-- **Base UI primitives** live in `components/ui/`
+## Data flow
 
-### 3. **Data Flow**
-\`\`\`
-Static Data (lib/blog-data.tsx)
-    ↓
-Route Component (app/)
-    ↓
-Page-Specific Component (components/public/)
-    ↓
-Base UI Component (components/ui/)
-\`\`\`
+`lib/data/*` is the single source of truth. Nothing about a project is written
+twice.
 
-### 4. **Styling Architecture**
-- Tailwind CSS v4 with CSS-first approach
-- Design tokens defined in `app/globals.css` using `@theme inline`
-- No `tailwind.config.js` - configuration lives in CSS
-- Custom properties for theme values (light/dark mode)
-- Utility classes composed with `cn()` helper from `lib/utils.ts`
+```
+projects.ts
+  ├─ getFeaturedProjects()  → homepage Selected Work + hero status panel
+  ├─ filterProjects()       → /work, driven by ?filter=
+  ├─ getCaseStudyProjects() → generateStaticParams for /work/[slug]
+  ├─ getProjectBySlug()     → case-study pages
+  ├─ sortedProjects         → command palette
+  └─ archiveEntries         → /archive
+```
 
-### 5. **Theme System**
-\`\`\`
-Root HTML element with .dark class
-    ↓
-ThemeProvider (next-themes)
-    ↓
-CSS custom properties (:root and .dark)
-    ↓
-Tailwind utilities (bg-background, text-foreground, etc.)
-\`\`\`
+The hero's status panel is derived from `projects.ts`, not hand-written. That is
+deliberate: a status readout that can drift from the project data is a status
+readout that will eventually lie.
 
-## Key Design Decisions
+## Status model
 
-### Why App Router?
-- **File-system routing**: Intuitive folder structure
-- **Server Components**: Better performance, smaller bundles
-- **Streaming**: Progressive page rendering (not yet implemented)
-- **Built-in layouts**: Shared UI across routes
+Two independent fields, because one would be ambiguous:
 
-### Why Tailwind CSS v4?
-- **CSS-first**: Configuration in CSS, not JavaScript
-- **Better DX**: Autocomplete works better with inline themes
-- **Smaller bundle**: Only used utilities are included
-- **Modern syntax**: Uses CSS custom properties natively
+- `status` — where the project is in its own life: `active`, `shipped`,
+  `prototype`, `paused`, `archive`, `learning`.
+- `deployment.status` — whether a stranger can use it: `live`, `offline`,
+  `private`, `none`.
 
-### Why Static Content in `lib/blog-data.tsx`?
-- **Simplicity**: No external CMS required
-- **Type safety**: Full TypeScript support
-- **Fast builds**: All content at build time
-- **Version control**: Content changes tracked in Git
+So `shipped` + `offline` and `active` + `private` are both expressible, and the
+UI only renders an "Open project" link when `deployment.status === "live"`.
 
-**Note**: For scaling beyond 20-30 posts, consider MDX files or a headless CMS.
+## Project imagery
 
-### Why next-themes?
-- **SSR-safe**: No flash of unstyled content
-- **System preference**: Respects user's OS theme
-- **localStorage**: Persists user preference
-- **Simple API**: Minimal configuration
+Three cases, resolved in `ProjectVisual`:
 
-## Data Models
+1. **Real screenshot** — `media.desktop`, a WebP in `public/work/`, served
+   through `next/image` with explicit dimensions so nothing shifts on load.
+2. **Architecture diagram** — `media.diagram`, for a kernel, a private
+   deployment, or a Python package. Built from CSS and an ordered list rather
+   than a fixed SVG, so it reflows on a phone and reads correctly to a screen
+   reader. Has a `compact` density for grid cards.
+3. **Neither** — a plain frame saying there is no public deployment.
 
-### BlogPost Interface
-\`\`\`typescript
-interface BlogPost {
-  id: number
-  slug: string              // URL-friendly identifier
-  title: string
-  excerpt: string           // Short description
-  content: string           // Full markdown content
-  date: string              // Display date
-  readTime: string          // Estimated read time
-  category: string          // "systems", "ai", "frontend"
-  tags: string[]            // ["linux", "kernel", "devops"]
-  author: {
-    name: string
-    avatar: string
-    role: string
-  }
-  featured: boolean         // Show in featured section
-  color: string             // Tailwind gradient class
-}
-\`\`\`
+There is no fourth case where a product UI is invented.
 
-## Component Categories
+## Styling
 
-### Server Components (Should Be)
-- Static content displays
-- Data fetching wrappers
-- SEO metadata generators
-- Layout components without interactivity
+Tailwind CSS 4 with tokens defined in `app/globals.css`. Both themes are written
+out explicitly; dark is not an inversion of light.
 
-### Client Components (Must Be)
-- Interactive forms
-- Theme toggles
-- Navigation with state
-- Components using React hooks
-- Browser API usage (localStorage, IntersectionObserver)
+Layout uses three container widths chosen per content type
+(`container-prose` / `container-default` / `container-wide`) and one spacing
+rhythm (`.section` / `.section-sm` / `.section-lg`), so no section invents its
+own padding.
 
-### Current Issue
-Too many components marked as client that could be server components:
-- `cursor-glow.tsx` - Could use CSS
-- `hero-section.tsx` - Animation could be CSS-based
-- `lab-notes.tsx` - Could be server component with CSS animations
-- `projects-grid.tsx` - Could be server component
+## Migration from V2
 
-## Performance Considerations
+`next.config.mjs` redirects every public V2 route. Each rule carries a comment
+explaining where its content went. No rule targets a path that is itself
+redirected, so there are no chains or loops.
 
-### Current Issues
-1. **Image optimization disabled** - All images unoptimized
-2. **No code splitting** - Large client bundles
-3. **No Suspense boundaries** - Blocking data fetching
-4. **Excessive client components** - Slower hydration
-5. **Unused fonts imported** - Wasted bandwidth
+Removed concepts and where they went:
 
-### Optimization Opportunities
-1. Enable Next.js image optimization
-2. Add Suspense boundaries for async operations
-3. Convert static components to Server Components
-4. Remove unused font imports
-5. Implement route-based code splitting
-6. Add loading states (`loading.tsx`)
-7. Add error boundaries (`error.tsx`)
-
-## Security Considerations
-
-- TypeScript errors currently ignored (security risk)
-- No input validation in forms
-- No rate limiting on API routes (none exist yet)
-- Social links hard-coded (low risk)
-
-## Scalability Considerations
-
-### Current Scale: Portfolio/Blog (10-50 pages)
-✅ **Good for**:
-- Personal portfolio
-- Small blog (<50 posts)
-- Project showcase
-- Code experiments
-
-⚠️ **Will need changes for**:
-- 100+ blog posts → Move to MDX or CMS
-- Multiple authors → Add user management
-- Comments → Add database
-- Search → Add search service (Algolia/Meilisearch)
-- Analytics → Add proper tracking
-
-## Integration Points
-
-### External Services
-- **Vercel Analytics**: Page views, Web Vitals
-- **None yet**: No database, no authentication, no API
-
-### Browser APIs Used
-- `localStorage` - Theme persistence
-- `IntersectionObserver` - Scroll animations
-- `window.scrollY` - Header behavior
-- `matchMedia` - Media queries
-
-## Development Workflow
-
-See [development.md](./development.md) for detailed workflow.
-
-## Deployment
-
-See [deployment.md](./deployment.md) for deployment instructions.
-
-## Future Architecture Considerations
-
-### When to Add a Database
-- User accounts
-- Comments system
-- Dynamic content
-- Form submissions
-- Analytics beyond page views
-
-### When to Add a CMS
-- Non-technical content editors
-- Content workflow/approval
-- Scheduled publishing
-- Content versioning
-- Multi-language support
-
-### When to Add Authentication
-- User accounts
-- Protected content
-- Admin dashboard
-- Comments/interactions
-
----
-
-**Last Updated**: December 24, 2025  
-**Maintainer**: Vanshaj Poonia  
-**Next Review**: When adding new major features
+| V2 | V3 |
+| --- | --- |
+| Projects | Work |
+| Lab | folded into Workbench; the OS explainer became a case-study section |
+| Blueprints | Workbench incubator, marked unbuilt |
+| Timeline | Experience (professional) and Archive (learning) |
+| Now | a section of About |
+| Roadmap | per-project status on Work |
+| Learning | Archive |
+| Artifacts | removed; every entry was a placeholder with no file behind it |
+| Blog | removed; the content was template filler, not authored writing |
+| Graveyard | Archive |

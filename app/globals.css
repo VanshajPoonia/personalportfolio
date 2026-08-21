@@ -1,90 +1,67 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-/* Refined color palette with softer, more sophisticated tones */
+/*
+ * Palette.
+ *
+ * Near-neutral greys carry the page; the teal accent is reserved for state that
+ * means something (active, live, current, focused) rather than applied to every
+ * border and heading. Both modes are defined explicitly rather than one being
+ * an inversion of the other.
+ */
 :root {
   --background: oklch(0.985 0.002 260);
-  --foreground: oklch(0.12 0.015 260);
+  --foreground: oklch(0.14 0.012 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.12 0.015 260);
+  --card-foreground: oklch(0.14 0.012 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0.015 260);
-  --primary: oklch(0.5 0.22 170);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0.008 260);
-  --secondary-foreground: oklch(0.22 0.015 260);
-  --muted: oklch(0.96 0.008 260);
-  --muted-foreground: oklch(0.48 0.01 260);
-  --accent: oklch(0.5 0.22 170);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.92 0.008 260);
-  --input: oklch(0.92 0.008 260);
-  --ring: oklch(0.5 0.22 170);
-  --chart-1: oklch(0.5 0.22 170);
-  --chart-2: oklch(0.5 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.728 0.189 84.429);
-  --chart-5: oklch(0.669 0.188 70.08);
+  --popover-foreground: oklch(0.14 0.012 260);
+  --primary: oklch(0.48 0.13 172);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.955 0.005 260);
+  --secondary-foreground: oklch(0.24 0.012 260);
+  --muted: oklch(0.955 0.005 260);
+  --muted-foreground: oklch(0.46 0.01 260);
+  --accent: oklch(0.48 0.13 172);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.005 260);
+  --input: oklch(0.9 0.005 260);
+  --ring: oklch(0.48 0.13 172);
   --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.008 260);
-  --sidebar-foreground: oklch(0.12 0.015 260);
-  --sidebar-primary: oklch(0.5 0.22 170);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.94 0.008 260);
-  --sidebar-accent-foreground: oklch(0.12 0.015 260);
-  --sidebar-border: oklch(0.92 0.008 260);
-  --sidebar-ring: oklch(0.5 0.22 170);
 
-  /* Custom animation tokens */
-  --glow-color: oklch(0.5 0.22 170 / 0.15);
-  --glow-color-strong: oklch(0.5 0.22 170 / 0.25);
+  --glow-color: oklch(0.48 0.13 172 / 0.16);
 }
 
 .dark {
-  --background: oklch(0.06 0.015 260);
-  --foreground: oklch(0.96 0 0);
-  --card: oklch(0.1 0.015 260);
-  --card-foreground: oklch(0.96 0 0);
-  --popover: oklch(0.1 0.015 260);
-  --popover-foreground: oklch(0.96 0 0);
-  --primary: oklch(0.72 0.2 170);
-  --primary-foreground: oklch(0.06 0.015 260);
-  --secondary: oklch(0.16 0.015 260);
-  --secondary-foreground: oklch(0.88 0 0);
-  --muted: oklch(0.16 0.015 260);
-  --muted-foreground: oklch(0.58 0 0);
-  --accent: oklch(0.72 0.2 170);
-  --accent-foreground: oklch(0.06 0.015 260);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.2 0.015 260);
-  --input: oklch(0.2 0.015 260);
-  --ring: oklch(0.72 0.2 170);
-  --chart-1: oklch(0.72 0.2 170);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.08 0.015 260);
-  --sidebar-foreground: oklch(0.96 0 0);
-  --sidebar-primary: oklch(0.72 0.2 170);
-  --sidebar-primary-foreground: oklch(0.06 0.015 260);
-  --sidebar-accent: oklch(0.16 0.015 260);
-  --sidebar-accent-foreground: oklch(0.96 0 0);
-  --sidebar-border: oklch(0.2 0.015 260);
-  --sidebar-ring: oklch(0.72 0.2 170);
+  --background: oklch(0.09 0.008 260);
+  --foreground: oklch(0.96 0.002 260);
+  --card: oklch(0.12 0.008 260);
+  --card-foreground: oklch(0.96 0.002 260);
+  --popover: oklch(0.13 0.008 260);
+  --popover-foreground: oklch(0.96 0.002 260);
+  --primary: oklch(0.78 0.14 172);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --secondary: oklch(0.17 0.008 260);
+  --secondary-foreground: oklch(0.9 0.002 260);
+  --muted: oklch(0.17 0.008 260);
+  --muted-foreground: oklch(0.68 0.008 260);
+  --accent: oklch(0.78 0.14 172);
+  --accent-foreground: oklch(0.12 0.01 260);
+  --destructive: oklch(0.63 0.19 25);
+  --destructive-foreground: oklch(0.12 0.01 260);
+  --border: oklch(0.24 0.008 260);
+  --input: oklch(0.24 0.008 260);
+  --ring: oklch(0.78 0.14 172);
 
-  --glow-color: oklch(0.72 0.2 170 / 0.12);
-  --glow-color-strong: oklch(0.72 0.2 170 / 0.22);
+  --glow-color: oklch(0.78 0.14 172 / 0.1);
 }
 
 @theme inline {
   --font-sans: var(--font-geist), "Geist", "Geist Fallback", system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), "Geist Mono", "Geist Mono Fallback", monospace;
+  --font-mono: var(--font-geist-mono), "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -104,307 +81,190 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /*
+   * Anchor targets sit under a fixed header. Scroll padding on the root fixes
+   * every in-page link at once instead of a scroll-mt on each target.
+   */
+  html {
+    scroll-padding-top: 6rem;
   }
 }
 
-/* Enhanced cursor glow with smoother gradient */
+/*
+ * Layout primitives.
+ *
+ * Width is a deliberate choice per content type rather than one max-width
+ * everywhere: prose wants a comfortable measure, product imagery and diagrams
+ * want room.
+ */
+.container-wide,
+.container-default,
+.container-prose {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.container-wide {
+  max-width: 84rem;
+}
+.container-default {
+  max-width: 72rem;
+}
+.container-prose {
+  max-width: 46rem;
+}
+
+@media (min-width: 640px) {
+  .container-wide,
+  .container-default,
+  .container-prose {
+    padding-inline: 2rem;
+  }
+}
+
+/* One rhythm, three sizes, so no section invents its own padding. */
+.section {
+  padding-block: 4rem;
+}
+.section-sm {
+  padding-block: 2.5rem;
+}
+.section-lg {
+  padding-block: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6rem;
+  }
+  .section-sm {
+    padding-block: 3.5rem;
+  }
+  .section-lg {
+    padding-block: 8rem;
+  }
+}
+
+/* Small-caps mono label for eyebrows, statuses, and metadata. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.25;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/*
+ * Faint engineering grid, behind the hero only, so it frames the work instead
+ * of texturing the whole site.
+ */
+.grid-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.45;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
+}
+
+.dark .grid-backdrop {
+  opacity: 0.7;
+}
+
+/* On a phone the cells are large relative to the viewport and cut through the
+   headline, so the grid only appears once there is room for it to recede. */
+@media (max-width: 639px) {
+  .grid-backdrop {
+    display: none;
+  }
+}
+
+/*
+ * Cursor glow. Position is written directly to the transform by the component,
+ * so nothing here animates on its own.
+ */
 .cursor-glow {
   pointer-events: none;
   position: fixed;
-  width: 400px;
-  height: 400px;
+  z-index: 0;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--glow-color) 0%, transparent 65%);
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: blur(10px);
+  filter: blur(12px);
+  transition: opacity 0.4s ease;
+  will-change: transform;
 }
 
-:root:not(.dark) .cursor-glow {
-  background: radial-gradient(circle, var(--glow-color-strong) 0%, transparent 65%);
-}
-
-/* Refined scanline effect - more subtle */
-.scanlines::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    oklch(0 0 0 / 0.015) 3px,
-    oklch(0 0 0 / 0.015) 6px
-  );
-  pointer-events: none;
-  z-index: 100;
-}
-
-/* Dark mode needs a light stripe; black on near-black renders as nothing */
-.dark .scanlines::before {
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    oklch(1 0 0 / 0.012) 3px,
-    oklch(1 0 0 / 0.012) 6px
-  );
-}
-
-/* Smoother glitch animation */
-@keyframes glitch {
-  0%,
-  100% {
-    transform: translate(0);
-  }
-  10% {
-    transform: translate(-1px, 1px);
-  }
-  30% {
-    transform: translate(1px, -1px);
-  }
-  50% {
-    transform: translate(-1px, -1px);
-  }
-  70% {
-    transform: translate(1px, 1px);
-  }
-  90% {
-    transform: translate(0.5px, -0.5px);
-  }
-}
-
-.glitch:hover {
-  animation: glitch 0.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-/* Typing cursor */
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.typing-cursor::after {
-  content: "▋";
-  animation: blink 1s step-end infinite;
-  color: var(--primary);
-}
-
-:root:not(.dark) .typing-cursor::after {
-  color: var(--primary);
-}
-
-/* New animation utilities */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* Stagger animation delays */
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-.stagger-5 {
-  animation-delay: 0.5s;
-}
-.stagger-6 {
-  animation-delay: 0.6s;
-}
-.stagger-7 {
-  animation-delay: 0.7s;
-}
-.stagger-8 {
-  animation-delay: 0.8s;
-}
-
-/* Glass morphism effect */
-.glass {
-  background: oklch(from var(--card) l c h / 0.6);
-  backdrop-filter: blur(12px) saturate(1.5);
-  -webkit-backdrop-filter: blur(12px) saturate(1.5);
-}
-
-/* Interactive hover card effect */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px -8px oklch(0 0 0 / 0.12);
-}
-
-.dark .hover-lift:hover {
-  box-shadow: 0 12px 40px -8px oklch(0 0 0 / 0.4);
-}
-
-/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 3px;
+  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-foreground);
 }
 
-/* Hide scrollbar utility */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-/* Focus styles enhancement */
 :focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
 
-/* Selection styling */
 ::selection {
-  background: oklch(from var(--primary) l c h / 0.3);
+  background: oklch(from var(--primary) l c h / 0.25);
   color: var(--foreground);
 }
 
 /*
- * Reduced motion. The looping effects (float, glitch, ping, pulse, scanlines,
- * typing cursor) are ambience, so they stop entirely. Entrance animations only
- * lose their travel, so content still lands in its final state.
+ * Reduced motion. There are no looping animations left in the design, so this
+ * only has to neutralise transitions, smooth scrolling, and the glow. The
+ * cursor glow additionally removes itself in JavaScript.
  */
 @media (prefers-reduced-motion: reduce) {
-  .animate-float,
-  .glitch:hover,
-  .typing-cursor::after,
-  .animate-pulse,
-  .animate-ping {
-    animation: none !important;
-  }
-
-  .scanlines::before {
+  .cursor-glow {
     display: none;
-  }
-
-  .animate-fade-in-up,
-  .animate-fade-in,
-  .animate-scale-in {
-    animation-duration: 0.01ms !important;
-    animation-delay: 0ms !important;
-  }
-
-  .hover-lift:hover {
-    transform: none;
   }
 
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }

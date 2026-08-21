@@ -1,309 +1,232 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { Github, Twitter, Linkedin, ChevronDown } from "lucide-react"
-import { ThemeToggle } from "./theme-toggle"
-import { ThemeChanger } from "./theme-changer"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-
-const primaryNavItems = [
-  { label: "Projects", href: "/projects" },
-  { label: "Lab", href: "/lab" },
-  { label: "Workbench", href: "/workbench" },
-  { label: "Blueprints", href: "/blueprints" },
-  { label: "Research", href: "/research" },
-]
-
-const moreNavItems = [
-  { label: "Now", href: "/now" },
-  { label: "Roadmap", href: "/roadmap" },
-  { label: "Timeline", href: "/timeline" },
-  { label: "Learning", href: "/learning" },
-  { label: "Artifacts", href: "/artifacts" },
-  { label: "Blog", href: "/blog" },
-]
-
-const socialLinks = [
-  { label: "GitHub", href: "https://github.com/VanshajPoonia", icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/vanshajpoonia/", icon: Linkedin },
-  { label: "X", href: "https://x.com/PooniaVanshaj", icon: Twitter },
-]
+import { usePathname } from "next/navigation"
+import { Github, Menu, Search, X } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { person, primaryNav, secondaryNav } from "@/lib/data/site"
+import { ThemeToggle } from "./theme-toggle"
+import { CommandPalette, useCommandPalette } from "./command-palette"
 
 export function Header() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMoreHovered, setIsMoreHovered] = useState(false)
-  const [isMoreLocked, setIsMoreLocked] = useState(false)
-  const isMoreOpen = isMoreHovered || isMoreLocked
-  const moreRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { open: paletteOpen, setOpen: setPaletteOpen } = useCommandPalette()
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
 
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
-    return pathname.startsWith(href)
-  }
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href))
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Close locked dropdown on outside click
+  // Route changes close the drawer; otherwise it stays open over the new page.
   useEffect(() => {
-    if (!isMoreLocked) return
-    const handleOutside = (e: MouseEvent) => {
-      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
-        setIsMoreLocked(false)
-      }
+    setMenuOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (!menuOpen) {
+      menuButtonRef.current?.focus?.()
+      return
     }
-    document.addEventListener("mousedown", handleOutside)
-    return () => document.removeEventListener("mousedown", handleOutside)
-  }, [isMoreLocked])
+    const previous = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    closeButtonRef.current?.focus()
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false)
+    }
+    document.addEventListener("keydown", onKeyDown)
+    return () => {
+      document.body.style.overflow = previous
+      document.removeEventListener("keydown", onKeyDown)
+    }
+    // Refs are stable, so menuOpen is the only real dependency here.
+  }, [menuOpen])
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled ? "border-b border-border/50 bg-background/80 backdrop-blur-xl shadow-sm" : "bg-transparent",
-      )}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4">
-        <nav className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center gap-3">
-            <div className="relative flex h-9 w-9 items-center justify-center rounded-lg border border-primary/50 bg-primary/10 font-mono text-sm text-primary transition-all duration-400 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-primary/25">
-              <span className="glitch">{"⚡"}</span>
-            </div>
-            <span className="font-mono text-sm tracking-tight">
-              VANSHAJPOONIA
-              <span className="text-primary font-semibold">
-                .COM
-              </span>
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden items-center gap-1 lg:flex">
-            {primaryNavItems.map((item, index) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={cn(
-                  "relative px-3 py-2.5 font-mono text-xs uppercase tracking-widest transition-all duration-300 rounded-lg",
-                  isActive(item.href)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50",
-                  hoveredIndex === index && !isActive(item.href) && "text-foreground",
-                )}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <span
-                  className={cn(
-                    "absolute left-1 text-primary transition-all duration-200",
-                    isActive(item.href)
-                      ? "opacity-100 translate-x-0"
-                      : hoveredIndex === index
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-2",
-                  )}
-                >
-                  {">"}
-                </span>
-                <span
-                  className={cn(
-                    "transition-transform duration-200",
-                    (hoveredIndex === index || isActive(item.href)) && "translate-x-2",
-                  )}
-                >
-                  {item.label}
-                </span>
-                <span
-                  className={cn(
-                    "absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-primary rounded-full transition-all duration-300",
-                    isActive(item.href) ? "w-6" : hoveredIndex === index ? "w-6" : "w-0",
-                  )}
-                />
-              </Link>
-            ))}
-
-            {/* More dropdown */}
-            <div
-              ref={moreRef}
-              className="relative"
-              onMouseEnter={() => setIsMoreHovered(true)}
-              onMouseLeave={() => setIsMoreHovered(false)}
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+          scrolled ? "border-b border-border/60 bg-background/85 backdrop-blur-xl" : "border-b border-transparent",
+        )}
+      >
+        <div className="container-wide">
+          <nav aria-label="Primary" className="flex h-16 items-center justify-between gap-6">
+            <Link
+              href="/"
+              className="flex shrink-0 items-center gap-2 font-mono text-sm tracking-tight"
+              aria-label="Vanshaj Poonia, home"
             >
-              <button
-                type="button"
-                onClick={() => setIsMoreLocked((l) => !l)}
-                className={cn(
-                  "relative flex items-center gap-1 px-3 py-2.5 font-mono text-xs uppercase tracking-widest transition-all duration-300 rounded-lg",
-                  moreNavItems.some((item) => isActive(item.href)) || isMoreLocked
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50",
-                )}
-                aria-haspopup="menu"
-                aria-expanded={isMoreOpen}
+              <span
+                aria-hidden="true"
+                className="flex h-7 w-7 items-center justify-center rounded border border-primary/50 text-xs text-primary"
               >
-                <span>More</span>
-                <ChevronDown
-                  className={cn(
-                    "h-3 w-3 transition-transform duration-200",
-                    isMoreOpen && "rotate-180",
-                  )}
-                />
-              </button>
-              <div
-                className={cn(
-                  "absolute right-0 top-full z-50 mt-1 min-w-[200px] origin-top-right rounded-lg border border-border bg-card/95 p-1 shadow-xl backdrop-blur-xl transition-all duration-200",
-                  isMoreOpen
-                    ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
-                    : "pointer-events-none opacity-0 scale-95 -translate-y-1",
-                )}
-                role="menu"
-              >
-                {moreNavItems.map((item) => (
+                &gt;_
+              </span>
+              <span className="hidden sm:inline">
+                VANSHAJ POONIA
+              </span>
+            </Link>
+
+            <ul className="hidden items-center gap-1 lg:flex">
+              {primaryNav.map((item) => (
+                <li key={item.href}>
                   <Link
-                    key={item.label}
                     href={item.href}
-                    onClick={() => { setIsMoreLocked(false); setIsMoreHovered(false) }}
+                    aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
-                      "flex items-center gap-2 rounded-md px-3 py-2 font-mono text-xs uppercase tracking-widest transition-colors",
+                      "relative rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-colors",
                       isActive(item.href)
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/60",
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground",
                     )}
                   >
-                    <span className="text-primary/70">{">"}</span>
                     {item.label}
+                    {isActive(item.href) && (
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-3 -bottom-px h-px bg-primary"
+                      />
+                    )}
                   </Link>
-                ))}
-              </div>
-            </div>
+                </li>
+              ))}
+            </ul>
 
-            <div className="ml-2 flex items-center gap-1">
-              <ThemeChanger />
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => setPaletteOpen(true)}
+                aria-label="Open command palette"
+                className="flex h-9 items-center justify-center gap-2 rounded-md px-2 font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground sm:h-auto sm:border sm:border-border/70 sm:px-2.5 sm:py-1.5 sm:hover:border-border"
+              >
+                <Search aria-hidden="true" className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
+                {/* The shortcut hint is only true where there is a keyboard. */}
+                <kbd className="hidden font-mono sm:inline">⌘K</kbd>
+              </button>
+
+              <a
+                href={person.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile (opens in a new tab)"
+                className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Github aria-hidden="true" className="h-4 w-4" />
+              </a>
+
               <ThemeToggle />
-            </div>
-          </div>
 
-          <div className="flex items-center gap-4">
-            <div className="hidden items-center gap-1 sm:flex">
-              {socialLinks.map((link) => (
+              <button
+                ref={menuButtonRef}
+                type="button"
+                onClick={() => setMenuOpen(true)}
+                aria-label="Open menu"
+                aria-expanded={menuOpen}
+                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground lg:hidden"
+              >
+                <Menu aria-hidden="true" className="h-5 w-5" />
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Mobile drawer. A sheet rather than an app-style tab bar: this is a
+          website, and the navigation is five links. */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          <div
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+            onClick={() => setMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-border bg-background"
+          >
+            <div className="flex h-16 items-center justify-between px-5">
+              <p className="label text-muted-foreground">Menu</p>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <X aria-hidden="true" className="h-5 w-5" />
+              </button>
+            </div>
+
+            <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-5 pb-8">
+              <ul className="space-y-1">
+                {primaryNav.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={isActive(item.href) ? "page" : undefined}
+                      className={cn(
+                        "flex min-h-[52px] flex-col justify-center rounded-lg px-4 py-3 transition-colors",
+                        isActive(item.href) ? "bg-secondary text-foreground" : "text-foreground hover:bg-secondary/60",
+                      )}
+                    >
+                      <span className="font-mono text-sm uppercase tracking-[0.14em]">{item.label}</span>
+                      {item.description && (
+                        <span className="mt-0.5 text-xs text-muted-foreground">{item.description}</span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="label px-4 pb-2 pt-7 text-muted-foreground">More</p>
+              <ul className="space-y-1">
+                {secondaryNav.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={isActive(item.href) ? "page" : undefined}
+                      className={cn(
+                        "flex min-h-[48px] items-center rounded-lg px-4 py-3 font-mono text-sm uppercase tracking-[0.14em] transition-colors",
+                        isActive(item.href) ? "bg-secondary text-foreground" : "text-muted-foreground hover:bg-secondary/60",
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-7 border-t border-border/60 pt-5">
                 <a
-                  key={link.label}
-                  href={link.href}
+                  href={person.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="group relative flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-all duration-300 hover:text-primary hover:bg-primary/10"
+                  className="flex min-h-[48px] items-center gap-3 rounded-lg px-4 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <link.icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-card border border-border px-2.5 py-1 font-mono text-[10px] text-muted-foreground opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:-bottom-9 pointer-events-none shadow-lg">
-                    {link.label}
+                  <Github aria-hidden="true" className="h-4 w-4" />
+                  GitHub
+                  <span aria-hidden="true" className="opacity-60">
+                    ↗
                   </span>
                 </a>
-              ))}
-            </div>
-
-            <div className="hidden h-5 w-px bg-border sm:block" />
-
-            <div className="hidden items-center gap-2.5 font-mono text-xs text-muted-foreground sm:flex px-3 py-1.5 rounded-full bg-secondary/50 border border-border/50">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              <span>status: building</span>
-            </div>
-
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card/50 lg:hidden transition-colors hover:bg-secondary"
-              aria-label="Toggle menu"
-            >
-              <div className="flex flex-col gap-1.5 w-5">
-                <span
-                  className={cn(
-                    "h-0.5 bg-foreground transition-all duration-300 origin-center",
-                    isMobileMenuOpen ? "w-5 translate-y-2 rotate-45" : "w-5",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 w-3.5 bg-foreground transition-all duration-300",
-                    isMobileMenuOpen && "opacity-0 translate-x-2",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 bg-foreground transition-all duration-300 origin-center",
-                    isMobileMenuOpen ? "w-5 -translate-y-2 -rotate-45" : "w-5",
-                  )}
-                />
               </div>
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile Menu */}
-        <div
-          className={cn(
-            "transition-all duration-400 lg:hidden bg-background overflow-hidden",
-            isMobileMenuOpen ? "max-h-[80vh] opacity-100 pt-4 overflow-y-auto" : "max-h-0 opacity-0",
-          )}
-        >
-          <div className="flex flex-col gap-1 border-t border-border/50 pt-4">
-            {[...primaryNavItems, ...moreNavItems].map((item, index) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={cn(
-                  "flex items-center gap-3 rounded-lg px-4 py-3 font-mono text-sm uppercase tracking-widest transition-all duration-200 active:bg-secondary hover:bg-secondary/50",
-                  isActive(item.href) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground",
-                )}
-                style={{ animationDelay: `${index * 30}ms` }}
-              >
-                <span className="text-primary">{">"}</span>
-                {item.label}
-              </Link>
-            ))}
-
-            <div className="mt-4 flex items-center gap-2 border-t border-border/50 pt-4 px-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/50 text-muted-foreground transition-colors active:bg-secondary hover:border-primary/50 hover:text-primary hover:bg-primary/10"
-                >
-                  <link.icon className="h-4 w-4" />
-                </a>
-              ))}
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/50">
-                <ThemeChanger />
-              </div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/50">
-                <ThemeToggle />
-              </div>
-            </div>
-
-            <div className="mt-3 flex items-center gap-2.5 px-4 py-3 font-mono text-xs text-muted-foreground bg-secondary/30 rounded-lg mx-4 mb-2">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              <span>status: building</span>
-            </div>
+            </nav>
           </div>
         </div>
-      </div>
-    </header>
+      )}
+
+      <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
+    </>
   )
 }

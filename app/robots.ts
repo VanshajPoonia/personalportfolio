@@ -1,16 +1,21 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next"
+import { siteUrl } from "@/lib/data/site"
 
+/**
+ * Generated rather than served from a static file. A `public/robots.txt` would
+ * take precedence over this route, so it was removed: the old one still
+ * pointed its sitemap at a domain that has nothing to do with this site.
+ */
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vanshajpoonia.com'
-
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/'],
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   }
 }

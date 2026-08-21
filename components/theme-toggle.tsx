@@ -1,64 +1,37 @@
-"use client";
+"use client"
 
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { Sun, Moon, Monitor } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
+import { Moon, Sun } from "lucide-react"
 
+/**
+ * Light/dark toggle.
+ *
+ * Renders a fixed-size placeholder before mount so the header does not shift
+ * when the resolved theme arrives, and so the server and client markup match.
+ */
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    return (
-      <div className="flex h-8 w-8 items-center justify-center">
-        <div className="h-4 w-4 animate-pulse rounded bg-muted" />
-      </div>
-    );
+    return <div className="h-9 w-9" aria-hidden="true" />
   }
 
-  const themes = [
-    { value: "light", icon: Sun, label: "Light" },
-    { value: "dark", icon: Moon, label: "Dark" },
-  ];
-
-  // Handle undefined theme - default to "dark" as per layout.tsx defaultTheme
-  const currentTheme = theme ?? "dark";
-  
-  // Determine which icon to show based on resolved theme (what user actually sees)
-  let CurrentIcon: typeof Sun | typeof Moon | typeof Monitor;
-  if (currentTheme === "system") {
-    CurrentIcon = Monitor;
-  } else {
-    // Use resolvedTheme for icon when available (handles system theme case)
-    const displayTheme = resolvedTheme ?? currentTheme;
-    const themeIndex = themes.findIndex((t) => t.value === displayTheme);
-    CurrentIcon = themes[themeIndex >= 0 ? themeIndex : 0]?.icon || Moon;
-  }
-  
-  // For next theme, cycle through available themes based on current theme setting
-  // If current theme is "system" or not in themes array, start from "light"
-  const themeIndex = themes.findIndex((t) => t.value === currentTheme);
-  const nextIndex = themeIndex >= 0 ? (themeIndex + 1) % themes.length : 0;
-  const nextTheme = themes[nextIndex];
+  const isDark = resolvedTheme === "dark"
+  const next = isDark ? "light" : "dark"
+  const Icon = isDark ? Moon : Sun
 
   return (
     <button
-      onClick={() => setTheme(nextTheme.value)}
-      className={cn(
-        "group relative flex size-8 items-center justify-center rounded",
-        "text-muted-foreground transition-all duration-200 hover:text-primary"
-      )}
-      aria-label={`Switch to ${nextTheme.label} theme`}
+      type="button"
+      onClick={() => setTheme(next)}
+      aria-label={`Switch to ${next} theme`}
+      className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
     >
-      <CurrentIcon className="size-4" />
-      <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-card px-2 py-0.5 font-mono text-[10px] text-muted-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        {resolvedTheme ?? currentTheme}
-      </span>
+      <Icon aria-hidden="true" className="h-4 w-4" />
     </button>
-  );
+  )
 }

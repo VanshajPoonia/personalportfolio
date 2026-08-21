@@ -4,86 +4,60 @@ export interface NavItem {
   description?: string
 }
 
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpoonia.com"
+
+export const person = {
+  name: "Vanshaj Poonia",
+  title: "Full Stack & AI Developer",
+  location: "Delhi, India",
+  email: "vanshajpoonia06@gmail.com",
+  github: "https://github.com/VanshajPoonia",
+  githubHandle: "VanshajPoonia",
+  linkedin: "https://www.linkedin.com/in/vanshajpoonia/",
+  x: "https://x.com/PooniaVanshaj",
+  xHandle: "@PooniaVanshaj",
+}
+
+export const positioning = {
+  /** Hero headline, split so the layout can break it deliberately. */
+  headline: ["I build software", "across the stack."],
+  /** One sentence that has to survive the five-second test. */
+  lede:
+    "Full-stack products, AI systems, developer tools, and an operating system I am writing to understand what sits underneath all of them.",
+  /** The through-line. Used in the spectrum section and metadata. */
+  thesis: "From interfaces to infrastructure.",
+  metaDescription:
+    "Vanshaj Poonia builds full-stack products, AI systems, developer tools, and a hobby operating system in Rust. Selected work, case studies, and open-source contributions.",
+}
+
 export const primaryNav: NavItem[] = [
-  { label: "Projects", href: "/projects" },
-  { label: "Lab", href: "/lab" },
-  { label: "Workbench", href: "/workbench" },
-  { label: "Blueprints", href: "/blueprints" },
-  { label: "Research", href: "/research" },
-  { label: "Now", href: "/now" },
-  { label: "Roadmap", href: "/roadmap" },
-  { label: "Timeline", href: "/timeline" },
+  { label: "Work", href: "/work", description: "Products, systems, and tools I have built." },
+  { label: "Experience", href: "/experience", description: "Professional and collaborative engineering." },
+  { label: "Open Source", href: "/open-source", description: "Contributions to codebases I did not write." },
+  { label: "Research", href: "/research", description: "Currently inactive." },
+  { label: "About", href: "/about", description: "Background, current focus, and how to reach me." },
 ]
 
 export const secondaryNav: NavItem[] = [
-  { label: "Learning", href: "/learning" },
-  { label: "Artifacts", href: "/artifacts" },
-  { label: "Blog", href: "/blog" },
+  { label: "Workbench", href: "/workbench", description: "Build logs, debugging notes, and design studies." },
+  { label: "Archive", href: "/archive", description: "Earlier work, kept honest." },
 ]
 
-export const exploreCards: NavItem[] = [
-  {
-    label: "Projects",
-    href: "/projects",
-    description: "Polished builds, shipped products, active experiments, and earlier work.",
-  },
-  {
-    label: "Lab",
-    href: "/lab",
-    description: "Interactive demos, visual experiments, terminal toys, and OS explainers.",
-  },
-  {
-    label: "Workbench",
-    href: "/workbench",
-    description: "Build logs, debugging notes, architecture sketches, and experiments in progress.",
-  },
-  {
-    label: "Blueprints",
-    href: "/blueprints",
-    description: "Technical system designs for platforms, AI workspaces, cloud tools, and enterprise software.",
-  },
-  {
-    label: "Research",
-    href: "/research",
-    description: "Exploratory papers, technical comparisons, and long-form research notes.",
-  },
-  {
-    label: "Now",
-    href: "/now",
-    description: "What I'm currently building, learning, exploring, and shipping.",
-  },
-  {
-    label: "Roadmap",
-    href: "/roadmap",
-    description: "What is active, next, later, paused, and shipped.",
-  },
-  {
-    label: "Timeline",
-    href: "/timeline",
-    description: "My developer journey from early learning builds to systems, AI, and enterprise tools.",
-  },
-  {
-    label: "Learning",
-    href: "/learning",
-    description: "Study maps across OS development, Rust, AI infrastructure, graphics, enterprise software, and product.",
-  },
-  {
-    label: "Artifacts",
-    href: "/artifacts",
-    description: "Downloadable notes, PDFs, diagrams, prompt packs, and technical resources.",
-  },
-]
+export const socialLinks = [
+  { label: "GitHub", href: person.github, handle: "@VanshajPoonia" },
+  { label: "LinkedIn", href: person.linkedin, handle: "vanshajpoonia" },
+  { label: "X", href: person.x, handle: person.xHandle },
+  { label: "Email", href: `mailto:${person.email}`, handle: person.email },
+] as const
 
+/**
+ * What I am actually spending engineering time on. Kept short on purpose, and
+ * kept free of research language because there is no active research.
+ */
 export const currentFocus = [
-  "Rust OS development",
-  "AI developer tools",
-  "Enterprise finance platforms",
-  "Interactive web experiments",
-  "Exploratory research papers",
-  "System design / architecture notes",
+  "Product engineering",
+  "AI systems and tooling",
+  "Systems programming",
+  "Machine-learning internals",
+  "Open source",
 ]
-
-export const positioning = {
-  hero: "Not a portfolio. A living developer lab.",
-  sub: "I build systems experiments, AI workspaces, enterprise tools, creative dev utilities, research notes, and technical artifacts in public.",
-}

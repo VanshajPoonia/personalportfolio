@@ -1,102 +1,130 @@
-import { Github, Twitter, Globe, ExternalLink, Linkedin } from "lucide-react"
+import Link from "next/link"
+import { person, primaryNav, secondaryNav } from "@/lib/data/site"
+import { Container } from "@/components/layout/section"
+import { ExternalLink } from "@/components/ui/external-link"
 
-const socialLinks = [
-  { label: "Website", href: "https://vanshajpoonia.com", handle: "vanshajpoonia.com", icon: Globe },
-  { label: "GitHub", href: "https://github.com/VanshajPoonia", handle: "@VanshajPoonia", icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/vanshajpoonia/", handle: "vanshajpoonia", icon: Linkedin },
-  { label: "X", href: "https://x.com/PooniaVanshaj", handle: "@PooniaVanshaj", icon: Twitter },
+const contactLinks = [
+  { label: "Email", href: `mailto:${person.email}`, handle: person.email, external: false },
+  { label: "GitHub", href: person.github, handle: "@VanshajPoonia", external: true },
+  { label: "LinkedIn", href: person.linkedin, handle: "vanshajpoonia", external: true },
 ]
+
+export function ContactCTA() {
+  return (
+    <section id="contact" className="border-t border-border/60">
+      <Container>
+        <div className="section-lg grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="space-y-5 lg:col-span-6">
+            <p className="label text-muted-foreground">
+              <span aria-hidden="true" className="text-primary">
+                08
+              </span>{" "}
+              / Contact
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+              Have an interesting problem?
+            </h2>
+            <p className="max-w-md text-pretty leading-relaxed text-muted-foreground">
+              I am most useful on the ones that cross a boundary: a product decision that turns out to be a
+              data-model decision, or a bug that only reproduces in production. If that sounds like yours, I
+              would like to hear about it.
+            </p>
+          </div>
+
+          <div className="lg:col-span-6 lg:pt-10">
+            <ul className="divide-y divide-border/60 border-y border-border/60">
+              {contactLinks.map((link) => (
+                <li key={link.label}>
+                  {link.external ? (
+                    <ExternalLink
+                      href={link.href}
+                      label={link.label}
+                      showMarker={false}
+                      className="flex items-baseline justify-between gap-6 py-4 text-base"
+                    >
+                      <span className="font-medium">{link.label}</span>
+                      <span className="truncate font-mono text-xs text-muted-foreground">
+                        {link.handle} <span aria-hidden="true">↗</span>
+                      </span>
+                    </ExternalLink>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="flex items-baseline justify-between gap-6 py-4 text-base transition-colors hover:text-primary"
+                    >
+                      <span className="font-medium">{link.label}</span>
+                      <span className="truncate font-mono text-xs text-muted-foreground">{link.handle}</span>
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )
+}
 
 export function Footer() {
   return (
-    <footer id="connect" className="border-t border-border/30 px-4 sm:px-6 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 sm:gap-16 lg:grid-cols-2">
-          {/* Left column */}
-          <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
-            <div className="space-y-3">
-              <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">Connect</p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-balance">
-                {"Let's build something "}
-                <span className="text-primary">together</span>
-              </h2>
-            </div>
-            <p className="max-w-md text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Open to collaborations, hard problems, and arguments about architecture. X is the fastest way to reach me.
-            </p>
-
-            <div className="pt-2">
-              <a
-                href="https://x.com/PooniaVanshaj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-xl border border-primary bg-primary/10 px-8 py-4 sm:py-4 font-mono text-sm text-primary transition-all duration-500 hover:text-primary-foreground active:scale-[0.98] w-full sm:w-auto"
-              >
-                <span className="relative z-10">send a signal</span>
-                <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                <span className="absolute inset-0 -translate-x-full bg-primary transition-transform duration-500 group-hover:translate-x-0" />
-              </a>
-            </div>
+    <footer className="border-t border-border/60">
+      <Container>
+        <div className="flex flex-col gap-8 py-10 sm:flex-row sm:items-start sm:justify-between">
+          <div className="space-y-1.5">
+            <p className="font-mono text-sm">Vanshaj Poonia</p>
+            <p className="font-mono text-xs text-muted-foreground">{person.title}</p>
           </div>
 
-          {/* Right column - Links */}
-          <div className="space-y-6 lg:text-right animate-fade-in-up stagger-2">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-muted-foreground">
-              Find me elsewhere
-            </p>
-            <div className="space-y-2">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between gap-4 rounded-xl border border-transparent p-4 transition-all duration-300 lg:flex-row-reverse active:bg-secondary/30 hover:border-border/50 hover:bg-card/50 glass animate-fade-in"
-                  style={{ animationDelay: `${index * 100 + 400}ms` }}
-                >
-                  <div className="flex items-center gap-3 lg:flex-row-reverse">
-                    <link.icon className="h-5 w-5 text-muted-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-110" />
-                    <span className="font-mono text-sm font-medium transition-colors group-hover:text-primary">
-                      {link.label}
-                    </span>
-                    <ExternalLink className="h-3 w-3 text-muted-foreground/50 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1" />
-                  </div>
-                  <span className="font-mono text-xs text-muted-foreground truncate">{link.handle}</span>
-                </a>
+          <nav aria-label="Footer" className="flex flex-wrap gap-x-8 gap-y-3">
+            <ul className="space-y-2">
+              {primaryNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+            <ul className="space-y-2">
+              {secondaryNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <ExternalLink
+                  href={person.github}
+                  label="GitHub profile"
+                  className="font-mono text-xs text-muted-foreground"
+                >
+                  GitHub
+                </ExternalLink>
+              </li>
+            </ul>
+          </nav>
         </div>
 
-        <div className="mt-16 sm:mt-20 flex flex-col items-center justify-between gap-6 border-t border-border/30 pt-8 sm:pt-10 sm:flex-row animate-fade-in stagger-4">
-          <div className="flex items-center gap-2.5 font-mono text-xs text-muted-foreground">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            <span>still building</span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            {socialLinks.slice(0, 3).map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                className="text-muted-foreground/50 transition-all duration-300 hover:text-primary hover:scale-110"
-              >
-                <link.icon className="h-5 w-5" />
-              </a>
-            ))}
-          </div>
-
-          <p className="font-mono text-xs text-muted-foreground text-center sm:text-right">
-            © {new Date().getFullYear()} Vanshaj Poonia · All experiments reserved
+        <div className="flex flex-col gap-3 border-t border-border/60 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-[11px] text-muted-foreground">
+            © {new Date().getFullYear()} Vanshaj Poonia
+          </p>
+          <p className="font-mono text-[11px] text-muted-foreground">
+            <span aria-hidden="true" className="text-primary">
+              &gt;_
+            </span>{" "}
+            From interfaces to infrastructure
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

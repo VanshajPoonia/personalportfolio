@@ -1,0 +1,9 @@
+# Build-script approval. pnpm 11 reads `allowBuilds` from here; pnpm 10, which
+# is what Vercel resolves from the lockfile, reads `pnpm.onlyBuiltDependencies`
+# in package.json. Both are declared so the install is identical either way.
+#
+# sharp powers Next's image optimisation at build time; unrs-resolver backs the
+# ESLint import resolver.
+allowBuilds:
+  sharp: true
+  unrs-resolver: true

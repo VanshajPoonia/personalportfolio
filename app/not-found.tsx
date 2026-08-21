@@ -1,49 +1,43 @@
-import Link from 'next/link'
+import Link from "next/link"
+import { SiteShell } from "@/components/site-shell"
+import { Container } from "@/components/layout/section"
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="max-w-2xl text-center">
-        <div className="mb-8">
-          {/* 404 Glitch Effect */}
-          <h1 className="text-9xl font-bold mb-4 font-mono relative">
-            <span className="glitch inline-block">404</span>
-          </h1>
-          <div className="h-1 w-32 bg-primary mx-auto mb-8" />
-          <h2 className="text-3xl font-bold mb-4">Page Not Found</h2>
-          <p className="text-muted-foreground text-lg mb-2">
-            The page you are looking for does not exist or has been moved.
+    <SiteShell>
+      <Container width="prose">
+        <div className="flex min-h-[55vh] flex-col justify-center py-20">
+          <p className="label text-muted-foreground">
+            <span aria-hidden="true" className="text-primary">
+              /
+            </span>{" "}
+            404
           </p>
-          <p className="text-muted-foreground">
-            Let us get you back on track.
+          <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">This route does not exist.</h1>
+          <p className="mt-4 max-w-md leading-relaxed text-muted-foreground">
+            The page may have moved during a redesign, or it may never have existed. Either way, the work is
+            still where it should be.
           </p>
-        </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Link
-            href="/"
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-          >
-            Go Home
-          </Link>
-          <Link
-            href="/blog"
-            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
-          >
-            Browse Blog
-          </Link>
-          <Link
-            href="/projects"
-            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
-          >
-            View Projects
-          </Link>
+          <ul className="mt-9 flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
+            <li>
+              <Link href="/work" className="text-primary transition-colors hover:text-foreground">
+                Back to work →
+              </Link>
+            </li>
+            <li>
+              <Link href="/" className="text-muted-foreground transition-colors hover:text-foreground">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/archive" className="text-muted-foreground transition-colors hover:text-foreground">
+                Archive
+              </Link>
+            </li>
+          </ul>
         </div>
-
-        <div className="text-sm text-muted-foreground font-mono">
-          <span className="text-primary">&gt;</span> Error code: 404_NOT_FOUND
-        </div>
-      </div>
-    </div>
+      </Container>
+    </SiteShell>
   )
 }
