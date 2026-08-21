@@ -7,7 +7,7 @@ import { ContactCTA } from "@/components/footer"
 import { Container } from "@/components/layout/section"
 import { TechList } from "@/components/ui/external-link"
 import { blueprints, getBlueprintBySlug } from "@/lib/data/blueprints"
-import { siteUrl } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/data/site"
 
 export function generateStaticParams() {
   return blueprints.map((blueprint) => ({ slug: blueprint.slug }))
@@ -22,16 +22,11 @@ export async function generateMetadata({
   const blueprint = getBlueprintBySlug(slug)
   if (!blueprint) return {}
 
-  return {
+  return pageMetadata({
     title: `${blueprint.title} — design study`,
     description: blueprint.summary,
-    alternates: { canonical: `${siteUrl}/workbench/incubator/${blueprint.slug}` },
-    openGraph: {
-      title: `${blueprint.title} — design study | Vanshaj Poonia`,
-      description: blueprint.summary,
-      url: `${siteUrl}/workbench/incubator/${blueprint.slug}`,
-    },
-  }
+    path: `/workbench/incubator/${blueprint.slug}`,
+  })
 }
 
 function ListSection({ id, title, items }: { id: string; title: string; items: string[] }) {

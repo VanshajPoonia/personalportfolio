@@ -6,19 +6,14 @@ import { PageHeader } from "@/components/layout/page-header"
 import { Section } from "@/components/layout/section"
 import { ExternalLink, TechList } from "@/components/ui/external-link"
 import { clientDelivery, experience } from "@/lib/data/experience"
-import { siteUrl } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/data/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Experience",
   description:
     "Professional and collaborative engineering: client product delivery, integration work, and platform development on a team.",
-  alternates: { canonical: `${siteUrl}/experience` },
-  openGraph: {
-    title: "Experience | Vanshaj Poonia",
-    description: "Client product delivery, integration engineering, and collaborative platform work.",
-    url: `${siteUrl}/experience`,
-  },
-}
+  path: "/experience",
+})
 
 export default function ExperiencePage() {
   return (

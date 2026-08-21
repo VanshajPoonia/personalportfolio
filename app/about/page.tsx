@@ -6,20 +6,15 @@ import { PageHeader } from "@/components/layout/page-header"
 import { Section } from "@/components/layout/section"
 import { ExternalLink } from "@/components/ui/external-link"
 import { skillGroups } from "@/lib/data/experience"
-import { person, siteUrl } from "@/lib/data/site"
+import { pageMetadata, person } from "@/lib/data/site"
 import { generatePersonStructuredData, jsonLd } from "@/lib/structured-data"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
     "Vanshaj Poonia is a full stack and AI developer working across product engineering, AI systems, developer tools, and systems programming.",
-  alternates: { canonical: `${siteUrl}/about` },
-  openGraph: {
-    title: "About | Vanshaj Poonia",
-    description: "Full stack and AI developer. Product engineering, AI systems, and systems programming.",
-    url: `${siteUrl}/about`,
-  },
-}
+  path: "/about",
+})
 
 const now = [
   {

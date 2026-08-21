@@ -12,7 +12,7 @@ import { ProjectDiagram } from "@/components/work/project-diagram"
 import { CaseStudyNav } from "@/components/work/case-study-nav"
 import { getCaseStudy } from "@/lib/data/case-studies"
 import { categoryLabels, getCaseStudyProjects, getProjectBySlug } from "@/lib/data/projects"
-import { siteUrl } from "@/lib/data/site"
+import { pageMetadata, siteUrl } from "@/lib/data/site"
 import {
   generateBreadcrumbStructuredData,
   generateProjectStructuredData,
@@ -33,27 +33,17 @@ export async function generateMetadata({
   const study = getCaseStudy(slug)
   if (!project || !study) return {}
 
-  const title = `${project.title} — ${project.tagline}`
-  const url = `${siteUrl}/work/${project.slug}`
-
-  return {
+  return pageMetadata({
     title: project.title,
     description: project.summary,
-    alternates: { canonical: url },
-    openGraph: {
-      type: "article",
-      title,
-      description: project.summary,
-      url,
-      images: project.media?.desktop ? [{ url: project.media.desktop, alt: project.media.alt }] : undefined,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: project.summary,
-      images: project.media?.desktop ? [project.media.desktop] : undefined,
-    },
-  }
+    path: `/work/${project.slug}`,
+    type: "article",
+    // A screenshot makes a better card than the generic one; a project with
+    // only a diagram falls back to the site default rather than to nothing.
+    image: project.media?.desktop
+      ? { url: project.media.desktop, alt: project.media.alt }
+      : undefined,
+  })
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {

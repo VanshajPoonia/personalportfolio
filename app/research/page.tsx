@@ -4,19 +4,14 @@ import { SiteShell } from "@/components/site-shell"
 import { ContactCTA } from "@/components/footer"
 import { Container } from "@/components/layout/section"
 import { research } from "@/lib/data/research"
-import { siteUrl } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/data/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Research",
   description:
     "No active research. Vanshaj Poonia is focused on engineering and shipping software; research work will appear here when there is something published.",
-  alternates: { canonical: `${siteUrl}/research` },
-  openGraph: {
-    title: "Research | Vanshaj Poonia",
-    description: "No active research. Currently focused on engineering and shipping software.",
-    url: `${siteUrl}/research`,
-  },
-}
+  path: "/research",
+})
 
 export default function ResearchPage() {
   return (

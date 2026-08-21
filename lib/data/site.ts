@@ -61,3 +61,59 @@ export const currentFocus = [
   "Machine-learning internals",
   "Open source",
 ]
+
+/**
+ * Default social card. Next replaces the whole `openGraph` object when a page
+ * declares its own, rather than merging it, so a page that sets a title and
+ * forgets `images` silently loses the site's card. Every page builds its
+ * metadata through this helper instead.
+ */
+export const defaultOgImage = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: `${person.name}, ${person.title}`,
+}
+
+export function pageMetadata({
+  title,
+  description,
+  path,
+  image,
+  type = "website",
+  publishedTime,
+}: {
+  title: string
+  description: string
+  /** Leading slash, no origin. */
+  path: string
+  /** Page-specific card; falls back to the site default. */
+  image?: { url: string; alt: string }
+  type?: "website" | "article"
+  publishedTime?: string
+}) {
+  const url = `${siteUrl}${path}`
+  const images = image ? [{ ...image, width: 1200, height: 630 }] : [defaultOgImage]
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type,
+      title,
+      description,
+      url,
+      siteName: person.name,
+      images,
+      ...(publishedTime ? { publishedTime } : {}),
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title,
+      description,
+      creator: person.xHandle,
+      images: images.map((i) => i.url),
+    },
+  }
+}

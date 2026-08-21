@@ -7,7 +7,7 @@ import { SiteShell } from "@/components/site-shell"
 import { ContactCTA } from "@/components/footer"
 import { Container } from "@/components/layout/section"
 import { getWorkbenchPostBySlug, workbenchPosts } from "@/lib/data/workbench"
-import { siteUrl } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/data/site"
 
 export function generateStaticParams() {
   return workbenchPosts.map((post) => ({ slug: post.slug }))
@@ -22,18 +22,13 @@ export async function generateMetadata({
   const post = getWorkbenchPostBySlug(slug)
   if (!post) return {}
 
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.summary,
-    alternates: { canonical: `${siteUrl}/workbench/${post.slug}` },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.summary,
-      url: `${siteUrl}/workbench/${post.slug}`,
-      publishedTime: post.date,
-    },
-  }
+    path: `/workbench/${post.slug}`,
+    type: "article",
+    publishedTime: post.date,
+  })
 }
 
 function NoteSection({ title, children }: { title: string; children: ReactNode }) {

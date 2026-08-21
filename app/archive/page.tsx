@@ -6,22 +6,14 @@ import { PageHeader } from "@/components/layout/page-header"
 import { Section } from "@/components/layout/section"
 import { ExternalLink } from "@/components/ui/external-link"
 import { archiveEntries } from "@/lib/data/projects"
-import { person, siteUrl } from "@/lib/data/site"
+import { pageMetadata, person } from "@/lib/data/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Archive",
   description:
     "Earlier work: an abandoned browser developer platform, a small programming language, clones, and learning builds, consolidated one entry per project rather than one per repository.",
-  alternates: { canonical: `${siteUrl}/archive` },
-  // Interesting to a human reading the site; not something search engines need
-  // dozens of thin detail pages for.
-  robots: { index: true, follow: true },
-  openGraph: {
-    title: "Archive | Vanshaj Poonia",
-    description: "Earlier work, kept honest. Not everything here is impressive, which is the point.",
-    url: `${siteUrl}/archive`,
-  },
-}
+  path: "/archive",
+})
 
 const kindLabels = {
   product: "Product",

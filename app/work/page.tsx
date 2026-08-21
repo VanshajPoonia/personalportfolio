@@ -15,19 +15,14 @@ import {
   workFilters,
   type WorkFilter,
 } from "@/lib/data/projects"
-import { siteUrl } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/data/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Work",
   description:
     "Products, systems, and developer tools built by Vanshaj Poonia, with build status and deployment status recorded separately for each one.",
-  alternates: { canonical: `${siteUrl}/work` },
-  openGraph: {
-    title: "Work | Vanshaj Poonia",
-    description: "Products, systems, and developer tools, with honest status on every one.",
-    url: `${siteUrl}/work`,
-  },
-}
+  path: "/work",
+})
 
 const counts = Object.fromEntries(
   workFilters.map((filter) => [filter.id, filterProjects(sortedProjects, filter.id).length]),

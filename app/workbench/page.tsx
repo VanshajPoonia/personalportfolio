@@ -7,19 +7,14 @@ import { PageHeader } from "@/components/layout/page-header"
 import { Section } from "@/components/layout/section"
 import { workbenchPosts } from "@/lib/data/workbench"
 import { blueprints } from "@/lib/data/blueprints"
-import { siteUrl } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/data/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Workbench",
   description:
     "A developer notebook: build logs, debugging writeups, architecture notes, and design studies for systems that do not exist yet.",
-  alternates: { canonical: `${siteUrl}/workbench` },
-  openGraph: {
-    title: "Workbench | Vanshaj Poonia",
-    description: "Build logs, debugging writeups, and design studies. Rough on purpose.",
-    url: `${siteUrl}/workbench`,
-  },
-}
+  path: "/workbench",
+})
 
 export default function WorkbenchPage() {
   const notes = [...workbenchPosts].sort((a, b) => (a.date < b.date ? 1 : -1))

@@ -14,19 +14,14 @@ import {
   personalOpenSource,
   type Contribution,
 } from "@/lib/data/open-source"
-import { person, siteUrl } from "@/lib/data/site"
+import { pageMetadata, person } from "@/lib/data/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Open Source",
   description:
     "Pull requests authored by Vanshaj Poonia against PictoPy, Rocket.Chat, GoogleTest, and OpenWISP, with verified merge status for each.",
-  alternates: { canonical: `${siteUrl}/open-source` },
-  openGraph: {
-    title: "Open Source | Vanshaj Poonia",
-    description: "Contributions to PictoPy, Rocket.Chat, GoogleTest, and OpenWISP, with verified status.",
-    url: `${siteUrl}/open-source`,
-  },
-}
+  path: "/open-source",
+})
 
 function ContributionCard({ contribution }: { contribution: Contribution }) {
   return (
