@@ -13,6 +13,13 @@ export function generatePersonStructuredData() {
     name: person.name,
     url: siteUrl,
     jobTitle: person.title,
+    address: { "@type": "PostalAddress", addressLocality: "Jodhpur", addressRegion: "Rajasthan", addressCountry: "IN" },
+    // `affiliation` rather than `alumniOf`: the degree is in progress, not conferred.
+    affiliation: {
+      "@type": "CollegeOrUniversity",
+      name: "Indian Institute of Technology Jodhpur",
+      url: "https://iitj.ac.in",
+    },
     sameAs: [person.github, person.linkedin, person.x],
     knowsAbout: ["Full-stack web development", "AI systems", "Systems programming", "Machine learning"],
   }

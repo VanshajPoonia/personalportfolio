@@ -9,7 +9,7 @@ export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vanshajpooni
 export const person = {
   name: "Vanshaj Poonia",
   title: "Full Stack & AI Developer",
-  location: "Delhi, India",
+  location: "Jodhpur, Rajasthan",
   email: "vanshajpoonia06@gmail.com",
   github: "https://github.com/VanshajPoonia",
   githubHandle: "VanshajPoonia",
@@ -34,7 +34,7 @@ export const primaryNav: NavItem[] = [
   { label: "Work", href: "/work", description: "Products, systems, and tools I have built." },
   { label: "Experience", href: "/experience", description: "Professional and collaborative engineering." },
   { label: "Open Source", href: "/open-source", description: "Contributions to codebases I did not write." },
-  { label: "Research", href: "/research", description: "Currently inactive." },
+  { label: "Research", href: "/research", description: "One active, unpublished study." },
   { label: "About", href: "/about", description: "Background, current focus, and how to reach me." },
 ]
 
@@ -52,7 +52,7 @@ export const socialLinks = [
 
 /**
  * What I am actually spending engineering time on. Kept short on purpose, and
- * kept free of research language because there is no active research.
+ * kept free of research language because the research is early and unpublished.
  */
 export const currentFocus = [
   "Product engineering",

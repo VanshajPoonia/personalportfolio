@@ -5,7 +5,7 @@ import { ContactCTA } from "@/components/footer"
 import { PageHeader } from "@/components/layout/page-header"
 import { Section } from "@/components/layout/section"
 import { ExternalLink } from "@/components/ui/external-link"
-import { skillGroups } from "@/lib/data/experience"
+import { education, skillGroups } from "@/lib/data/experience"
 import { pageMetadata, person } from "@/lib/data/site"
 import { generatePersonStructuredData, jsonLd } from "@/lib/structured-data"
 
@@ -37,6 +37,7 @@ const now = [
     items: [
       { text: "Filesystem design, by debugging one I wrote", href: null },
       { text: "How large codebases absorb a change from a stranger", href: null },
+      { text: "Robustness of tabular models under missingness shift", href: "/research" },
     ],
   },
 ]
@@ -80,7 +81,7 @@ export default function AboutPage() {
               transfers.
             </p>
             <p>
-              I work as a full-stack developer at{" "}
+              I work as a principal engineer at{" "}
               <ExternalLink href="https://www.kreativvantage.com" label="Kreativ Vantage" className="text-primary">
                 Kreativ Vantage
               </ExternalLink>
@@ -89,12 +90,13 @@ export default function AboutPage() {
               person can actually carry.
             </p>
             <p>
-              I am not doing research. There is a{" "}
+              I also have one{" "}
               <Link href="/research" className="text-primary hover:underline">
-                page
+                research study
               </Link>{" "}
-              that says so, because it seemed better than leaving old drafts up and hoping nobody checked the
-              dates.
+              in progress, on whether training-time masking makes tabular classifiers hold up when the data
+              arrives with holes in it. Nothing is published, and the page says exactly that rather than
+              implying a result I do not have.
             </p>
           </div>
 
@@ -132,6 +134,12 @@ export default function AboutPage() {
                 ))}
                 <li className="border-t border-border/60 pt-3.5">
                   <p className="flex items-baseline justify-between gap-4 font-mono text-sm">
+                    <span className="text-muted-foreground">Studying at</span>
+                    <span className="text-xs text-muted-foreground">{education.shortName}</span>
+                  </p>
+                </li>
+                <li>
+                  <p className="flex items-baseline justify-between gap-4 font-mono text-sm">
                     <span className="text-muted-foreground">Based in</span>
                     <span className="text-xs text-muted-foreground">{person.location}</span>
                   </p>
@@ -167,6 +175,28 @@ export default function AboutPage() {
               </ul>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section width="wide" size="sm" className="border-t border-border/60">
+        <h2 className="mb-8 text-2xl font-semibold tracking-tight">Education</h2>
+
+        <div className="grid gap-x-10 gap-y-3 lg:grid-cols-12">
+          <div className="space-y-2 lg:col-span-4">
+            <h3 className="text-lg font-medium tracking-tight">{education.institution}</h3>
+            <p className="label text-muted-foreground">
+              {education.current && (
+                <span className="text-primary">
+                  <span aria-hidden="true">●</span>{" "}
+                </span>
+              )}
+              {education.period}
+            </p>
+          </div>
+          <div className="space-y-1.5 lg:col-span-8">
+            <p className="font-mono text-sm">{education.degree}</p>
+            <p className="text-sm text-muted-foreground">{education.location}</p>
+          </div>
         </div>
       </Section>
 

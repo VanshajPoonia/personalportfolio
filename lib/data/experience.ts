@@ -28,7 +28,7 @@ export const experience: ExperienceItem[] = [
   {
     slug: "kreativ-vantage",
     organisation: "Kreativ Vantage",
-    role: "Full-stack developer",
+    role: "Principal Engineer",
     period: "2025 - present",
     current: true,
     summary:
@@ -87,7 +87,7 @@ export const experience: ExperienceItem[] = [
   {
     slug: "hypnosys",
     organisation: "Hypnosys",
-    role: "Founder",
+    role: "Founder & Full Stack Developer",
     period: "2022 - 2024",
     summary:
       "An earlier product venture, and the umbrella the browser-IDE work shipped under. Codash, Codash Meet, and the Tulip language documentation all lived on Hypnosys domains.",
@@ -118,6 +118,19 @@ export const clientDelivery: ClientDelivery[] = [
   { name: "Rose & Lily Clean", sector: "Local business services", href: "https://roseandlilyclean.com" },
   { name: "Shanks Realty Bike Parade", sector: "Property and community events", href: "https://bikeparade.shanksrealtygroup.com" },
 ]
+
+/**
+ * Education. In progress, so no graduation year is shown: an expected date
+ * printed without the word "expected" reads as a conferred degree.
+ */
+export const education = {
+  institution: "Indian Institute of Technology Jodhpur",
+  shortName: "IIT Jodhpur",
+  degree: "Bachelor's, Artificial Intelligence and Data Science",
+  period: "2024 - present",
+  current: true,
+  location: "Jodhpur, Rajasthan",
+}
 
 /** Grouped so nobody has to read a rating out of a progress bar. */
 export const skillGroups = [

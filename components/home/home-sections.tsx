@@ -158,7 +158,10 @@ export function ResearchPreview() {
 
         <div className="flex items-center gap-6">
           <p className="label text-muted-foreground">
-            <span aria-hidden="true">○</span> Status / idle
+            <span aria-hidden="true" className="text-primary">
+              ●
+            </span>{" "}
+            Status / active
           </p>
           <Link
             href="/research"
