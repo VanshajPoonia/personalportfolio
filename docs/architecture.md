@@ -67,9 +67,9 @@ readout that will eventually lie.
 
 Two independent fields, because one would be ambiguous:
 
-- `status` — where the project is in its own life: `active`, `shipped`,
+- `status`: where the project is in its own life: `active`, `shipped`,
   `prototype`, `paused`, `archive`, `learning`.
-- `deployment.status` — whether a stranger can use it: `live`, `offline`,
+- `deployment.status`: whether a stranger can use it: `live`, `offline`,
   `private`, `none`.
 
 So `shipped` + `offline` and `active` + `private` are both expressible, and the
@@ -79,13 +79,13 @@ UI only renders an "Open project" link when `deployment.status === "live"`.
 
 Three cases, resolved in `ProjectVisual`:
 
-1. **Real screenshot** — `media.desktop`, a WebP in `public/work/`, served
+1. **Real screenshot**: `media.desktop`, a WebP in `public/work/`, served
    through `next/image` with explicit dimensions so nothing shifts on load.
-2. **Architecture diagram** — `media.diagram`, for a kernel, a private
+2. **Architecture diagram**: `media.diagram`, for a kernel, a private
    deployment, or a Python package. Built from CSS and an ordered list rather
    than a fixed SVG, so it reflows on a phone and reads correctly to a screen
    reader. Has a `compact` density for grid cards.
-3. **Neither** — a plain frame saying there is no public deployment.
+3. **Neither**: a plain frame saying there is no public deployment.
 
 There is no fourth case where a product UI is invented.
 

@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!blueprint) return {}
 
   return pageMetadata({
-    title: `${blueprint.title} — design study`,
+    title: `${blueprint.title}: design study`,
     description: blueprint.summary,
     path: `/workbench/incubator/${blueprint.slug}`,
   })
