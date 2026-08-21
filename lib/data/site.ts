@@ -16,7 +16,16 @@ export const person = {
   linkedin: "https://www.linkedin.com/in/vanshajpoonia/",
   x: "https://x.com/PooniaVanshaj",
   xHandle: "@PooniaVanshaj",
+  /**
+   * Served from `public/`, not linked off-site, so it cannot rot behind a
+   * third-party viewer. Replace the file in place when the résumé changes:
+   * the path is referenced from the header, the About page, and the palette.
+   */
+  resume: "/vanshaj-poonia-resume.pdf",
 }
+
+/** Bumped by hand whenever the PDF in `public/` is replaced. */
+export const resumeLastUpdated = "2026-08-22"
 
 export const positioning = {
   /** Hero headline, split so the layout can break it deliberately. */

@@ -132,6 +132,15 @@ export default function AboutPage() {
                     </ExternalLink>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href={person.resume}
+                    className="flex items-baseline justify-between gap-4 font-mono text-sm transition-colors hover:text-primary"
+                  >
+                    <span>Résumé</span>
+                    <span className="truncate text-xs text-muted-foreground">PDF</span>
+                  </a>
+                </li>
                 <li className="border-t border-border/60 pt-3.5">
                   <p className="flex items-baseline justify-between gap-4 font-mono text-sm">
                     <span className="text-muted-foreground">Studying at</span>

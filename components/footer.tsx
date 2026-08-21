@@ -7,6 +7,8 @@ const contactLinks = [
   { label: "Email", href: `mailto:${person.email}`, handle: person.email, external: false },
   { label: "GitHub", href: person.github, handle: "@VanshajPoonia", external: true },
   { label: "LinkedIn", href: person.linkedin, handle: "vanshajpoonia", external: true },
+  // Same-origin PDF, so it takes the plain-anchor branch rather than ExternalLink.
+  { label: "Résumé", href: person.resume, handle: "PDF", external: false },
 ]
 
 export function ContactCTA() {
@@ -108,6 +110,14 @@ export function Footer() {
                 >
                   GitHub
                 </ExternalLink>
+              </li>
+              <li>
+                <a
+                  href={person.resume}
+                  className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Résumé
+                </a>
               </li>
             </ul>
           </nav>

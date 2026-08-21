@@ -19,6 +19,16 @@ import { sortedProjects } from "@/lib/data/projects"
  * restored to whatever opened it.
  */
 
+/**
+ * Strips diacritics so a query matches the label a person actually types.
+ * Without this, "resume" never finds "Résumé".
+ */
+const fold = (value: string) =>
+  value
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+
 interface Command {
   id: string
   label: string
@@ -65,6 +75,17 @@ export function CommandPalette({
     }))
 
     const actions: Command[] = [
+      // A hard navigation rather than router.push: the target is a static file
+      // in `public/`, and the client router has no route to resolve for it.
+      {
+        id: "resume",
+        label: "Résumé",
+        group: "Elsewhere",
+        hint: "PDF",
+        run: () => {
+          window.location.href = person.resume
+        },
+      },
       { id: "gh", label: "GitHub", group: "Elsewhere", hint: "VanshajPoonia", href: person.github, external: true },
       { id: "li", label: "LinkedIn", group: "Elsewhere", hint: "vanshajpoonia", href: person.linkedin, external: true },
       { id: "x", label: "X", group: "Elsewhere", hint: person.xHandle, href: person.x, external: true },
@@ -88,10 +109,10 @@ export function CommandPalette({
   }, [resolvedTheme, setTheme])
 
   const results = useMemo(() => {
-    const q = query.trim().toLowerCase()
+    const q = fold(query.trim())
     if (!q) return commands
     return commands.filter(
-      (c) => c.label.toLowerCase().includes(q) || c.group.toLowerCase().includes(q) || c.hint?.toLowerCase().includes(q),
+      (c) => fold(c.label).includes(q) || fold(c.group).includes(q) || (c.hint && fold(c.hint).includes(q)),
     )
   }, [commands, query])
 

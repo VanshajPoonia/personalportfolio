@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Github, Menu, Search, X } from "lucide-react"
+import { FileText, Github, Menu, Search, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { person, primaryNav, secondaryNav } from "@/lib/data/site"
 import { ThemeToggle } from "./theme-toggle"
@@ -113,6 +113,16 @@ export function Header() {
                 <kbd className="hidden font-mono sm:inline">⌘K</kbd>
               </button>
 
+              {/* Text rather than an icon: there is no glyph for "résumé" that
+                  anyone reads correctly. Hidden on the narrowest widths, where
+                  it lives in the drawer instead. */}
+              <a
+                href={person.resume}
+                className="hidden h-9 items-center rounded-md px-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground sm:flex"
+              >
+                Résumé
+              </a>
+
               <a
                 href={person.github}
                 target="_blank"
@@ -208,6 +218,13 @@ export function Header() {
               </ul>
 
               <div className="mt-7 border-t border-border/60 pt-5">
+                <a
+                  href={person.resume}
+                  className="flex min-h-[48px] items-center gap-3 rounded-lg px-4 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <FileText aria-hidden="true" className="h-4 w-4" />
+                  Résumé
+                </a>
                 <a
                   href={person.github}
                   target="_blank"
