@@ -55,6 +55,13 @@ const nextConfig = {
 
       // Introduction was an About page under another name.
       { source: "/introduction", destination: "/about", permanent: true },
+
+      // The one incubator study that described this site's own content layer,
+      // in the vocabulary of the V2 information architecture it was built for:
+      // artifacts, blueprints, timelines, learning maps. The system it proposed
+      // shipped, so it was neither unbuilt nor accurate, and it is gone. Its URL
+      // is not.
+      { source: "/workbench/incubator/developer-lab-cms", destination: "/workbench#incubator", permanent: true },
     ]
   },
 }
