@@ -53,7 +53,7 @@ export default async function WorkPage({
         meta={`${sortedProjects.length} projects · links verified ${projectsLastVerified}`}
       >
         <div className="pt-3">
-          <Suspense fallback={<div className="h-[38px]" />}>
+          <Suspense fallback={<div className="h-[44px] sm:h-[38px]" />}>
             <WorkFilters active={active} counts={counts} />
           </Suspense>
         </div>

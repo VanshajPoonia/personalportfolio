@@ -92,7 +92,7 @@ export function OpenSourcePreview() {
             <ExternalLink
               href={contribution.url}
               label={`${contribution.project} pull request ${contribution.number}`}
-              className="mt-auto font-mono text-xs text-muted-foreground"
+              className="mt-auto min-h-[44px] font-mono text-xs text-muted-foreground sm:min-h-0"
             >
               PR #{contribution.number}
             </ExternalLink>
@@ -165,7 +165,7 @@ export function ResearchPreview() {
           </p>
           <Link
             href="/research"
-            className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+            className="inline-flex min-h-[44px] items-center font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary sm:min-h-0"
           >
             Research →
           </Link>

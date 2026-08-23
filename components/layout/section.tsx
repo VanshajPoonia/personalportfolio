@@ -84,7 +84,7 @@ export function SectionHeader({
       {action && (
         <Link
           href={action.href}
-          className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+          className="group inline-flex min-h-[44px] items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary sm:min-h-0"
         >
           {action.label}
           <ArrowRight

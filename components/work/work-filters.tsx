@@ -44,8 +44,12 @@ export function WorkFilters({ active, counts }: { active: WorkFilter; counts: Re
             onClick={() => select(filter.id)}
             aria-pressed={isActive}
             disabled={count === 0}
+            // The count is decorative next to the label but load-bearing in the
+            // accessible name: without it a disabled chip announces no reason
+            // for being disabled.
+            aria-label={`${filter.label}, ${count} ${count === 1 ? "project" : "projects"}`}
             className={cn(
-              "flex min-h-[38px] shrink-0 items-center gap-2 rounded-full border px-3.5 font-mono text-xs transition-colors",
+              "flex min-h-[44px] shrink-0 items-center gap-2 rounded-full border px-3.5 font-mono text-xs transition-colors sm:min-h-[38px]",
               isActive
                 ? "border-primary/60 bg-primary/10 text-primary"
                 : "border-border/70 text-muted-foreground hover:border-border hover:text-foreground",

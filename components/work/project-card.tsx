@@ -58,12 +58,19 @@ function ProjectVisual({
   )
 }
 
+/**
+ * Card actions are the main route into a project, so on touch widths they get a
+ * real thumb target. From `sm` up there is a cursor and the row can go back to
+ * sitting tight against the metadata above it.
+ */
+const touchTarget = "inline-flex min-h-[44px] items-center gap-1.5 sm:min-h-0"
+
 function ProjectActions({ project, className }: { project: Project; className?: string }) {
   const { deployment } = project
   return (
-    <div className={cn("flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs", className)}>
+    <div className={cn("flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-xs", className)}>
       {deployment.status === "live" && deployment.url && (
-        <ExternalLink href={deployment.url} label={`Open ${project.title}`} className="text-primary">
+        <ExternalLink href={deployment.url} label={`Open ${project.title}`} className={cn(touchTarget, "text-primary")}>
           Open project
         </ExternalLink>
       )}
@@ -71,7 +78,7 @@ function ProjectActions({ project, className }: { project: Project; className?: 
         <ExternalLink
           href={project.github}
           label={`${project.title} source on GitHub`}
-          className="text-muted-foreground"
+          className={cn(touchTarget, "text-muted-foreground")}
         >
           <Github aria-hidden="true" className="h-3.5 w-3.5" />
           Source
@@ -80,7 +87,7 @@ function ProjectActions({ project, className }: { project: Project; className?: 
       {project.caseStudy && (
         <Link
           href={`/work/${project.slug}`}
-          className="group inline-flex items-center gap-1.5 text-foreground transition-colors hover:text-primary"
+          className={cn(touchTarget, "group text-foreground transition-colors hover:text-primary")}
         >
           Case study
           <ArrowRight

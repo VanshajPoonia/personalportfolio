@@ -62,7 +62,7 @@ export function Header() {
           <nav aria-label="Primary" className="flex h-16 items-center justify-between gap-6">
             <Link
               href="/"
-              className="flex shrink-0 items-center gap-2 font-mono text-sm tracking-tight"
+              className="-ml-2 flex h-11 shrink-0 items-center gap-2 rounded-md px-2 font-mono text-sm tracking-tight"
               aria-label="Vanshaj Poonia, home"
             >
               <span
@@ -106,7 +106,7 @@ export function Header() {
                 type="button"
                 onClick={() => setPaletteOpen(true)}
                 aria-label="Open command palette"
-                className="flex h-9 items-center justify-center gap-2 rounded-md px-2 font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground sm:h-auto sm:border sm:border-border/70 sm:px-2.5 sm:py-1.5 sm:hover:border-border"
+                className="flex h-11 w-11 items-center justify-center gap-2 rounded-md font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground sm:h-auto sm:w-auto sm:border sm:border-border/70 sm:px-2.5 sm:py-1.5 sm:hover:border-border"
               >
                 <Search aria-hidden="true" className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
                 {/* The shortcut hint is only true where there is a keyboard. */}
@@ -118,7 +118,7 @@ export function Header() {
                   it lives in the drawer instead. */}
               <a
                 href={person.resume}
-                className="hidden h-9 items-center rounded-md px-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground sm:flex"
+                className="hidden h-11 items-center rounded-md px-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground sm:flex"
               >
                 Résumé
               </a>
@@ -128,7 +128,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub profile (opens in a new tab)"
-                className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
+                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Github aria-hidden="true" className="h-4 w-4" />
               </a>
