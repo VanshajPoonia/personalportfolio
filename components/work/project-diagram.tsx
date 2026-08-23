@@ -79,7 +79,7 @@ export function ProjectDiagram({
           {diagram.stages.map((stage, i) => (
             <li key={stage.label} className="flex items-center gap-2">
               {i > 0 && (
-                <span aria-hidden="true" className="text-xs text-muted-foreground/50">
+                <span aria-hidden="true" className="text-xs text-muted-foreground">
                   →
                 </span>
               )}
