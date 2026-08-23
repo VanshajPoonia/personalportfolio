@@ -15,7 +15,7 @@ The other governing rule is that nothing on the site claims more than the
 evidence supports. Build status and deployment status are separate fields.
 Open-source contributions record their real merge state. A project with no
 working deployment says so rather than offering a dead button. The research page
-says there is no research.
+says the study is unpublished and has no results, because it is and it does not.
 
 ## Sections
 
@@ -26,7 +26,7 @@ says there is no research.
 | `/work/[slug]` | Long-form case studies for the four flagship projects |
 | `/experience` | Professional and collaborative engineering, plus client delivery |
 | `/open-source` | Authored pull requests to other people's projects, with verified status |
-| `/research` | Currently inactive, and says so |
+| `/research` | One in-progress, unpublished study, described without a result |
 | `/about` | Background, a compact "now" block, and grouped tools |
 | `/workbench` | Developer notebook, plus the incubator of unbuilt design studies |
 | `/workbench/[slug]` | Individual notes |
@@ -57,7 +57,7 @@ second copy of it.
 | `open-source.ts` | Contributions with verified merge status |
 | `workbench.ts` | Notebook entries |
 | `blueprints.ts` | Incubator design studies |
-| `research.ts` | Research status |
+| `research.ts` | The in-progress study, its protocol, and what is not yet published |
 
 ### Adding a project
 

@@ -16,7 +16,7 @@ app/
   work/[slug]/            case studies (SSG from getCaseStudyProjects)
   experience/             professional and collaborative work
   open-source/            authored pull requests
-  research/               inactive status page
+  research/               one in-progress, unpublished study
   about/                  background, now, tools
   workbench/              notebook index + incubator
   workbench/[slug]/       notes (SSG)
@@ -119,3 +119,4 @@ Removed concepts and where they went:
 | Artifacts | removed; every entry was a placeholder with no file behind it |
 | Blog | removed; the content was template filler, not authored writing |
 | Graveyard | Archive |
+| Portfolio Content System study | removed; it described the V2 IA in V2 vocabulary, and the system it proposed shipped, so it was neither unbuilt nor accurate |

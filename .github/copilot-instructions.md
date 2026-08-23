@@ -1,62 +1,82 @@
-# GitHub Copilot / AI Agent Instructions — EinCode
+# Instructions for AI agents
 
-Quick orienting notes for AI agents working in this repository.
+Orienting notes for agents working in this repository. Read `README.md` for what
+the site is, `docs/architecture.md` for how it is put together, and
+`docs/conventions.md` for the rules the copy and design follow.
 
-## Goal
-Help contributors rapidly make safe, small improvements and fixes in a Next.js 16 + TypeScript + Tailwind project focused on UI components and a small content site.
+## What this is
 
-## How the project is structured (big picture)
-- `app/` — Next.js App Router pages and layouts (server components by default). See `app/layout.tsx` for global fonts, metadata and the `ThemeProvider` wrapper.
-- `components/` — Reusable UI primitives. Many components are client components and include the `"use client"` directive (e.g. `components/header.tsx`, `components/theme-toggle.tsx`).
-- `lib/` — Single-source utilities and data (e.g. `lib/utils.ts`, `lib/blog-data.tsx` which contains the site's blog posts as in-repo content).
-- `styles/` and `app/globals.css` — Tailwind and CSS tokens. Uses a CSS-first Tailwind v4 style with `@theme inline` tokens.
-- `public/` — Static assets and some page-specific subcomponents (e.g. `public/blog/*`).
+The personal site of Vanshaj Poonia: work, experience, open source, a developer
+notebook, and an archive. Next.js 16 (App Router), React 19, TypeScript,
+Tailwind CSS 4, `next-themes`, `lucide-react`, Vercel Analytics. That is the
+entire dependency list and it is short deliberately.
 
-## Important conventions and patterns
-- Next.js 16 App Router is used. Expect server components by default; add `"use client"` at the top of files that rely on browser APIs or hooks.
-- Theme and UI styling:
-  - Global theme config is in `app/layout.tsx` and `components/theme-provider.tsx` (uses `next-themes`). Default theme is `dark` and the storage key is `theme-mode`.
-  - Design tokens and Tailwind utilities live in `app/globals.css`. If you need to change colors, radii, or animation tokens, edit `app/globals.css` (not scattered inline styles).
-- CSS helper `cn` (in `lib/utils.ts`) is the canonical way to compose class names (clsx + twMerge)
-- Content source for blog posts is `lib/blog-data.tsx`. Adding or editing posts there updates `/blog` pages; there is no external CMS.
-- `next.config.mjs` disables TypeScript build errors (`typescript.ignoreBuildErrors: true`) and `images.unoptimized: true` — be cautious: type errors may be suppressed during `next build`.
+## Structure
 
-## Developer workflows & common commands
-- Setup (pnpm is preferred):
-  - `pnpm install`
-  - `pnpm dev` — runs `next dev` (local dev server)
-  - `pnpm build` — production build (runs `next build`)
-  - `pnpm start` — serve the built app
-  - `pnpm lint` — runs `eslint .`
-- Verify changes rapidly by running `pnpm dev` and visiting the route under test (e.g. `/`, `/blog`, `/projects`, `/workbench`).
-- There are no automated tests in the repo; adding tests requires an explicit discussion in the PR.
+- `app/`: routes, metadata, `sitemap.ts`, `robots.ts`, `error.tsx`,
+  `not-found.tsx`. Server components by default.
+- `components/`: `layout/` primitives, `home/` sections, `work/` cards and
+  diagrams, `ui/` badges and links. Client components carry `"use client"`
+  (`header.tsx`, `command-palette.tsx`, `theme-toggle.tsx`, `cursor-glow.tsx`,
+  `work/work-filters.tsx`, `work/case-study-nav.tsx`).
+- `lib/data/`: every fact the site states, as typed data. Pages are views over
+  it, never a second copy.
+- `app/globals.css`: design tokens via Tailwind v4 `@theme inline`, plus the
+  container, section, and label primitives. Change colours and spacing here, not
+  inline.
+- `public/work/`: project screenshots as WebP.
 
-## When making changes (AI agent checklist)
-1. Keep changes small and focused (one logical change per PR).
-2. Run `pnpm lint` and fix reported issues.
-3. Run `pnpm dev` and manually verify the UI in a browser for visual changes.
-4. If you change styling tokens, prefer edits in `app/globals.css` (and update the component snapshot or screenshots if requested).
-5. If you add or modify a blog post, update `lib/blog-data.tsx` and ensure the page renders as expected.
-6. Do not remove `typescript.ignoreBuildErrors` in `next.config.mjs` without a maintainer-approved migration plan — builds rely on this flag.
+## Rules that matter more than style
 
-## Things AI agents should NOT assume
-- There is no CI or test runner configured by default — do not assume you can run a test suite.
-- The project uses `pnpm` (not npm or yarn) — prefer `pnpm` commands for accuracy.
-- TypeScript diagnostics may be intentionally relaxed by the config; prefer to keep types consistent and flag any type regressions to maintainers.
+1. **Nothing claims more than the evidence supports.** Build status and
+   deployment status are separate fields. Open-source entries record their real
+   merge state. A project with no working deployment says so instead of offering
+   a dead button. Do not invent screenshots, metrics, deployments, or features.
+2. **Verify before you write.** `projectsLastVerified`, `contributionsLastVerified`,
+   and `researchLastVerified` are promises that someone actually checked. If you
+   change a status, re-check it and bump the date.
+3. **Nothing private ships.** No client data, credentials, private repository
+   URLs, or internal architecture. Private systems are described at capability
+   level only.
+4. **No em dashes in copy.** Use other punctuation.
 
-## Example edits (short snippets)
-- Add a new blog post: append a `BlogPost` entry to `lib/blog-data.tsx`. Follow the existing structure for `id`, `slug`, `title`, `excerpt`, `content` (MD), `date`, `readTime`, `category`, `tags`, `author`, `featured`, `color`.
-- Add a small UI fix: update the component in `components/`, keep it client/server correct (`"use client"` if it uses hooks/browser APIs), run `pnpm dev` and visually validate.
+## Conventions
 
-## Helpful files to inspect during PRs
-- `app/layout.tsx` — global layout, fonts, theme provider
-- `app/globals.css` — design tokens and Tailwind inline theme
-- `components/*` — header, footer, theme toggles, and page components
-- `lib/blog-data.tsx` — source-of-truth for blog content
-- `next.config.mjs` and `package.json` — build behavior and scripts
+- `cn` in `lib/utils.ts` (clsx + tailwind-merge) composes class names.
+- The teal accent marks state that means something (active, live, current,
+  focused). It is not a decoration for every border.
+- Status is never colour alone: a filled or hollow glyph plus a word.
+- Geist for reading, Geist Mono for metadata, statuses, labels, and code. No
+  long body copy in mono.
+- Motion budget is hover transitions and the cursor glow. Both stand down under
+  `prefers-reduced-motion`. No entrance animations, no loops.
+- Touch targets for controls are 44px on phone widths.
 
-## If something is unclear
-- Ask the repository maintainer in the issue tracker or create a draft PR with a short description and screenshots for visual changes.
+## Commands
 
----
-Please review these instructions and tell me if you'd like me to add project-specific examples (PR templates, CI steps, or a `CONTRIBUTING.md`). I can iterate on this file based on your feedback.
+```bash
+pnpm install
+pnpm dev        # http://localhost:3000
+pnpm lint       # eslint .
+pnpm typecheck  # tsc --noEmit
+pnpm build      # production build
+pnpm start      # serve the build
+```
+
+There is no test suite. Correctness here means the links resolve, the claims are
+true, and both themes hold up. Run `pnpm lint && pnpm typecheck && pnpm build`,
+then open the built site and click through it in a browser at phone and desktop
+widths, in light and dark.
+
+Note that `next.config.mjs` does **not** suppress TypeScript or ESLint errors:
+a build that fails is a real failure. It carries the redirect map for every V2
+route, each with a comment explaining the decision. Do not create redirect loops.
+
+## Checklist for a change
+
+1. Keep it one logical change.
+2. If it touches content, update `lib/data/`, not the JSX.
+3. Run lint, typecheck, and build.
+4. Check the affected routes in a browser, both themes, phone and desktop.
+5. If you added a route, add it to `app/sitemap.ts`.
+6. If you retired a route, add a redirect rather than deleting the URL.
