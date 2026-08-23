@@ -7,7 +7,7 @@
  * thing that is out of date, not the work.
  */
 
-export const contributionsLastVerified = "2026-08-21"
+export const contributionsLastVerified = "2026-08-23"
 
 export type ContributionStatus = "merged" | "open"
 
@@ -155,7 +155,7 @@ export const openContributions: Contribution[] = [
     status: "open",
     date: "2026-06-01",
     tags: ["C++", "Testing"],
-    diff: { additions: 246, deletions: 9, files: 4 },
+    diff: { additions: 246, deletions: 9, files: 11 },
   },
   {
     id: "openwisp-632",

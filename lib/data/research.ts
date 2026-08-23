@@ -7,7 +7,7 @@
  * link it from `outputs` and move the entry into `past` with its real date.
  */
 
-export const researchLastVerified = "2026-08-21"
+export const researchLastVerified = "2026-08-23"
 
 export interface ResearchProject {
   title: string
