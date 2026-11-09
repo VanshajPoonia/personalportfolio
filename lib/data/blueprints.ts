@@ -169,8 +169,8 @@ export const blueprints: Blueprint[] = [
     difficulty: "Very Hard",
     tags: ["AI", "Code Editor", "Sandboxing", "Diffs", "Model Routing", "Project Memory"],
     relatedLinks: [
-      { label: "Zenquanta AI case study", href: "/work/zenquanta-ai" },
-      { label: "AI model routing notes", href: "/workbench/ai-model-routing-notes" },
+      { label: "Volt", href: "/work#volt" },
+      { label: "Model routing design study", href: "/workbench/incubator/ai-model-routing-platform" },
     ],
     overview:
       "A Codex/Replit/Cursor-inspired workspace where a user can edit files, ask an AI assistant for changes, run code, and keep project context across sessions. The product is a workspace first, not a chat box with a file upload button.",
@@ -288,10 +288,9 @@ export const blueprints: Blueprint[] = [
     status: "Draft",
     difficulty: "Hard",
     tags: ["API Keys", "Webhooks", "Rate Limits", "DX", "Usage Logs", "Postgres"],
-    relatedProjects: ["Zenquanta AI", "Intacct"],
+    relatedProjects: ["Intacct"],
     relatedLinks: [
       { label: "Model routing design study", href: "/workbench/incubator/ai-model-routing-platform" },
-      { label: "Zenquanta assistant notes", href: "/workbench/zenquanta-assistant-system-notes" },
       { label: "Enterprise finance design study", href: "/workbench/incubator/enterprise-finance-workspace" },
     ],
     overview:
@@ -529,9 +528,7 @@ export const blueprints: Blueprint[] = [
     status: "Researching",
     difficulty: "Hard",
     tags: ["IndexedDB", "Sync", "Offline", "Encryption", "CRDTs", "Conflict Resolution"],
-    relatedProjects: ["LifeSort"],
     relatedLinks: [
-      { label: "LifeSort product thinking notes", href: "/workbench/lifesort-product-thinking-notes" },
       { label: "Archive", href: "/archive" },
     ],
     overview:
@@ -776,11 +773,7 @@ export const blueprints: Blueprint[] = [
     status: "In Progress",
     difficulty: "Hard",
     tags: ["OpenRouter", "Model Routing", "Usage Metering", "AI SaaS", "Prompt Precheck"],
-    relatedProjects: ["Zenquanta AI"],
-    relatedLinks: [
-      { label: "Zenquanta AI case study", href: "/work/zenquanta-ai" },
-      { label: "Zenquanta assistant notes", href: "/workbench/zenquanta-assistant-system-notes" },
-    ],
+    relatedLinks: [{ label: "AI coding workspace design study", href: "/workbench/incubator/ai-coding-workspace" }],
     overview:
       "A model gateway that turns a user's prompt into a policy decision: which assistant family should handle it, which model should be called, what budget applies, and how usage should be shown back to the user.",
     problem:
