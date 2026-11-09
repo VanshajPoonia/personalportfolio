@@ -105,8 +105,8 @@ export function OpenSourcePreview() {
 
 export function WorkbenchPreview() {
   // Chosen for technical interest rather than recency: a systems debugging
-  // note, an architecture decision, and a product-shaped one.
-  const picks = ["qemu-debugging-notes", "ai-model-routing-notes", "intacct-service-layer-notes"]
+  // note, a rendering note, and a product-shaped architecture decision.
+  const picks = ["qemu-debugging-notes", "framebuffer-rendering-notes", "intacct-service-layer-notes"]
   const notes = picks
     .map((slug) => workbenchPosts.find((post) => post.slug === slug))
     .filter((post): post is NonNullable<typeof post> => Boolean(post))
