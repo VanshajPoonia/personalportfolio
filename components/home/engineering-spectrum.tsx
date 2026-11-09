@@ -15,17 +15,13 @@ const layers = [
     description: "Applications people sign into and use to do their job.",
     projects: [
       { name: "Project Management ATLAS", href: "/work/project-management-atlas" },
-      { name: "LifeSort", href: "/work#lifesort" },
       { name: "Intacct", href: "/work#intacct" },
     ],
   },
   {
     layer: "AI systems",
     description: "Routing, tool use, memory, and metering around hosted models.",
-    projects: [
-      { name: "Zenquanta AI", href: "/work/zenquanta-ai" },
-      { name: "ATLAS assistant", href: "/work/project-management-atlas#ai" },
-    ],
+    projects: [{ name: "ATLAS assistant", href: "/work/project-management-atlas#ai" }],
   },
   {
     layer: "ML internals",

@@ -17,8 +17,8 @@ export function SelectedWork() {
       <SectionHeader
         index="02"
         eyebrow="Selected work"
-        title="Four projects that show the range."
-        description="The rest is on the work page. These four are the ones worth reading about."
+        title="Three projects that show the range."
+        description="The rest is on the work page. These three are the ones worth reading about."
         action={{ label: "All work", href: "/work" }}
       />
 

@@ -118,28 +118,6 @@ export const projects: Project[] = [
     media: { diagram: "tensortrail", alt: "TensorTrail data flow from tensor through the operation graph to gradient propagation" },
   },
   {
-    slug: "zenquanta-ai",
-    title: "Zenquanta AI",
-    tagline: "A multi-assistant AI workspace with tier-aware model routing.",
-    summary:
-      "Six assistant families over one OpenRouter gateway, with a local prompt precheck that recommends the right one, separate text and image billing, per-conversation memory, and public pages for each assistant.",
-    year: "2026",
-    status: "shipped",
-    categories: ["ai-ml", "product"],
-    technologies: ["Next.js", "TypeScript", "Neon Postgres", "OpenRouter"],
-    role: "Solo",
-    featured: true,
-    priority: 85,
-    github: "https://github.com/VanshajPoonia/zenquantaai",
-    deployment: { status: "live", url: "https://zqai.vercel.app" },
-    caseStudy: true,
-    media: {
-      desktop: "/work/zenquanta-desktop.webp",
-      mobile: "/work/zenquanta-mobile.webp",
-      alt: "Zenquanta AI public page for the Nova assistant, showing its positioning and what it is built for",
-    },
-  },
-  {
     slug: "ascii-camera",
     title: "ASCII Camera",
     canonicalNote: "deployed as V Cam",
@@ -157,25 +135,6 @@ export const projects: Project[] = [
     media: {
       desktop: "/work/asciicam-desktop.webp",
       alt: "ASCII Camera rendering a live camera feed as green characters, with an FPS and render-time readout",
-    },
-  },
-  {
-    slug: "lifesort",
-    title: "LifeSort",
-    tagline: "Goals, finances, tasks, and habits in one workspace.",
-    summary:
-      "A personal-organisation app covering several life domains rather than one list. Open sign-up, so the whole product is inspectable rather than screenshot-only.",
-    year: "2026",
-    status: "shipped",
-    categories: ["product"],
-    technologies: ["Next.js", "TypeScript", "Liveblocks", "Postgres"],
-    role: "Solo",
-    priority: 60,
-    github: "https://github.com/VanshajPoonia/lifesort",
-    deployment: { status: "live", url: "https://lifesort.vercel.app" },
-    media: {
-      desktop: "/work/lifesort-desktop.webp",
-      alt: "LifeSort landing and sign-in screen, with the tagline Everything you need, all in one place",
     },
   },
   {
