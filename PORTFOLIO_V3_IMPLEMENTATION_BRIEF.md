@@ -709,11 +709,6 @@ Product / AI / workflow
 tensortrail
 Python / ML internals
 ● ACTIVE
-
-RECENT
-
-zenquanta
-SHIPPED
 ```
 
 Only mark statuses after verification.
@@ -937,7 +932,6 @@ AI Interview Platform
 Codash family
 code-server family
 portfolio versions
-ZenQuanta variants
 ChronoOS / Chronosapien naming
 pathfinding duplicate repos
 sorting visualizer duplicate repos
@@ -1007,12 +1001,10 @@ Investigate at minimum:
 Chronosapien
 Project Management ATLAS
 TensorTrail
-ZenQuanta AI
 AI Interview Platform
 Intacct
 Volt
 Codash
-LifeSort
 ASCII Camera
 GzoneSphere
 ```
@@ -1217,44 +1209,7 @@ This project matters because it demonstrates:
 
 ---
 
-# 35. ZenQuanta AI
-
-Repository:
-
-```text
-VanshajPoonia/zenquantaai
-```
-
-Audit:
-
-* current architecture
-* model providers
-* routing
-* assistant system
-* memory
-* streaming
-* auth
-* admin
-* image support
-* usage tracking
-* current deployment status
-
-Historical material has referenced:
-
-* multiple assistant families
-* tier-aware routing
-* text/image generation
-* streaming
-* memory
-* project chats
-* private storage
-* dashboards
-
-Do not state these unless currently supported.
-
----
-
-# 36. AI Interview Platform
+# 35. AI Interview Platform
 
 There are multiple related repositories.
 
@@ -1282,7 +1237,7 @@ Explain evolution if useful.
 
 ---
 
-# 37. Volt
+# 36. Volt
 
 Historical professional material has listed a hosted developer tool at approximately:
 
@@ -1308,7 +1263,7 @@ Do not create missing repository claims.
 
 ---
 
-# 38. Codash
+# 37. Codash
 
 Codash has a deeper historical footprint than the current portfolio suggests.
 
@@ -1341,7 +1296,7 @@ That can be more compelling than pretending it is current.
 
 ---
 
-# 39. Intacct
+# 38. Intacct
 
 Audit before keeping flagship status.
 
@@ -1361,23 +1316,7 @@ Evidence over category balance.
 
 ---
 
-# 40. LifeSort
-
-Verify:
-
-```text
-https://lifesort.vercel.app
-```
-
-or current canonical deployment.
-
-Good supporting product project.
-
-Do not let it outrank deeper newer engineering solely because it is visually polished.
-
----
-
-# 41. ASCII Camera
+# 39. ASCII Camera
 
 Creative browser work is useful for personality.
 
@@ -1401,7 +1340,7 @@ It need not be a core engineering flagship.
 
 ---
 
-# 42. GzoneSphere
+# 40. GzoneSphere
 
 There is substantial current/collaborative work around GzoneSphere.
 
@@ -1454,7 +1393,7 @@ ownership boundary
 
 ---
 
-# 43. Older AI/algorithm experiments
+# 41. Older AI/algorithm experiments
 
 The GitHub history includes other potentially interesting older work such as:
 
@@ -1480,7 +1419,7 @@ Their value is showing trajectory.
 
 ---
 
-# 44. Older clone projects
+# 42. Older clone projects
 
 Keep older clones honest.
 
@@ -1502,7 +1441,7 @@ Archive them.
 
 ---
 
-# 45. Archive philosophy
+# 43. Archive philosophy
 
 Create a deliberate archive.
 
@@ -1526,7 +1465,7 @@ Group by year.
 
 ---
 
-# 46. Archive deduplication
+# 44. Archive deduplication
 
 Where duplicate repos exist:
 
@@ -1543,7 +1482,7 @@ Do not leak repository clutter into portfolio clutter.
 
 ---
 
-# 47. Engineering Spectrum
+# 45. Engineering Spectrum
 
 Create a visually strong homepage section explaining project diversity.
 
@@ -1554,7 +1493,6 @@ I LIKE MOVING BETWEEN ABSTRACTION LAYERS.
 
 PRODUCT
 │ Project Management ATLAS
-│ ZenQuanta
 │
 AI / ML
 │ AI Interview Platform
@@ -1578,7 +1516,7 @@ Do not rely on a huge fixed SVG that becomes unreadable.
 
 ---
 
-# 48. Project cards
+# 46. Project cards
 
 Modernize them substantially.
 
@@ -1608,7 +1546,7 @@ CASE STUDY →
 
 ---
 
-# 49. Project-card content density
+# 47. Project-card content density
 
 Do not write 150-word cards.
 
@@ -1624,7 +1562,7 @@ Depth belongs in the case study.
 
 ---
 
-# 50. Project imagery
+# 48. Project imagery
 
 For visual web projects:
 
@@ -1644,7 +1582,7 @@ Never fabricate a product UI that does not exist.
 
 ---
 
-# 51. Screenshot capture
+# 49. Screenshot capture
 
 For every portfolio-worthy live project:
 
@@ -1661,7 +1599,7 @@ Do not always screenshot the marketing homepage if the actual product dashboard 
 
 ---
 
-# 52. Screenshot optimization
+# 50. Screenshot optimization
 
 Store optimized images.
 
@@ -1678,7 +1616,7 @@ Do not ship multi-megabyte screenshots unnecessarily.
 
 ---
 
-# 53. Image alt text
+# 51. Image alt text
 
 Write meaningful alt text.
 
@@ -1698,7 +1636,7 @@ Decorative terminal visuals should use empty alt / hidden semantics appropriatel
 
 ---
 
-# 54. Case studies
+# 52. Case studies
 
 Create substantial case studies for the strongest projects.
 
@@ -1708,7 +1646,6 @@ Likely candidates:
 Chronosapien
 Project Management ATLAS
 TensorTrail
-ZenQuanta
 ```
 
 Potential fifth/sixth:
@@ -1722,7 +1659,7 @@ based on audit.
 
 ---
 
-# 55. Case-study structure
+# 53. Case-study structure
 
 Use approximately:
 
@@ -1761,7 +1698,7 @@ Do not force every section onto every project.
 
 ---
 
-# 56. Technical diagrams
+# 54. Technical diagrams
 
 Prefer simple readable diagrams over huge architecture spaghetti.
 
@@ -1805,7 +1742,7 @@ gradient propagation
 
 ---
 
-# 57. Code snippets
+# 55. Code snippets
 
 Use code snippets sparingly.
 
@@ -1822,7 +1759,7 @@ Support:
 
 ---
 
-# 58. Experience
+# 56. Experience
 
 Create `/experience`.
 
@@ -1832,7 +1769,7 @@ Focus on actual professional engineering responsibility.
 
 ---
 
-# 59. Kreativ Vantage
+# 57. Kreativ Vantage
 
 Audit latest role/title.
 
@@ -1853,7 +1790,7 @@ Do not invent client metrics.
 
 ---
 
-# 60. Hypnosys
+# 58. Hypnosys
 
 Audit public/current evidence.
 
@@ -1871,7 +1808,7 @@ Do not duplicate the same responsibility bullets from Kreativ Vantage.
 
 ---
 
-# 61. Client work
+# 59. Client work
 
 There are many client-oriented repositories and builds.
 
@@ -1896,7 +1833,7 @@ with 2–4 representative examples.
 
 ---
 
-# 62. Private/client confidentiality
+# 60. Private/client confidentiality
 
 Never expose:
 
@@ -1914,7 +1851,7 @@ If discussing private systems, describe capability-level architecture.
 
 ---
 
-# 63. Integration/automation engineering
+# 61. Integration/automation engineering
 
 There is meaningful work in private/client integration systems, including workflows around:
 
@@ -1933,7 +1870,7 @@ Do not expose customer-specific implementation details unless already public and
 
 ---
 
-# 64. Open Source — major correction
+# 62. Open Source — major correction
 
 The previous portfolio strategy understated current open-source work.
 
@@ -1945,7 +1882,7 @@ This should be one of the portfolio's strongest secondary pages.
 
 ---
 
-# 65. Open Source source-of-truth
+# 63. Open Source source-of-truth
 
 Search GitHub for PRs authored by:
 
@@ -1968,7 +1905,7 @@ Do not list forks as contributions.
 
 ---
 
-# 66. Strong recent Open Source candidates to audit
+# 64. Strong recent Open Source candidates to audit
 
 There are recent contributions involving projects such as:
 
@@ -1986,7 +1923,7 @@ Audit actual status before publishing.
 
 ---
 
-# 67. PictoPy contributions
+# 65. PictoPy contributions
 
 Recent authored PRs include substantial areas such as:
 
@@ -2020,7 +1957,7 @@ Curate perhaps 2–4 strongest contributions.
 
 ---
 
-# 68. Rocket.Chat contributions
+# 66. Rocket.Chat contributions
 
 There are authored PRs involving areas such as:
 
@@ -2036,7 +1973,7 @@ If merged/significant, these can be excellent open-source examples.
 
 ---
 
-# 69. GoogleTest / React Spectrum / OpenWISP
+# 67. GoogleTest / React Spectrum / OpenWISP
 
 There are authored contributions involving:
 
@@ -2062,7 +1999,7 @@ accurately.
 
 ---
 
-# 70. Open-source card model
+# 68. Open-source card model
 
 Each selected contribution:
 
@@ -2093,7 +2030,7 @@ depending on contribution.
 
 ---
 
-# 71. Open source categories
+# 69. Open source categories
 
 Potential structure:
 
@@ -2113,7 +2050,7 @@ OPEN
 
 ---
 
-# 72. Personal open source
+# 70. Personal open source
 
 Separate from external contribution.
 
@@ -2130,7 +2067,7 @@ Do not call every public personal repo "open-source impact."
 
 ---
 
-# 73. Old fork activity
+# 71. Old fork activity
 
 The GitHub account historically contains forks such as:
 
@@ -2148,7 +2085,7 @@ Do not display them unless actual upstream contributions can be verified.
 
 ---
 
-# 74. About
+# 72. About
 
 Create a concise About page.
 
@@ -2169,7 +2106,7 @@ Then move into:
 
 ---
 
-# 75. About — current interests
+# 73. About — current interests
 
 Potential categories, subject to current verification:
 
@@ -2186,7 +2123,7 @@ Do not call research a current focus.
 
 ---
 
-# 76. Now module
+# 74. Now module
 
 Do not keep a large `/now` page unless audit shows it is exceptionally useful.
 
@@ -2205,7 +2142,7 @@ Keep it concise.
 
 ---
 
-# 77. Skills
+# 75. Skills
 
 Do not use percentage bars.
 
@@ -2253,7 +2190,7 @@ Only include demonstrably used tools.
 
 ---
 
-# 78. Experience technology stacks
+# 76. Experience technology stacks
 
 Do not repeat a giant global technology list under every job.
 
@@ -2261,7 +2198,7 @@ Each experience item should highlight only technologies relevant to that work.
 
 ---
 
-# 79. Workbench
+# 77. Workbench
 
 Retain Workbench.
 
@@ -2284,7 +2221,7 @@ Use for:
 
 ---
 
-# 80. Workbench homepage preview
+# 78. Workbench homepage preview
 
 Only show approximately:
 
@@ -2304,7 +2241,7 @@ View Workbench →
 
 ---
 
-# 81. Blog
+# 79. Blog
 
 Audit whether the Blog currently has real, worthwhile finished writing.
 
@@ -2320,7 +2257,7 @@ Do not create an empty Blog to satisfy old taxonomy.
 
 ---
 
-# 82. Blueprints
+# 80. Blueprints
 
 Blueprint content should be redistributed.
 
@@ -2336,7 +2273,7 @@ Avoid retaining a primary "Blueprints" category merely because the data file alr
 
 ---
 
-# 83. Artifacts
+# 81. Artifacts
 
 Useful artifacts belong near their context.
 
@@ -2353,7 +2290,7 @@ Remove the need for visitors to browse an arbitrary artifact warehouse.
 
 ---
 
-# 84. Roadmap
+# 82. Roadmap
 
 Global personal roadmap should be demoted.
 
@@ -2371,7 +2308,7 @@ only where genuinely helpful.
 
 ---
 
-# 85. Research component on homepage
+# 83. Research component on homepage
 
 Small.
 
@@ -2391,7 +2328,7 @@ Do not dedicate 25% of the homepage to inactive research.
 
 ---
 
-# 86. Experience homepage preview
+# 84. Experience homepage preview
 
 Use a compact timeline.
 
@@ -2415,7 +2352,7 @@ Resolve exact titles first.
 
 ---
 
-# 87. Open Source homepage preview
+# 85. Open Source homepage preview
 
 Show perhaps 2 strong recent contributions.
 
@@ -2439,7 +2376,7 @@ Only after status verification.
 
 ---
 
-# 88. Command palette
+# 86. Command palette
 
 A command palette fits this site well.
 
@@ -2472,7 +2409,7 @@ Email
 
 ---
 
-# 89. Command palette search
+# 87. Command palette search
 
 Support project-name fuzzy search if current dependencies make this simple.
 
@@ -2482,7 +2419,7 @@ A simple client-side filter is sufficient.
 
 ---
 
-# 90. Command palette accessibility
+# 88. Command palette accessibility
 
 Required:
 
@@ -2496,7 +2433,7 @@ Required:
 
 ---
 
-# 91. Contact footer
+# 89. Contact footer
 
 Create a more memorable final CTA.
 
@@ -2525,7 +2462,7 @@ as the entire section.
 
 ---
 
-# 92. Resume
+# 90. Resume
 
 If a résumé PDF exists and is current:
 
@@ -2545,7 +2482,7 @@ If multiple résumés exist, determine latest/current.
 
 ---
 
-# 93. Social links
+# 91. Social links
 
 Verify:
 
@@ -2560,7 +2497,7 @@ Do not create social accounts that are not already present.
 
 ---
 
-# 94. Theme behavior
+# 92. Theme behavior
 
 Keep dark/light support.
 
@@ -2576,7 +2513,7 @@ Verify:
 
 ---
 
-# 95. Theme visual parity
+# 93. Theme visual parity
 
 Do not design dark mode beautifully and leave light mode as inverted leftovers.
 
@@ -2584,7 +2521,7 @@ Verify project imagery and borders in both modes.
 
 ---
 
-# 96. Responsive breakpoints
+# 94. Responsive breakpoints
 
 Manually inspect at least:
 
@@ -2603,7 +2540,7 @@ Optional:
 
 ---
 
-# 97. Mobile details
+# 95. Mobile details
 
 Check:
 
@@ -2623,7 +2560,7 @@ Check:
 
 ---
 
-# 98. Desktop details
+# 96. Desktop details
 
 Avoid the common portfolio problem where content only uses 800px on a huge monitor.
 
@@ -2633,7 +2570,7 @@ Text should still maintain comfortable reading width.
 
 ---
 
-# 99. Content width system
+# 97. Content width system
 
 Use different widths intentionally:
 
@@ -2648,7 +2585,7 @@ Do not apply one `max-w-7xl` blindly to every section.
 
 ---
 
-# 100. Spacing rhythm
+# 98. Spacing rhythm
 
 Establish consistent section rhythm.
 
@@ -2664,7 +2601,7 @@ Create reusable layout/container/section primitives if appropriate.
 
 ---
 
-# 101. Component architecture
+# 99. Component architecture
 
 Likely reusable components:
 
@@ -2692,7 +2629,7 @@ Do not create abstractions for one-time markup unnecessarily.
 
 ---
 
-# 102. Data centralization
+# 100. Data centralization
 
 Keep content in typed data rather than JSX duplication.
 
@@ -2713,7 +2650,7 @@ Avoid maintaining the same project in two independent arrays.
 
 ---
 
-# 103. Single source of truth
+# 101. Single source of truth
 
 Example:
 
@@ -2751,7 +2688,7 @@ Do not duplicate project title/tag/status across files.
 
 ---
 
-# 104. Runtime GitHub fetching
+# 102. Runtime GitHub fetching
 
 Do not introduce fragile uncached GitHub API calls into every page render.
 
@@ -2766,7 +2703,7 @@ Static curated contribution data may be safer.
 
 ---
 
-# 105. Contribution data freshness
+# 103. Contribution data freshness
 
 For Open Source data, ideally record:
 
@@ -2780,7 +2717,7 @@ Do not build a complicated GitHub CMS.
 
 ---
 
-# 106. Empty states
+# 104. Empty states
 
 Design clean empty states for:
 
@@ -2794,7 +2731,7 @@ Do not leave blank sections.
 
 ---
 
-# 107. Broken external link handling
+# 105. Broken external link handling
 
 Audit all external links before shipping.
 
@@ -2808,7 +2745,7 @@ pointing to 404.
 
 ---
 
-# 108. External links
+# 106. External links
 
 External links should:
 
@@ -2820,7 +2757,7 @@ Do not add external-link icons to every inline sentence.
 
 ---
 
-# 109. Loading states
+# 107. Loading states
 
 Most content is static.
 
@@ -2830,7 +2767,7 @@ Use loading states only where data truly loads asynchronously.
 
 ---
 
-# 110. 404 page
+# 108. 404 page
 
 Update the existing 404 page to match Portfolio V3.
 
@@ -2849,7 +2786,7 @@ Avoid giant gimmick animation.
 
 ---
 
-# 111. Error page
+# 109. Error page
 
 Ensure existing error boundary still matches new styles.
 
@@ -2857,7 +2794,7 @@ Do not leave old "lab" terminology there.
 
 ---
 
-# 112. Favicon
+# 110. Favicon
 
 Audit current favicon.
 
@@ -2871,7 +2808,7 @@ Ensure:
 
 ---
 
-# 113. Site identity mark
+# 111. Site identity mark
 
 If the current logo/mark is unclear, create a simple typographic identity:
 
@@ -2889,7 +2826,7 @@ The name is the brand.
 
 ---
 
-# 114. OpenGraph
+# 112. OpenGraph
 
 Create/update proper OG metadata.
 
@@ -2911,7 +2848,7 @@ Do not use broken screenshot URLs.
 
 ---
 
-# 115. Metadata
+# 113. Metadata
 
 Homepage direction:
 
@@ -2930,7 +2867,7 @@ Do not keyword stuff.
 
 ---
 
-# 116. Project metadata
+# 114. Project metadata
 
 Each case study should have:
 
@@ -2942,7 +2879,7 @@ Each case study should have:
 
 ---
 
-# 117. Structured data
+# 115. Structured data
 
 Audit existing JSON-LD.
 
@@ -2960,7 +2897,7 @@ Do not put a list of every buzzword in `knowsAbout`.
 
 ---
 
-# 118. Sitemap
+# 116. Sitemap
 
 Update sitemap for:
 
@@ -2972,7 +2909,7 @@ Do not include dead routes.
 
 ---
 
-# 119. Robots
+# 117. Robots
 
 Audit robots configuration.
 
@@ -2982,7 +2919,7 @@ Avoid accidentally indexing dev/test routes.
 
 ---
 
-# 120. Canonicals
+# 118. Canonicals
 
 Make canonical URLs reflect:
 
@@ -2994,7 +2931,7 @@ not preview/Vercel URLs.
 
 ---
 
-# 121. Old metadata language
+# 119. Old metadata language
 
 Search repository for:
 
@@ -3016,7 +2953,7 @@ Some decorative `lab` terminology can survive only if deliberately repurposed as
 
 ---
 
-# 122. README
+# 120. README
 
 Update README after implementation.
 
@@ -3035,7 +2972,7 @@ Remove stale instruction such as:
 
 ---
 
-# 123. Internal documentation
+# 121. Internal documentation
 
 If the repository has docs explaining the old IA, update them.
 
@@ -3043,7 +2980,7 @@ Do not leave `development.md` telling contributors to preserve deleted sections.
 
 ---
 
-# 124. Search old names
+# 122. Search old names
 
 Search for obsolete project names or URLs in:
 
@@ -3070,7 +3007,7 @@ resolve intentionally.
 
 ---
 
-# 125. Security
+# 123. Security
 
 This is mostly a static portfolio, but maintain:
 
@@ -3084,7 +3021,7 @@ Do not over-engineer authentication.
 
 ---
 
-# 126. Dependency discipline
+# 124. Dependency discipline
 
 Avoid adding dependencies for features that can be implemented simply.
 
@@ -3099,7 +3036,7 @@ Do not add Framer Motion just to fade cards if CSS already handles it.
 
 ---
 
-# 127. Performance goals
+# 125. Performance goals
 
 Aim for excellent real-world performance.
 
@@ -3115,7 +3052,7 @@ Prioritize:
 
 ---
 
-# 128. Cursor glow performance
+# 126. Cursor glow performance
 
 If preserving cursor glow:
 
@@ -3127,7 +3064,7 @@ If preserving cursor glow:
 
 ---
 
-# 129. Layout stability
+# 127. Layout stability
 
 Avoid CLS from:
 
@@ -3138,7 +3075,7 @@ Avoid CLS from:
 
 ---
 
-# 130. Fonts
+# 128. Fonts
 
 Use Next font loading appropriately.
 
@@ -3146,7 +3083,7 @@ Do not add external runtime font fetches unnecessarily.
 
 ---
 
-# 131. Lighthouse / performance verification
+# 129. Lighthouse / performance verification
 
 If environment permits, inspect:
 
@@ -3159,7 +3096,7 @@ Do not chase an artificial 100 if it damages design, but fix obvious issues.
 
 ---
 
-# 132. Accessibility baseline
+# 130. Accessibility baseline
 
 Required:
 
@@ -3177,7 +3114,7 @@ Required:
 
 ---
 
-# 133. Status accessibility
+# 131. Status accessibility
 
 Bad:
 
@@ -3195,7 +3132,7 @@ Color is supplemental.
 
 ---
 
-# 134. Project filtering accessibility
+# 132. Project filtering accessibility
 
 Filters should use proper button semantics.
 
@@ -3209,13 +3146,13 @@ or equivalent appropriate UI.
 
 ---
 
-# 135. Touch targets
+# 133. Touch targets
 
 Aim ~44px minimum for important mobile interactions.
 
 ---
 
-# 136. Case-study table of contents
+# 134. Case-study table of contents
 
 For longer case studies, consider a small sticky/local nav on desktop.
 
@@ -3225,7 +3162,7 @@ Mobile must remain simple.
 
 ---
 
-# 137. Scroll behavior
+# 135. Scroll behavior
 
 Anchor navigation should:
 
@@ -3235,7 +3172,7 @@ Anchor navigation should:
 
 ---
 
-# 138. Back navigation
+# 136. Back navigation
 
 Case-study pages should have a useful:
 
@@ -3247,7 +3184,7 @@ Do not rely solely on browser back.
 
 ---
 
-# 139. Related projects
+# 137. Related projects
 
 End case studies with 1–2 related projects.
 
@@ -3262,7 +3199,7 @@ Use actual thematic relationships.
 
 ---
 
-# 140. Project timestamps
+# 138. Project timestamps
 
 Avoid fake precision.
 
@@ -3276,7 +3213,7 @@ Do not invent month/day.
 
 ---
 
-# 141. Current status wording
+# 139. Current status wording
 
 Use concrete terms.
 
@@ -3301,7 +3238,7 @@ unless measured against an actual roadmap.
 
 ---
 
-# 142. Client/portfolio ownership
+# 140. Client/portfolio ownership
 
 Every project should know what Vanshaj's role was.
 
@@ -3320,7 +3257,7 @@ Do not imply solo authorship when inappropriate.
 
 ---
 
-# 143. Experience proof
+# 141. Experience proof
 
 Where possible link Experience items to:
 
@@ -3332,7 +3269,7 @@ Do not link private GitHub repos.
 
 ---
 
-# 144. Project Management ATLAS screenshots
+# 142. Project Management ATLAS screenshots
 
 Because this application has multiple deep product surfaces, do not use only the login screen.
 
@@ -3347,7 +3284,7 @@ Use strongest 2–4 in case study.
 
 ---
 
-# 145. Chronosapien screenshots
+# 143. Chronosapien screenshots
 
 Potentially use:
 
@@ -3360,7 +3297,7 @@ Choose screenshots showing progress rather than merely blank QEMU.
 
 ---
 
-# 146. TensorTrail visuals
+# 144. TensorTrail visuals
 
 Potential:
 
@@ -3374,7 +3311,7 @@ Do not create fake model charts unless generated by real examples.
 
 ---
 
-# 147. Open-source contribution visuals
+# 145. Open-source contribution visuals
 
 Open Source page does not need screenshots of GitHub everywhere.
 
@@ -3393,7 +3330,7 @@ Keep it compact.
 
 ---
 
-# 148. Workbench visual hierarchy
+# 146. Workbench visual hierarchy
 
 Workbench cards can be more text/editorial.
 
@@ -3410,7 +3347,7 @@ No need for screenshots on every note.
 
 ---
 
-# 149. Research visual style
+# 147. Research visual style
 
 Make Coming Soon feel intentional, not empty.
 
@@ -3424,7 +3361,7 @@ Avoid melodramatic "classified" aesthetics.
 
 ---
 
-# 150. Homepage Selected Work count
+# 148. Homepage Selected Work count
 
 Aim:
 
@@ -3438,15 +3375,14 @@ Do not show every project.
 
 ---
 
-# 151. Selected Work likely ranking
+# 149. Selected Work likely ranking
 
 Do not hard-code without audit, but likely:
 
 ```text
 Chronosapien
 Project Management ATLAS
-TensorTrail / ZenQuanta
-ZenQuanta / TensorTrail
+TensorTrail
 ```
 
 Then perhaps:
@@ -3459,7 +3395,7 @@ depending on current live quality.
 
 ---
 
-# 152. Why ATLAS deserves consideration
+# 150. Why ATLAS deserves consideration
 
 Recent source activity demonstrates:
 
@@ -3475,7 +3411,7 @@ Therefore do not treat it as a simple task manager.
 
 ---
 
-# 153. Why Open Source deserves prominence
+# 151. Why Open Source deserves prominence
 
 Recent open-source PRs now show:
 
@@ -3493,7 +3429,7 @@ That is valuable professional evidence.
 
 ---
 
-# 154. Open Source CTA
+# 152. Open Source CTA
 
 Homepage CTA can be:
 
@@ -3505,7 +3441,7 @@ rather than generic GitHub activity.
 
 ---
 
-# 155. GitHub profile link
+# 153. GitHub profile link
 
 Still provide:
 
@@ -3519,7 +3455,7 @@ Do not require portfolio to mirror every repo.
 
 ---
 
-# 156. Potential historical "Journey" content
+# 154. Potential historical "Journey" content
 
 The old Timeline should not remain primary.
 
@@ -3548,7 +3484,7 @@ This can elegantly show progression.
 
 ---
 
-# 157. No age-based framing
+# 155. No age-based framing
 
 Avoid copy such as:
 
@@ -3562,7 +3498,7 @@ Let the work stand on its own.
 
 ---
 
-# 158. No self-rating
+# 156. No self-rating
 
 Avoid:
 
@@ -3577,7 +3513,7 @@ in skills.
 
 ---
 
-# 159. No overselling
+# 157. No overselling
 
 Example:
 
@@ -3591,7 +3527,7 @@ Better:
 
 ---
 
-# 160. AI usage honesty
+# 158. AI usage honesty
 
 Do not pretend projects contain proprietary AI models if they orchestrate hosted models.
 
@@ -3610,7 +3546,7 @@ where applicable.
 
 ---
 
-# 161. Testing evidence
+# 159. Testing evidence
 
 Project case studies may include testing evidence where meaningful.
 
@@ -3629,7 +3565,7 @@ Do not turn case studies into CI logs.
 
 ---
 
-# 162. Open source PR status verification
+# 160. Open source PR status verification
 
 Before shipping the site, fetch selected PRs again.
 
@@ -3637,7 +3573,7 @@ Because PR statuses may change between audit and deployment.
 
 ---
 
-# 163. Freshness date
+# 161. Freshness date
 
 Consider storing:
 
@@ -3651,7 +3587,7 @@ Not necessarily visible UI.
 
 ---
 
-# 164. Analytics
+# 162. Analytics
 
 Audit current Vercel Analytics.
 
@@ -3663,7 +3599,7 @@ Do not add cookie banners unless required by actual analytics behavior.
 
 ---
 
-# 165. Analytics events
+# 163. Analytics events
 
 If straightforward, useful anonymous events could include:
 
@@ -3678,7 +3614,7 @@ Do not over-engineer event tracking.
 
 ---
 
-# 166. Privacy
+# 164. Privacy
 
 Do not add fingerprinting.
 
@@ -3686,7 +3622,7 @@ Portfolio analytics should remain lightweight.
 
 ---
 
-# 167. Dark/light screenshots
+# 165. Dark/light screenshots
 
 Do not duplicate screenshots solely for theme unless project itself significantly changes.
 
@@ -3694,7 +3630,7 @@ Use framing that works in both site themes.
 
 ---
 
-# 168. Card hover behavior
+# 166. Card hover behavior
 
 Hover should add:
 
@@ -3708,7 +3644,7 @@ Mobile should not depend on hover.
 
 ---
 
-# 169. Status badge design
+# 167. Status badge design
 
 Consistent system:
 
@@ -3723,7 +3659,7 @@ Choose actual final symbols/tokens carefully.
 
 ---
 
-# 170. Icons
+# 168. Icons
 
 Use existing icon library.
 
@@ -3738,7 +3674,7 @@ without purpose.
 
 ---
 
-# 171. Decorative emoji
+# 169. Decorative emoji
 
 Avoid emoji-heavy developer portfolio copy.
 
@@ -3746,7 +3682,7 @@ Use technical symbols where appropriate.
 
 ---
 
-# 172. Terminal text
+# 170. Terminal text
 
 Terminal UI should display useful information.
 
@@ -3760,7 +3696,7 @@ Avoid portfolio cliché.
 
 ---
 
-# 173. Easter eggs
+# 171. Easter eggs
 
 Optional small easter egg:
 
@@ -3776,7 +3712,7 @@ No easter egg should hurt accessibility/performance.
 
 ---
 
-# 174. Copy quality
+# 172. Copy quality
 
 Every project card should answer:
 
@@ -3789,7 +3725,7 @@ within ~2 sentences.
 
 ---
 
-# 175. Remove marketing fluff
+# 173. Remove marketing fluff
 
 Search for words:
 
@@ -3809,7 +3745,7 @@ Retain only where genuinely descriptive.
 
 ---
 
-# 176. Case-study writing voice
+# 174. Case-study writing voice
 
 Prefer first-person technical clarity.
 
@@ -3821,7 +3757,7 @@ This communicates engineering judgment.
 
 ---
 
-# 177. Work page search
+# 175. Work page search
 
 A text search is optional.
 
@@ -3831,7 +3767,7 @@ Do not add search simply because command palette exists.
 
 ---
 
-# 178. Pagination
+# 176. Pagination
 
 Do not paginate ~20 portfolio projects.
 
@@ -3839,13 +3775,13 @@ Show curated first, archive later.
 
 ---
 
-# 179. Archive performance
+# 177. Archive performance
 
 If Archive contains many entries, compact rows are better than image-heavy cards.
 
 ---
 
-# 180. Archive route semantics
+# 178. Archive route semantics
 
 Archive is part of the portfolio, but search engines do not need dozens of duplicate detail pages for trivial clones.
 
@@ -3853,7 +3789,7 @@ Use judgement around indexing old project pages.
 
 ---
 
-# 181. Client site portfolio
+# 179. Client site portfolio
 
 Do not overwhelm personal engineering identity with small marketing websites.
 
@@ -3863,7 +3799,7 @@ Work should prioritize engineering depth.
 
 ---
 
-# 182. Public production/client work
+# 180. Public production/client work
 
 A small Experience gallery can show:
 
@@ -3878,7 +3814,7 @@ without making them main flagship projects.
 
 ---
 
-# 183. Contribution maturity
+# 181. Contribution maturity
 
 Prioritize open-source contributions involving:
 
@@ -3894,7 +3830,7 @@ over one-line typo fixes.
 
 ---
 
-# 184. Contribution ordering
+# 182. Contribution ordering
 
 Potential ordering:
 
@@ -3906,7 +3842,7 @@ Older contributions
 
 ---
 
-# 185. External brand logos
+# 183. External brand logos
 
 Use text names by default.
 
@@ -3916,7 +3852,7 @@ Use official assets only where appropriate.
 
 ---
 
-# 186. Resume consistency audit
+# 184. Resume consistency audit
 
 Before finishing, compare visible portfolio facts with latest résumé:
 
@@ -3931,7 +3867,7 @@ Resolve contradictions.
 
 ---
 
-# 187. LinkedIn consistency
+# 185. LinkedIn consistency
 
 If accessible, compare major role/title naming.
 
@@ -3941,7 +3877,7 @@ Avoid visibly contradictory titles.
 
 ---
 
-# 188. GitHub profile consistency
+# 186. GitHub profile consistency
 
 GitHub profile README may itself be stale.
 
@@ -3953,7 +3889,7 @@ Optionally update README only if within scope and appropriate; do not modify unr
 
 ---
 
-# 189. Portfolio repository only
+# 187. Portfolio repository only
 
 Primary implementation should remain inside:
 
@@ -3965,7 +3901,7 @@ Do not alter project repositories solely to make portfolio screenshots nicer.
 
 ---
 
-# 190. Git workflow
+# 188. Git workflow
 
 Before modifying:
 
@@ -3981,7 +3917,7 @@ If repository is dirty, preserve user changes.
 
 ---
 
-# 191. Incremental implementation
+# 189. Incremental implementation
 
 Prefer cohesive commits or clearly separated implementation slices.
 
@@ -4000,7 +3936,7 @@ Do not create 50 tiny meaningless commits.
 
 ---
 
-# 192. Do not stop after a partial redesign
+# 190. Do not stop after a partial redesign
 
 The task is complete only when primary routes share the new system.
 
@@ -4008,7 +3944,7 @@ Do not redesign homepage while leaving Work/Research/etc visually in V2.
 
 ---
 
-# 193. Browser verification
+# 191. Browser verification
 
 Run the development or production server.
 
@@ -4020,7 +3956,7 @@ Do not rely exclusively on TypeScript/build output.
 
 ---
 
-# 194. Required browser routes
+# 192. Required browser routes
 
 Inspect:
 
@@ -4039,7 +3975,7 @@ Inspect:
 
 ---
 
-# 195. Required browser interactions
+# 193. Required browser interactions
 
 Test:
 
@@ -4056,7 +3992,7 @@ Escape behavior
 
 ---
 
-# 196. Console
+# 194. Console
 
 No meaningful console errors.
 
@@ -4070,7 +4006,7 @@ Fix:
 
 ---
 
-# 197. Link audit
+# 195. Link audit
 
 Check:
 
@@ -4087,7 +4023,7 @@ Workbench links
 
 ---
 
-# 198. Build commands
+# 196. Build commands
 
 Use the package manager expected by repository.
 
@@ -4117,7 +4053,7 @@ Use actual repository scripts rather than blindly running nonexistent commands.
 
 ---
 
-# 199. Frozen lockfile
+# 197. Frozen lockfile
 
 If dependencies change, update correct lockfile.
 
@@ -4127,7 +4063,7 @@ Do not leave npm/pnpm metadata inconsistent.
 
 ---
 
-# 200. Dependency audit
+# 198. Dependency audit
 
 If adding dependencies:
 
@@ -4138,7 +4074,7 @@ If adding dependencies:
 
 ---
 
-# 201. Design QA
+# 199. Design QA
 
 Evaluate every major page against:
 
@@ -4156,7 +4092,7 @@ visual consistency
 
 ---
 
-# 202. Screenshot QA
+# 200. Screenshot QA
 
 Ensure screenshots:
 
@@ -4169,7 +4105,7 @@ Ensure screenshots:
 
 ---
 
-# 203. Client data in screenshots
+# 201. Client data in screenshots
 
 Blur/remove/private-data-containing screenshots.
 
@@ -4179,7 +4115,7 @@ Never expose real customer information.
 
 ---
 
-# 204. Case-study truth audit
+# 202. Case-study truth audit
 
 For every flagship case study:
 
@@ -4196,7 +4132,7 @@ No planned feature described as shipped?
 
 ---
 
-# 205. Planned features
+# 203. Planned features
 
 Use clear labels:
 
@@ -4210,7 +4146,7 @@ Never merge planned features into the "What I built" list.
 
 ---
 
-# 206. Idea/incubator content
+# 204. Idea/incubator content
 
 Vanshaj has explored many ideas around:
 
@@ -4245,7 +4181,7 @@ Old         → Archive
 
 ---
 
-# 207. Homepage visitor test
+# 205. Homepage visitor test
 
 After implementation, imagine four visitors:
 
@@ -4269,7 +4205,7 @@ All four should be served well.
 
 ---
 
-# 208. Five-second test
+# 206. Five-second test
 
 Homepage should answer:
 
@@ -4283,7 +4219,7 @@ without scrolling multiple screens.
 
 ---
 
-# 209. Thirty-second test
+# 207. Thirty-second test
 
 By approximately 30 seconds the visitor should have encountered:
 
@@ -4294,7 +4230,7 @@ By approximately 30 seconds the visitor should have encountered:
 
 ---
 
-# 210. Sixty-second test
+# 208. Sixty-second test
 
 By approximately one minute:
 
@@ -4307,7 +4243,7 @@ should all be discoverable.
 
 ---
 
-# 211. Five-minute test
+# 209. Five-minute test
 
 Deeper visitor should find:
 
@@ -4321,7 +4257,7 @@ Deeper visitor should find:
 
 ---
 
-# 212. Final visual objective
+# 210. Final visual objective
 
 The portfolio should feel:
 
@@ -4346,7 +4282,7 @@ overanimated
 
 ---
 
-# 213. Final product objective
+# 211. Final product objective
 
 Someone should leave thinking:
 
@@ -4354,7 +4290,7 @@ Someone should leave thinking:
 
 ---
 
-# 214. Final factual objective
+# 212. Final factual objective
 
 Someone should never discover that:
 
@@ -4369,7 +4305,7 @@ Trust matters more than maximizing project count.
 
 ---
 
-# 215. Final completion checklist
+# 213. Final completion checklist
 
 Do not declare completion until all applicable items are checked.
 
@@ -4452,7 +4388,7 @@ Do not declare completion until all applicable items are checked.
 
 ---
 
-# 216. Final report required
+# 214. Final report required
 
 When finished, report:
 
@@ -4533,7 +4469,7 @@ Do not manufacture a backlog merely to have one.
 
 ---
 
-# 217. Execution behavior
+# 215. Execution behavior
 
 Do not come back after the audit asking:
 
@@ -4557,7 +4493,7 @@ use conservative copy or omit it.
 
 ---
 
-# 218. Final standard
+# 216. Final standard
 
 Treat this like a real product redesign, not an AI-generated portfolio exercise.
 
