@@ -257,7 +257,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   "project-management-atlas": {
     overview:
       "ATLAS is a project and marketing workspace running in production for one organisation. It has boards, tasks, subtasks, a marketing content calendar, teams, and an AI assistant that can read the user's actual work. The engineering interest is not the board; it is what happens when you give an assistant database access without giving it a way around the permission model.",
-    related: ["zenquanta-ai", "intacct"],
+    related: ["intacct", "tensortrail"],
     sections: [
       {
         id: "problem",
@@ -425,7 +425,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   tensortrail: {
     overview:
       "TensorTrail is a neural network framework written on top of NumPy: a reverse-mode autograd engine, layers, losses, optimisers, a trainer, serialisation, and a gradient checker. It exists because I could use PyTorch fluently and could not have told you, precisely, what happens when you call backward().",
-    related: ["chronosapien", "zenquanta-ai"],
+    related: ["chronosapien", "project-management-atlas"],
     sections: [
       {
         id: "problem",
@@ -541,125 +541,6 @@ export const caseStudies: Record<string, CaseStudy> = {
             used to be a black box, gradient accumulation, why in-place operations are dangerous, why the
             stable loss and the naive loss are different functions, is now something I have implemented and
             debugged. It also made me considerably more suspicious of a loss curve that goes down.
-          </P>
-        ),
-      },
-    ],
-  },
-
-  "zenquanta-ai": {
-    overview:
-      "Zenquanta is a multi-assistant AI workspace. Six branded assistants sit over a single OpenRouter gateway, a local precheck routes you to the right one before the request is sent, and text and image usage are metered separately. It is the project where I stopped treating an LLM product as a chat box with an API key behind it.",
-    related: ["project-management-atlas", "tensortrail"],
-    sections: [
-      {
-        id: "problem",
-        label: "The problem with one chat box",
-        body: (
-          <>
-            <P>
-              A single general assistant answers everything with the same model, the same system prompt, and
-              the same cost profile. That is fine until you notice that a code refactor, a piece of brand copy,
-              a structured comparison, and an image generation request want genuinely different behaviour and
-              genuinely different economics.
-            </P>
-            <P>
-              Zenquanta splits them into six assistant families: Nova for broad work, Velora for writing and
-              tone, Axiom for structured reasoning, Forge for code, Pulse for current-context work, and Prism
-              for images. Each is a positioning, a prompt, and a routing target, not a different product.
-            </P>
-          </>
-        ),
-      },
-      {
-        id: "routing",
-        label: "Routing and the precheck",
-        body: (
-          <>
-            <P>
-              Before a message is sent, a fast local precheck classifies the prompt and compares it to the
-              assistant the user currently has open. If they match, the message goes immediately and the user
-              never sees the mechanism. If there is a high-confidence mismatch, the app offers to switch.
-            </P>
-            <P>
-              Running that classification locally rather than as a model call is the whole point: a routing
-              step that costs a round trip is a routing step users learn to resent.
-            </P>
-            <P>
-              Behind it, model selection is tier-aware. The plan ladder runs Free through Prime, and text and
-              image generation draw on separate wallets, because a token and an image are not the same unit
-              and pretending otherwise makes the billing incomprehensible.
-            </P>
-          </>
-        ),
-      },
-      {
-        id: "what-i-built",
-        label: "What is in it",
-        body: (
-          <List
-            items={[
-              <>
-                <strong>Streaming responses</strong> with a live working-notes panel. It is a display-safe
-                progress view of what the request is doing, not exposed model reasoning.
-              </>,
-              <>
-                <strong>Per-conversation memory</strong>, injected only when memory is enabled for that
-                conversation.
-              </>,
-              <>
-                <strong>Projects and conversations</strong> so chats are organised by assistant family and
-                workstream rather than one endless list.
-              </>,
-              <>
-                <strong>Private file storage</strong> behind a server-side abstraction, covering uploads and
-                generated images.
-              </>,
-              <>
-                <strong>Usage tracking, plan requests, and admin dashboards</strong>, including a plan sandbox
-                for testing tier behaviour without touching real accounts.
-              </>,
-              <>
-                <strong>Public assistant pages</strong>, one per family, which is the part of the product a
-                stranger can read without an account.
-              </>,
-            ]}
-          />
-        ),
-      },
-      {
-        id: "honesty",
-        label: "What it is not",
-        body: (
-          <P>
-            Zenquanta does not train or host models. It orchestrates hosted ones through a single gateway. The
-            engineering is in routing, tiering, metering, memory, streaming, and storage, which is where the
-            engineering in most AI products actually is. Calling that &quot;our AI&quot; would be a marketing
-            decision, not a technical one.
-          </P>
-        ),
-      },
-      {
-        id: "migration",
-        label: "A migration worth mentioning",
-        body: (
-          <P>
-            The persistence layer moved from Supabase to Neon Postgres with custom identifier-and-password
-            auth. That was not a preference. It was the point at which the product needed an account model
-            that did not assume email as the primary identity, and rebuilding auth on top of a provider&apos;s
-            assumptions costs more than moving the provider.
-          </P>
-        ),
-      },
-      {
-        id: "state",
-        label: "Current state",
-        body: (
-          <P>
-            Shipped and live. Sign-in is required to use the workspace, but each assistant has a public page
-            that explains what it is for, so the product is inspectable without an account. Active development
-            has paused; the last substantial work added per-response intelligence-level overrides and the
-            admin plan sandbox.
           </P>
         ),
       },
