@@ -35,7 +35,7 @@ export function ExperiencePreview() {
   return (
     <Section id="experience" className="border-b border-border/60">
       <SectionHeader
-        index="04"
+        index="05"
         eyebrow="Experience"
         title="Where the work has been professional."
         action={{ label: "Full experience", href: "/experience" }}
@@ -71,7 +71,7 @@ export function OpenSourcePreview() {
   return (
     <Section id="open-source" className="border-b border-border/60">
       <SectionHeader
-        index="05"
+        index="03"
         eyebrow="Open source"
         title="Working inside codebases I did not design."
         description="Pull requests I authored against other people's projects, with the status each one is actually in."

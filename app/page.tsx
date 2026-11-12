@@ -23,9 +23,9 @@ export default function Home() {
 
       <Hero />
       <SelectedWork />
+      <OpenSourcePreview />
       <EngineeringSpectrum />
       <ExperiencePreview />
-      <OpenSourcePreview />
       <WorkbenchPreview />
       <ResearchPreview />
       <ContactCTA />

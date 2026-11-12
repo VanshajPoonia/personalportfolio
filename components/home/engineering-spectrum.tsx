@@ -47,7 +47,7 @@ export function EngineeringSpectrum() {
   return (
     <Section id="spectrum" className="border-b border-border/60">
       <SectionHeader
-        index="03"
+        index="04"
         eyebrow="Engineering spectrum"
         title="I like moving between abstraction layers."
         description="The range is not scattergun. Each layer down exists because the one above it raised a question I could not answer."
