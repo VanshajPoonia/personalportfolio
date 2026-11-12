@@ -29,7 +29,7 @@ const now = [
     label: "Contributing",
     items: [
       { text: "PictoPy: clustering correctness, CI, and accessibility", href: "/open-source" },
-      { text: "Rocket.Chat: message sync and integration fixes", href: "/open-source" },
+      { text: "Rocket.Chat: integration and admin UI fixes", href: "/open-source" },
     ],
   },
   {

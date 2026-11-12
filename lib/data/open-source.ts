@@ -113,21 +113,6 @@ export const mergedContributions: Contribution[] = [
 /** Open pull requests. Labelled open, never counted as accepted work. */
 export const openContributions: Contribution[] = [
   {
-    id: "rocketchat-41189",
-    project: "Rocket.Chat",
-    repo: "RocketChat/Rocket.Chat",
-    repoUrl: "https://github.com/RocketChat/Rocket.Chat",
-    title: "Sync missed messages over REST on reconnect",
-    summary:
-      "Edits and deletions made while a client was offline were never applied once it reconnected, because the reconnect path used a method that only returns new messages. Moved it to the chat.syncMessages endpoint, added the compound index the range query needs to be bounded, and deprecated the old method rather than removing it out from under external clients.",
-    number: 41189,
-    url: "https://github.com/RocketChat/Rocket.Chat/pull/41189",
-    status: "open",
-    date: "2026-07-06",
-    tags: ["TypeScript", "MongoDB", "Indexing", "Testing"],
-    diff: { additions: 286, deletions: 32, files: 8 },
-  },
-  {
     id: "pictopy-1349",
     project: "PictoPy",
     repo: "AOSSIE-Org/PictoPy",
