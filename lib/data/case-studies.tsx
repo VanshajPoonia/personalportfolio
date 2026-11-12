@@ -187,13 +187,15 @@ export const caseStudies: Record<string, CaseStudy> = {
             <P>
               That split is unflattering by design. Single-core BIOS boot reaching{" "}
               <code>[CHRONO] boot complete</code> is verified, with serial logs and framebuffer screendumps.
-              Narrow keyboard input, <code>help</code>, <code>about</code>, <code>apps</code>, and{" "}
-              <code>calc 6 - 7</code> have evidence. RTL8139 initialisation and its MAC address have evidence.
+              Typed input in QEMU, including Backspace and Shift, is verified. An unattended harness types 52 shell
+              commands over the serial port and checks each one&apos;s output, including a full ChronoFS session
+              on a throwaway disk: write, copy, search, delete, and a clean <code>fs check</code>. RTL8139
+              initialisation and its MAC address have evidence.
             </P>
             <P>
-              Filesystem workflows, general userspace, ARP and UDP behaviour, most of the mouse and window
-              paths, UEFI, the custom BIOS handoff, and application-processor startup are written but not yet
-              proven at runtime. TCP, DHCP, DNS, USB, a dynamic linker, a package manager, and a real preemptive
+              ChronoFS writes surviving a reboot, general userspace, ARP and UDP behaviour, most of the mouse
+              and window paths, UEFI, the custom BIOS handoff, and application-processor startup are written but
+              not yet proven at runtime. TCP, DHCP, DNS, USB, a dynamic linker, a package manager, and a real preemptive
               scheduler are design-only.
             </P>
             <P>
@@ -221,6 +223,13 @@ export const caseStudies: Record<string, CaseStudy> = {
                 error message.
               </>,
               <>
+                <strong>A kernel bug I blamed on the emulator.</strong> From June to October typed commands
+                came out with doubled letters, as in <code>woorrkssppaacee</code>, and I logged it as a QEMU
+                quirk. It was
+                the keyboard interrupt handler reading port <code>0x60</code> without checking the status port
+                first. When the polling path had already taken the byte, QEMU handed back the same one again.
+              </>,
+              <>
                 <strong>SMP is where confidence goes to die.</strong> Two-core smoke testing reached the
                 bootstrap processor and no further. It is marked partially implemented and risky, because that
                 is what it is.
@@ -240,13 +249,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         body: (
           <>
             <P>
-              v0.1 is packaged as a release candidate. The first goal after it is verification rather than
-              expansion: visible QEMU evidence for the framebuffer, shell prompt, keyboard input, ChronoFS
-              basics, and the product commands, with screenshots to match.
+              v0.3 is about verification rather than new features. The next step is running the serial smoke
+              harness on every kernel change, and growing it to cover the remaining read-only commands and a
+              reboot step that proves ChronoFS writes persist.
             </P>
             <P>
-              After that, the order is filesystem hardening, userspace and process cleanup, networking checks,
-              window-system polish, and careful exploration of real hardware.
+              After that, the order is window and input lifecycle, filesystem repair and recovery, userspace,
+              and only then UEFI, SMP, networking, and real hardware.
             </P>
           </>
         ),
