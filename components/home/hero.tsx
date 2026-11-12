@@ -1,133 +1,112 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { person, positioning } from "@/lib/data/site"
-import { getFeaturedProjects, statusLabels } from "@/lib/data/projects"
+import { person } from "@/lib/data/site"
+import {
+  deploymentLabels,
+  getProjectBySlug,
+  projectsLastVerified,
+  statusLabels,
+  type Project,
+} from "@/lib/data/projects"
+import { contributionCounts, contributionsLastVerified, mergedContributions } from "@/lib/data/open-source"
 import { Container } from "@/components/layout/section"
 import { ExternalLink } from "@/components/ui/external-link"
+import { Selector, type Channel, type Reading } from "@/components/home/selector"
 
-/**
- * The instrument panel on the right shows real project state pulled from the
- * project data, not skill bars. If a status changes in `projects.ts`, it
- * changes here, which is the only way a status panel stays true.
+/*
+ * Each channel reads from the same data the rest of the site renders, plus one
+ * or two readings taken from that project's own evidence. If a status changes
+ * in projects.ts, the lamp changes here too.
  */
-function StatusPanel() {
-  const featured = getFeaturedProjects()
-  const building = featured.filter((p) => p.status === "active")
-  const recent = featured.filter((p) => p.status === "shipped")
+function projectChannel(slug: string, legend: string, extra: Reading[]): Channel {
+  const project = getProjectBySlug(slug) as Project
+  const note = project.deployment.note
+  const deployment = note
+    ? `${deploymentLabels[project.deployment.status]}, ${note.charAt(0).toLowerCase()}${note.slice(1)}`
+    : deploymentLabels[project.deployment.status]
+  return {
+    id: project.slug,
+    legend,
+    title: project.title,
+    line: project.tagline,
+    status: { lit: project.status === "active", word: statusLabels[project.status] },
+    readings: [{ label: "Stack", value: project.technologies.slice(0, 3).join(", ") }, ...extra, { label: "Deployment", value: deployment }],
+    calibrated: projectsLastVerified,
+    link: project.caseStudy
+      ? { href: `/work/${project.slug}`, label: "Case study" }
+      : project.deployment.url
+        ? { href: project.deployment.url, label: "Open it", external: true }
+        : { href: `/work#${project.slug}`, label: "Details" },
+  }
+}
 
-  return (
-    <div className="overflow-hidden rounded-xl border border-border/70 bg-card/50 backdrop-blur-sm">
-      <div className="flex items-center gap-2 border-b border-border/60 px-4 py-2.5">
-        <span aria-hidden="true" className="font-mono text-xs text-primary">
-          ●
-        </span>
-        <p className="font-mono text-[11px] text-muted-foreground">vanshaj://status</p>
-      </div>
-
-      <div className="space-y-6 p-5">
-        <section>
-          <h2 className="label mb-3 text-muted-foreground">Now building</h2>
-          <ul className="space-y-3">
-            {building.map((project) => (
-              <li key={project.slug} className="flex items-baseline justify-between gap-4">
-                <div className="min-w-0">
-                  <Link
-                    href={project.caseStudy ? `/work/${project.slug}` : "/work"}
-                    className="font-mono text-sm transition-colors hover:text-primary"
-                  >
-                    {project.title}
-                  </Link>
-                  <p className="truncate font-mono text-[11px] text-muted-foreground">
-                    {project.technologies.slice(0, 3).join(" · ")}
-                  </p>
-                </div>
-                <span className="label shrink-0 text-primary">
-                  <span aria-hidden="true">●</span> {statusLabels[project.status]}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="border-t border-border/60 pt-5">
-          <h2 className="label mb-3 text-muted-foreground">Recent</h2>
-          <ul className="space-y-3">
-            {recent.map((project) => (
-              <li key={project.slug} className="flex items-baseline justify-between gap-4">
-                <div className="min-w-0">
-                  <Link
-                    href={project.caseStudy ? `/work/${project.slug}` : "/work"}
-                    className="font-mono text-sm transition-colors hover:text-primary"
-                  >
-                    {project.title}
-                  </Link>
-                  <p className="truncate font-mono text-[11px] text-muted-foreground">
-                    {project.technologies.slice(0, 3).join(" · ")}
-                  </p>
-                </div>
-                <span className="label shrink-0 text-muted-foreground">
-                  <span aria-hidden="true">○</span> {statusLabels[project.status]}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </div>
-  )
+function channels(): Channel[] {
+  const latest = mergedContributions[0]
+  return [
+    projectChannel("chronosapien", "Systems", [
+      { label: "Verified", value: "Boot to shell, typed input, a ChronoFS session" },
+    ]),
+    projectChannel("tensortrail", "AI and ML", [{ label: "Tests", value: "137, plus a gradient checker" }]),
+    projectChannel("already-filed", "Dev tools", [
+      { label: "Measured", value: "Right issue in top 3: 65% zed, 58% neovim" },
+      { label: "Baseline", value: "Keyword search: 38%, 39%" },
+    ]),
+    projectChannel("project-management-atlas", "Product", [
+      // From the ATLAS case study: a read-only production audit (Sep 2026).
+      { label: "In production", value: "All 79 tables under row-level security" },
+    ]),
+    {
+      id: "open-source",
+      legend: "Open source",
+      title: "Open source",
+      line: "Pull requests to codebases I did not design, with the state each one is actually in.",
+      status: { lit: true, word: `${contributionCounts.merged} merged` },
+      readings: [
+        { label: "Merged", value: String(contributionCounts.merged) },
+        { label: "Open", value: String(contributionCounts.open) },
+        { label: "Projects", value: String(contributionCounts.projects) },
+        { label: "Latest merged", value: `${latest.project}: ${latest.title}` },
+      ],
+      calibrated: contributionsLastVerified,
+      link: { href: "/open-source", label: "All contributions" },
+    },
+  ]
 }
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border/60">
-      <div aria-hidden="true" className="grid-backdrop" />
-      <Container className="relative">
-        <div className="grid items-center gap-12 py-20 sm:py-24 lg:grid-cols-12 lg:gap-16 lg:py-28">
-          <div className="space-y-8 lg:col-span-7">
-            <div className="space-y-6">
-              <p className="label text-muted-foreground">
-                {person.name} <span className="text-primary">/</span> {person.title}
-              </p>
-              <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                {positioning.headline[0]}
-                <br />
-                {positioning.headline[1]}
-              </h1>
-              <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                {positioning.lede}
-              </p>
-            </div>
+    <section className="border-b border-border">
+      <Container width="wide">
+        <div className="grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12 lg:py-24">
+          <div className="lg:col-span-5">
+            <h1 className="nameplate text-[clamp(3.25rem,8vw,6rem)]">
+              Vanshaj
+              <br />
+              Poonia
+            </h1>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href="/work"
-                className="group inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-lg bg-primary px-6 font-mono text-sm text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                Explore work
-                <ArrowRight
-                  aria-hidden="true"
-                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                />
-              </Link>
-              <ExternalLink
-                href={person.github}
-                label="GitHub profile"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-lg border border-border px-6 font-mono text-sm text-muted-foreground hover:border-foreground/40 hover:text-foreground"
-              >
+            <p className="mt-8 max-w-[34ch] text-pretty text-lg leading-relaxed sm:text-xl">
+              I build software across the stack, from product interfaces down to a hobby operating system in
+              Rust, and everything here says what state it is actually in.
+            </p>
+
+            <p className="label mt-5 text-muted-foreground">
+              {person.title.replace("&", "and")}, {person.location}
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a href={`mailto:${person.email}`} className="key key-lit">
+                Email me
+              </a>
+              <ExternalLink href={person.github} label="GitHub profile" showMarker={false} className="key">
                 GitHub
               </ExternalLink>
+              <a href={person.resume} className="key">
+                Résumé
+              </a>
             </div>
-
-            <p className="font-mono text-xs text-muted-foreground">
-              <span aria-hidden="true" className="text-primary">
-                &gt;
-              </span>{" "}
-              {positioning.thesis}
-            </p>
           </div>
 
-          <div className="lg:col-span-5">
-            <StatusPanel />
+          <div className="lg:col-span-7 lg:border-l lg:border-border lg:pl-12">
+            <Selector channels={channels()} />
           </div>
         </div>
       </Container>
