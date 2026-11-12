@@ -3,65 +3,71 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Palette.
+ * Instrument panel.
  *
- * Near-neutral greys carry the page; the teal accent is reserved for state that
- * means something (active, live, current, focused) rather than applied to every
- * border and heading. Both modes are defined explicitly rather than one being
- * an inversion of the other.
+ * The page is a bead-blasted aluminium plate. Four greys and one lamp colour,
+ * nothing else: plate, seam (hairlines and control rings), engraving (secondary
+ * text, still 4.5:1 on the plate), and ink. Amber is the pilot lamp. It marks a
+ * lit state or the one primary key, never a border or a heading.
+ *
+ * Depth comes from plates and seams overlapping. There are no shadows, no blur,
+ * no glow and no gradients anywhere on the site.
  */
 :root {
-  --background: oklch(0.985 0.002 260);
-  --foreground: oklch(0.14 0.012 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.14 0.012 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.14 0.012 260);
-  --primary: oklch(0.48 0.13 172);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.955 0.005 260);
-  --secondary-foreground: oklch(0.24 0.012 260);
-  --muted: oklch(0.955 0.005 260);
-  --muted-foreground: oklch(0.46 0.01 260);
-  --accent: oklch(0.48 0.13 172);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.55 0.2 27);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.005 260);
-  --input: oklch(0.9 0.005 260);
-  --ring: oklch(0.48 0.13 172);
-  --radius: 0.625rem;
+  --plate: oklch(0.928 0.004 250);
+  --seam: oklch(0.82 0.006 250);
+  --engraving: oklch(0.47 0.009 250);
+  --ink: oklch(0.205 0.008 250);
+  --lamp: oklch(0.79 0.165 72);
+  --on-lamp: oklch(0.2 0.01 250);
 
-  --glow-color: oklch(0.48 0.13 172 / 0.16);
+  --background: var(--plate);
+  --foreground: var(--ink);
+  --card: var(--plate);
+  --card-foreground: var(--ink);
+  --popover: var(--plate);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--plate);
+  --secondary: var(--seam);
+  --secondary-foreground: var(--ink);
+  --muted: var(--seam);
+  --muted-foreground: var(--engraving);
+  --accent: var(--lamp);
+  --accent-foreground: var(--on-lamp);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: var(--plate);
+  --border: var(--seam);
+  --input: var(--seam);
+  --ring: var(--ink);
+  --radius: 0.375rem;
+
+  /* A detent: a short overshoot, then settle. Used for anything that clicks. */
+  --ease-detent: cubic-bezier(0.3, 1.25, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
 }
 
+/* Black anodised. Designed as its own finish, not an inversion of the light one. */
 .dark {
-  --background: oklch(0.09 0.008 260);
-  --foreground: oklch(0.96 0.002 260);
-  --card: oklch(0.12 0.008 260);
-  --card-foreground: oklch(0.96 0.002 260);
-  --popover: oklch(0.13 0.008 260);
-  --popover-foreground: oklch(0.96 0.002 260);
-  --primary: oklch(0.78 0.14 172);
-  --primary-foreground: oklch(0.12 0.01 260);
-  --secondary: oklch(0.17 0.008 260);
-  --secondary-foreground: oklch(0.9 0.002 260);
-  --muted: oklch(0.17 0.008 260);
-  --muted-foreground: oklch(0.68 0.008 260);
-  --accent: oklch(0.78 0.14 172);
-  --accent-foreground: oklch(0.12 0.01 260);
-  --destructive: oklch(0.63 0.19 25);
-  --destructive-foreground: oklch(0.12 0.01 260);
-  --border: oklch(0.24 0.008 260);
-  --input: oklch(0.24 0.008 260);
-  --ring: oklch(0.78 0.14 172);
+  --plate: oklch(0.19 0.004 250);
+  --seam: oklch(0.33 0.006 250);
+  --engraving: oklch(0.72 0.007 250);
+  --ink: oklch(0.935 0.004 250);
+  --lamp: oklch(0.8 0.16 72);
 
-  --glow-color: oklch(0.78 0.14 172 / 0.1);
+  color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist), "Geist", "Geist Fallback", system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-sans: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  /*
+   * There is no second face. What used to be set in mono for metadata is now an
+   * engraved legend: the same family, condensed, with tabular figures. Real code
+   * gets a real monospace below.
+   */
+  --font-mono: var(--font-archivo), "Archivo", system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -81,10 +87,15 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --color-lamp: var(--lamp);
+  --color-seam: var(--seam);
+  --color-engraving: var(--engraving);
+  --color-ink: var(--ink);
+  --color-plate: var(--plate);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 2px);
 }
 
 @layer base {
@@ -92,33 +103,115 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /*
-   * Anchor targets sit under a fixed header. Scroll padding on the root fixes
-   * every in-page link at once instead of a scroll-mt on each target.
-   */
   html {
     scroll-padding-top: 6rem;
   }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: -0.003em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+  }
+
+  code,
+  pre,
+  samp {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-stretch: normal;
+    font-size: 0.9em;
+  }
+
+  kbd {
+    font-family: var(--font-sans);
+    font-stretch: 80%;
+    font-variant-numeric: tabular-nums;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  /* Selection inverts, like every other selected thing on the panel. */
+  ::selection {
+    background: var(--ink);
+    color: var(--plate);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::placeholder {
+    color: var(--engraving);
+    opacity: 1;
+  }
+
+  input,
+  textarea {
+    caret-color: var(--ink);
+  }
+}
+
+@layer components {
+/*
+ * What used to be monospace metadata becomes engraved readout text: condensed,
+ * tabular, a hair of tracking. The utility keeps its name so every view picks
+ * this up at once.
+ */
+.font-mono {
+  font-stretch: 84%;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
 }
 
 /*
- * Layout primitives.
- *
- * Width is a deliberate choice per content type rather than one max-width
- * everywhere: prose wants a comfortable measure, product imagery and diagrams
- * want room.
+ * Engraved legend. The lettering next to a control or a reading on a panel:
+ * condensed, upper case, lightly tracked. It labels things. It never sits above
+ * a heading as a kicker.
+ */
+.label,
+.legend {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-stretch: 78%;
+  line-height: 1.25;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The nameplate: the one place the width axis goes wide. */
+.nameplate {
+  font-stretch: 115%;
+  font-weight: 620;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+/*
+ * Layout. Everything snaps to an 8px module, and widths are chosen per content
+ * type: prose wants a measure, work wants room.
  */
 .container-wide,
 .container-default,
 .container-prose {
   width: 100%;
   margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: 1rem;
 }
 
 .container-wide {
@@ -139,7 +232,6 @@
   }
 }
 
-/* One rhythm, three sizes, so no section invents its own padding. */
 .section {
   padding-block: 4rem;
 }
@@ -152,83 +244,197 @@
 
 @media (min-width: 768px) {
   .section {
-    padding-block: 6rem;
+    padding-block: 7rem;
   }
   .section-sm {
-    padding-block: 3.5rem;
+    padding-block: 4rem;
   }
   .section-lg {
-    padding-block: 8rem;
+    padding-block: 9rem;
   }
 }
 
-/* Small-caps mono label for eyebrows, statuses, and metadata. */
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  line-height: 1.25;
-  letter-spacing: 0.16em;
+/*
+ * Push key. A physical key reads as raised because its front edge shows: a
+ * thicker seam along the bottom. Pressing takes the edge away and drops the key
+ * a pixel. No shadow is involved.
+ */
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1.125rem;
+  border: 1px solid var(--seam);
+  border-bottom-width: 3px;
+  border-radius: var(--radius);
+  background: var(--plate);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-stretch: 80%;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
+  transition:
+    transform 120ms var(--ease-out-expo),
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.key:hover {
+  border-color: var(--engraving);
+}
+
+.key:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+  margin-bottom: 2px;
+}
+
+.key-lit {
+  background: var(--lamp);
+  color: var(--on-lamp);
+  border-color: oklch(from var(--lamp) calc(l - 0.2) c h);
+}
+
+.key-lit:hover {
+  border-color: oklch(from var(--lamp) calc(l - 0.32) c h);
 }
 
 /*
- * Faint engineering grid, behind the hero only, so it frames the work instead
- * of texturing the whole site.
+ * Pilot lamp. Status is never the lamp alone: a word always sits beside it.
+ * Unlit is an empty ring, lit is filled, and the fill warms up rather than
+ * switching on.
  */
-.grid-backdrop {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.45;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
+.lamp {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--engraving);
+  background: transparent;
+  transition:
+    background-color 420ms var(--ease-out-expo),
+    border-color 420ms var(--ease-out-expo);
 }
 
-.dark .grid-backdrop {
-  opacity: 0.7;
+.lamp[data-lit="true"] {
+  background: var(--lamp);
+  border-color: oklch(from var(--lamp) calc(l - 0.22) c h);
 }
 
-/* On a phone the cells are large relative to the viewport and cut through the
-   headline, so the grid only appears once there is room for it to recede. */
-@media (max-width: 639px) {
-  .grid-backdrop {
-    display: none;
+/*
+ * Inverted display window. Selection and readouts invert the plate rather than
+ * adding a colour, so the window is ink with plate-coloured type.
+ */
+.window {
+  background: var(--ink);
+  color: var(--plate);
+  border-radius: var(--radius);
+  --window-dim: oklch(from var(--plate) l c h / 0.68);
+  --window-seam: oklch(from var(--plate) l c h / 0.16);
+}
+}
+
+/*
+ * Drawn traces. A schematic's signal line draws itself in once when it scrolls
+ * into view. The line is visible by default; only a page that has confirmed
+ * motion is allowed arms it, so nothing is hidden if script never runs.
+ */
+.trace-line {
+  transform-origin: top;
+}
+.trace-x .trace-line {
+  transform-origin: left;
+}
+
+html[data-motion="ok"] .trace:not([data-drawn]) .trace-line {
+  transform: scaleY(0);
+}
+html[data-motion="ok"] .trace-x:not([data-drawn]) .trace-line {
+  transform: scaleX(0);
+}
+html[data-motion="ok"] .trace:not([data-drawn]) .trace-node {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.trace .trace-line {
+  transition: transform 520ms var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 90ms + 160ms);
+}
+.trace .trace-node {
+  transition:
+    opacity 300ms ease,
+    transform 420ms var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 90ms + 120ms);
+}
+
+/* Lamps inside the inverted window ring in the window's own dim tone. */
+.lamp-window {
+  border-color: var(--window-dim);
+}
+
+/*
+ * Before the self-test finishes, lit lamps in the selector stay dark, then warm
+ * up. Only armed when motion is allowed, so without script they are simply lit.
+ */
+html[data-motion="ok"] .selector:not([data-powered]) .lamp[data-lit="true"] {
+  background: transparent;
+  border-color: var(--window-dim);
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
   }
 }
 
-/*
- * Cursor glow. Position is written directly to the transform by the component,
- * so nothing here animates on its own.
- */
-.cursor-glow {
-  pointer-events: none;
-  position: fixed;
-  z-index: 0;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--glow-color) 0%, transparent 65%);
-  filter: blur(12px);
-  transition: opacity 0.4s ease;
-  will-change: transform;
+.drawer-in {
+  animation: drawer-in 320ms var(--ease-out-expo) both;
+}
+
+/* Display readout swap: the old reading rolls up out of the window, the new one rolls in. */
+@keyframes roll-in {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.roll-in {
+  animation: roll-in 420ms var(--ease-out-expo) both;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--plate);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
+  background: var(--seam);
+  border: 2px solid var(--plate);
+  border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
+  background: var(--engraving);
+}
+
+html {
+  scrollbar-color: var(--seam) var(--plate);
 }
 
 .scrollbar-hide {
@@ -239,33 +445,18 @@
   display: none;
 }
 
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-::selection {
-  background: oklch(from var(--primary) l c h / 0.25);
-  color: var(--foreground);
-}
-
 /*
- * Reduced motion. There are no looping animations left in the design, so this
- * only has to neutralise transitions, smooth scrolling, and the glow. The
- * cursor glow additionally removes itself in JavaScript.
+ * Reduced motion. Transitions, the self-test sweep and the drawn traces all
+ * stand down; every state is shown immediately and nothing is hidden.
  */
 @media (prefers-reduced-motion: reduce) {
-  .cursor-glow {
-    display: none;
-  }
-
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
   }
 }

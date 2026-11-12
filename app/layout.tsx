@@ -1,22 +1,36 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Archivo } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import { motionArmScript } from "@/lib/motion"
 import { person, positioning, siteUrl } from "@/lib/data/site"
 import "./globals.css"
 
-const geist = Geist({
+/*
+ * One family for everything. The width axis does the work a second face used
+ * to: condensed for engraved legends and readouts, normal for reading, wide for
+ * the nameplate.
+ */
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-geist",
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 })
 
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-  display: "swap",
-})
+/*
+ * Design direction, kept in the shipped markup so it can be audited against
+ * the render. See PRODUCT.md and DESIGN.md.
+ */
+const directionContract = `<!--
+THESIS: The site is a calibrated instrument. Each project is a channel with a lamp, a reading and a calibration date. It refuses the dark terminal portfolio with glow, grid and bento cards.
+OWN-WORLD: Bead-blasted aluminium plate in four greys and one amber pilot lamp. Archivo only, engraved condensed legends, hairline seams. No shadow, blur, glow or gradient. Selection by inversion.
+STORY: A maintainer or hiring manager turns the selector, reads the real state of each project, then emails, opens GitHub, takes the résumé or reads a case study.
+FIRST VIEWPORT: Left, the name as a wide nameplate, one sentence and three push keys with Email lit in amber. Right, a detented rotary selector beside an inverted display window showing that channel's project, lamp and calibration date.
+FORM: Instrument Panel, candidate 4 of 7, seed 52b928aa. Signature: the detented selector. Motion: detent snap, lamp warm-up, a power-on self-test sweep, traces drawn in once.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -86,10 +100,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#08090c" },
-  ],
+  // The plate. The finish is a class, not the system scheme, so one value.
+  themeColor: "#e5e7ea",
 }
 
 export default function RootLayout({
@@ -98,17 +110,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={archivo.variable}>
       <body className="font-sans antialiased">
+        <div hidden dangerouslySetInnerHTML={{ __html: directionContract }} />
+        <script dangerouslySetInnerHTML={{ __html: motionArmScript }} />
         {/*
-          defaultTheme is "system" so a first-time visitor gets the theme their
-          OS asked for. Setting it to "dark" would override system preference
-          until the visitor found the toggle.
+          Light is the designed default: the site is mostly read at a desk in
+          daylight, between reviews. The switch in the header gives the black
+          anodised version, which is designed too, not inverted.
         */}
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
           storageKey="theme-mode"
         >
