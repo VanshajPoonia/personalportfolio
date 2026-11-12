@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
+import { ArrowUpRight, Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { primaryNav, secondaryNav, person } from "@/lib/data/site"
 import { sortedProjects } from "@/lib/data/projects"
@@ -216,7 +217,7 @@ export function CommandPalette({
   return (
     <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 pt-[12vh] sm:pt-[18vh]">
       <div
-        className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-ink/30"
         onClick={close}
         aria-hidden="true"
       />
@@ -226,12 +227,10 @@ export function CommandPalette({
         aria-modal="true"
         aria-label="Command palette"
         onKeyDown={onKeyDown}
-        className="relative w-full max-w-xl overflow-hidden rounded-xl border border-border bg-popover shadow-2xl"
+        className="drawer-in relative w-full max-w-xl overflow-hidden rounded-lg border border-border border-b-[3px] bg-popover"
       >
         <div className="flex items-center gap-3 border-b border-border px-4">
-          <span aria-hidden="true" className="font-mono text-sm text-primary">
-            &gt;
-          </span>
+          <Search aria-hidden="true" strokeWidth={1.75} className="h-4 w-4 shrink-0 text-muted-foreground" />
           <input
             ref={inputRef}
             type="text"
@@ -246,9 +245,9 @@ export function CommandPalette({
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search work, pages, and links"
             aria-label="Search work, pages, and links"
-            className="w-full bg-transparent py-4 font-mono text-sm outline-none placeholder:text-muted-foreground"
+            className="w-full bg-transparent py-4 text-base outline-none placeholder:text-muted-foreground"
           />
-          <kbd className="hidden shrink-0 rounded border border-border px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground sm:block">
+          <kbd className="label hidden shrink-0 rounded-[4px] border border-seam border-b-2 px-1.5 py-[3px] text-muted-foreground sm:block">
             ESC
           </kbd>
         </div>
@@ -256,7 +255,7 @@ export function CommandPalette({
         <div ref={listRef} id="command-palette-list" role="listbox" className="max-h-[52vh] overflow-y-auto p-2">
           {grouped.length === 0 && (
             <p className="px-3 py-8 text-center text-sm text-muted-foreground">
-              Nothing matches <span className="font-mono text-foreground">{query}</span>.
+              Nothing matches <span className="text-foreground">{query}</span>.
             </p>
           )}
           {grouped.map(([group, items]) => (
@@ -277,20 +276,18 @@ export function CommandPalette({
                     onClick={() => select(command)}
                     onMouseMove={() => setActiveIndex(myIndex)}
                     className={cn(
-                      "flex w-full items-center justify-between gap-4 rounded-md px-3 py-2.5 text-left text-sm transition-colors",
-                      isActive ? "bg-secondary text-foreground" : "text-muted-foreground",
+                      "flex w-full items-center justify-between gap-4 rounded-[4px] px-3 py-2.5 text-left text-[15px] transition-colors duration-100",
+                      isActive ? "bg-ink text-plate" : "text-foreground",
                     )}
                   >
                     <span className="truncate">
                       {command.label}
                       {command.external && (
-                        <span aria-hidden="true" className="ml-1.5 text-[0.8em] opacity-60">
-                          ↗
-                        </span>
+                        <ArrowUpRight aria-hidden="true" strokeWidth={1.75} className="ml-1 inline h-[0.9em] w-[0.9em] opacity-60" />
                       )}
                     </span>
                     {command.hint && (
-                      <span className="shrink-0 font-mono text-[11px] text-muted-foreground">{command.hint}</span>
+                      <span className={cn("label shrink-0", isActive ? "text-plate/70" : "text-muted-foreground")}>{command.hint}</span>
                     )}
                   </button>
                 )

@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
-import { Moon, Sun } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 /**
- * Light/dark toggle.
+ * Finish switch: a two-position slide switch between the aluminium and the
+ * black anodised panel. The slider clicks across on the detent curve.
  *
- * Renders a fixed-size placeholder before mount so the header does not shift
- * when the resolved theme arrives, and so the server and client markup match.
+ * Renders an inert switch in the light position before mount, so the header
+ * does not shift and server and client markup match.
  */
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -16,22 +17,32 @@ export function ThemeToggle() {
 
   useEffect(() => setMounted(true), [])
 
-  if (!mounted) {
-    return <div className="h-11 w-11" aria-hidden="true" />
-  }
-
-  const isDark = resolvedTheme === "dark"
-  const next = isDark ? "light" : "dark"
-  const Icon = isDark ? Moon : Sun
+  const isDark = mounted && resolvedTheme === "dark"
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(next)}
-      aria-label={`Switch to ${next} theme`}
-      className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
+      role="switch"
+      aria-checked={isDark}
+      aria-label="Dark finish"
+      disabled={!mounted}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="group flex h-11 items-center gap-2 rounded-md px-1.5 text-muted-foreground transition-colors hover:text-foreground"
     >
-      <Icon aria-hidden="true" className="h-4 w-4" />
+      <span aria-hidden="true" className="label hidden sm:inline">
+        Finish
+      </span>
+      <span
+        aria-hidden="true"
+        className="relative inline-flex h-[18px] w-[34px] items-center rounded-full border border-seam bg-plate transition-colors group-hover:border-engraving"
+      >
+        <span
+          className={cn(
+            "absolute left-[2px] h-3 w-3 rounded-full bg-ink transition-transform duration-300 [transition-timing-function:var(--ease-detent)]",
+            isDark && "translate-x-4",
+          )}
+        />
+      </span>
     </button>
   )
 }
