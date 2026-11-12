@@ -85,7 +85,7 @@ export const education = {
   institution: "Indian Institute of Technology Jodhpur",
   shortName: "IIT Jodhpur",
   degree: "Bachelor's, Artificial Intelligence and Data Science",
-  period: "2024 - present",
+  period: "2025 - present",
   current: true,
   location: "Jodhpur, Rajasthan",
 }
