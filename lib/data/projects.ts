@@ -168,7 +168,7 @@ export const projects: Project[] = [
     role: "Solo",
     priority: 40,
     github: "https://github.com/VanshajPoonia/intacct",
-    deployment: { status: "offline", note: "Hosted build errors on load" },
+    deployment: { status: "offline", note: "Hosted build loads with no data" },
     media: { diagram: "none", alt: "" },
   },
 ]
