@@ -6,7 +6,7 @@ import {
   statusLabels,
   type Project,
 } from "@/lib/data/projects"
-import { contributionCounts, contributionsLastVerified, mergedContributions } from "@/lib/data/open-source"
+import { contributionCounts, contributionsLastVerified, latestMerged } from "@/lib/data/open-source"
 import { Container } from "@/components/layout/section"
 import { ExternalLink } from "@/components/ui/external-link"
 import { Selector, type Channel, type Reading } from "@/components/home/selector"
@@ -39,7 +39,7 @@ function projectChannel(slug: string, legend: string, extra: Reading[]): Channel
 }
 
 function channels(): Channel[] {
-  const latest = mergedContributions[0]
+  const latest = latestMerged
   return [
     projectChannel("chronosapien", "Systems", [
       { label: "Verified", value: "Boot to shell, typed input, a ChronoFS session" },
