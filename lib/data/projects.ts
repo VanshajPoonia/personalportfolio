@@ -11,7 +11,7 @@
  * anything behind a login for a single organisation is marked `private`.
  */
 
-export const projectsLastVerified = "2026-08-23"
+export const projectsLastVerified = "2026-11-12"
 
 /** Where the project is in its own life, independent of hosting. */
 export type ProjectStatus = "active" | "shipped" | "prototype" | "paused" | "archive" | "learning"
