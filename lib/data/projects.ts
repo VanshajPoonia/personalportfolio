@@ -161,7 +161,7 @@ export const projects: Project[] = [
     title: "Big Brother",
     tagline: "A GitHub bot that checks issues and pull requests against the real code.",
     summary:
-      "A GitHub bot that runs a bug report's code in an offline Docker sandbox at the release the reporter used, then labels the issue confirmed, cannot reproduce or invalid from what that shows. A local Qwen3 4B only reads the report and fixed rules pick the label, which got 9 of 11 real closed issues right. Built overnight at a hackathon with three teammates. My part was the extraction, the verdict rules, the pipeline and the CLI.",
+      "A GitHub bot that runs a bug report's code in an offline Docker sandbox and labels the issue confirmed, cannot reproduce or invalid from what happens. A local Qwen3 4B only reads the report, and fixed rules got 9 of 11 real closed issues right. Built overnight with three teammates. I owned the extraction, verdict rules, pipeline and CLI.",
     year: "2026",
     status: "prototype",
     categories: ["developer-tools", "ai-ml"],
