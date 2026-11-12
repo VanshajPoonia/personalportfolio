@@ -41,7 +41,7 @@ export const positioning = {
 
 export const primaryNav: NavItem[] = [
   { label: "Work", href: "/work", description: "Products, systems, and tools I have built." },
-  { label: "Experience", href: "/experience", description: "Professional and collaborative engineering." },
+  { label: "Experience", href: "/experience", description: "Roles, current and past." },
   { label: "Open Source", href: "/open-source", description: "Contributions to codebases I did not write." },
   { label: "Research", href: "/research", description: "One active, unpublished study." },
   { label: "About", href: "/about", description: "Background, current focus, and how to reach me." },

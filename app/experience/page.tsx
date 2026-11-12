@@ -1,19 +1,19 @@
-import { ArrowUpRight } from "lucide-react"
 import { Lamp } from "@/components/ui/status-badge"
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { SiteShell } from "@/components/site-shell"
 import { ContactCTA } from "@/components/footer"
 import { PageHeader } from "@/components/layout/page-header"
 import { Section } from "@/components/layout/section"
 import { ExternalLink, TechList } from "@/components/ui/external-link"
-import { clientDelivery, experience } from "@/lib/data/experience"
-import { pageMetadata } from "@/lib/data/site"
+import { experience } from "@/lib/data/experience"
+import { pageMetadata, person } from "@/lib/data/site"
 
 export const metadata: Metadata = pageMetadata({
   title: "Experience",
   description:
-    "Professional and collaborative engineering: client product delivery, integration work, and platform development on a team.",
+    "Vanshaj Poonia's roles: software engineer at Helix Grid working on AI and LLM features, open source contributor since 2021, and earlier work with codedamn and Symbl.ai.",
   path: "/experience",
 })
 
@@ -21,12 +21,15 @@ export default function ExperiencePage() {
   return (
     <SiteShell>
       <PageHeader
-        title="Engineering with other people's deadlines attached."
+        title="Where I have worked."
         intro={
           <p>
-            Client work, integration engineering, and one collaborative platform. Where a system is private,
-            it is described by what it does rather than by what is in it, and nothing here is presented as
-            solo work when it was not.
+            A part-time engineering role building AI features, open source since Hacktoberfest 2021, and the
+            community roles that came before. The same history is on{" "}
+            <ExternalLink href={person.linkedin} label="LinkedIn" className="text-foreground underline underline-offset-4">
+              LinkedIn
+            </ExternalLink>
+            .
           </p>
         }
       />
@@ -34,14 +37,17 @@ export default function ExperiencePage() {
       <Section width="wide">
         <ol className="space-y-14">
           {experience.map((item) => (
-            <li key={item.slug} className="grid gap-x-10 gap-y-5 border-t border-border pt-8 lg:grid-cols-12">
+            <li
+              key={item.slug}
+              id={item.slug}
+              className="grid scroll-mt-24 gap-x-10 gap-y-5 border-t border-border pt-8 lg:grid-cols-12"
+            >
               <div className="space-y-2 lg:col-span-4">
                 <h2 className="text-xl font-semibold tracking-tight">{item.organisation}</h2>
-                <p className="font-mono text-sm text-muted-foreground">{item.role}</p>
-                <p className="label text-muted-foreground">
-                  {item.current && (
-                    <Lamp lit className="mr-2 align-[-1px]" />
-                  )}
+                <p className="font-mono text-sm text-foreground">{item.role}</p>
+                <p className="font-mono text-[13px] text-muted-foreground">{item.arrangement}</p>
+                <p className="label inline-flex items-center gap-2 pt-1 text-muted-foreground">
+                  {item.current && <Lamp lit />}
                   {item.period}
                 </p>
               </div>
@@ -58,21 +64,29 @@ export default function ExperiencePage() {
                   ))}
                 </ul>
 
-                <TechList items={item.technologies} />
-
-                {item.ownership && (
-                  <p className="rounded-lg border border-border px-4 py-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
-                    {item.ownership}
-                  </p>
-                )}
+                {item.technologies && <TechList items={item.technologies} />}
 
                 {item.links && item.links.length > 0 && (
-                  <ul className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs">
+                  <ul className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[13px]">
                     {item.links.map((link) => (
                       <li key={link.href}>
-                        <ExternalLink href={link.href} label={link.label} className="text-muted-foreground">
-                          {link.label}
-                        </ExternalLink>
+                        {link.href.startsWith("/") ? (
+                          <Link
+                            href={link.href}
+                            className="group inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            {link.label}
+                            <ArrowRight
+                              aria-hidden="true"
+                              strokeWidth={2}
+                              className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                            />
+                          </Link>
+                        ) : (
+                          <ExternalLink href={link.href} label={link.label} className="text-muted-foreground">
+                            {link.label}
+                          </ExternalLink>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -81,39 +95,6 @@ export default function ExperiencePage() {
             </li>
           ))}
         </ol>
-      </Section>
-
-      <Section width="wide" size="sm" className="border-t border-border">
-        <div className="mb-8 max-w-2xl space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight">Selected client delivery</h2>
-          <p className="text-muted-foreground">
-            Public production sites I built and maintain. They are marketing and service sites rather than
-            engineering showpieces, which is why they live here and not in{" "}
-            <Link href="/work" className="text-primary hover:underline">
-              work
-            </Link>
-            .
-          </p>
-        </div>
-
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {clientDelivery.map((client) => (
-            <li key={client.href}>
-              <ExternalLink
-                href={client.href}
-                label={client.name}
-                showMarker={false}
-                className="flex min-h-[64px] items-center justify-between gap-4 rounded-lg border border-border px-5 py-3.5 hover:border-engraving"
-              >
-                <span>
-                  <span className="block text-sm font-medium">{client.name}</span>
-                  <span className="block font-mono text-[11px] text-muted-foreground">{client.sector}</span>
-                </span>
-                <ArrowUpRight aria-hidden="true" strokeWidth={1.75} className="h-4 w-4 shrink-0 text-muted-foreground" />
-              </ExternalLink>
-            </li>
-          ))}
-        </ul>
       </Section>
 
       <ContactCTA />
