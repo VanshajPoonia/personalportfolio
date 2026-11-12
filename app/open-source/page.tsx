@@ -40,7 +40,8 @@ function ContributionCard({ contribution }: { contribution: Contribution }) {
           <TechList items={contribution.tags} />
           <p className="font-mono text-[11px] text-muted-foreground">
             <span className="text-primary">+{contribution.diff.additions}</span>{" "}
-            <span>−{contribution.diff.deletions}</span> · {contribution.diff.files} files
+            <span>−{contribution.diff.deletions}</span> · {contribution.diff.files}{" "}
+            {contribution.diff.files === 1 ? "file" : "files"}
           </p>
         </div>
 
