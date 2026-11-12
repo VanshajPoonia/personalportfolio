@@ -23,15 +23,15 @@ const now = [
     items: [
       { text: "ChronoOS, a hobby operating system in Rust", href: "/work/chronosapien" },
       { text: "Project Management ATLAS, in production for one organisation", href: "/work/project-management-atlas" },
-      { text: "Client products at Kreativ Vantage", href: "/experience#kreativ-vantage" },
+      { text: "AI and LLM features at Helix Grid", href: "/experience#helix-grid" },
     ],
   },
   {
     label: "Contributing",
     items: [
-      { text: "PictoPy: clustering correctness, CI, and accessibility", href: "/open-source" },
-      { text: "Plane: keyboard access and the mobile calendar", href: "/open-source" },
-      { text: "Rocket.Chat: integration and admin UI fixes", href: "/open-source" },
+      { text: "PictoPy: clustering correctness, CI, and accessibility", href: "/open-source#pictopy" },
+      { text: "Plane: keyboard access and the mobile calendar", href: "/open-source#plane" },
+      { text: "Rocket.Chat: integration and admin UI fixes", href: "/open-source#rocket-chat" },
     ],
   },
   {
@@ -82,13 +82,12 @@ export default function AboutPage() {
               transfers.
             </p>
             <p>
-              I work as a principal engineer at{" "}
-              <ExternalLink href="https://www.kreativvantage.com" label="Kreativ Vantage" className="text-primary">
-                Kreativ Vantage
-              </ExternalLink>
-              , shipping and maintaining client products. Before that I ran a small product venture called
-              Hypnosys, which is where the browser-IDE work started and where I learned how much scope one
-              person can actually carry.
+              I work part-time as a software engineer at{" "}
+              <Link href="/experience#helix-grid" className="text-primary hover:underline">
+                Helix Grid
+              </Link>
+              , building AI and LLM features. Most of that work sits around the model call rather than in it:
+              context retrieval, output validation, fallbacks, and an evaluation suite.
             </p>
             <p>
               I also have one{" "}
