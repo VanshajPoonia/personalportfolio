@@ -49,12 +49,12 @@ export default function ArchivePage() {
           {years.map((year) => (
             <section key={year}>
               <h2 className="label mb-5 text-muted-foreground">{year}</h2>
-              <ul className="border-t border-border/60">
+              <ul className="border-t border-border">
                 {groups[year].map((entry) => (
                   <li
                     key={entry.slug}
                     id={entry.slug}
-                    className="grid scroll-mt-24 gap-x-10 gap-y-3 border-b border-border/60 py-6 lg:grid-cols-12"
+                    className="grid scroll-mt-24 gap-x-10 gap-y-3 border-b border-border py-6 lg:grid-cols-12"
                   >
                     <div className="space-y-2 lg:col-span-3">
                       <h3 className="font-medium">{entry.title}</h3>
@@ -101,7 +101,7 @@ export default function ArchivePage() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-border/60 pt-6 text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-border pt-6 text-sm text-muted-foreground">
           <p>
             Current work is under{" "}
             <Link href="/work" className="text-primary hover:underline">

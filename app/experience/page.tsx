@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react"
+import { Lamp } from "@/components/ui/status-badge"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { SiteShell } from "@/components/site-shell"
@@ -32,15 +34,13 @@ export default function ExperiencePage() {
       <Section width="wide">
         <ol className="space-y-14">
           {experience.map((item) => (
-            <li key={item.slug} className="grid gap-x-10 gap-y-5 border-t border-border/60 pt-8 lg:grid-cols-12">
+            <li key={item.slug} className="grid gap-x-10 gap-y-5 border-t border-border pt-8 lg:grid-cols-12">
               <div className="space-y-2 lg:col-span-4">
                 <h2 className="text-xl font-semibold tracking-tight">{item.organisation}</h2>
                 <p className="font-mono text-sm text-muted-foreground">{item.role}</p>
                 <p className="label text-muted-foreground">
                   {item.current && (
-                    <span className="text-primary">
-                      <span aria-hidden="true">●</span>{" "}
-                    </span>
+                    <Lamp lit className="mr-2 align-[-1px]" />
                   )}
                   {item.period}
                 </p>
@@ -61,7 +61,7 @@ export default function ExperiencePage() {
                 <TechList items={item.technologies} />
 
                 {item.ownership && (
-                  <p className="rounded-lg border border-border/70 bg-secondary/20 px-4 py-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+                  <p className="rounded-lg border border-border px-4 py-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
                     {item.ownership}
                   </p>
                 )}
@@ -83,7 +83,7 @@ export default function ExperiencePage() {
         </ol>
       </Section>
 
-      <Section width="wide" size="sm" className="border-t border-border/60">
+      <Section width="wide" size="sm" className="border-t border-border">
         <div className="mb-8 max-w-2xl space-y-3">
           <h2 className="text-2xl font-semibold tracking-tight">Selected client delivery</h2>
           <p className="text-muted-foreground">
@@ -103,15 +103,13 @@ export default function ExperiencePage() {
                 href={client.href}
                 label={client.name}
                 showMarker={false}
-                className="flex min-h-[64px] items-center justify-between gap-4 rounded-lg border border-border/70 px-5 py-3.5 hover:border-primary/40"
+                className="flex min-h-[64px] items-center justify-between gap-4 rounded-lg border border-border px-5 py-3.5 hover:border-engraving"
               >
                 <span>
                   <span className="block text-sm font-medium">{client.name}</span>
                   <span className="block font-mono text-[11px] text-muted-foreground">{client.sector}</span>
                 </span>
-                <span aria-hidden="true" className="shrink-0 text-muted-foreground">
-                  ↗
-                </span>
+                <ArrowUpRight aria-hidden="true" strokeWidth={1.75} className="h-4 w-4 shrink-0 text-muted-foreground" />
               </ExternalLink>
             </li>
           ))}

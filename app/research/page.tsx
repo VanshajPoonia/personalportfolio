@@ -1,3 +1,4 @@
+import { Lamp } from "@/components/ui/status-badge"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { SiteShell } from "@/components/site-shell"
@@ -55,14 +56,14 @@ export default function ResearchPage() {
           An in-progress study that says so is worth more than one that implies
           a result it does not have.
         */}
-        <div className="max-w-md overflow-hidden rounded-xl border border-border/70 bg-secondary/20">
-          <div className="flex items-center justify-between gap-4 border-b border-border/60 px-5 py-3">
+        <div className="max-w-md overflow-hidden rounded-md border border-border">
+          <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-3">
             <p className="label text-muted-foreground">Status</p>
             <p className="label text-primary">
-              <span aria-hidden="true">●</span> Active
+              <Lamp lit className="mr-2 align-[-1px]" />Active
             </p>
           </div>
-          <dl className="divide-y divide-border/60 px-5 font-mono text-xs">
+          <dl className="divide-y divide-border px-5 font-mono text-xs">
             <div className="flex justify-between gap-4 py-3">
               <dt className="text-muted-foreground">Active work</dt>
               <dd>{research.current.length} study</dd>
@@ -78,7 +79,7 @@ export default function ResearchPage() {
           </dl>
         </div>
 
-        <section className="mt-16 border-t border-border/60 pt-12">
+        <section className="mt-16 border-t border-border pt-12">
           <div className="grid gap-x-10 gap-y-6 lg:grid-cols-12">
             <div className="space-y-2 lg:col-span-4">
               <h2 className="text-xl font-semibold tracking-tight text-balance">{project.title}</h2>
@@ -88,15 +89,13 @@ export default function ResearchPage() {
                 <p className="text-xs leading-relaxed text-muted-foreground">{project.affiliationNote}</p>
               )}
               <p className="label text-muted-foreground">
-                <span className="text-primary">
-                  <span aria-hidden="true">●</span>{" "}
-                </span>
+                <Lamp lit className="mr-2 align-[-1px]" />
                 {project.period}
               </p>
             </div>
 
             <div className="space-y-8 lg:col-span-8">
-              <div className="rounded-xl border border-border/70 bg-card/30 p-5">
+              <div className="rounded-md border border-border p-5">
                 <p className="label mb-2.5 text-muted-foreground">The question</p>
                 <p className="text-pretty leading-relaxed">{project.question}</p>
               </div>
@@ -112,7 +111,7 @@ export default function ResearchPage() {
                 <h3 className="label mb-3.5 text-primary">Datasets</h3>
                 <ul className="flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-xs text-muted-foreground">
                   {project.datasets.map((dataset) => (
-                    <li key={dataset.name} className="rounded border border-border/70 px-2.5 py-1">
+                    <li key={dataset.name} className="rounded border border-border px-2.5 py-1">
                       {dataset.name}
                     </li>
                   ))}
@@ -120,8 +119,8 @@ export default function ResearchPage() {
               </div>
 
               {/* No paper, no repository, no numbers. Said plainly rather than omitted. */}
-              <p className="rounded-lg border border-border/70 bg-secondary/20 px-4 py-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
-                <span aria-hidden="true">○</span> No results published. There is no paper and no public
+              <p className="rounded-lg border border-border px-4 py-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+                <Lamp lit={false} className="mr-2 align-[-1px]" />No results published. There is no paper and no public
                 repository yet, so there is nothing here to link and nothing to cite.
               </p>
             </div>
@@ -129,7 +128,7 @@ export default function ResearchPage() {
         </section>
 
         {research.past.length > 0 && (
-          <section className="mt-16 border-t border-border/60 pt-10">
+          <section className="mt-16 border-t border-border pt-10">
             <h2 className="mb-6 text-xl font-semibold tracking-tight">Past work</h2>
             <ul className="space-y-6">
               {research.past.map((entry) => (
@@ -145,7 +144,7 @@ export default function ResearchPage() {
           </section>
         )}
 
-        <p className="mt-16 border-t border-border/60 pt-6 text-sm text-muted-foreground">
+        <p className="mt-16 border-t border-border pt-6 text-sm text-muted-foreground">
           Less formal experiments and build logs live in the{" "}
           <Link href="/workbench" className="text-primary hover:underline">
             workbench

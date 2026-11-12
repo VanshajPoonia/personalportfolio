@@ -31,7 +31,7 @@ export default function Error({
         </p>
 
         {error.digest && (
-          <p className="mt-5 rounded-lg border border-border/70 bg-secondary/20 px-4 py-2.5 font-mono text-[11px] text-muted-foreground">
+          <p className="mt-5 rounded-lg border border-border px-4 py-2.5 font-mono text-[11px] text-muted-foreground">
             digest: {error.digest}
           </p>
         )}

@@ -25,7 +25,7 @@ export const metadata: Metadata = pageMetadata({
 
 function ContributionCard({ contribution }: { contribution: Contribution }) {
   return (
-    <li className="grid gap-x-10 gap-y-4 border-b border-border/60 py-7 lg:grid-cols-12">
+    <li className="grid gap-x-10 gap-y-4 border-b border-border py-7 lg:grid-cols-12">
       <div className="space-y-2 lg:col-span-3">
         <p className="font-medium">{contribution.project}</p>
         <p className="font-mono text-[11px] text-muted-foreground">{contribution.repo}</p>
@@ -78,27 +78,27 @@ export default function OpenSourcePage() {
           Accepted into the upstream project. Ordered by how much diagnosis the change needed rather than by
           size.
         </p>
-        <ul className="border-t border-border/60">
+        <ul className="border-t border-border">
           {mergedContributions.map((contribution) => (
             <ContributionCard key={contribution.id} contribution={contribution} />
           ))}
         </ul>
       </Section>
 
-      <Section width="wide" className="border-t border-border/60">
+      <Section width="wide" className="border-t border-border">
         <h2 className="mb-2 text-2xl font-semibold tracking-tight">Open</h2>
         <p className="mb-8 max-w-2xl text-muted-foreground">
           Submitted and awaiting review. Listed because the engineering is worth reading, not because an open
           pull request is an accomplishment.
         </p>
-        <ul className="border-t border-border/60">
+        <ul className="border-t border-border">
           {openContributions.map((contribution) => (
             <ContributionCard key={contribution.id} contribution={contribution} />
           ))}
         </ul>
       </Section>
 
-      <Section width="wide" className="border-t border-border/60">
+      <Section width="wide" className="border-t border-border">
         <h2 className="mb-2 text-2xl font-semibold tracking-tight">Personal open source</h2>
         <p className="mb-8 max-w-2xl text-muted-foreground">
           My own public repositories. Different thing entirely from contributing to a project you did not
@@ -107,7 +107,7 @@ export default function OpenSourcePage() {
 
         <ul className="grid gap-4 md:grid-cols-3">
           {personalOpenSource.map((repo) => (
-            <li key={repo.repo} className="flex flex-col gap-3 rounded-xl border border-border/70 p-5">
+            <li key={repo.repo} className="flex flex-col gap-3 rounded-md border border-border p-5">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="font-medium">{repo.name}</h3>
                 <span className="label text-muted-foreground">{repo.language}</span>
@@ -119,7 +119,7 @@ export default function OpenSourcePage() {
                 </ExternalLink>
                 {repo.caseStudy && (
                   <Link href={repo.caseStudy} className="text-primary transition-colors hover:text-foreground">
-                    Case study →
+                    Case study
                   </Link>
                 )}
               </div>
@@ -127,7 +127,7 @@ export default function OpenSourcePage() {
           ))}
         </ul>
 
-        <p className="mt-10 border-t border-border/60 pt-6 text-sm text-muted-foreground">
+        <p className="mt-10 border-t border-border pt-6 text-sm text-muted-foreground">
           <ExternalLink href={person.github} label="GitHub profile" className="text-primary">
             View all repositories
           </ExternalLink>

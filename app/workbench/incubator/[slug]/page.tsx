@@ -1,3 +1,4 @@
+import { Lamp } from "@/components/ui/status-badge"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -70,7 +71,7 @@ export default async function IncubatorPage({ params }: { params: Promise<{ slug
   return (
     <SiteShell>
       <article>
-        <div className="border-b border-border/60">
+        <div className="border-b border-border">
           <Container width="prose">
             <div className="pb-10 pt-10 sm:pt-14">
               <Link
@@ -104,8 +105,8 @@ export default async function IncubatorPage({ params }: { params: Promise<{ slug
               </p>
 
               {/* Stated up front so nobody reads this as a shipped product. */}
-              <p className="mt-6 rounded-lg border border-border/70 bg-secondary/20 px-4 py-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
-                <span aria-hidden="true">○</span> Unbuilt. This is a system design worked out on paper, not a
+              <p className="mt-6 rounded-lg border border-border px-4 py-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+                <Lamp lit={false} className="mr-2 align-[-1px]" />Unbuilt. This is a system design worked out on paper, not a
                 product. Nothing described here exists.
               </p>
             </div>
@@ -128,7 +129,7 @@ export default async function IncubatorPage({ params }: { params: Promise<{ slug
               <ListSection key={section.id} {...section} />
             ))}
 
-            <div className="border-t border-border/60 pt-8">
+            <div className="border-t border-border pt-8">
               <p className="label mb-3 text-muted-foreground">Tags</p>
               <TechList items={blueprint.tags} />
             </div>

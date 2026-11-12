@@ -22,7 +22,7 @@ export default function NotFound() {
           <ul className="mt-9 flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
             <li>
               <Link href="/work" className="text-primary transition-colors hover:text-foreground">
-                Back to work →
+                Back to work
               </Link>
             </li>
             <li>

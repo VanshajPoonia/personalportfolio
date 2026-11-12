@@ -61,7 +61,7 @@ export default async function WorkbenchNotePage({ params }: { params: Promise<{ 
   return (
     <SiteShell>
       <article>
-        <div className="border-b border-border/60">
+        <div className="border-b border-border">
           <Container width="prose">
             <div className="pb-10 pt-10 sm:pt-14">
               <Link
@@ -119,7 +119,7 @@ export default async function WorkbenchNotePage({ params }: { params: Promise<{ 
               <NoteList items={post.nextSteps} />
             </NoteSection>
 
-            <div className="grid gap-6 border-t border-border/60 pt-8 sm:grid-cols-2">
+            <div className="grid gap-6 border-t border-border pt-8 sm:grid-cols-2">
               <div>
                 <p className="label mb-3 text-muted-foreground">Tags</p>
                 <ul className="flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-xs text-muted-foreground">
@@ -139,7 +139,7 @@ export default async function WorkbenchNotePage({ params }: { params: Promise<{ 
                           href={link.href}
                           className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
                         >
-                          {link.label} →
+                          {link.label}
                         </Link>
                       </li>
                     ))}

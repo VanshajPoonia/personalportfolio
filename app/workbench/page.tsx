@@ -1,3 +1,4 @@
+import { Lamp } from "@/components/ui/status-badge"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
@@ -34,9 +35,9 @@ export default function WorkbenchPage() {
       />
 
       <Section width="wide">
-        <ul className="border-t border-border/60">
+        <ul className="border-t border-border">
           {notes.map((note) => (
-            <li key={note.slug} className="border-b border-border/60">
+            <li key={note.slug} className="border-b border-border">
               <Link
                 href={`/workbench/${note.slug}`}
                 className="group grid gap-x-8 gap-y-2 py-6 lg:grid-cols-12 lg:items-baseline"
@@ -66,7 +67,7 @@ export default function WorkbenchPage() {
         </ul>
       </Section>
 
-      <Section id="incubator" width="wide" className="border-t border-border/60">
+      <Section id="incubator" width="wide" className="border-t border-border">
         <div className="mb-8 max-w-2xl space-y-3">
           <h2 className="text-2xl font-semibold tracking-tight">Incubator</h2>
           <p className="text-muted-foreground">
@@ -80,18 +81,18 @@ export default function WorkbenchPage() {
             <li key={blueprint.slug}>
               <Link
                 href={`/workbench/incubator/${blueprint.slug}`}
-                className="group flex h-full flex-col gap-3 rounded-xl border border-border/70 p-5 transition-colors hover:border-primary/40"
+                className="group flex h-full flex-col gap-3 rounded-md border border-border p-6 transition-colors hover:border-engraving"
               >
-                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
-                  <span className="label text-muted-foreground">{blueprint.category}</span>
+                <h3 className="text-lg font-medium underline-offset-4 group-hover:underline">{blueprint.title}</h3>
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+                  <span className="text-sm text-muted-foreground">{blueprint.category}</span>
                   <span className="label text-muted-foreground">
-                    <span aria-hidden="true">○</span> Unbuilt
+                    <Lamp lit={false} className="mr-2 align-[-1px]" />Unbuilt
                   </span>
                 </div>
-                <h3 className="font-medium transition-colors group-hover:text-primary">{blueprint.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{blueprint.summary}</p>
-                <span className="mt-auto pt-2 font-mono text-[11px] text-muted-foreground">
-                  {blueprint.difficulty} · design study →
+                <span className="mt-auto pt-2 text-sm text-muted-foreground">
+                  {blueprint.difficulty}, design study
                 </span>
               </Link>
             </li>

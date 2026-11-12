@@ -1,3 +1,4 @@
+import { Lamp } from "@/components/ui/status-badge"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { SiteShell } from "@/components/site-shell"
@@ -101,7 +102,7 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-xl border border-border/70 bg-card/30 p-6">
+            <div className="rounded-md border border-border p-6">
               <p className="label mb-5 text-muted-foreground">Elsewhere</p>
               <ul className="space-y-3.5">
                 <li>
@@ -127,7 +128,7 @@ export default function AboutPage() {
                     >
                       <span>{link.label}</span>
                       <span className="truncate text-xs text-muted-foreground">
-                        {link.handle} <span aria-hidden="true">↗</span>
+                        {link.handle}
                       </span>
                     </ExternalLink>
                   </li>
@@ -141,7 +142,7 @@ export default function AboutPage() {
                     <span className="truncate text-xs text-muted-foreground">PDF</span>
                   </a>
                 </li>
-                <li className="border-t border-border/60 pt-3.5">
+                <li className="border-t border-border pt-3.5">
                   <p className="flex items-baseline justify-between gap-4 font-mono text-sm">
                     <span className="text-muted-foreground">Studying at</span>
                     <span className="text-xs text-muted-foreground">{education.shortName}</span>
@@ -159,7 +160,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section id="now" width="wide" className="border-t border-border/60">
+      <Section id="now" width="wide" className="border-t border-border">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
           <h2 className="text-2xl font-semibold tracking-tight">Now</h2>
           <p className="label text-muted-foreground">Updated when the answer changes</p>
@@ -187,7 +188,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section width="wide" size="sm" className="border-t border-border/60">
+      <Section width="wide" size="sm" className="border-t border-border">
         <h2 className="mb-8 text-2xl font-semibold tracking-tight">Education</h2>
 
         <div className="grid gap-x-10 gap-y-3 lg:grid-cols-12">
@@ -195,9 +196,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-medium tracking-tight">{education.institution}</h3>
             <p className="label text-muted-foreground">
               {education.current && (
-                <span className="text-primary">
-                  <span aria-hidden="true">●</span>{" "}
-                </span>
+                <Lamp lit className="mr-2 align-[-1px]" />
               )}
               {education.period}
             </p>
@@ -209,7 +208,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section width="wide" className="border-t border-border/60">
+      <Section width="wide" className="border-t border-border">
         <div className="mb-8 max-w-2xl space-y-3">
           <h2 className="text-2xl font-semibold tracking-tight">Tools</h2>
           <p className="text-muted-foreground">
