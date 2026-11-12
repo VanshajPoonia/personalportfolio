@@ -7,7 +7,7 @@
  * thing that is out of date, not the work.
  */
 
-export const contributionsLastVerified = "2026-08-23"
+export const contributionsLastVerified = "2026-11-12"
 
 export type ContributionStatus = "merged" | "open"
 
