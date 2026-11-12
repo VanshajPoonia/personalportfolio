@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T14:14:01+00:00",
+  "title": "Design System: vanshajpoonia.com",
+  "extensions": {
+    "colorMeta": {
+      "plate": {
+        "role": "neutral",
+        "displayName": "Aluminium Plate",
+        "canonical": "oklch(0.928 0.004 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.004 250)",
+          "oklch(0.27 0.004 250)",
+          "oklch(0.39 0.004 250)",
+          "oklch(0.51 0.004 250)",
+          "oklch(0.63 0.004 250)",
+          "oklch(0.75 0.004 250)",
+          "oklch(0.87 0.004 250)",
+          "oklch(0.95 0.004 250)"
+        ]
+      },
+      "seam": {
+        "role": "neutral",
+        "displayName": "Seam",
+        "canonical": "oklch(0.82 0.006 250)"
+      },
+      "engraving": {
+        "role": "neutral",
+        "displayName": "Engraving",
+        "canonical": "oklch(0.47 0.009 250)"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.205 0.008 250)"
+      },
+      "lamp": {
+        "role": "primary",
+        "displayName": "Pilot Amber",
+        "canonical": "oklch(0.79 0.165 72)",
+        "tonalRamp": [
+          "oklch(0.3 0.08 72)",
+          "oklch(0.4 0.1 72)",
+          "oklch(0.5 0.12 72)",
+          "oklch(0.6 0.14 72)",
+          "oklch(0.7 0.155 72)",
+          "oklch(0.79 0.165 72)",
+          "oklch(0.87 0.12 72)",
+          "oklch(0.95 0.06 72)"
+        ]
+      },
+      "on-lamp": {
+        "role": "neutral",
+        "displayName": "Ink on Lamp",
+        "canonical": "oklch(0.2 0.01 250)"
+      },
+      "plate-anodised": {
+        "role": "neutral",
+        "displayName": "Black Anodised Plate",
+        "canonical": "oklch(0.19 0.004 250)"
+      },
+      "seam-anodised": {
+        "role": "neutral",
+        "displayName": "Anodised Seam",
+        "canonical": "oklch(0.33 0.006 250)"
+      },
+      "engraving-anodised": {
+        "role": "neutral",
+        "displayName": "Anodised Engraving",
+        "canonical": "oklch(0.72 0.007 250)"
+      },
+      "ink-anodised": {
+        "role": "neutral",
+        "displayName": "Anodised Ink",
+        "canonical": "oklch(0.935 0.004 250)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Nameplate",
+        "purpose": "The name in the homepage hero, set wide. Used once."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles and the contact heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section headings and project titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text, kept to about 60 to 68ch."
+      },
+      "readout": {
+        "displayName": "Readout",
+        "purpose": "Values, dates, PR numbers and technology lists, condensed with tabular figures."
+      },
+      "label": {
+        "displayName": "Engraved Legend",
+        "purpose": "Labels beside a control or reading, navigation, keys and status words. Never a kicker above a heading."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-detent",
+        "value": "cubic-bezier(0.3, 1.25, 0.5, 1)",
+        "purpose": "The knob snapping to a detent and the finish switch sliding. Nothing else overshoots."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Everything else: key press, lamp warm-up, readout roll-in, trace draw-in, drawer."
+      },
+      {
+        "name": "lamp-warm-up",
+        "value": "420ms ease-out-expo on background and border colour",
+        "purpose": "Lamps warm up rather than switching on."
+      },
+      {
+        "name": "trace-draw",
+        "value": "520ms per segment, staggered 90ms, once on first view",
+        "purpose": "Schematics draw themselves in."
+      },
+      {
+        "name": "self-test",
+        "value": "pointer sweeps to the end of travel at 260ms, returns at 900ms, lamps warm at 1280ms; once per session",
+        "purpose": "The selector's power-on moment on the homepage."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Push Key",
+      "kind": "button",
+      "refersTo": "key",
+      "description": "Secondary actions: GitHub, Résumé, LinkedIn.",
+      "html": "<a class=\"ds-key\" href=\"#\">GitHub</a>",
+      "css": ".ds-key{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:1px solid var(--seam);border-bottom-width:3px;border-radius:6px;background:var(--plate);color:var(--ink);font:600 12px/1 Archivo,system-ui,sans-serif;font-stretch:80%;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:transform 120ms cubic-bezier(.16,1,.3,1),border-color 160ms ease}.ds-key:hover{border-color:var(--engraving)}.ds-key:focus-visible{outline:2px solid var(--ink);outline-offset:3px}.ds-key:active{transform:translateY(2px);border-bottom-width:1px;margin-bottom:2px}"
+    },
+    {
+      "name": "Lit Key",
+      "kind": "button",
+      "refersTo": "key-lit",
+      "description": "The one primary action on a surface, usually Email me.",
+      "html": "<a class=\"ds-key ds-key-lit\" href=\"#\">Email me</a>",
+      "css": ".ds-key{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:1px solid var(--seam);border-bottom-width:3px;border-radius:6px;font:600 12px/1 Archivo,system-ui,sans-serif;font-stretch:80%;letter-spacing:.07em;text-transform:uppercase;text-decoration:none}.ds-key-lit{background:var(--lamp);color:var(--on-lamp);border-color:oklch(from var(--lamp) calc(l - .2) c h)}.ds-key-lit:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+    },
+    {
+      "name": "Pilot Lamp with status",
+      "kind": "chip",
+      "refersTo": "lamp",
+      "description": "State next to a word. Lit means active, live, merged or current.",
+      "html": "<span class=\"ds-status\"><span class=\"ds-lamp\" data-lit=\"true\"></span>Active</span>",
+      "css": ".ds-status{display:inline-flex;align-items:center;gap:8px;font:600 11px/1.25 Archivo,system-ui,sans-serif;font-stretch:78%;letter-spacing:.075em;text-transform:uppercase;color:var(--ink)}.ds-lamp{width:8px;height:8px;border-radius:999px;border:1.5px solid var(--engraving);transition:background-color 420ms cubic-bezier(.16,1,.3,1)}.ds-lamp[data-lit=true]{background:var(--lamp);border-color:oklch(from var(--lamp) calc(l - .22) c h)}"
+    },
+    {
+      "name": "Display Window",
+      "kind": "custom",
+      "refersTo": "window",
+      "description": "Inverted readout for one channel: title, line, readings, status, action, calibration date.",
+      "html": "<div class=\"ds-window\"><p class=\"ds-wt\">ChronoOS</p><p class=\"ds-wl\">A hobby operating system written in Rust.</p><dl class=\"ds-wr\"><div><dt>Stack</dt><dd>Rust, no_std, x86_64</dd></div></dl><p class=\"ds-wc\">Calibrated 2026-11-12</p></div>",
+      "css": ".ds-window{background:var(--ink);color:var(--plate);border-radius:6px;padding:24px;font-family:Archivo,system-ui,sans-serif}.ds-wt{font-size:28px;font-weight:600;letter-spacing:-.02em;margin:0}.ds-wl{margin:8px 0 0;font-size:15px;opacity:.68}.ds-wr{margin:24px 0 0;border-block:1px solid oklch(from var(--plate) l c h / .16)}.ds-wr div{display:grid;grid-template-columns:6.5rem 1fr;gap:12px;padding:8px 0}.ds-wr dt{font-size:11px;font-weight:600;font-stretch:78%;letter-spacing:.075em;text-transform:uppercase;opacity:.68}.ds-wr dd{margin:0;font-size:14px;font-stretch:84%}.ds-wc{margin:24px 0 0;font-size:11px;font-weight:600;font-stretch:78%;letter-spacing:.075em;text-transform:uppercase;opacity:.68}"
+    },
+    {
+      "name": "Navigation item",
+      "kind": "nav",
+      "refersTo": "label",
+      "description": "Engraved legend; the current page is ink with a lit lamp.",
+      "html": "<nav class=\"ds-nav\"><a aria-current=\"page\" href=\"#\"><span class=\"ds-lamp\" data-lit=\"true\"></span>Work</a><a href=\"#\"><span class=\"ds-lamp\"></span>Experience</a></nav>",
+      "css": ".ds-nav{display:flex;gap:4px}.ds-nav a{display:flex;align-items:center;gap:8px;height:44px;padding:0 12px;font:600 11px/1.25 Archivo,system-ui,sans-serif;font-stretch:78%;letter-spacing:.075em;text-transform:uppercase;color:var(--engraving);text-decoration:none}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--ink)}.ds-lamp{width:8px;height:8px;border-radius:999px;border:1.5px solid transparent}.ds-lamp[data-lit=true]{background:var(--lamp);border-color:oklch(from var(--lamp) calc(l - .22) c h)}.ds-nav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+    },
+    {
+      "name": "Filter strip",
+      "kind": "chip",
+      "refersTo": "filter-segment",
+      "description": "Segmented range switch; the active segment inverts.",
+      "html": "<div class=\"ds-seg\"><button aria-pressed=\"true\">All 9</button><button>Live 4</button><button>Systems 1</button></div>",
+      "css": ".ds-seg{display:flex}.ds-seg button{min-height:44px;padding:0 14px;border:1px solid var(--seam);border-left:0;background:var(--plate);color:var(--engraving);font:600 11px/1.25 Archivo,system-ui,sans-serif;font-stretch:78%;letter-spacing:.075em;text-transform:uppercase;cursor:pointer}.ds-seg button:first-child{border-left:1px solid var(--seam);border-radius:6px 0 0 6px}.ds-seg button:last-child{border-radius:0 6px 6px 0}.ds-seg button[aria-pressed=true]{background:var(--ink);color:var(--plate);border-color:var(--ink)}.ds-seg button:hover{color:var(--ink)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Calibrated Instrument",
+    "overview": "The site is a bench instrument in the Braun and Hewlett-Packard tradition: a bead-blasted aluminium plate with engraved legends, pilot lamps, one detented rotary selector and an inverted display window. Each project is a channel with a lamp, a reading taken from its own evidence, and a calibration date.",
+    "keyCharacteristics": [
+      "Four greys and one amber pilot lamp, in a light aluminium finish and a black anodised finish.",
+      "One type family, Archivo, with its width axis doing the work a second face used to.",
+      "Depth from overlapping plates and seams only.",
+      "Selection by inversion: the selected thing becomes an ink plate.",
+      "Mechanical motion: detent snaps, lamps warming up, traces drawn in once."
+    ],
+    "rules": [
+      {
+        "name": "The One Lamp Rule",
+        "body": "Amber marks state or the single primary action, and nothing else.",
+        "section": "colors"
+      },
+      {
+        "name": "The Four Greys Rule",
+        "body": "No alpha fills, tints or extra greys. A surface is plate, seam, engraving or ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Archivo for everything. Hierarchy comes from size, width and case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Legend Rule",
+        "body": "A legend labels a control or a reading. It never sits above a heading as a kicker.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Glow Rule",
+        "body": "No box-shadow, blur, backdrop-filter, glow or gradient, at any state.",
+        "section": "elevation"
+      }
+    ]
+  }
+}

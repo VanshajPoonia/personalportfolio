@@ -22,25 +22,47 @@ This is the constraint everything else serves.
 
 ## Design
 
-- **Accent discipline.** The teal marks state that means something: active,
-  live, current, focused. It is not a decoration for borders and headings.
-  Roughly ninety per cent of the page is neutral.
-- **The work leads.** A project card is a visual first and words second. The
-  mono type and hairlines are the frame, not the subject.
-- **Type split.** Geist for anything you read in sentences. Geist Mono for
-  statuses, dates, metadata, labels, code, and terminal surfaces. Never a
-  paragraph in mono.
-- **Widths are chosen.** Prose gets a comfortable measure; imagery and diagrams
-  get room. One max-width everywhere is a smell.
+The site is an instrument panel: an aluminium plate with engraved legends,
+pilot lamps, and one rotary selector. PRODUCT.md holds who it is for, and
+DESIGN.md holds the full visual system.
+
+- **Four greys and one lamp.** Plate, seam, engraving and ink, plus amber for a
+  pilot lamp or the one lit key. Amber marks a state (active, live, merged,
+  the current page) or the primary action. It never colours a border, a
+  heading or a link.
+- **No shadow, blur, glow or gradient.** Depth comes from plates and hairline
+  seams overlapping, and from a key's thicker bottom edge.
+- **Selection by inversion.** The selected item becomes an ink plate with
+  plate-coloured type, rather than gaining a colour.
+- **One family.** Archivo everywhere. Condensed for engraved legends and
+  readouts, normal for reading, wide for the nameplate. Real code uses the
+  system monospace and nothing else does.
+- **No kickers.** No eyebrow label above a heading and no section numbers. The
+  heading carries its own weight.
+- **Drawn, not boxed.** Schematics are a signal line with a node per stage, not
+  a row of bordered chips.
+- **The work leads.** A project is a visual first and words second. Widths are
+  chosen per content type.
 
 ## Motion
 
-- No entrance animations, no looping effects, no floating, no glitch, no
-  typewriters. The budget is hover transitions and the cursor glow.
-- The cursor glow writes its position straight to a transform inside one
-  `requestAnimationFrame`. It never touches React state, and it removes itself
-  entirely for coarse pointers and `prefers-reduced-motion`.
-- Under `prefers-reduced-motion` the page must remain fully comprehensible.
+Motion is the instrument's own: things click, warm up, and draw in.
+
+- The selector snaps to each detent with a short overshoot, and the finish
+  switch slides the same way.
+- Lamps warm up instead of switching on.
+- On a visitor's first homepage load in a session, the selector runs a
+  power-on self-test: the pointer travels to the end and back, then the lamps
+  warm up.
+- Schematic traces draw themselves in once, the first time they scroll into
+  view.
+- No looping effects, no floating, no glitch, no typewriters, no cursor
+  effects.
+- Content is visible by default. Traces are only hidden by an inline script
+  that has already confirmed motion is allowed, so a page without script never
+  hides anything.
+- Under `prefers-reduced-motion` every transition, the self-test and the
+  traces stand down and the page stays fully comprehensible.
 
 ## Accessibility
 

@@ -7,9 +7,9 @@ GitHub: <https://github.com/VanshajPoonia>
 
 ## What this is
 
-A portfolio organised around one idea: **the work is the spectacle, the terminal
-aesthetic is the frame.** Product screenshots and architecture lead; the mono
-type, hairlines, and status readouts frame them.
+A portfolio built like an instrument panel: **each project is a channel with a
+lamp, a reading and a calibration date.** Product screenshots and schematics
+lead. Engraved legends, pilot lamps and one rotary selector frame them.
 
 The other governing rule is that nothing on the site claims more than the
 evidence supports. Build status and deployment status are separate fields.
@@ -129,12 +129,12 @@ docs/          architecture and contribution notes
 
 ## Conventions
 
-- Keep the accent rare. It marks state that means something (active, live,
-  current, focused), not every border.
-- Status is never colour alone. A filled glyph plus a word.
-- Geist for reading, Geist Mono for metadata, statuses, and code. No long body
-  copy in mono.
-- No entrance animations, no looping effects. Hover transitions and the cursor
-  glow are the whole motion budget, and both stand down under
-  `prefers-reduced-motion`.
+- Four greys and one amber lamp. Amber marks a state or the one primary key,
+  never a border, heading or link.
+- No shadow, blur, glow or gradient. Depth comes from plates and seams.
+- Archivo for everything, condensed for legends. Real code uses the system
+  monospace.
+- Motion is the instrument's own: the selector clicks to each detent, lamps
+  warm up, schematics draw in once. All of it stands down under
+  `prefers-reduced-motion`. The full system is in DESIGN.md.
 - Planned features live in a "what's next" section, never in "what I built".
