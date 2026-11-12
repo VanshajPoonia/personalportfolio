@@ -611,7 +611,8 @@ export const caseStudies: Record<string, CaseStudy> = {
           <List
             items={[
               <>
-                <strong>Lazy Susan.</strong> Photograph a receipt, tap who had what, paste the split. Donut reads
+                <strong>Lazy Susan.</strong>{" "}
+                Photograph a receipt, tap who had what, paste the split. Donut reads
                 the receipt, and Florence-2 OCR takes a second look when the lines do not add up to the total. On
                 436 receipts it had never seen, the green &quot;adds up&quot; tick was exactly right 93% of the
                 time. <AppLinks name="Lazy Susan" slug="lazy-susan" />
