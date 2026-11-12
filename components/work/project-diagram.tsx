@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
  * so it fits a card thumbnail without being cropped mid-stage.
  */
 
-type DiagramKey = "chronoos" | "atlas" | "tensortrail" | "bigbrother"
+type DiagramKey = "chronoos" | "atlas" | "tensortrail" | "bigbrother" | "browserapps"
 
 interface Stage {
   label: string
@@ -62,6 +62,16 @@ const diagrams: Record<DiagramKey, { caption: string; stages: Stage[] }> = {
       { label: "Offline sandbox", detail: "Docker, no network, read-only, non-root" },
       { label: "Rules pick the label", detail: "confirmed, cannot reproduce, or invalid" },
       { label: "Comment", detail: "the evidence, posted back to the thread" },
+    ],
+  },
+  browserapps: {
+    caption: "What the seven apps share",
+    stages: [
+      { label: "Open-weight model", detail: "Whisper, CLIP, Gemma, Kokoro, Donut" },
+      { label: "transformers.js in the tab", detail: "WebGPU, or WASM where it is missing" },
+      { label: "Code around the model", detail: "checkers and rules decide what ships" },
+      { label: "npm test", detail: "reproduces each measured number" },
+      { label: "GitHub Pages", detail: "no server, no API key, nothing uploaded" },
     ],
   },
 }

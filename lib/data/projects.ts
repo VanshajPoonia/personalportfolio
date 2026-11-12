@@ -52,7 +52,7 @@ export interface Project {
     mobile?: string
     alt: string
     /** Rendered instead of a screenshot when there is nothing honest to show. */
-    diagram?: "chronoos" | "atlas" | "tensortrail" | "bigbrother" | "none"
+    diagram?: "chronoos" | "atlas" | "tensortrail" | "bigbrother" | "browserapps" | "none"
   }
   /** Repositories that are part of this project's history, not separate projects. */
   legacyRepos?: string[]
@@ -174,6 +174,26 @@ export const projects: Project[] = [
       diagram: "bigbrother",
       alt: "Big Brother issue check from the GitHub event through the local model, premise checks and offline sandbox to the label and comment",
     },
+  },
+  {
+    slug: "open-model-browser-apps",
+    title: "Open models in the browser",
+    tagline: "Seven small apps where the model runs inside the browser tab.",
+    summary:
+      "Seven apps from four weeks of Hacktoberfest AI challenges, each running an open-weight model in the browser tab, from Whisper and CLIP to Gemma 3 and Kokoro. Nothing is uploaded, and the code around each model does most of the work. In Proof of Grass, adding classes for rooms and screens cut the indoor photos that wrongly filled a bingo square from 29 of 29 to none.",
+    year: "2026",
+    status: "shipped",
+    categories: ["ai-ml"],
+    technologies: ["transformers.js", "WebGPU", "Whisper", "CLIP", "Gemma 3"],
+    role: "Solo",
+    priority: 65,
+    deployment: { status: "live", note: "Seven apps, each linked in the write-up" },
+    caseStudy: true,
+    media: {
+      diagram: "browserapps",
+      alt: "The pattern the seven apps share, from an open-weight model through transformers.js and checking code to tests and a static page",
+    },
+    legacyRepos: ["lazy-susan", "fine-print", "backlist", "proof-of-grass", "sidequest", "safeplate", "nanis-kitchen"],
   },
   {
     slug: "volt",

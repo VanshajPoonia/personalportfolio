@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import { ExternalLink } from "@/components/ui/external-link"
 
 /**
  * Case-study content, one entry per project with `caseStudy: true`.
@@ -35,6 +36,24 @@ function List({ items }: { items: ReactNode[] }) {
         <li key={i}>{item}</li>
       ))}
     </ul>
+  )
+}
+
+/** Live and source links for one of several small apps inside a single case study. */
+function AppLinks({ name, slug }: { name: string; slug: string }) {
+  return (
+    <span className="ml-1 inline-flex flex-wrap gap-x-4 font-mono text-xs">
+      <ExternalLink href={`https://vanshajpoonia.github.io/${slug}/`} label={`Open ${name}`} className="text-primary">
+        Open
+      </ExternalLink>
+      <ExternalLink
+        href={`https://github.com/VanshajPoonia/${slug}`}
+        label={`${name} source on GitHub`}
+        className="text-muted-foreground"
+      >
+        Source
+      </ExternalLink>
+    </span>
   )
 }
 
@@ -558,6 +577,111 @@ export const caseStudies: Record<string, CaseStudy> = {
             stable loss and the naive loss are different functions, is now something I have implemented and
             debugged. It also made me considerably more suspicious of a loss curve that goes down.
           </P>
+        ),
+      },
+    ],
+  },
+
+  "open-model-browser-apps": {
+    overview:
+      "In October 2026 I entered DEV's Hacktoberfest open-source AI challenge every week for four weeks, with two apps a week. Each one runs an open-weight model inside the browser tab, so it is a static page with no server, no API key, and nothing uploaded. Already Filed came out of the same run and has its own entry. These are the other seven.",
+    related: ["already-filed", "tensortrail"],
+    sections: [
+      {
+        id: "browser",
+        label: "Why the browser",
+        body: (
+          <>
+            <P>
+              Running in the tab takes away the usual fix for a weak answer, which is a bigger hosted model.
+              The models here are small: Gemma 3 1B, the 300M EmbeddingGemma, bge-small, Whisper base. What is
+              left to work on is the code around the model, and a test that says whether a change helped.
+            </P>
+            <P>
+              So six of the seven ship with an <code>npm test</code> that runs the real model on labelled data,
+              and the numbers below come from those runs.
+            </P>
+          </>
+        ),
+      },
+      {
+        id: "apps",
+        label: "The seven",
+        body: (
+          <List
+            items={[
+              <>
+                <strong>Lazy Susan.</strong> Photograph a receipt, tap who had what, paste the split. Donut reads
+                the receipt, and Florence-2 OCR takes a second look when the lines do not add up to the total. On
+                436 receipts it had never seen, the green &quot;adds up&quot; tick was exactly right 93% of the
+                time. <AppLinks name="Lazy Susan" slug="lazy-susan" />
+              </>,
+              <>
+                <strong>Fine Print.</strong> Finds the clauses in a freelance contract that cost you money, with
+                EmbeddingGemma and 14 small classifiers trained on lawyer-marked contracts. On 102 held-out
+                contracts it found 66% of the highlighted clauses with 4.6 false alarms each. Ctrl+F found 49%
+                with 10.5. <AppLinks name="Fine Print" slug="fine-print" />
+              </>,
+              <>
+                <strong>Backlist.</strong> Turns a book you wrote into an audiobook on your own laptop. Kokoro
+                narrates and Whisper listens back to every line. On books it was never tuned on, it caught 97% of
+                296 planted faults with one false alarm in 80 clean lines.{" "}
+                <AppLinks name="Backlist" slug="backlist" />
+              </>,
+              <>
+                <strong>Proof of Grass.</strong> A daily outdoor bingo card that only a real photo can fill,
+                judged by CLIP on the phone. The shipped judge fills the right square for 99 of 102 outdoor
+                photos and for none of 29 indoor ones. <AppLinks name="Proof of Grass" slug="proof-of-grass" />
+              </>,
+              <>
+                <strong>Sidequest.</strong> Turns the OpenStreetMap around you into a short walking quest. Code
+                picks the stops and the route, and Gemma 3 1B only writes one small mission per stop. A checker
+                that rejects invented names and dates, with a retry and a plain template as the last resort,
+                took clean missions from 16 of 24 to 24 of 24. <AppLinks name="Sidequest" slug="sidequest" />
+              </>,
+              <>
+                <strong>SafePlate.</strong> An allergy-aware meal planner that compares what an ingredient means
+                instead of how it is spelled, with bge-small in the tab. On its 54-ingredient test set it flags 29
+                of 30 real allergens, with one false alarm in 24 safe ones.{" "}
+                <AppLinks name="SafePlate" slug="safeplate" />
+              </>,
+              <>
+                <strong>Nani&apos;s Kitchen.</strong> Turns voice memos of spoken recipes into a printable
+                recipe book, with Whisper transcribing in the tab. Its tests cover the recipe parser, not the
+                transcription, so there is no accuracy number to quote.{" "}
+                <AppLinks name="Nani's Kitchen" slug="nanis-kitchen" />
+              </>,
+            ]}
+          />
+        ),
+      },
+      {
+        id: "carried-over",
+        label: "What carried over",
+        body: (
+          <List
+            items={[
+              <>
+                <strong>The code around the model moved the numbers.</strong> In Sidequest, better prompts went
+                from 8 to 16 clean missions out of 24, and the checker did the rest. In Lazy Susan, checking the
+                receipt&apos;s own arithmetic took fully right receipts from 3% to 21% before a second model was
+                added.
+              </>,
+              <>
+                <strong>Bigger was not better.</strong> A CLIP model with four times the compute scored 98 of
+                102 against the small one&apos;s 99, so the small one ships.
+              </>,
+              <>
+                <strong>Test the trap, not only the result.</strong> Proof of Grass&apos;s second design beat
+                the first on outdoor photos. Then photos of rooms and screens went into the test set, and every
+                one of them filled a square.
+              </>,
+              <>
+                <strong>Report the bad number too.</strong> Lazy Susan reads receipts worse in Chrome than in
+                Node, 23% fully right against 36% on the same 50 receipts, and its README says so.
+              </>,
+            ]}
+          />
         ),
       },
     ],
