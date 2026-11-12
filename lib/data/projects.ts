@@ -52,7 +52,7 @@ export interface Project {
     mobile?: string
     alt: string
     /** Rendered instead of a screenshot when there is nothing honest to show. */
-    diagram?: "chronoos" | "atlas" | "tensortrail" | "none"
+    diagram?: "chronoos" | "atlas" | "tensortrail" | "bigbrother" | "none"
   }
   /** Repositories that are part of this project's history, not separate projects. */
   legacyRepos?: string[]
@@ -154,6 +154,25 @@ export const projects: Project[] = [
     media: {
       desktop: "/work/already-filed-desktop.webp",
       alt: "Already Filed on a snapshot of ollama/ollama: 51 of 2,585 open issues flagged, the first pairing issue 17438 with the earlier issue 17437 and a button to copy the duplicate comment",
+    },
+  },
+  {
+    slug: "big-brother",
+    title: "Big Brother",
+    tagline: "A GitHub bot that checks issues and pull requests against the real code.",
+    summary:
+      "A GitHub bot that runs a bug report's code in an offline Docker sandbox at the release the reporter used, then labels the issue confirmed, cannot reproduce or invalid from what that shows. A local Qwen3 4B only reads the report and fixed rules pick the label, which got 9 of 11 real closed issues right. Built overnight at a hackathon with three teammates. My part was the extraction, the verdict rules, the pipeline and the CLI.",
+    year: "2026",
+    status: "prototype",
+    categories: ["developer-tools", "ai-ml"],
+    technologies: ["Python", "Docker", "Ollama", "Qwen3 4B", "GitHub Actions"],
+    role: "Collaborative",
+    priority: 60,
+    github: "https://github.com/VanshajPoonia/big-brother",
+    deployment: { status: "none", note: "Self-hosted, on the repo owner's machine" },
+    media: {
+      diagram: "bigbrother",
+      alt: "Big Brother issue check from the GitHub event through the local model, premise checks and offline sandbox to the label and comment",
     },
   },
   {

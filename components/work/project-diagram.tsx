@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
  * so it fits a card thumbnail without being cropped mid-stage.
  */
 
-type DiagramKey = "chronoos" | "atlas" | "tensortrail"
+type DiagramKey = "chronoos" | "atlas" | "tensortrail" | "bigbrother"
 
 interface Stage {
   label: string
@@ -51,6 +51,17 @@ const diagrams: Record<DiagramKey, { caption: string; stages: Stage[] }> = {
       { label: "Autograd", detail: "local derivative per node" },
       { label: "Broadcast reduction", detail: "gradients summed back to shape" },
       { label: "Optimiser step", detail: "SGD, momentum, or Adam" },
+    ],
+  },
+  bigbrother: {
+    caption: "Big Brother issue check",
+    stages: [
+      { label: "GitHub event", detail: "new issue, pull request, or /bigbrother check" },
+      { label: "Read the report", detail: "Qwen3 4B fills a fixed form, on the owner's machine" },
+      { label: "Check premises", detail: "named functions and versions exist at that release" },
+      { label: "Offline sandbox", detail: "Docker, no network, read-only, non-root" },
+      { label: "Rules pick the label", detail: "confirmed, cannot reproduce, or invalid" },
+      { label: "Comment", detail: "the evidence, posted back to the thread" },
     ],
   },
 }
