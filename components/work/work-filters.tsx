@@ -32,7 +32,7 @@ export function WorkFilters({ active, counts }: { active: WorkFilter; counts: Re
     <div
       role="group"
       aria-label="Filter work by category"
-      className="scrollbar-hide -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:px-0"
+      className="scrollbar-hide -mx-4 flex overflow-x-auto px-4 sm:mx-0 sm:px-0"
     >
       {workFilters.map((filter) => {
         const count = counts[filter.id] ?? 0
@@ -49,15 +49,13 @@ export function WorkFilters({ active, counts }: { active: WorkFilter; counts: Re
             // for being disabled.
             aria-label={`${filter.label}, ${count} ${count === 1 ? "project" : "projects"}`}
             className={cn(
-              "flex min-h-[44px] shrink-0 items-center gap-2 rounded-full border px-3.5 font-mono text-xs transition-colors sm:min-h-[38px]",
-              isActive
-                ? "border-primary/60 bg-primary/10 text-primary"
-                : "border-border/70 text-muted-foreground hover:border-border hover:text-foreground",
-              count === 0 && "cursor-not-allowed opacity-40 hover:border-border/70 hover:text-muted-foreground",
+              "label flex min-h-[44px] shrink-0 items-center gap-2 border border-l-0 border-seam px-3.5 transition-colors duration-150 first:rounded-l-md first:border-l last:rounded-r-md",
+              isActive ? "border-ink bg-ink text-plate" : "text-muted-foreground hover:text-foreground",
+              count === 0 && "cursor-not-allowed opacity-40 hover:text-muted-foreground",
             )}
           >
             {filter.label}
-            <span aria-hidden="true" className="text-[10px] opacity-60">
+            <span aria-hidden="true" className={cn("tabular-nums", isActive ? "text-plate/60" : "opacity-60")}>
               {count}
             </span>
           </button>

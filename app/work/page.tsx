@@ -60,23 +60,23 @@ export default async function WorkPage({
 
       <Section width="wide">
         {projects.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-border py-20 text-center">
+          <div className="rounded-md border border-border py-20 text-center">
             <p className="font-mono text-sm text-muted-foreground">Nothing in this category yet.</p>
             <Link href="/work" className="mt-3 inline-block font-mono text-xs text-primary hover:underline">
               Show all work
             </Link>
           </div>
         ) : (
-          <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <ul className="divide-y divide-border border-y border-border">
             {projects.map((project) => (
-              <li key={project.slug} className="flex">
+              <li key={project.slug}>
                 <ProjectCard project={project} headingLevel="h2" />
               </li>
             ))}
           </ul>
         )}
 
-        <p className="mt-12 border-t border-border/60 pt-6 text-sm text-muted-foreground">
+        <p className="mt-12 border-t border-border pt-6 text-sm text-muted-foreground">
           Earlier work, clones, and abandoned products are in the{" "}
           <Link href="/archive" className="text-primary hover:underline">
             archive

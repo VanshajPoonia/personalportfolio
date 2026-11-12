@@ -82,12 +82,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       />
 
       {/* Hero */}
-      <div className="border-b border-border/60">
+      <div className="border-b border-border">
         <Container width="wide">
           <div className="pb-12 pt-10 sm:pt-14">
             <Link
               href="/work"
-              className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+              className="label group inline-flex min-h-[44px] items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft
                 aria-hidden="true"
@@ -98,15 +98,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
             <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-14">
               <div className="space-y-6 lg:col-span-6">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                  <p className="label text-muted-foreground">
-                    {project.categories.map((c) => categoryLabels[c]).join(" · ")}
-                  </p>
-                  <StatusBadge status={project.status} />
-                </div>
-
                 <div className="space-y-3">
-                  <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl">
+                  <h1 className="text-[2.5rem] font-semibold leading-[1.05] tracking-[-0.025em] sm:text-6xl">
                     {project.title}
                   </h1>
                   {project.canonicalNote && (
@@ -115,7 +108,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   <p className="text-lg text-muted-foreground">{project.tagline}</p>
                 </div>
 
-                <dl className="grid grid-cols-2 gap-x-8 gap-y-4 border-y border-border/60 py-5 sm:grid-cols-3">
+                <dl className="grid grid-cols-2 gap-x-8 gap-y-4 border-y border-border py-5 sm:grid-cols-3">
+                  <div>
+                    <dt className="label text-muted-foreground">State</dt>
+                    <dd className="mt-1.5">
+                      <StatusBadge status={project.status} />
+                    </dd>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <dt className="label text-muted-foreground">Category</dt>
+                    <dd className="mt-1 font-mono text-sm">
+                      {project.categories.map((c) => categoryLabels[c]).join(", ")}
+                    </dd>
+                  </div>
                   <div>
                     <dt className="label text-muted-foreground">Year</dt>
                     <dd className="mt-1 font-mono text-sm">{project.year}</dd>
@@ -158,7 +163,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <div className="lg:col-span-6">
                 {project.media?.desktop ? (
                   <div className="space-y-4">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border/70 bg-card/40">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-md border border-border">
                       <Image
                         src={project.media.desktop}
                         alt={project.media.alt}
@@ -174,7 +179,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                         product itself is part of what the page shows. */}
                     {project.media.mobile && (
                       <div className="flex items-start gap-4">
-                        <div className="relative w-28 shrink-0 overflow-hidden rounded-lg border border-border/70 bg-card/40 sm:w-32">
+                        <div className="relative w-28 shrink-0 overflow-hidden rounded-lg border border-border sm:w-32">
                           <Image
                             src={project.media.mobile}
                             alt={`${project.title} on a phone-width viewport`}
@@ -214,15 +219,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <p className="max-w-prose text-lg leading-relaxed text-pretty">{study.overview}</p>
 
             <div className="mt-14 space-y-14">
-              {study.sections.map((section, index) => (
+              {study.sections.map((section) => (
                 <section key={section.id} id={section.id} className="max-w-prose scroll-mt-24">
-                  <div className="mb-4 flex items-baseline gap-3">
-                    <span aria-hidden="true" className="font-mono text-xs text-primary">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">{section.label}</h2>
-                  </div>
-                  <div className="space-y-4 leading-relaxed text-muted-foreground [&_code]:rounded [&_code]:border [&_code]:border-border/60 [&_code]:bg-secondary/40 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.85em] [&_code]:text-foreground [&_em]:text-foreground [&_li]:my-1.5 [&_strong]:font-medium [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5">
+                  <h2 className="mb-4 text-2xl font-semibold leading-tight">{section.label}</h2>
+                  <div className="space-y-4 leading-relaxed text-muted-foreground [&_code]:rounded [&_code]:border [&_code]:border-border [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.85em] [&_code]:text-foreground [&_em]:text-foreground [&_li]:my-1.5 [&_strong]:font-medium [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5">
                     {section.body}
                   </div>
                 </section>
@@ -233,19 +233,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </Container>
 
       {related.length > 0 && (
-        <Section width="wide" size="sm" className="border-t border-border/60">
+        <Section width="wide" size="sm" className="border-t border-border">
           <h2 className="label mb-6 text-muted-foreground">Related work</h2>
           <ul className="grid gap-4 sm:grid-cols-2">
             {related.map((item) => (
               <li key={item.slug}>
                 <Link
                   href={item.caseStudy ? `/work/${item.slug}` : `/work#${item.slug}`}
-                  className="group flex h-full flex-col gap-2 rounded-xl border border-border/70 p-5 transition-colors hover:border-primary/40"
+                  className="group flex h-full flex-col gap-2 rounded-md border border-border p-6 transition-colors hover:border-engraving"
                 >
-                  <p className="label text-muted-foreground">
-                    {item.categories.map((c) => categoryLabels[c]).join(" · ")}
+                  <h3 className="text-lg font-medium underline-offset-4 group-hover:underline">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {item.categories.map((c) => categoryLabels[c]).join(", ")}
                   </p>
-                  <h3 className="font-medium transition-colors group-hover:text-primary">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.tagline}</p>
                   <span className="mt-auto inline-flex items-center gap-1.5 pt-2 font-mono text-xs text-muted-foreground">
                     {item.caseStudy ? "Case study" : "View in work"}

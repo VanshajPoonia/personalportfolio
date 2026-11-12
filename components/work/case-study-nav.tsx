@@ -37,7 +37,7 @@ export function CaseStudyNav({ sections }: { sections: { id: string; label: stri
     <nav aria-label="On this page" className="sticky top-24">
       <p className="label mb-4 text-muted-foreground">On this page</p>
       <ol className="space-y-1 border-l border-border">
-        {sections.map((section, index) => (
+        {sections.map((section) => (
           <li key={section.id}>
             <a
               href={`#${section.id}`}
@@ -45,13 +45,10 @@ export function CaseStudyNav({ sections }: { sections: { id: string; label: stri
               className={cn(
                 "-ml-px flex gap-2.5 border-l py-1.5 pl-4 font-mono text-xs transition-colors",
                 activeId === section.id
-                  ? "border-primary text-foreground"
+                  ? "border-ink text-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground",
               )}
             >
-              <span aria-hidden="true" className="opacity-50">
-                {String(index + 1).padStart(2, "0")}
-              </span>
               {section.label}
             </a>
           </li>

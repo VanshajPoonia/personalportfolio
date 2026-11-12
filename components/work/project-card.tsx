@@ -41,16 +41,12 @@ function ProjectVisual({
 
   if (media?.diagram && media.diagram !== "none") {
     return (
-      <ProjectDiagram
-        id={media.diagram}
-        compact={compact}
-        className={compact ? undefined : "rounded-none border-0 bg-transparent"}
-      />
+      <ProjectDiagram id={media.diagram} compact={compact} />
     )
   }
 
   return (
-    <div className="flex h-full items-center justify-center bg-secondary/20 p-8">
+    <div className="flex h-full items-center justify-center p-8">
       <p className="label max-w-[22ch] text-center leading-relaxed text-muted-foreground">
         No public deployment to show
       </p>
@@ -58,51 +54,57 @@ function ProjectVisual({
   )
 }
 
-/**
- * Card actions are the main route into a project, so on touch widths they get a
- * real thumb target. From `sm` up there is a cursor and the row can go back to
- * sitting tight against the metadata above it.
- */
-const touchTarget = "inline-flex min-h-[44px] items-center gap-1.5 sm:min-h-0"
+const action = "label group inline-flex min-h-[44px] items-center gap-1.5 transition-colors sm:min-h-0"
 
 function ProjectActions({ project, className }: { project: Project; className?: string }) {
   const { deployment } = project
   return (
-    <div className={cn("flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-xs", className)}>
+    <div className={cn("flex flex-wrap items-center gap-x-6 gap-y-1", className)}>
+      {project.caseStudy && (
+        <Link href={`/work/${project.slug}`} className={cn(action, "text-foreground hover:underline underline-offset-4")}>
+          Case study
+          <ArrowRight
+            aria-hidden="true"
+            strokeWidth={2}
+            className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+          />
+        </Link>
+      )}
       {deployment.status === "live" && deployment.url && (
-        <ExternalLink href={deployment.url} label={`Open ${project.title}`} className={cn(touchTarget, "text-primary")}>
-          Open project
+        <ExternalLink
+          href={deployment.url}
+          label={`Open ${project.title}`}
+          className={cn(action, "text-foreground hover:underline underline-offset-4")}
+        >
+          Open it
         </ExternalLink>
       )}
       {project.github && (
         <ExternalLink
           href={project.github}
           label={`${project.title} source on GitHub`}
-          className={cn(touchTarget, "text-muted-foreground")}
+          className={cn(action, "text-muted-foreground")}
         >
-          <Github aria-hidden="true" className="h-3.5 w-3.5" />
+          <Github aria-hidden="true" strokeWidth={1.75} className="h-3.5 w-3.5" />
           Source
         </ExternalLink>
-      )}
-      {project.caseStudy && (
-        <Link
-          href={`/work/${project.slug}`}
-          className={cn(touchTarget, "group text-foreground transition-colors hover:text-primary")}
-        >
-          Case study
-          <ArrowRight
-            aria-hidden="true"
-            className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5"
-          />
-        </Link>
       )}
     </div>
   )
 }
 
+/** The framed window a project's visual sits in: a seam, nothing more. */
+function VisualFrame({ project, priority, compact }: { project: Project; priority?: boolean; compact?: boolean }) {
+  return (
+    <div className="relative aspect-[16/10] overflow-hidden rounded-md border border-border">
+      <ProjectVisual project={project} priority={priority} compact={compact} />
+    </div>
+  )
+}
+
 /**
- * Large alternating card used for Selected Work on the homepage. The visual
- * leads; the words explain what you are looking at.
+ * Selected work on the homepage: one wide row per project. The visual leads;
+ * the words and a short readout explain what you are looking at.
  */
 export function FeaturedProject({
   project,
@@ -116,52 +118,50 @@ export function FeaturedProject({
   const flip = index % 2 === 1
 
   return (
-    <article className="grid items-center gap-8 lg:grid-cols-12 lg:gap-14">
+    <article className="grid items-center gap-8 py-12 sm:py-16 lg:grid-cols-12 lg:gap-14">
       <div className={cn("lg:col-span-7", flip && "lg:order-2")}>
-        <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border/70 bg-card/40">
-          <ProjectVisual project={project} priority={priority} />
-        </div>
+        <VisualFrame project={project} priority={priority} />
       </div>
 
-      <div className={cn("space-y-5 lg:col-span-5", flip && "lg:order-1")}>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="label text-muted-foreground">
-            <span aria-hidden="true" className="text-primary">
-              {String(index + 1).padStart(2, "0")}
-            </span>{" "}
-            / {project.categories.map((c) => categoryLabels[c]).join(" · ")}
-          </p>
-          <StatusBadge status={project.status} />
-        </div>
+      <div className={cn("lg:col-span-5", flip && "lg:order-1")}>
+        <h3 className="text-[1.875rem] font-semibold leading-[1.1] sm:text-4xl">
+          {project.title}
+          {project.canonicalNote && (
+            <span className="ml-3 align-middle text-sm font-normal tracking-normal text-muted-foreground">
+              {project.canonicalNote}
+            </span>
+          )}
+        </h3>
+        <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">{project.summary}</p>
 
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            {project.title}
-            {project.canonicalNote && (
-              <span className="ml-2.5 align-middle font-mono text-[11px] font-normal text-muted-foreground">
-                {project.canonicalNote}
-              </span>
-            )}
-          </h3>
-          <p className="text-pretty text-[0.95rem] leading-relaxed text-muted-foreground">{project.summary}</p>
-        </div>
+        <dl className="mt-8 divide-y divide-border border-y border-border">
+          <div className="flex items-baseline justify-between gap-6 py-3">
+            <dt className="label text-muted-foreground">State</dt>
+            <dd>
+              <StatusBadge status={project.status} />
+            </dd>
+          </div>
+          <div className="flex items-baseline justify-between gap-6 py-3">
+            <dt className="label text-muted-foreground">Deployment</dt>
+            <dd className="text-right">
+              <DeploymentBadge status={project.deployment.status} note={project.deployment.note} />
+            </dd>
+          </div>
+          <div className="flex items-baseline justify-between gap-6 py-3">
+            <dt className="label text-muted-foreground">Stack</dt>
+            <dd className="text-right font-mono text-[13px]">{project.technologies.slice(0, 4).join(", ")}</dd>
+          </div>
+        </dl>
 
-        <TechList items={project.technologies} max={5} />
-
-        <div className="space-y-3 border-t border-border/60 pt-4">
-          <DeploymentBadge status={project.deployment.status} note={project.deployment.note} />
-          <ProjectActions project={project} />
-        </div>
+        <ProjectActions project={project} className="mt-6" />
       </div>
     </article>
   )
 }
 
 /**
- * Compact card used in the /work grid.
- *
- * `headingLevel` exists because the grid appears directly under the page h1 on
- * /work, where an h3 would skip a level.
+ * One row in the /work list. `headingLevel` exists because the list sits
+ * directly under the page h1, where an h3 would skip a level.
  */
 export function ProjectCard({
   project,
@@ -172,35 +172,29 @@ export function ProjectCard({
 }) {
   const Heading = headingLevel
   return (
-    <article
-      id={project.slug}
-      className="group flex w-full flex-col overflow-hidden rounded-xl border border-border/70 bg-card/30 transition-colors duration-200 hover:border-primary/40"
-    >
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-border/60 bg-secondary/10">
-        <ProjectVisual project={project} compact />
+    <article id={project.slug} className="grid gap-6 py-10 sm:grid-cols-12 sm:gap-10">
+      <div className="sm:col-span-5 lg:col-span-4">
+        <VisualFrame project={project} compact />
       </div>
 
-      <div className="flex flex-1 flex-col gap-4 p-5">
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
-          <p className="label text-muted-foreground">
-            {project.categories.map((c) => categoryLabels[c]).join(" · ")}
-          </p>
+      <div className="flex flex-col sm:col-span-7 lg:col-span-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <Heading className="text-2xl font-semibold leading-tight">{project.title}</Heading>
           <StatusBadge status={project.status} />
         </div>
+        <p className="mt-1 text-sm text-muted-foreground">
+          {project.categories.map((c) => categoryLabels[c]).join(", ")}
+          {project.role !== "Solo" && `, ${project.role.toLowerCase()}`}
+        </p>
+        <p className="mt-4 max-w-[68ch] text-pretty leading-relaxed text-muted-foreground">{project.summary}</p>
 
-        <div className="space-y-2">
-          <Heading className="text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
-            {project.title}
-          </Heading>
-          <p className="text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+        <div className="mt-5">
+          <TechList items={project.technologies} max={5} />
         </div>
 
-        <div className="mt-auto space-y-3.5 pt-1">
-          <TechList items={project.technologies} max={4} />
-          <div className="space-y-2.5 border-t border-border/60 pt-3.5">
-            <DeploymentBadge status={project.deployment.status} note={project.deployment.note} />
-            <ProjectActions project={project} />
-          </div>
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-x-8 gap-y-3 pt-6">
+          <DeploymentBadge status={project.deployment.status} note={project.deployment.note} />
+          <ProjectActions project={project} />
         </div>
       </div>
     </article>
