@@ -83,7 +83,7 @@ export const projects: Project[] = [
     title: "Project Management ATLAS",
     tagline: "A project and marketing workspace with a data-aware AI assistant.",
     summary:
-      "Boards, tasks, a marketing content calendar, and an assistant that reads the user's real workspace through the same row-level-security boundary the UI uses. Deployed for one organisation.",
+      "Boards, custom fields, saved views, a marketing content calendar, and an assistant that reads the user's real workspace through the same row-level-security boundary the UI uses. Deployed for one organisation.",
     year: "2026",
     status: "active",
     categories: ["product", "ai-ml"],

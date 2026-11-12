@@ -265,7 +265,7 @@ export const caseStudies: Record<string, CaseStudy> = {
 
   "project-management-atlas": {
     overview:
-      "ATLAS is a project and marketing workspace running in production for one organisation. It has boards, tasks, subtasks, a marketing content calendar, teams, and an AI assistant that can read the user's actual work. The engineering interest is not the board; it is what happens when you give an assistant database access without giving it a way around the permission model.",
+      "ATLAS is a project and marketing workspace running in production for one organisation. It has boards, tasks, subtasks, custom fields, saved views, goals and milestones, a marketing content calendar, teams, and an AI assistant that can read the user's actual work. The engineering interest is not the board; it is what happens when you give an assistant database access without giving it a way around the permission model.",
     related: ["intacct", "tensortrail"],
     sections: [
       {
@@ -422,8 +422,15 @@ export const caseStudies: Record<string, CaseStudy> = {
               a portfolio.
             </P>
             <P>
-              The source is public. Next on the roadmap is a custom-fields engine, which is the enabler for
-              multiple views over one dataset, and after that a goals hierarchy. Those are planned, not built.
+              The source is public. Between August and September the first three roadmap phases reached
+              production: a custom-fields engine with twelve field types validated in the database, four
+              layouts rendered from one saved-view model, and goals kept separate from the work they measure.
+              Milestones, an optional agile mode, and an inbox followed. Before the last modules were switched
+              on, a read-only audit of production found all 79 tables under row-level security.
+            </P>
+            <P>
+              Next are a deeper marketing calendar, forms and intake, and automation rules. Those are planned,
+              not built.
             </P>
           </>
         ),
