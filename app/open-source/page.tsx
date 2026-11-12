@@ -19,7 +19,7 @@ import { pageMetadata, person } from "@/lib/data/site"
 export const metadata: Metadata = pageMetadata({
   title: "Open Source",
   description:
-    "Pull requests authored by Vanshaj Poonia against PictoPy, Rocket.Chat, GoogleTest, and OpenWISP, with verified merge status for each.",
+    "Pull requests authored by Vanshaj Poonia against PictoPy, Plane, Layer5, Jaeger, Joplin, Rocket.Chat, GoogleTest, and OpenWISP, with verified merge status for each.",
   path: "/open-source",
 })
 
