@@ -138,6 +138,25 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "already-filed",
+    title: "Already Filed",
+    tagline: "Finds the open GitHub issues that were already filed.",
+    summary:
+      "An open embedding model reads a repository's issues inside the browser tab and lists the open ones that repeat an earlier report, with the duplicate comment ready to paste. On zed and neovim, which it was never tuned on, the issue maintainers linked was in its top three 65% and 58% of the time, against 38% and 39% for keyword search.",
+    year: "2026",
+    status: "shipped",
+    categories: ["ai-ml", "developer-tools"],
+    technologies: ["EmbeddingGemma", "transformers.js", "WebGPU", "JavaScript"],
+    role: "Solo",
+    priority: 75,
+    github: "https://github.com/VanshajPoonia/already-filed",
+    deployment: { status: "live", url: "https://vanshajpoonia.github.io/already-filed/" },
+    media: {
+      desktop: "/work/already-filed-desktop.webp",
+      alt: "Already Filed on a snapshot of ollama/ollama: 51 of 2,585 open issues flagged, the first pairing issue 17438 with the earlier issue 17437 and a button to copy the duplicate comment",
+    },
+  },
+  {
     slug: "volt",
     title: "Volt",
     tagline: "A browser IDE and code runner with an AI copilot.",
