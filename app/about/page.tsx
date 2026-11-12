@@ -29,6 +29,7 @@ const now = [
     label: "Contributing",
     items: [
       { text: "PictoPy: clustering correctness, CI, and accessibility", href: "/open-source" },
+      { text: "Plane: keyboard access and the mobile calendar", href: "/open-source" },
       { text: "Rocket.Chat: integration and admin UI fixes", href: "/open-source" },
     ],
   },
