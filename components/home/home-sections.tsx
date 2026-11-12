@@ -4,12 +4,7 @@ import { Section, SectionHeader } from "@/components/layout/section"
 import { FeaturedProject } from "@/components/work/project-card"
 import { getFeaturedProjects } from "@/lib/data/projects"
 import { experience } from "@/lib/data/experience"
-import {
-  contributionCounts,
-  contributionsLastVerified,
-  mergedContributions,
-  openContributions,
-} from "@/lib/data/open-source"
+import { contributionCounts, contributionHighlights, contributionsLastVerified } from "@/lib/data/open-source"
 import { workbenchPosts } from "@/lib/data/workbench"
 import { research } from "@/lib/data/research"
 import { ContributionBadge, Lamp } from "@/components/ui/status-badge"
@@ -66,8 +61,6 @@ export function ExperiencePreview() {
 }
 
 export function OpenSourcePreview() {
-  const highlights = [mergedContributions[0], mergedContributions[1], openContributions[0]]
-
   return (
     <Section id="open-source" className="border-b border-border">
       <SectionHeader
@@ -83,7 +76,7 @@ export function OpenSourcePreview() {
       />
 
       <ul className="border-t border-border">
-        {highlights.map((contribution) => (
+        {contributionHighlights.map((contribution) => (
           <li key={contribution.id} className="border-b border-border">
             <ExternalLink
               href={contribution.url}
