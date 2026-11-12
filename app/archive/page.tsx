@@ -33,7 +33,6 @@ export default function ArchivePage() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Archive"
         title="Not everything here is impressive. That is the point."
         intro={
           <p>

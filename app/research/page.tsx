@@ -36,7 +36,6 @@ export default function ResearchPage() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Research"
         title={research.headline}
         intro={
           <div className="space-y-4">

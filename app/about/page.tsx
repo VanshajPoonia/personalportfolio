@@ -49,7 +49,6 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(generatePersonStructuredData())} />
 
       <PageHeader
-        eyebrow="About"
         title="I keep going one layer down."
         intro={
           <p>

@@ -47,48 +47,35 @@ export function Section({
 }
 
 /**
- * Section header used across the homepage and index pages. The index is a
- * numbering device, not data, so it is hidden from assistive technology.
+ * Section header used across the homepage and index pages. The heading carries
+ * its own weight: no kicker above it and no section number.
  */
 export function SectionHeader({
-  index,
-  eyebrow,
   title,
   description,
   action,
   className,
 }: {
-  index?: string
-  eyebrow?: string
   title: ReactNode
   description?: ReactNode
   action?: { label: string; href: string }
   className?: string
 }) {
   return (
-    <div className={cn("mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-4", className)}>
-      <div className="max-w-2xl space-y-3">
-        {(index || eyebrow) && (
-          <p className="label flex items-center gap-2.5 text-muted-foreground">
-            {index && (
-              <span aria-hidden="true" className="text-primary">
-                {index}
-              </span>
-            )}
-            {eyebrow}
-          </p>
-        )}
-        <h2 className="text-2xl font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
-        {description && <p className="text-pretty text-muted-foreground">{description}</p>}
+    <div className={cn("mb-12 flex flex-wrap items-end justify-between gap-x-10 gap-y-5 sm:mb-14", className)}>
+      <div className="max-w-2xl">
+        <h2 className="text-[1.875rem] font-semibold leading-[1.1] sm:text-[2.5rem]">{title}</h2>
+        {description && <p className="mt-4 max-w-[60ch] text-pretty text-muted-foreground">{description}</p>}
       </div>
       {action && (
         <Link
           href={action.href}
-          className="group inline-flex min-h-[44px] items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary sm:min-h-0"
+          className="label group inline-flex min-h-[44px] items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
         >
           {action.label}
           <ArrowRight
             aria-hidden="true"
+            strokeWidth={2}
             className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
           />
         </Link>

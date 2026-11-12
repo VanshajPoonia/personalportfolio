@@ -61,7 +61,6 @@ export default function OpenSourcePage() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Open source"
         title="Working inside codebases I did not design."
         intro={
           <p>

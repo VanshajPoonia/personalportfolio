@@ -45,35 +45,42 @@ const layers = [
 
 export function EngineeringSpectrum() {
   return (
-    <Section id="spectrum" className="border-b border-border/60">
+    <Section id="spectrum" className="border-b border-border">
       <SectionHeader
-        index="04"
-        eyebrow="Engineering spectrum"
         title="I like moving between abstraction layers."
-        description="The range is not scattergun. Each layer down exists because the one above it raised a question I could not answer."
+        description="The range is not scattered. Each layer down exists because the one above it raised a question I could not answer."
       />
 
-      <ol className="border-t border-border/60">
+      <ol className="trace border-t border-border">
         {layers.map((layer, index) => (
           <li
             key={layer.layer}
-            className="group grid gap-x-8 gap-y-2 border-b border-border/60 py-6 sm:grid-cols-12 sm:items-baseline"
+            style={{ ["--i" as string]: index }}
+            className="relative grid gap-x-8 gap-y-2 border-b border-border py-6 pl-8 sm:grid-cols-12 sm:items-baseline"
           >
-            <div className="flex items-baseline gap-3 sm:col-span-4">
-              <span aria-hidden="true" className="font-mono text-[11px] text-muted-foreground">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-mono text-sm uppercase tracking-[0.14em]">{layer.layer}</h3>
-            </div>
+            {index < layers.length - 1 && (
+              <span
+                aria-hidden="true"
+                className="trace-line absolute left-[3.5px] top-[calc(1.5rem+0.5em+8px)] h-[calc(100%-8px)] w-px bg-engraving/50"
+              />
+            )}
+            <span
+              aria-hidden="true"
+              className={
+                "trace-node absolute left-0 top-[calc(1.5rem+0.5em)] h-2 w-2 rounded-full border-[1.5px] border-ink " +
+                (index === layers.length - 1 ? "bg-ink" : "bg-plate")
+              }
+            />
+            <h3 className="text-lg font-medium sm:col-span-3">{layer.layer}</h3>
 
-            <p className="text-sm leading-relaxed text-muted-foreground sm:col-span-4">{layer.description}</p>
+            <p className="text-muted-foreground sm:col-span-5">{layer.description}</p>
 
-            <ul className="flex flex-wrap gap-x-4 gap-y-1.5 sm:col-span-4 sm:justify-end">
+            <ul className="flex flex-wrap gap-x-5 gap-y-1 sm:col-span-4 sm:justify-end">
               {layer.projects.map((project) => (
                 <li key={project.name}>
                   <Link
                     href={project.href}
-                    className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
+                    className="underline decoration-seam underline-offset-4 transition-colors hover:decoration-ink"
                   >
                     {project.name}
                   </Link>
@@ -83,13 +90,6 @@ export function EngineeringSpectrum() {
           </li>
         ))}
       </ol>
-
-      <p className="mt-6 font-mono text-xs text-muted-foreground">
-        <span aria-hidden="true" className="text-primary">
-          ↓
-        </span>{" "}
-        Lower level
-      </p>
     </Section>
   )
 }

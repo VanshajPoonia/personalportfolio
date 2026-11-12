@@ -19,7 +19,6 @@ export default function ExperiencePage() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Experience"
         title="Engineering with other people's deadlines attached."
         intro={
           <p>

@@ -41,7 +41,6 @@ export default async function WorkPage({
     <SiteShell>
       <PageHeader
         width="wide"
-        eyebrow="Work"
         title="Things I built, and what state they are actually in."
         intro={
           <p>

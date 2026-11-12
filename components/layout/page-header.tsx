@@ -2,41 +2,35 @@ import type { ReactNode } from "react"
 import { Container } from "@/components/layout/section"
 
 /**
- * Header for index pages. Deliberately quieter than the homepage hero: an
- * eyebrow, an h1, and a sentence, over the same hairline the sections use.
+ * Header for index pages. Quieter than the homepage instrument: an h1, a
+ * sentence, and a readout line for counts and verification dates.
  */
 export function PageHeader({
-  eyebrow,
   title,
   intro,
   meta,
   children,
   width = "default",
 }: {
-  eyebrow: string
   title: string
   intro?: ReactNode
-  /** Small mono line for counts, dates, or verification notes. */
+  /** Readout line for counts, dates, or verification notes. */
   meta?: ReactNode
   children?: ReactNode
   width?: "prose" | "default" | "wide"
 }) {
   return (
-    <div className="border-b border-border/60">
+    <div className="border-b border-border">
       <Container width={width}>
-        <div className="space-y-5 pb-10 pt-14 sm:pb-12 sm:pt-20">
-          <p className="label text-muted-foreground">
-            <span aria-hidden="true" className="text-primary">
-              /
-            </span>{" "}
-            {eyebrow}
-          </p>
-          <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl">
+        <div className="pb-12 pt-16 sm:pb-16 sm:pt-24">
+          <h1 className="max-w-4xl text-[2.5rem] font-semibold leading-[1.05] tracking-[-0.025em] sm:text-6xl">
             {title}
           </h1>
-          {intro && <div className="max-w-2xl text-pretty leading-relaxed text-muted-foreground">{intro}</div>}
-          {meta && <p className="font-mono text-[11px] text-muted-foreground">{meta}</p>}
-          {children}
+          {intro && (
+            <div className="mt-6 max-w-[62ch] text-pretty text-lg leading-relaxed text-muted-foreground">{intro}</div>
+          )}
+          {meta && <p className="mt-6 font-mono text-[13px] text-muted-foreground">{meta}</p>}
+          {children && <div className="mt-6">{children}</div>}
         </div>
       </Container>
     </div>

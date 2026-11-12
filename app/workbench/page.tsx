@@ -22,7 +22,6 @@ export default function WorkbenchPage() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Workbench"
         title="A developer notebook, not a blog."
         intro={
           <p>
