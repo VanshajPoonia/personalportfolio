@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /**
@@ -26,35 +27,28 @@ export function ExternalLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label ? `${label} (opens in a new tab)` : undefined}
-      className={cn(
-        "group inline-flex items-center gap-1.5 transition-colors hover:text-primary",
-        className,
-      )}
+      className={cn("group inline-flex items-center gap-1 transition-colors hover:text-foreground", className)}
     >
       {children}
       {showMarker && (
-        <span
+        <ArrowUpRight
           aria-hidden="true"
-          className="text-[0.85em] opacity-60 transition-transform duration-200 group-hover:-translate-y-px group-hover:translate-x-px group-hover:opacity-100"
-        >
-          ↗
-        </span>
+          strokeWidth={1.75}
+          className="h-[1em] w-[1em] shrink-0 opacity-60 transition-transform duration-200 group-hover:-translate-y-px group-hover:translate-x-px group-hover:opacity-100"
+        />
       )}
     </a>
   )
 }
 
+/** Technologies as a quiet readout line, separated by thin rules rather than dots. */
 export function TechList({ items, max }: { items: string[]; max?: number }) {
   const shown = max ? items.slice(0, max) : items
   return (
-    <ul className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-muted-foreground">
+    <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[13px] text-muted-foreground">
       {shown.map((item, i) => (
-        <li key={item} className="flex items-center gap-2">
-          {i > 0 && (
-            <span aria-hidden="true" className="opacity-40">
-              ·
-            </span>
-          )}
+        <li key={item} className="flex items-center gap-3">
+          {i > 0 && <span aria-hidden="true" className="h-3 w-px bg-seam" />}
           {item}
         </li>
       ))}
