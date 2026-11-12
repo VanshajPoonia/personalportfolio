@@ -37,9 +37,15 @@ const STEP = 30
 
 const angleFor = (index: number) => -ARC + index * STEP
 const clampAngle = (a: number) => Math.max(-ARC - 12, Math.min(ARC + 12, a))
+/**
+ * Rounded to three decimals because Node and the browser disagree on the last
+ * digits of sin and cos, and the SVG attributes would then differ between the
+ * server HTML and hydration.
+ */
+const round3 = (n: number) => Math.round(n * 1000) / 1000
 const polar = (r: number, deg: number) => {
   const rad = (deg * Math.PI) / 180
-  return { x: CX + r * Math.sin(rad), y: CY - r * Math.cos(rad) }
+  return { x: round3(CX + r * Math.sin(rad)), y: round3(CY - r * Math.cos(rad)) }
 }
 
 const SWEEP_KEY = "selector-self-test"
