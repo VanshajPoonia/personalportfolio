@@ -14,7 +14,7 @@ app/
   page.tsx                homepage
   work/page.tsx           project index (dynamic: reads ?filter=)
   work/[slug]/            case studies (SSG from getCaseStudyProjects)
-  experience/             professional and collaborative work
+  experience/             roles, mirroring LinkedIn
   open-source/            authored pull requests
   research/               one in-progress, unpublished study
   about/                  background, now, tools

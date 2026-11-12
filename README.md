@@ -24,8 +24,8 @@ says the study is unpublished and has no results, because it is and it does not.
 | `/` | Hero, selected work, engineering spectrum, and previews of everything else |
 | `/work` | Every project, filterable via `?filter=` |
 | `/work/[slug]` | Long-form case studies for the four flagship projects |
-| `/experience` | Professional and collaborative engineering, plus client delivery |
-| `/open-source` | Authored pull requests to other people's projects, with verified status |
+| `/experience` | Roles, current and past, mirroring LinkedIn |
+| `/open-source` | Authored pull requests to other people's projects, grouped by project, with verified status |
 | `/research` | One in-progress, unpublished study, described without a result |
 | `/about` | Background, a compact "now" block, and grouped tools |
 | `/workbench` | Developer notebook, plus the incubator of unbuilt design studies |
@@ -53,8 +53,8 @@ second copy of it.
 | `site.ts` | Identity, navigation, positioning copy, social links |
 | `projects.ts` | Every project and archive entry, plus the filter logic |
 | `case-studies.tsx` | Long-form case-study bodies, keyed by project slug |
-| `experience.ts` | Roles, client delivery, skill groups |
-| `open-source.ts` | Contributions with verified merge status |
+| `experience.ts` | Roles (LinkedIn is the source of truth), education, skill groups |
+| `open-source.ts` | Upstream projects and contributions with verified merge status |
 | `workbench.ts` | Notebook entries |
 | `blueprints.ts` | Incubator design studies |
 | `research.ts` | The in-progress study, its protocol, and what is not yet published |
@@ -87,7 +87,23 @@ gh api repos/OWNER/REPO/pulls/NUMBER \
   -q '[(.number|tostring), .state, (.merged|tostring), (.additions|tostring), (.deletions|tostring)] | @tsv'
 ```
 
-Never list a fork as a contribution. Label an unmerged pull request `open`.
+Never list a fork as a contribution. Label an unmerged pull request `open`, and
+drop one that was closed without merging. To find new pull requests to add:
+
+```bash
+gh search prs --author VanshajPoonia --limit 200 -- -user:VanshajPoonia
+```
+
+Each pull request belongs to a project in `upstreamProjects`. Give it a
+`writeUp` only when the problem and the fix are worth a paragraph; the rest
+show as one line with their diff size. Hacktoberfest-era docs PRs go in
+`earlierContributions`, which stays out of the headline counts.
+
+### Updating experience
+
+`experience` in `lib/data/experience.ts` mirrors the Experience section of the
+LinkedIn profile. Change LinkedIn first, then copy titles, dates and employment
+type across.
 
 ### Verifying project links
 
